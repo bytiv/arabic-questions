@@ -11,7 +11,7 @@
 
     <script>
 
-        const examSets = [
+    const examSets = [
           {
                 title: "الإعراب المتقدم الجزء الأول",  // Your custom title here
                   questions: [
@@ -1639,50 +1639,102 @@
             //      ]
             //   },
          ];
-        
-        // ========================================
-
+      
         // App State
         let state = {
             screen: 'selection', // 'selection', 'quiz', 'results'
             selectedExam: null,
+            selectedQuestions: [], // shuffled questions for the current exam
+            initialQuestionCount: 0, // original total before repeats
             currentQuestion: 0,
             selectedAnswer: null,
             showExplanation: false,
             score: 0,
             quizCompleted: false,
-            answers: []
+            answers: [], // records of initial-phase answers (used for scoring/stats)
+            repeatQueue: [], // questions to repeat at the end
+            inRepeatPhase: false,
+            repeatAnswers: [] // records of repeat-phase attempts (do not affect score)
         };
 
         // Helper Functions
+
+        // Fisher-Yates shuffle
+        function shuffleArray(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        
+        // Shuffle options for a single question and adjust correctAnswer index
+        function shuffleQuestionOptions(question) {
+            const opts = question.options.map((opt, idx) => ({ opt, idx }));
+            const shuffled = shuffleArray(opts);
+            const newOptions = shuffled.map(s => s.opt);
+            const newCorrect = shuffled.findIndex(s => s.idx === question.correctAnswer);
+            // Return a shallow copy of question with shuffled options and adjusted correctAnswer
+            return Object.assign({}, question, { options: newOptions, correctAnswer: newCorrect });
+        }
         function selectExam(index) {
             state.selectedExam = index;
+            // prepare a shuffled copy of questions for the exam and shuffle each question's options
+            const questions = examSets[index].questions || [];
+            state.initialQuestionCount = questions.length;
+            state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+            state.currentQuestion = 0;
+            state.selectedAnswer = null;
+            state.showExplanation = false;
+            state.score = 0;
+            state.quizCompleted = false;
+            state.answers = [];
+            state.repeatQueue = [];
+            state.inRepeatPhase = false;
+            state.repeatAnswers = [];
             state.screen = 'quiz';
             render();
         }
 
         function getCurrentQuestions() {
             if (state.selectedExam === null) return [];
-            return examSets[state.selectedExam].questions;
+            return state.selectedQuestions || examSets[state.selectedExam].questions || [];
         }
 
         function handleAnswerSelect(answerIndex) {
             if (state.selectedAnswer !== null) return;
 
             const questions = getCurrentQuestions();
+            const question = questions[state.currentQuestion];
             state.selectedAnswer = answerIndex;
             state.showExplanation = true;
 
-            const isCorrect = answerIndex === questions[state.currentQuestion].correctAnswer;
-            if (isCorrect) {
-                state.score++;
-            }
+            const isCorrect = answerIndex === question.correctAnswer;
 
-            state.answers.push({
-                questionId: questions[state.currentQuestion].id,
-                correct: isCorrect,
-                category: questions[state.currentQuestion].category
-            });
+            if (!state.inRepeatPhase) {
+                // Main phase: correct answers increment score and are recorded.
+                if (isCorrect) {
+                    state.score++;
+                } else {
+                    // schedule for repeat at the end (avoid duplicates)
+                    if (!state.repeatQueue.some(q => q.id === question.id)) {
+                        state.repeatQueue.push(question);
+                    }
+                }
+
+                state.answers.push({
+                    questionId: question.id,
+                    correct: isCorrect,
+                    category: question.category
+                });
+            } else {
+                // Repeat phase: attempts here do NOT affect main score or main answers/stats
+                state.repeatAnswers.push({
+                    questionId: question.id,
+                    correct: isCorrect
+                });
+            }
 
             render();
         }
@@ -1694,18 +1746,39 @@
                 state.selectedAnswer = null;
                 state.showExplanation = false;
             } else {
-                state.quizCompleted = true;
+                // End of current phase
+                if (!state.inRepeatPhase && state.repeatQueue.length > 0) {
+                    // start repeat phase with the queued wrong questions (maintain their order as collected)
+                    state.selectedQuestions = state.repeatQueue.slice();
+                    state.repeatQueue = [];
+                    state.inRepeatPhase = true;
+                    state.currentQuestion = 0;
+                    state.selectedAnswer = null;
+                    state.showExplanation = false;
+                } else {
+                    // fully finished (either no repeats or repeats finished)
+                    state.quizCompleted = true;
+                }
             }
             render();
         }
 
         function handleRestart() {
+            // restart current exam from scratch (reshuffle)
+            if (state.selectedExam !== null) {
+                const questions = examSets[state.selectedExam].questions || [];
+                state.initialQuestionCount = questions.length;
+                state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+            }
             state.currentQuestion = 0;
             state.selectedAnswer = null;
             state.showExplanation = false;
             state.score = 0;
             state.quizCompleted = false;
             state.answers = [];
+            state.repeatQueue = [];
+            state.inRepeatPhase = false;
+            state.repeatAnswers = [];
             render();
         }
 
@@ -1713,12 +1786,17 @@
             state = {
                 screen: 'selection',
                 selectedExam: null,
+                selectedQuestions: [],
+                initialQuestionCount: 0,
                 currentQuestion: 0,
                 selectedAnswer: null,
                 showExplanation: false,
                 score: 0,
                 quizCompleted: false,
-                answers: []
+                answers: [],
+                repeatQueue: [],
+                inRepeatPhase: false,
+                repeatAnswers: []
             };
             render();
         }
@@ -1765,8 +1843,9 @@
         }
 
         function renderResults() {
-            const questions = getCurrentQuestions();
-            const percentage = Math.round((state.score / questions.length) * 100);
+            // Use the initial question count for score/percentage calculation
+            const total = state.initialQuestionCount || (state.selectedExam !== null ? (examSets[state.selectedExam].questions || []).length : 0);
+            const percentage = total > 0 ? Math.round((state.score / total) * 100) : 0;
             let message = "";
             let colorClass = "";
 
@@ -1813,7 +1892,7 @@
                 <div class="results-container">
                     ${icons.award}
                     <h2 class="results-title">انتهى الكويز!</h2>
-                    <div class="final-score">${state.score}/${questions.length}</div>
+                    <div class="final-score">${state.score}/${total}</div>
                     <div class="percentage">النسبة: ${percentage}%</div>
                     <p class="results-message" style="${colorClass}">${message}</p>
 
@@ -1842,6 +1921,10 @@
             const question = questions[state.currentQuestion];
             const examTitle = examSets[state.selectedExam].title;
             
+            // Determine label for question number (show repeat-phase clearly)
+            const mainTotal = state.initialQuestionCount || questions.length;
+            const questionNumberText = state.inRepeatPhase ? `إعادة السؤال ${state.currentQuestion + 1} من ${questions.length}` : `السؤال ${state.currentQuestion + 1} من ${mainTotal}`;
+
             const optionsHTML = question.options.map((option, index) => {
                 let btnClass = "option-btn";
                 let iconHTML = "";
@@ -1895,7 +1978,7 @@
                 <div class="header">
                     <h1>${examTitle}</h1>
                     <div class="score-info">
-                        <div class="question-number">السؤال ${state.currentQuestion + 1} من ${questions.length}</div>
+                        <div class="question-number">${questionNumberText}</div>
                         <div class="score">النقاط: ${state.score}</div>
                     </div>
                 </div>
