@@ -1988,6 +1988,666 @@
 
 const examSets = [
   {
+    title: "Morphology & Morphemes Fundamentals",
+    questions: [
+      {
+        id: 1,
+        category: "Morphology",
+        question: "What is the definition of Morphology?",
+        options: [
+          "The study of sentence structure and word order.",
+          "The study of linguistic meaning of words, phrases, and sentences.",
+          "The study of word formation and structure.",
+          "The study of speech sounds."
+        ],
+        correctAnswer: 2,
+        explanation: "Morphology is specifically defined as the study of word formation (word structure).",
+        topic: "Definition of Morphology"
+      },
+      {
+        id: 2,
+        category: "Morphemes",
+        question: "In the word 'buyers', how many morphemic parts does it have, and what is the base?",
+        options: [
+          "2 parts, base: 'buyer'",
+          "3 parts, base: 'buy'",
+          "2 parts, base: 'buys'",
+          "1 part, base: 'buyers'"
+        ],
+        correctAnswer: 1,
+        explanation: "'buyers' has 3 parts: 'buy' (base) + 'er' (derivational suffix) + 's' (inflectional suffix).",
+        topic: "Analyzing Word Parts"
+      },
+      {
+        id: 3,
+        category: "Morphemes",
+        question: "Which of the following is a BOUND morpheme?",
+        options: [
+          "boy",
+          "drive",
+          "est",
+          "always"
+        ],
+        correctAnswer: 2,
+        explanation: "'est' is a bound morpheme (like -er, -s, -ed) because it cannot stand alone as a word. 'Boy', 'drive', and 'always' are free morphemes.",
+        topic: "Free vs. Bound Morphemes"
+      },
+      {
+        id: 4,
+        category: "Morphemes",
+        question: "In the word 'sleeplessness', the morpheme '-ness' is:",
+        options: [
+          "A free morpheme",
+          "An inflectional bound morpheme",
+          "A derivational bound morpheme",
+          "An inflectional prefix"
+        ],
+        correctAnswer: 2,
+        explanation: "'-ness' is a derivational suffix. It changes the adjective 'sleepless' into the noun 'sleeplessness'.",
+        topic: "Derivational vs. Inflectional Morphemes"
+      },
+      {
+        id: 5,
+        category: "Morphemes",
+        question: "What is a key difference between inflectional and derivational morphemes?",
+        options: [
+          "Inflectional morphemes change grammatical category; derivational do not.",
+          "Inflectional morphemes are only prefixes; derivational are only suffixes.",
+          "Derivational morphemes can change grammatical category; inflectional ones never do.",
+          "There is no consistent difference."
+        ],
+        correctAnswer: 2,
+        explanation: "Inflectional morphemes (like -s, -ed, -est) never change the core grammatical category (e.g., 'old' and 'oldest' are both adjectives). Derivational morphemes (like -er in 'teach' -> 'teacher') can change the category (verb to noun).",
+        topic: "Inflectional vs. Derivational Morphology"
+      },
+      {
+        id: 6,
+        category: "Morphemes",
+        question: "Which of the following is NOT one of the eight standard English inflectional morphemes?",
+        options: [
+          "Plural -s",
+          "Past tense -ed",
+          "Superlative -est",
+          "Adverb-forming -ly"
+        ],
+        correctAnswer: 3,
+        explanation: "'-ly' (as in 'quickly') is a derivational suffix, not an inflectional one. The eight inflectional morphemes are: plural -s, possessive 's, comparative -er, superlative -est, present simple -s, past simple -ed, past participle -ed/en, present participle -ing.",
+        topic: "The Eight Inflectional Morphemes"
+      },
+      {
+        id: 7,
+        category: "Morphemes",
+        question: "In the word 'improbability', the prefix 'im-' is:",
+        options: [
+          "An inflectional prefix",
+          "A free morpheme",
+          "A derivational bound morpheme",
+          "A grammatical morpheme"
+        ],
+        correctAnswer: 2,
+        explanation: "'im-' is a bound prefix that derives a new word ('probable' -> 'improbable') and changes the meaning to its opposite. It cannot stand alone, making it a derivational bound morpheme.",
+        topic: "Bound Morpheme Types"
+      },
+      {
+        id: 8,
+        category: "Morphology",
+        question: "What is the base in the word 'falsity'?",
+        options: [
+          "fal",
+          "false",
+          "ity",
+          "fals"
+        ],
+        correctAnswer: 1,
+        explanation: "The base is 'false'. The derivational suffix '-ity' is added to form the noun 'falsity'.",
+        topic: "Identifying the Base Word"
+      },
+      {
+        id: 9,
+        category: "Morphemes",
+        question: "Analyze the morphemes in 'children':",
+        options: [
+          "1 free morpheme: 'children'",
+          "2 morphemes: 'child' (free) + 'ren' (inflectional)",
+          "2 morphemes: 'child' (free) + 'ren' (derivational)",
+          "3 morphemes: 'child' (free) + inflectional plural"
+        ],
+        correctAnswer: 1,
+        explanation: "'Children' is an irregular plural. While historically from 'child' + '-ren', in modern English it is analyzed as a single, unanalyzable (free) morpheme for the purpose of plural. 'Child' and 'children' are suppletive forms.",
+        topic: "Irregular Forms and Morpheme Analysis"
+      },
+      {
+        id: 10,
+        category: "Morphology",
+        question: "What is the number of suffixes in the word 'personalities'?",
+        options: [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        correctAnswer: 2,
+        explanation: "'personalities' can be analyzed as: person (base) + al (derivational suffix #1) + ity (derivational suffix #2) + es (inflectional suffix #3).",
+        topic: "Counting Suffixes"
+      },
+      {
+        id: 11,
+        category: "Morphemes",
+        question: "Words like 'at', 'the', 'and' are examples of:",
+        options: [
+          "Lexical Morphemes",
+          "Free Morphemes",
+          "Grammatical Morphemes",
+          "Bound Morphemes"
+        ],
+        correctAnswer: 2,
+        explanation: "These are grammatical (or functional) morphemes. They are free morphemes but don't have clear, independent lexical meaning like 'boy' or 'run'. Their meaning is relational/grammatical.",
+        topic: "Grammatical vs. Lexical Morphemes"
+      },
+      {
+        id: 12,
+        category: "Morphemes",
+        question: "In the word 'washed', the '-ed' is an inflectional suffix marking:",
+        options: [
+          "Past Participle",
+          "Past Simple Tense",
+          "Either Past Simple or Past Participle",
+          "Superlative Degree"
+        ],
+        correctAnswer: 2,
+        explanation: "In 'washed', the '-ed' marks the past simple tense (e.g., 'I washed the car'). The same form can also serve as a past participle (e.g., 'I have washed'), but the primary function here is simple past.",
+        topic: "Function of Inflectional Suffixes"
+      },
+      {
+        id: 13,
+        category: "Morphology",
+        question: "Which word correctly adds a derivational suffix to the base 'friend'?",
+        options: [
+          "friends",
+          "friended",
+          "friendship",
+          "friend's"
+        ],
+        correctAnswer: 2,
+        explanation: "'Friendship' adds the derivational suffix '-ship', changing the noun 'friend' into a new noun with an abstract meaning. 'Friends' (inflectional plural), 'friended' (rare, inflectional past), and 'friend's' (inflectional possessive) are inflectional.",
+        topic: "Applying Derivational Suffixes"
+      },
+      {
+        id: 14,
+        category: "Morphemes",
+        question: "What is the order of suffixes in a word containing both derivational and inflectional morphemes?",
+        options: [
+          "Inflectional suffixes come first.",
+          "Derivational suffixes come first.",
+          "The order is random.",
+          "Prefixes always come after suffixes."
+        ],
+        correctAnswer: 1,
+        explanation: "A key rule is that inflectional suffixes always follow derivational suffixes. E.g., moderniz(e) [base] + -ation [derivational] -> modernization + -s [inflectional] -> modernizations.",
+        topic: "Order of Morphemes"
+      },
+      {
+        id: 15,
+        category: "Morphology",
+        question: "The word 'subway' is analyzed as having 2 parts. What is the correct breakdown?",
+        options: [
+          "Base: 'sub', Suffix: 'way'",
+          "Base: 'way', Prefix: 'sub'",
+          "Base: 'subway', No suffix",
+          "Prefix: 'su', Base: 'bway'"
+        ],
+        correctAnswer: 1,
+        explanation: "'Subway' is a compound word or a word with a prefix. The base/free morpheme is 'way'. The bound morpheme 'sub-' is a prefix meaning 'under' or 'below'.",
+        topic: "Analyzing Complex Words"
+      },
+      {
+  id: 16,
+  category: "Morphology",
+  question: "Which of the following correctly lists ALL eight standard inflectional morphemes in English?",
+  options: [
+    "-s (plural), -'s (possessive), -er (comparative), -est (superlative), -s (3rd sg present), -ed (past), -ed (past participle), -ing (present participle)",
+    "-s (plural), -'s (possessive), -er (comparative), -est (superlative), -s (3rd sg present), -ed (past tense), -en (past participle), -ing (gerund)",
+    "-s (plural), -'s (possessive), -er (comparative), -est (superlative), -s (3rd sg present), -ed (past), -ing (present participle), -ly (adverb)",
+    "-s (plural), -'s (possessive), -er (comparative), -est (superlative), -s (3rd sg present), -ed (past), -ed (past participle), -ing (gerund)"
+  ],
+  correctAnswer: 0,
+  explanation: "The eight standard inflectional morphemes are: 1) Plural -s (cats), 2) Possessive -'s (cat's), 3) Comparative -er (older), 4) Superlative -est (oldest), 5) Present simple/3rd person singular -s (walks), 6) Past tense -ed (walked), 7) Past participle -ed (has walked) or -en (has driven), 8) Present participle -ing (walking). Note: The past participle has two forms (-ed and -en), but together they represent one grammatical category.",
+  topic: "The Eight Inflectional Morphemes"
+}
+    ]
+  },
+  {
+    title: "Lexical Semantics & Word Relations",
+    questions: [
+      {
+        id: 1,
+        category: "Lexical Semantics",
+        question: "What is the study of Lexical Semantics concerned with?",
+        options: [
+          "The structure of words.",
+          "The pronunciation of words.",
+          "The meaning of words and the relationships among them.",
+          "The rules for forming sentences."
+        ],
+        correctAnswer: 2,
+        explanation: "Lexical Semantics is a subfield of semantics that examines the meaning of individual words and the semantic relationships (like synonymy, antonymy) that exist between them.",
+        topic: "Definition of Lexical Semantics"
+      },
+      {
+        id: 2,
+        category: "Lexical Relations",
+        question: "The relationship between 'big' and 'large' is an example of:",
+        options: [
+          "Antonymy",
+          "Synonymy",
+          "Hyponymy",
+          "Metonymy"
+        ],
+        correctAnswer: 1,
+        explanation: "Synonymy refers to words having the same or very similar meanings in a given context, like 'big' and 'large'.",
+        topic: "Synonymy"
+      },
+      {
+        id: 3,
+        category: "Lexical Relations",
+        question: "The pair 'come' and 'go' best exemplifies:",
+        options: [
+          "Collocation",
+          "Hyponymy",
+          "Antonymy",
+          "Homophony"
+        ],
+        correctAnswer: 2,
+        explanation: "Antonymy is the relationship between words with opposite meanings. 'Come' and 'go' describe opposite directions of motion.",
+        topic: "Antonymy"
+      },
+      {
+        id: 4,
+        category: "Lexical Relations",
+        question: "Which of the following is the best example of COLLOCATION?",
+        options: [
+          "Hot / Cold",
+          "Salt / Pepper",
+          "Dog / Animal",
+          "Write / Right"
+        ],
+        correctAnswer: 1,
+        explanation: "Collocation refers to words that frequently occur together due to convention. 'Salt and pepper' is a very common pairing.",
+        topic: "Collocation"
+      },
+      {
+        id: 5,
+        category: "Lexical Relations",
+        question: "In the relationship 'rose' (flower) and 'flower', 'rose' is a:",
+        options: [
+          "Hypernym",
+          "Hyponym",
+          "Synonym",
+          "Metonym"
+        ],
+        correctAnswer: 1,
+        explanation: "Hyponymy is a 'type-of' relationship. A hyponym ('rose') is a specific type of its hypernym ('flower').",
+        topic: "Hyponymy"
+      },
+      {
+        id: 6,
+        category: "Lexical Relations",
+        question: "Using 'the White House' to refer to the U.S. government is an example of:",
+        options: [
+          "Polysemy",
+          "Homophony",
+          "Metonymy",
+          "Synonymy"
+        ],
+        correctAnswer: 2,
+        explanation: "Metonymy is a relationship based on close association or contiguity, not literal meaning. Here, the building is closely associated with the administration it houses.",
+        topic: "Metonymy"
+      },
+      {
+        id: 7,
+        category: "Ambiguity",
+        question: "The sentence 'Flying planes can be dangerous' is ambiguous because of:",
+        options: [
+          "Homophony",
+          "Lexical Ambiguity of 'planes'",
+          "Syntactic Ambiguity",
+          "Polysemy of 'flying'"
+        ],
+        correctAnswer: 2,
+        explanation: "This is a classic case of syntactic/structural ambiguity. It can mean 'Planes that are flying can be dangerous' (planes are flying) or 'The act of flying planes can be dangerous' (someone is flying them).",
+        topic: "Syntactic Ambiguity"
+      },
+      {
+        id: 8,
+        category: "Ambiguity",
+        question: "Words like 'sea' and 'see' are examples of:",
+        options: [
+          "Polysemy",
+          "Synonymy",
+          "Homophones",
+          "Hyponyms"
+        ],
+        correctAnswer: 2,
+        explanation: "Homophones are words that sound the same (have the same pronunciation) but have different spellings and meanings.",
+        topic: "Homophones"
+      },
+      {
+        id: 9,
+        category: "Ambiguity",
+        question: "A word like 'bank' (river bank / financial bank) demonstrates:",
+        options: [
+          "Homophony",
+          "Polysemy",
+          "Homonymy",
+          "Either Polysemy or Homonymy"
+        ],
+        correctAnswer: 3,
+        explanation: "This is debated, but traditionally, 'bank' is considered a case of homonymy: two entirely different words that happen to share the same form (sound and spelling). Polysemy usually implies related meanings (e.g., 'foot' of a person / 'foot' of a mountain).",
+        topic: "Polysemy vs. Homonymy"
+      },
+      {
+        id: 10,
+        category: "Lexical Relations",
+        question: "The sentences 'I love beans' and 'I don't hate beans' demonstrate:",
+        options: [
+          "Synonymy",
+          "Contradiction",
+          "Entailment",
+          "Collocation"
+        ],
+        correctAnswer: 2,
+        explanation: "These sentences are not contradictory; 'not hating' something is not the same as 'loving' it, but they can both be true. A true contradiction would be 'I love beans' and 'I hate beans'.",
+        topic: "Contradiction"
+      },
+      {
+        id: 11,
+        category: "Lexical Relations",
+        question: "What type of relationship is 'face' (body part) to 'body'?",
+        options: [
+          "Hyponymy",
+          "Part-Whole (Meronymy)",
+          "Synonymy",
+          "Metonymy"
+        ],
+        correctAnswer: 1,
+        explanation: "This is a part-whole relationship (meronymy). A 'face' is a part of a 'body', not a type of body.",
+        topic: "Part-Whole Relationship (Meronymy)"
+      },
+      {
+        id: 12,
+        category: "Ambiguity",
+        question: "The phrase 'an American history teacher' is ambiguous due to:",
+        options: [
+          "The polysemy of 'history'",
+          "The homophony of 'American'",
+          "Structural ambiguity in modification",
+          "Lexical ambiguity of 'teacher'"
+        ],
+        correctAnswer: 2,
+        explanation: "It's structurally ambiguous: it can mean a teacher of American history, or a history teacher who is American. The ambiguity lies in which word 'American' modifies.",
+        topic: "Structural Ambiguity in Phrases"
+      },
+      {
+        id: 13,
+        category: "Lexical Relations",
+        question: "Which pair best illustrates a hypernym-hyponym relationship?",
+        options: [
+          "carrot, vegetable",
+          "husband, wife",
+          "buy, purchase",
+          "hard, soft"
+        ],
+        correctAnswer: 0,
+        explanation: "'Vegetable' is the hypernym (general category), and 'carrot' is a hyponym (specific type within that category).",
+        topic: "Identifying Hyponymy"
+      },
+      {
+        id: 14,
+        category: "Lexical Relations",
+        question: "'Butter' and 'bread' have a strong:",
+        options: [
+          "Antonymous relationship.",
+          "Collocational relationship.",
+          "Synonymous relationship.",
+          "Homophonic relationship."
+        ],
+        correctAnswer: 1,
+        explanation: "They collocate frequently. We often talk about 'bread and butter' literally and idiomatically, showing they are conventionally associated.",
+        topic: "Collocation"
+      },
+      {
+        id: 15,
+        category: "Semantics",
+        question: "What is the broader field that studies the meaning of words, phrases, and sentences?",
+        options: [
+          "Phonetics",
+          "Morphology",
+          "Syntax",
+          "Semantics"
+        ],
+        correctAnswer: 3,
+        explanation: "Semantics is the general study of linguistic meaning. Lexical Semantics is a sub-part focusing on word meaning.",
+        topic: "Definition of Semantics"
+      }
+    ]
+  },
+  {
+    title: "Applied Morphology & Semantic Analysis",
+    questions: [
+      {
+        id: 1,
+        category: "Morphology",
+        question: "In the word 'activities', what is the base morpheme?",
+        options: [
+          "act",
+          "active",
+          "activ",
+          "ity"
+        ],
+        correctAnswer: 0,
+        explanation: "The base is 'act'. The structure is: act (base) + ive (derivational, forms adjective 'active') + ity (derivational, forms noun 'activity') + s (inflectional, plural).",
+        topic: "Identifying the Base in Complex Words"
+      },
+      {
+        id: 2,
+        category: "Morphemes",
+        question: "Analyze 'unamusing': The prefix 'un-' and suffix '-ing' are:",
+        options: [
+          "Both inflectional",
+          "Both derivational",
+          "'un-' is derivational, '-ing' is inflectional",
+          "'un-' is inflectional, '-ing' is derivational"
+        ],
+        correctAnswer: 2,
+        explanation: "'Un-' is a derivational prefix creating an opposite meaning (amusing -> unamusing). In this context, '-ing' is likely the inflectional present participle suffix (from the verb 'amuse').",
+        topic: "Analyzing Multiple Affixes"
+      },
+      {
+        id: 3,
+        category: "Lexical Relations",
+        question: "If 'I drank all the tea' is true, then 'I tasted the tea' must be true. This shows:",
+        options: [
+          "Synonymy",
+          "Contradiction",
+          "Entailment",
+          "Metonymy"
+        ],
+        correctAnswer: 2,
+        explanation: "Entailment is a relationship where the truth of one sentence automatically guarantees the truth of another. Drinking something entails tasting it.",
+        topic: "Entailment"
+      },
+      {
+        id: 4,
+        category: "Morphology",
+        question: "What is the correct morphological breakdown of 'headquarters'?",
+        options: [
+          "head (free) + quarters (free)",
+          "head (free) + quarter (free) + s (inflectional)",
+          "head (free) + quart (bound) + ers (bound)",
+          "It is one unanalyzable free morpheme."
+        ],
+        correctAnswer: 0,
+        explanation: "'Headquarters' is a compound noun made of two free morphemes: 'head' and 'quarters'. The 's' in 'quarters' is part of the second root word, not a separate plural inflection here.",
+        topic: "Analyzing Compound Words"
+      },
+      {
+        id: 5,
+        category: "Morphemes",
+        question: "Can the word 'money' accept an inflectional suffix?",
+        options: [
+          "Yes, '-s' for plural (moneys/monies)",
+          "Yes, '-ed' for past tense",
+          "Yes, '-er' for comparative",
+          "No, it cannot accept inflectional suffixes."
+        ],
+        correctAnswer: 0,
+        explanation: "While uncountable, 'money' can take a plural -s in specific contexts referring to types or sums of money (e.g., 'the monies collected from different funds'). It cannot take verbal or adjectival inflections.",
+        topic: "Inflectional Potential of Words"
+      },
+      {
+        id: 6,
+        category: "Morphemes",
+        question: "In 'beautiful', the suffix '-ful' is:",
+        options: [
+          "Inflectional, changing noun to adjective",
+          "Derivational, changing noun to adjective",
+          "Inflectional, forming comparative degree",
+          "A free morpheme"
+        ],
+        correctAnswer: 1,
+        explanation: "'-ful' is a derivational suffix. It changes the noun 'beauty' into the adjective 'beautiful'. It cannot stand alone in Modern English.",
+        topic: "Derivational Suffix Function"
+      },
+      {
+        id: 7,
+        category: "Ambiguity",
+        question: "The word 'play' (in a theater / to have fun) is an example of:",
+        options: [
+          "Homophony with another word 'play'",
+          "Polysemy (related meanings)",
+          "Homography only",
+          "Synonymy"
+        ],
+        correctAnswer: 1,
+        explanation: "This is often considered polysemy. The meanings are related through the concept of performance/engagement. It's the same word with multiple related senses.",
+        topic: "Polysemy"
+      },
+      {
+        id: 8,
+        category: "Morphology",
+        question: "From the base 'true', which derived word correctly uses a suffix from the list (-hood, -ness, -th, -ship)?",
+        options: [
+          "truehood",
+          "trueness",
+          "truth",
+          "trueship"
+        ],
+        correctAnswer: 2,
+        explanation: "The conventional derivational noun from 'true' is 'truth', using the suffix '-th' (as in 'wide/width', 'long/length').",
+        topic: "Word Formation with Suffixes"
+      },
+      {
+        id: 9,
+        category: "Lexical Relations",
+        question: "What lexical relation is primarily based on a 'container-contained' association?",
+        options: [
+          "Hyponymy",
+          "Metonymy",
+          "Antonymy",
+          "Synonymy"
+        ],
+        correctAnswer: 1,
+        explanation: "Metonymy often uses a container to stand for the contents (e.g., 'The kettle is boiling' where 'kettle' stands for the water inside).",
+        topic: "Basis of Metonymy"
+      },
+      {
+        id: 10,
+        category: "Morphemes",
+        question: "The word 'glasses' (spectacles) contains:",
+        options: [
+          "Free 'glass' + inflectional '-es'",
+          "Free 'glass' + derivational '-es'",
+          "Bound root 'glass-' + inflectional '-es'",
+          "A single, unanalyzable free morpheme."
+        ],
+        correctAnswer: 3,
+        explanation: "While historically from 'glass', the word 'glasses' (meaning spectacles) is now a separate lexical item. For semantic analysis, it's often treated as a single morpheme, as the 'glass' part does not carry its literal meaning.",
+        topic: "Lexicalization and Morpheme Analysis"
+      },
+      {
+        id: 11,
+        category: "Morphology",
+        question: "How many derivational suffixes are in the word 'trusteeship'?",
+        options: [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        correctAnswer: 1,
+        explanation: "Structure: trust (base/free) + ee (derivational #1, forms noun 'trustee') + ship (derivational #2, forms abstract noun 'trusteeship'). So, there are 2 derivational suffixes: '-ee' and '-ship'.",
+        topic: "Counting Derivational Suffixes"
+      },
+      {
+        id: 12,
+        category: "Lexical Relations",
+        question: "'The statement is false' and 'The statement is true' are in a relation of:",
+        options: [
+          "Synonymy",
+          "Hyponymy",
+          "Contradiction",
+          "Entailment"
+        ],
+        correctAnswer: 2,
+        explanation: "They are direct contradictions. If one is true, the other must be false. They cannot both be true.",
+        topic: "Contradiction"
+      },
+      {
+        id: 13,
+        category: "Morphemes",
+        question: "Why is '-ly' in 'quickly' NOT an inflectional morpheme?",
+        options: [
+          "It changes the grammatical category (adjective -> adverb).",
+          "It doesn't change the meaning.",
+          "It follows the eight inflectional rules.",
+          "It is a prefix."
+        ],
+        correctAnswer: 0,
+        explanation: "Inflectional morphemes do not change the core grammatical category. Adding '-ly' to the adjective 'quick' creates the adverb 'quickly', which is a different category.",
+        topic: "Criterion for Inflectional vs. Derivational"
+      },
+      {
+        id: 14,
+        category: "Morphology",
+        question: "In the word 'prewar', the 'pre-' is a:",
+        options: [
+          "Derivational Suffix",
+          "Inflectional Prefix",
+          "Derivational Prefix",
+          "Free Morpheme"
+        ],
+        correctAnswer: 2,
+        explanation: "'Pre-' is a bound morpheme attached to the front of the base 'war'. It derives a new word with a new meaning ('before the war'), making it a derivational prefix.",
+        topic: "Identifying Prefixes"
+      },
+      {
+        id: 15,
+        category: "Ambiguity",
+        question: "The ambiguity in 'They are cooking apples' could be due to:",
+        options: [
+          "Homophony of 'are'",
+          "Polysemy of 'cooking'",
+          "Syntactic ambiguity of 'cooking apples' (compound vs. phrase)",
+          "Lexical ambiguity of 'they'"
+        ],
+        correctAnswer: 2,
+        explanation: "It can be a compound noun ('cooking apples' are a type of apple) or a verb phrase where 'they' are performing the action of cooking some apples. This is structural/syntactic ambiguity.",
+        topic: "Sources of Ambiguity"
+      }
+    ]
+  },
+
+  {
     title: "Lexical Relations - Definitions and Types",
     questions: [
       {
