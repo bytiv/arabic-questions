@@ -1987,6 +1987,292 @@
 
 
 const examSets = [
+
+  {
+    title: "Lexical Relations - Definitions and Types",
+    questions: [
+      {
+        id: 1,
+        category: "",
+        question: "Which of the following is the correct definition of homophones?",
+        options: [
+          "Words that sound the same but have different meanings and spellings",
+          "Words that sound similar and have related meanings and origins",
+          "Words with the same spelling but different pronunciations",
+          "Words with identical meanings but different pronunciations"
+        ],
+        correctAnswer: 0,
+        explanation: "Homophones are words that sound the same but have different meanings and spellings. Examples include 'see' and 'sea', 'two' and 'too', 'by' and 'buy'.",
+        topic: "Homophones - Definition and Recognition"
+      },
+      {
+        id: 2,
+        category: "",
+        question: "What type of lexical relation is shown in 'rose, tulip, daisy > flowers'?",
+        options: [
+          "Meronymy",
+          "Hyponymy",
+          "Synonymy",
+          "Metonymy"
+        ],
+        correctAnswer: 1,
+        explanation: "This is hyponymy - a hierarchical relationship where specific terms (rose, tulip, daisy) fall under a general category (flowers). The specific terms are called hyponyms of the general term (hypernym).",
+        topic: "Hyponymy - Hierarchical Word Relationships"
+      },
+      {
+        id: 3,
+        category: "",
+        question: "Which example demonstrates a part-whole relation (meronymy)?",
+        options: [
+          "Happy, sad, angry, joyful",
+          "Face, nose, mouth, ears",
+          "Glass, water, juice, milk",
+          "Dog, cat, bird, animals"
+        ],
+        correctAnswer: 1,
+        explanation: "Face, nose, mouth, and ears show a part-whole relation because these are parts that cannot be separated from the whole (the face/head). This is also called meronymy.",
+        topic: "Part-Whole Relation (Meronymy) - Inseparable Parts"
+      },
+      {
+        id: 4,
+        category: "",
+        question: "What is the key characteristic of metonymy in the examples given?",
+        options: [
+          "Container-content relationships involving liquids",
+          "Part-whole relationships involving body parts",
+          "Hierarchical relationships between categories",
+          "Opposite meanings between paired words"
+        ],
+        correctAnswer: 0,
+        explanation: "In the context provided, metonymy refers to container-content relationships, particularly involving liquids. Examples: 'glass' for 'water', 'can' for 'juice', 'cup' for 'coffee'.",
+        topic: "Metonymy - Container-Content Relationships"
+      },
+      {
+        id: 5,
+        category: "",
+        question: "Which pair represents a collocation?",
+        options: [
+          "Happy - Joyful",
+          "Big - Large",
+          "Bread - Butter",
+          "Walk - Run"
+        ],
+        correctAnswer: 2,
+        explanation: "Bread and butter is a collocation - words that frequently appear together in natural language. Other examples include 'tea and sugar', 'strong coffee', 'heavy rain'.",
+        topic: "Collocation - Frequently Co-occurring Words"
+      },
+      {
+        id: 6,
+        category: "",
+        question: "Which sentence contains a contradiction?",
+        options: [
+          "The coffee is hot but I prefer it cold",
+          "I liked this tea, I didn't drink it",
+          "She studied hard but didn't pass the exam",
+          "The weather is hot but it feels warm"
+        ],
+        correctAnswer: 1,
+        explanation: "The sentence 'I liked this tea, I didn't drink it' contains a contradiction because you cannot genuinely like the taste of something you haven't drunk. The two statements contradict each other logically.",
+        topic: "Contradiction - Logically Inconsistent Statements"
+      },
+      {
+        id: 7,
+        category: "",
+        question: "What is the correct definition of synonyms?",
+        options: [
+          "Words with the same or similar meanings",
+          "Words with the same spelling and sound",
+          "Words with related but distinct meanings",
+          "Words with opposite but related meanings"
+        ],
+        correctAnswer: 0,
+        explanation: "Synonyms are words with the same or similar meanings. They can often be used interchangeably in sentences. Examples include 'happy' and 'glad', 'big' and 'large'.",
+        topic: "Synonyms - Words with Similar Meanings"
+      },
+      {
+        id: 8,
+        category: "",
+        question: "Which pair correctly demonstrates antonymy?",
+        options: [
+          "Walk - Stroll",
+          "Appear - Disappear",
+          "Book - Read",
+          "Cup - Mug"
+        ],
+        correctAnswer: 1,
+        explanation: "Appear and disappear are antonyms - words with opposite meanings. 'Appear' means to become visible while 'disappear' means to become invisible or vanish.",
+        topic: "Antonyms - Words with Opposite Meanings"
+      },
+      {
+        id: 9,
+        category: "",
+        question: "What is the defining characteristic of polysemy?",
+        options: [
+          "One word with multiple related meanings",
+          "One word with multiple distinct spellings",
+          "One word with multiple opposite meanings",
+          "One word with multiple similar pronunciations"
+        ],
+        correctAnswer: 0,
+        explanation: "Polysemy occurs when one word has multiple meanings that are related to each other. For example, 'head' can mean the body part, the leader of an organization, or the top of something - all related meanings.",
+        topic: "Polysemy - Multiple Related Meanings"
+      },
+      {
+        id: 10,
+        category: "",
+        question: "How does ambiguity differ from polysemy?",
+        options: [
+          "Ambiguity involves words with identical sounds only",
+          "Ambiguity occurs when meanings are unclear in context",
+          "Ambiguity only applies to borrowed foreign words",
+          "Ambiguity means words have contrasting meanings"
+        ],
+        correctAnswer: 1,
+        explanation: "Ambiguity occurs when a word has multiple meanings and it's unclear which meaning is intended in the given context. Unlike polysemy where meanings are related, ambiguous meanings may be unrelated and the context doesn't clarify which is meant.",
+        topic: "Ambiguity - Unclear Multiple Meanings"
+      },
+      {
+        id: 11,
+        category: "",
+        question: "What is the main difference between homophones and polysemy?",
+        options: [
+          "Homophones are spelled differently; polysemy uses the same spelling",
+          "Homophones have related meanings; polysemy has distinct meanings",
+          "Homophones appear in phrases; polysemy appears in sentences",
+          "Homophones show hierarchy; polysemy shows similarity"
+        ],
+        correctAnswer: 0,
+        explanation: "Homophones are different words that sound the same but have different spellings (like 'see' and 'sea'). Polysemy is ONE word with the same spelling that has multiple related meanings.",
+        topic: "Distinguishing Between Lexical Relations"
+      },
+      {
+        id: 12,
+        category: "",
+        question: "How does part-whole relation differ from hyponymy?",
+        options: [
+          "Part-whole shows components; hyponymy shows categories",
+          "Part-whole shows opposites; hyponymy shows synonyms",
+          "Part-whole uses containers; hyponymy uses liquids",
+          "Part-whole shows sounds; hyponymy shows meanings"
+        ],
+        correctAnswer: 0,
+        explanation: "Part-whole relation (meronymy) shows components that are parts of a whole (nose is part of face). Hyponymy shows specific examples of a category (rose is a type of flower). Parts vs. types.",
+        topic: "Distinguishing Hierarchical Relations"
+      },
+      {
+        id: 13,
+        category: "",
+        question: "In the phrase 'The kettle is boiling', what type of metonymy is being used?",
+        options: [
+          "The kettle material is changing temperature rapidly",
+          "The water inside the kettle is boiling (container for content)",
+          "The kettle and water are both reaching boiling point",
+          "The phrase describes a polysemous use of 'boiling'"
+        ],
+        correctAnswer: 1,
+        explanation: "This is metonymy where the container (kettle) is used to refer to its content (water). We say 'the kettle is boiling' but we mean 'the water in the kettle is boiling'. This is a container-content relationship.",
+        topic: "Metonymy - Practical Application"
+      },
+      {
+        id: 14,
+        category: "",
+        question: "Which of these is NOT a typical collocation?",
+        options: [
+          "Heavy rain",
+          "Strong wind",
+          "Bright coffee",
+          "Fast food"
+        ],
+        correctAnswer: 2,
+        explanation: "'Bright coffee' is not a natural collocation in English. Words don't typically go together this way. Collocations are word pairs that frequently appear together naturally, like 'heavy rain', 'fast food', and 'strong coffee'.",
+        topic: "Identifying Natural vs Unnatural Collocations"
+      },
+      {
+        id: 15,
+        category: "",
+        question: "In the sentence 'I need to book a table at the restaurant and finish reading my book', what lexical relation exists?",
+        options: [
+          "Homophone - 'book' sounds identical in both uses",
+          "Polysemy - 'book' has related recording meanings",
+          "Antonymy - the two uses have opposite meanings",
+          "Meronymy - one book is a part of the other"
+        ],
+        correctAnswer: 1,
+        explanation: "This is polysemy. 'Book' (verb: to reserve) and 'book' (noun: reading material) are related meanings of the same word with the same spelling and pronunciation. Both meanings relate to the concept of recording or containing information.",
+        topic: "Applying Definitions to Real Examples"
+      },
+      {
+        id: 16,
+        category: "",
+        question: "Which statement correctly distinguishes synonyms from antonyms?",
+        options: [
+          "Synonyms have similar meanings; antonyms have opposite meanings",
+          "Synonyms share sounds; antonyms share spellings",
+          "Synonyms are word pairs; antonyms are word groups",
+          "Synonyms show hierarchy; antonyms show equality"
+        ],
+        correctAnswer: 0,
+        explanation: "Synonyms are words with similar or same meanings (happy/glad), while antonyms are words with opposite meanings (hot/cold, appear/disappear). This is a fundamental distinction in lexical semantics.",
+        topic: "Basic Semantic Relations"
+      },
+      {
+        id: 17,
+        category: "",
+        question: "Why is 'She is alive and dead' considered a contradiction?",
+        options: [
+          "Because it combines two antonyms in one phrase",
+          "Because the two states cannot exist simultaneously",
+          "Because it represents a metaphorical expression",
+          "Because it demonstrates polysemy of 'alive'"
+        ],
+        correctAnswer: 1,
+        explanation: "This is a contradiction because 'alive' and 'dead' are mutually exclusive states - a person cannot be both alive and dead at the same time. The statement is logically inconsistent.",
+        topic: "Logical Contradiction in Language"
+      },
+      {
+        id: 18,
+        category: "",
+        question: "In the relationship 'sparrow, eagle, penguin > birds', what are 'sparrow', 'eagle', and 'penguin' called?",
+        options: [
+          "Hypernyms",
+          "Hyponyms",
+          "Meronyms",
+          "Synonyms"
+        ],
+        correctAnswer: 1,
+        explanation: "Sparrow, eagle, and penguin are hyponyms of 'birds'. Hyponyms are specific terms that fall under a more general category (hypernym). 'Birds' is the hypernym (general term), and the specific types are hyponyms.",
+        topic: "Terminology of Hyponymy"
+      },
+      {
+        id: 19,
+        category: "",
+        question: "'The bank is by the river bank.' This sentence contains:",
+        options: [
+          "Only polysemy with clearly related meanings",
+          "Only homophones with different word origins",
+          "Polysemy or ambiguity depending on interpretation",
+          "Metonymy with container-content relationships"
+        ],
+        correctAnswer: 2,
+        explanation: "'Bank' (financial institution) and 'bank' (river edge) could be polysemy if we see them as related to the concept of 'storage/holding', or ambiguity if we see them as unrelated meanings. Context helps distinguish, but the word itself demonstrates multiple meanings with the same spelling and pronunciation.",
+        topic: "Polysemy vs Ambiguity Distinction"
+      },
+      {
+        id: 20,
+        category: "",
+        question: "Which lexical relation involves a hierarchical 'is-a' relationship?",
+        options: [
+          "Synonymy",
+          "Hyponymy",
+          "Meronymy",
+          "Homophony"
+        ],
+        correctAnswer: 1,
+        explanation: "Hyponymy involves an 'is-a' relationship: a rose IS A flower, a dog IS AN animal. This creates a hierarchy from specific (hyponym) to general (hypernym). This differs from part-whole (has-a) or similarity relations.",
+        topic: "Understanding Semantic Hierarchies"
+      }
+    ]
+  },
   {
     title: "Morphology & Morphemes Fundamentals",
     questions: [
@@ -2646,292 +2932,6 @@ const examSets = [
       }
     ]
   },
-
-  {
-    title: "Lexical Relations - Definitions and Types",
-    questions: [
-      {
-        id: 1,
-        category: "",
-        question: "Which of the following is the correct definition of homophones?",
-        options: [
-          "Words that sound the same but have different meanings and spellings",
-          "Words that sound similar and have related meanings and origins",
-          "Words with the same spelling but different pronunciations",
-          "Words with identical meanings but different pronunciations"
-        ],
-        correctAnswer: 0,
-        explanation: "Homophones are words that sound the same but have different meanings and spellings. Examples include 'see' and 'sea', 'two' and 'too', 'by' and 'buy'.",
-        topic: "Homophones - Definition and Recognition"
-      },
-      {
-        id: 2,
-        category: "",
-        question: "What type of lexical relation is shown in 'rose, tulip, daisy > flowers'?",
-        options: [
-          "Meronymy",
-          "Hyponymy",
-          "Synonymy",
-          "Metonymy"
-        ],
-        correctAnswer: 1,
-        explanation: "This is hyponymy - a hierarchical relationship where specific terms (rose, tulip, daisy) fall under a general category (flowers). The specific terms are called hyponyms of the general term (hypernym).",
-        topic: "Hyponymy - Hierarchical Word Relationships"
-      },
-      {
-        id: 3,
-        category: "",
-        question: "Which example demonstrates a part-whole relation (meronymy)?",
-        options: [
-          "Happy, sad, angry, joyful",
-          "Face, nose, mouth, ears",
-          "Glass, water, juice, milk",
-          "Dog, cat, bird, animals"
-        ],
-        correctAnswer: 1,
-        explanation: "Face, nose, mouth, and ears show a part-whole relation because these are parts that cannot be separated from the whole (the face/head). This is also called meronymy.",
-        topic: "Part-Whole Relation (Meronymy) - Inseparable Parts"
-      },
-      {
-        id: 4,
-        category: "",
-        question: "What is the key characteristic of metonymy in the examples given?",
-        options: [
-          "Container-content relationships involving liquids",
-          "Part-whole relationships involving body parts",
-          "Hierarchical relationships between categories",
-          "Opposite meanings between paired words"
-        ],
-        correctAnswer: 0,
-        explanation: "In the context provided, metonymy refers to container-content relationships, particularly involving liquids. Examples: 'glass' for 'water', 'can' for 'juice', 'cup' for 'coffee'.",
-        topic: "Metonymy - Container-Content Relationships"
-      },
-      {
-        id: 5,
-        category: "",
-        question: "Which pair represents a collocation?",
-        options: [
-          "Happy - Joyful",
-          "Big - Large",
-          "Bread - Butter",
-          "Walk - Run"
-        ],
-        correctAnswer: 2,
-        explanation: "Bread and butter is a collocation - words that frequently appear together in natural language. Other examples include 'tea and sugar', 'strong coffee', 'heavy rain'.",
-        topic: "Collocation - Frequently Co-occurring Words"
-      },
-      {
-        id: 6,
-        category: "",
-        question: "Which sentence contains a contradiction?",
-        options: [
-          "The coffee is hot but I prefer it cold",
-          "I liked this tea, I didn't drink it",
-          "She studied hard but didn't pass the exam",
-          "The weather is hot but it feels warm"
-        ],
-        correctAnswer: 1,
-        explanation: "The sentence 'I liked this tea, I didn't drink it' contains a contradiction because you cannot genuinely like the taste of something you haven't drunk. The two statements contradict each other logically.",
-        topic: "Contradiction - Logically Inconsistent Statements"
-      },
-      {
-        id: 7,
-        category: "",
-        question: "What is the correct definition of synonyms?",
-        options: [
-          "Words with the same or similar meanings",
-          "Words with the same spelling and sound",
-          "Words with related but distinct meanings",
-          "Words with opposite but related meanings"
-        ],
-        correctAnswer: 0,
-        explanation: "Synonyms are words with the same or similar meanings. They can often be used interchangeably in sentences. Examples include 'happy' and 'glad', 'big' and 'large'.",
-        topic: "Synonyms - Words with Similar Meanings"
-      },
-      {
-        id: 8,
-        category: "",
-        question: "Which pair correctly demonstrates antonymy?",
-        options: [
-          "Walk - Stroll",
-          "Appear - Disappear",
-          "Book - Read",
-          "Cup - Mug"
-        ],
-        correctAnswer: 1,
-        explanation: "Appear and disappear are antonyms - words with opposite meanings. 'Appear' means to become visible while 'disappear' means to become invisible or vanish.",
-        topic: "Antonyms - Words with Opposite Meanings"
-      },
-      {
-        id: 9,
-        category: "",
-        question: "What is the defining characteristic of polysemy?",
-        options: [
-          "One word with multiple related meanings",
-          "One word with multiple distinct spellings",
-          "One word with multiple opposite meanings",
-          "One word with multiple similar pronunciations"
-        ],
-        correctAnswer: 0,
-        explanation: "Polysemy occurs when one word has multiple meanings that are related to each other. For example, 'head' can mean the body part, the leader of an organization, or the top of something - all related meanings.",
-        topic: "Polysemy - Multiple Related Meanings"
-      },
-      {
-        id: 10,
-        category: "",
-        question: "How does ambiguity differ from polysemy?",
-        options: [
-          "Ambiguity involves words with identical sounds only",
-          "Ambiguity occurs when meanings are unclear in context",
-          "Ambiguity only applies to borrowed foreign words",
-          "Ambiguity means words have contrasting meanings"
-        ],
-        correctAnswer: 1,
-        explanation: "Ambiguity occurs when a word has multiple meanings and it's unclear which meaning is intended in the given context. Unlike polysemy where meanings are related, ambiguous meanings may be unrelated and the context doesn't clarify which is meant.",
-        topic: "Ambiguity - Unclear Multiple Meanings"
-      },
-      {
-        id: 11,
-        category: "",
-        question: "What is the main difference between homophones and polysemy?",
-        options: [
-          "Homophones are spelled differently; polysemy uses the same spelling",
-          "Homophones have related meanings; polysemy has distinct meanings",
-          "Homophones appear in phrases; polysemy appears in sentences",
-          "Homophones show hierarchy; polysemy shows similarity"
-        ],
-        correctAnswer: 0,
-        explanation: "Homophones are different words that sound the same but have different spellings (like 'see' and 'sea'). Polysemy is ONE word with the same spelling that has multiple related meanings.",
-        topic: "Distinguishing Between Lexical Relations"
-      },
-      {
-        id: 12,
-        category: "",
-        question: "How does part-whole relation differ from hyponymy?",
-        options: [
-          "Part-whole shows components; hyponymy shows categories",
-          "Part-whole shows opposites; hyponymy shows synonyms",
-          "Part-whole uses containers; hyponymy uses liquids",
-          "Part-whole shows sounds; hyponymy shows meanings"
-        ],
-        correctAnswer: 0,
-        explanation: "Part-whole relation (meronymy) shows components that are parts of a whole (nose is part of face). Hyponymy shows specific examples of a category (rose is a type of flower). Parts vs. types.",
-        topic: "Distinguishing Hierarchical Relations"
-      },
-      {
-        id: 13,
-        category: "",
-        question: "In the phrase 'The kettle is boiling', what type of metonymy is being used?",
-        options: [
-          "The kettle material is changing temperature rapidly",
-          "The water inside the kettle is boiling (container for content)",
-          "The kettle and water are both reaching boiling point",
-          "The phrase describes a polysemous use of 'boiling'"
-        ],
-        correctAnswer: 1,
-        explanation: "This is metonymy where the container (kettle) is used to refer to its content (water). We say 'the kettle is boiling' but we mean 'the water in the kettle is boiling'. This is a container-content relationship.",
-        topic: "Metonymy - Practical Application"
-      },
-      {
-        id: 14,
-        category: "",
-        question: "Which of these is NOT a typical collocation?",
-        options: [
-          "Heavy rain",
-          "Strong wind",
-          "Bright coffee",
-          "Fast food"
-        ],
-        correctAnswer: 2,
-        explanation: "'Bright coffee' is not a natural collocation in English. Words don't typically go together this way. Collocations are word pairs that frequently appear together naturally, like 'heavy rain', 'fast food', and 'strong coffee'.",
-        topic: "Identifying Natural vs Unnatural Collocations"
-      },
-      {
-        id: 15,
-        category: "",
-        question: "In the sentence 'I need to book a table at the restaurant and finish reading my book', what lexical relation exists?",
-        options: [
-          "Homophone - 'book' sounds identical in both uses",
-          "Polysemy - 'book' has related recording meanings",
-          "Antonymy - the two uses have opposite meanings",
-          "Meronymy - one book is a part of the other"
-        ],
-        correctAnswer: 1,
-        explanation: "This is polysemy. 'Book' (verb: to reserve) and 'book' (noun: reading material) are related meanings of the same word with the same spelling and pronunciation. Both meanings relate to the concept of recording or containing information.",
-        topic: "Applying Definitions to Real Examples"
-      },
-      {
-        id: 16,
-        category: "",
-        question: "Which statement correctly distinguishes synonyms from antonyms?",
-        options: [
-          "Synonyms have similar meanings; antonyms have opposite meanings",
-          "Synonyms share sounds; antonyms share spellings",
-          "Synonyms are word pairs; antonyms are word groups",
-          "Synonyms show hierarchy; antonyms show equality"
-        ],
-        correctAnswer: 0,
-        explanation: "Synonyms are words with similar or same meanings (happy/glad), while antonyms are words with opposite meanings (hot/cold, appear/disappear). This is a fundamental distinction in lexical semantics.",
-        topic: "Basic Semantic Relations"
-      },
-      {
-        id: 17,
-        category: "",
-        question: "Why is 'She is alive and dead' considered a contradiction?",
-        options: [
-          "Because it combines two antonyms in one phrase",
-          "Because the two states cannot exist simultaneously",
-          "Because it represents a metaphorical expression",
-          "Because it demonstrates polysemy of 'alive'"
-        ],
-        correctAnswer: 1,
-        explanation: "This is a contradiction because 'alive' and 'dead' are mutually exclusive states - a person cannot be both alive and dead at the same time. The statement is logically inconsistent.",
-        topic: "Logical Contradiction in Language"
-      },
-      {
-        id: 18,
-        category: "",
-        question: "In the relationship 'sparrow, eagle, penguin > birds', what are 'sparrow', 'eagle', and 'penguin' called?",
-        options: [
-          "Hypernyms",
-          "Hyponyms",
-          "Meronyms",
-          "Synonyms"
-        ],
-        correctAnswer: 1,
-        explanation: "Sparrow, eagle, and penguin are hyponyms of 'birds'. Hyponyms are specific terms that fall under a more general category (hypernym). 'Birds' is the hypernym (general term), and the specific types are hyponyms.",
-        topic: "Terminology of Hyponymy"
-      },
-      {
-        id: 19,
-        category: "",
-        question: "'The bank is by the river bank.' This sentence contains:",
-        options: [
-          "Only polysemy with clearly related meanings",
-          "Only homophones with different word origins",
-          "Polysemy or ambiguity depending on interpretation",
-          "Metonymy with container-content relationships"
-        ],
-        correctAnswer: 2,
-        explanation: "'Bank' (financial institution) and 'bank' (river edge) could be polysemy if we see them as related to the concept of 'storage/holding', or ambiguity if we see them as unrelated meanings. Context helps distinguish, but the word itself demonstrates multiple meanings with the same spelling and pronunciation.",
-        topic: "Polysemy vs Ambiguity Distinction"
-      },
-      {
-        id: 20,
-        category: "",
-        question: "Which lexical relation involves a hierarchical 'is-a' relationship?",
-        options: [
-          "Synonymy",
-          "Hyponymy",
-          "Meronymy",
-          "Homophony"
-        ],
-        correctAnswer: 1,
-        explanation: "Hyponymy involves an 'is-a' relationship: a rose IS A flower, a dog IS AN animal. This creates a hierarchy from specific (hyponym) to general (hypernym). This differs from part-whole (has-a) or similarity relations.",
-        topic: "Understanding Semantic Hierarchies"
-      }
-    ]
-  }
 ];
 
         let state = {
