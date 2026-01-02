@@ -11,8 +11,1948 @@
 
     <script>
 
-const examSets = []
+const examSets = [
+  {
+    title: "Last year final Exam",
+    questions: [
+      {
+        id: 1,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'I wandered lonely as a cloud'",
+        options: [
+          "Metaphor",
+          "Simile",
+          "Personification",
+          "Apostrophe"
+        ],
+        correctAnswer: 1,
+        explanation: "Simile: A comparison between two different things using 'like' or 'as.' Here, the poet compares himself to a cloud using 'as.'",
+        topic: "Simile"
+      },
+      {
+        id: 2,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'Shall I compare thee to a summer's day?'",
+        options: [
+          "Metaphor",
+          "Rhetorical question",
+          "Hyperbole",
+          "Antithesis"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhetorical question: A question asked for effect, not to receive an answer, used to emphasize a point or provoke thought.",
+        topic: "Rhetorical Question"
+      },
+      {
+        id: 3,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'The wind was a knife cutting through our garments'",
+        options: [
+          "Simile",
+          "Personification",
+          "Metaphor",
+          "Symbol"
+        ],
+        correctAnswer: 2,
+        explanation: "Metaphor: A direct comparison between two unlike things without using 'like' or 'as.' The wind is directly called a knife.",
+        topic: "Metaphor"
+      },
+      {
+        id: 4,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'And then my heart with pleasure fills / And dances with the daffodils'",
+        options: [
+          "Apostrophe",
+          "Simile",
+          "Personification",
+          "Alliteration"
+        ],
+        correctAnswer: 2,
+        explanation: "Personification: Giving human qualities (dancing) to a non-human thing (heart).",
+        topic: "Personification"
+      },
+      {
+        id: 5,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'Break, break, break'",
+        options: [
+          "Refrain",
+          "Repetition",
+          "Assonance",
+          "Consonance"
+        ],
+        correctAnswer: 1,
+        explanation: "Repetition: The intentional reuse of a word or phrase for emphasis and rhythmic effect.",
+        topic: "Repetition"
+      },
+      {
+        id: 6,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'On thy cold gray stones, O Sea!'",
+        options: [
+          "Apostrophe",
+          "Metonymy",
+          "Irony",
+          "Hyperbole"
+        ],
+        correctAnswer: 0,
+        explanation: "Apostrophe: A direct address to an absent person, abstract idea, or inanimate object (the Sea) as if it could respond.",
+        topic: "Apostrophe"
+      },
+      {
+        id: 7,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'when I consider how my light is spent'",
+        options: [
+          "Visual imagery",
+          "Metaphor",
+          "Simile",
+          "Symbol"
+        ],
+        correctAnswer: 1,
+        explanation: "Metaphor: 'Light' is used metaphorically to represent sight, talent, or life, not literal light.",
+        topic: "Metaphor (Extended)"
+      },
+      {
+        id: 8,
+        category: "Poetic Terms",
+        question: "What is the term for 'comparing two things using like, as, or similar to'?",
+        options: [
+          "Metaphor",
+          "Analogy",
+          "Simile",
+          "Conceit"
+        ],
+        correctAnswer: 2,
+        explanation: "Simile: A figure of speech that explicitly compares two unlike things using 'like' or 'as.'",
+        topic: "Definition: Simile"
+      },
+      {
+        id: 9,
+        category: "Poetic Terms",
+        question: "What is 'exaggeration of action or qualities' called?",
+        options: [
+          "Irony",
+          "Understatement",
+          "Hyperbole",
+          "Paradox"
+        ],
+        correctAnswer: 2,
+        explanation: "Hyperbole: Intentional exaggeration for emphasis or dramatic effect.",
+        topic: "Definition: Hyperbole"
+      },
+      {
+        id: 10,
+        category: "Poetic Terms",
+        question: "What is 'giving human qualities to an inanimate thing' called?",
+        options: [
+          "Apostrophe",
+          "Personification",
+          "Allegory",
+          "Synecdoche"
+        ],
+        correctAnswer: 1,
+        explanation: "Personification: Attributing human characteristics to animals, objects, or abstract ideas.",
+        topic: "Definition: Personification"
+      },
+      {
+        id: 11,
+        category: "Poetic Terms",
+        question: "What is 'a question to which the answer is obvious or not needed' called?",
+        options: [
+          "Interrogative",
+          "Rhetorical question",
+          "Hypophora",
+          "Inquiry"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhetorical question: A question asked to make a point rather than to elicit an answer.",
+        topic: "Definition: Rhetorical Question"
+      },
+      {
+        id: 12,
+        category: "Poetic Terms",
+        question: "What is 'contrast and sharp opposition between words in poetry' called?",
+        options: [
+          "Oxymoron",
+          "Antithesis",
+          "Paradox",
+          "Juxtaposition"
+        ],
+        correctAnswer: 1,
+        explanation: "Antithesis: The juxtaposition of contrasting ideas in balanced phrases or clauses.",
+        topic: "Definition: Antithesis"
+      },
+      {
+        id: 13,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Give crowns and pounds and guineas'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds within or at the end of words ('crowns,' 'pounds,' 'guineas').",
+        topic: "Consonance"
+      },
+      {
+        id: 14,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'And shakes this fragile frame with throbbings of noontide'?",
+        options: [
+          "Assonance",
+          "Consonance",
+          "Alliteration",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 2,
+        explanation: "Alliteration: Repetition of the initial consonant sound, as in 'fragile frame.'",
+        topic: "Alliteration"
+      },
+      {
+        id: 15,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'So you left me in secret sad and sorrow'?",
+        options: [
+          "Assonance",
+          "Consonance",
+          "Alliteration",
+          "Refrain"
+        ],
+        correctAnswer: 2,
+        explanation: "Alliteration: Repetition of the 's' sound at the beginning of 'secret,' 'sad,' and 'sorrow.'",
+        topic: "Alliteration"
+      },
+      {
+        id: 16,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Could lonely wait my endless rest With equanimity'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 1,
+        explanation: "Assonance: Repetition of vowel sounds, such as the long 'e' in 'lonely,' 'endless,' and 'equanimity.'",
+        topic: "Assonance"
+      },
+      {
+        id: 17,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'A violet by a mossy stone Half hidden from the eye!'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds, like the 's' in 'mossy stone' and 'hidden.'",
+        topic: "Consonance"
+      },
+      {
+        id: 18,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Come live with me and be my love, / And we will all the pleasures prove'?",
+        options: [
+          "Alliteration",
+          "Rhyme scheme",
+          "Refrain",
+          "Meter"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhyme scheme: The pattern of rhymes at the end of lines, here 'love' and 'prove' rhyme.",
+        topic: "Rhyme Scheme"
+      },
+      {
+        id: 19,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'She dwelt among the untrodden ways Beside the springs of Dove,'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds, such as the 'd' in 'dwelt,' 'untrodden,' and 'Dove.'",
+        topic: "Consonance"
+      },
+      {
+        id: 20,
+        category: "Figures of Speech",
+        question: "Which term describes 'words that have an identical or similar meaning'?",
+        options: [
+          "Antonyms",
+          "Homophones",
+          "Synonyms",
+          "Homonyms"
+        ],
+        correctAnswer: 2,
+        explanation: "Synonyms: Words that have the same or nearly the same meaning as another word.",
+        topic: "Definition: Synonyms"
+      },
 
+      {
+        id: 1,
+        category: "Stanza Analysis",
+        question: "Read the following stanza from Thomas Hardy's poem. Which analysis best explains its central themes and literary devices?\n\nI look into my glass,\nAnd view my wasting skin,\nAnd say, 'Would God it came to pass\nMy heart had shrunk as thin!'\nFor then, I, undistrest\nBy hearts grown cold to me,\nCould lonely wait my endless rest\nWith equanimity.\nBut Time, to make me grieve,\nPart steals, lets part abide;",
+        options: [
+          "This Hardy poem contrasts physical aging with emotional pain. The speaker's body ages with wasting skin but his heart stays young, still feeling hurt from rejection. He wishes his heart had shrunk too so he could face death or endless rest calmly. Time is personified as cruel, taking youth but leaving emotional suffering. Main devices are metaphor, personification, imagery, euphemism, and irony.",
+          "The poem explores the theme of spiritual renewal and divine forgiveness. The 'glass' symbolizes a mirror of the soul, and 'wasting skin' reflects moral decay. The speaker prays for a heart as thin as his skin to achieve purity. Time is shown as a benevolent force that removes sin but preserves faith, using allegory and biblical allusion.",
+          "This stanza presents a meditation on artistic creation and intellectual decline. The 'glass' represents the poet's fading inspiration, and 'wasting skin' signifies lost creativity. The speaker desires emotional detachment to focus on his work. Time is personified as a thief of talent, employing metaphors of theft and imagery of emptiness.",
+          "The poem deals with social isolation and economic hardship in old age. The 'wasting skin' is a metaphor for poverty and neglect, while the 'heart' symbolizes unfulfilled desires for companionship. The speaker critiques a society that abandons the elderly, using irony and social commentary to highlight injustice."
+        ],
+        correctAnswer: 0,
+        explanation: "Option 1 correctly identifies the central contrast between physical aging and enduring emotional pain, the speaker's wish for emotional numbness, the personification of Time as cruel, and the key literary devices used (metaphor, personification, imagery, euphemism, irony).",
+        topic: "Poetic Analysis: Theme, Contrast & Devices"
+      }
+    ]
+  },
+        {
+        title: "Introduction to Poetry Fundamentals Quiz",
+        questions: [
+            {
+                id: 1,
+                category: "Poetry Basics",
+                question: "The word 'poetry' originally comes from a Greek verb meaning:",
+                options: [
+                    "To sing",
+                    "To speak",
+                    "To make",
+                    "To read"
+                ],
+                correctAnswer: 2,
+                explanation: "The word 'poetry' comes from the Greek verb 'poiein,' which means 'to make' or 'to create.'",
+                topic: "Origin and definition of poetry"
+            },
+            {
+                id: 2,
+                category: "Poetry Basics",
+                question: "Prose is different from poetry because:",
+                options: [
+                    "It uses rhyme and rhythm.",
+                    "It is written in verse form.",
+                    "It is written in ordinary sentences without rhythm.",
+                    "It is always emotional."
+                ],
+                correctAnswer: 2,
+                explanation: "Prose is written in ordinary, grammatical sentences without the structured meter, rhyme, or line breaks typical of poetry.",
+                topic: "Difference between prose and poetry"
+            },
+            {
+                id: 3,
+                category: "Literary Devices",
+                question: "Figurative language means:",
+                options: [
+                    "Words that mean exactly what they say.",
+                    "Words that express meaning in an indirect, imaginative way.",
+                    "Words used only in stories.",
+                    "A kind of slang language."
+                ],
+                correctAnswer: 1,
+                explanation: "Figurative language uses words or expressions with a meaning that is different from the literal interpretation to create imagery, emphasis, or emotional effect.",
+                topic: "Understanding figurative language"
+            },
+            {
+                id: 4,
+                category: "Literary Devices",
+                question: "Metaphor is:",
+                options: [
+                    "A comparison without using 'like' or 'as.'",
+                    "A direct comparison using 'like' or 'as.'",
+                    "Giving human qualities to nonhuman things.",
+                    "A repeated vowel sound."
+                ],
+                correctAnswer: 0,
+                explanation: "A metaphor is a figure of speech that directly compares two unrelated things by stating one is the other, without using 'like' or 'as.'",
+                topic: "Definition of metaphor"
+            },
+            {
+                id: 5,
+                category: "Literary Devices",
+                question: "Which of the following is an example of simile?",
+                options: [
+                    "Life is a dream.",
+                    "My love is like a red, red rose.",
+                    "The waves sang to the moon.",
+                    "I've told you a million times."
+                ],
+                correctAnswer: 1,
+                explanation: "'My love is like a red, red rose' is a simile because it uses the word 'like' to make a direct comparison between two unlike things.",
+                topic: "Identifying simile"
+            },
+            {
+                id: 6,
+                category: "Literary Devices",
+                question: "Personification means:",
+                options: [
+                    "Comparing two unlike things.",
+                    "Exaggeration for effect.",
+                    "Giving human qualities to non-human things.",
+                    "Repetition of sound."
+                ],
+                correctAnswer: 2,
+                explanation: "Personification is a literary device where human characteristics are attributed to animals, objects, or abstract ideas.",
+                topic: "Definition of personification"
+            },
+            {
+                id: 7,
+                category: "Literary Devices",
+                question: "Alliteration is:",
+                options: [
+                    "The repetition of vowel sounds.",
+                    "The repetition of consonant sounds at the beginning of words.",
+                    "The repetition of the same line.",
+                    "A figure of speech comparing things."
+                ],
+                correctAnswer: 1,
+                explanation: "Alliteration is the repetition of the same initial consonant sound in closely positioned or consecutive words.",
+                topic: "Definition of alliteration"
+            },
+            {
+                id: 8,
+                category: "Literary Devices",
+                question: "Assonance is:",
+                options: [
+                    "Repetition of consonant sounds.",
+                    "Repetition of vowel sounds.",
+                    "Repetition of full lines.",
+                    "A type of exaggeration."
+                ],
+                correctAnswer: 1,
+                explanation: "Assonance is the repetition of vowel sounds in nearby words to create internal rhyming within phrases or sentences.",
+                topic: "Definition of assonance"
+            },
+            {
+                id: 9,
+                category: "Literary Devices",
+                question: "Hyperbole means:",
+                options: [
+                    "Making something smaller than it is.",
+                    "Exaggerating something for emphasis.",
+                    "Comparing two unlike things.",
+                    "Using symbols in writing."
+                ],
+                correctAnswer: 1,
+                explanation: "Hyperbole is a deliberate and obvious exaggeration used for emphasis or dramatic effect, not meant to be taken literally.",
+                topic: "Definition of hyperbole"
+            },
+            {
+                id: 10,
+                category: "Literary Devices",
+                question: "Apostrophe in poetry is:",
+                options: [
+                    "A punctuation mark.",
+                    "Addressing someone absent, dead, or an object as if it could reply.",
+                    "A type of rhyme.",
+                    "The ending of a poem."
+                ],
+                correctAnswer: 1,
+                explanation: "In poetry, an apostrophe is a figure of speech where the poet speaks directly to someone who is absent, dead, or to an inanimate object.",
+                topic: "Definition of apostrophe"
+            },
+            {
+                id: 11,
+                category: "Literary Devices",
+                question: "A symbol in poetry is:",
+                options: [
+                    "Always a metaphor.",
+                    "An object or color standing for an abstract idea.",
+                    "The repetition of sounds.",
+                    "A form of exaggeration."
+                ],
+                correctAnswer: 1,
+                explanation: "A symbol is a person, place, object, or color that represents a deeper, often abstract, meaning beyond its literal sense.",
+                topic: "Understanding symbolism"
+            },
+            {
+                id: 12,
+                category: "Sonnet 18",
+                question: "A Shakespearean sonnet has:",
+                options: [
+                    "Twelve lines and a couplet.",
+                    "Fourteen lines divided into three quatrains and one couplet.",
+                    "Sixteen lines and no rhyme.",
+                    "Twelve lines of free verse."
+                ],
+                correctAnswer: 1,
+                explanation: "A Shakespearean (or English) sonnet consists of 14 lines: three quatrains (4-line stanzas) followed by a final rhyming couplet (2 lines).",
+                topic: "Structure of a Shakespearean sonnet"
+            },
+            {
+                id: 13,
+                category: "Sonnet 18",
+                question: "The rhyme scheme of Sonnet 18 is:",
+                options: [
+                    "aabbccddeeffgg",
+                    "abab cdcd efef gg",
+                    "abba cddc effe gg",
+                    "abcd abcd abcd gg"
+                ],
+                correctAnswer: 1,
+                explanation: "Sonnet 18 follows the classic Shakespearean rhyme scheme: ABAB CDCD EFEF GG, where each letter represents a unique end rhyme.",
+                topic: "Rhyme scheme of Sonnet 18"
+            },
+            {
+                id: 14,
+                category: "Sonnet 18",
+                question: "The main theme of Sonnet 18 is:",
+                options: [
+                    "The sadness of summer.",
+                    "The immortality of beauty and love through poetry.",
+                    "The death of the beloved.",
+                    "The passage of time in nature."
+                ],
+                correctAnswer: 1,
+                explanation: "The central theme is the power of poetry to immortalize the beloved's beauty, preserving it from the ravages of time and death.",
+                topic: "Central theme of Sonnet 18"
+            },
+            {
+                id: 15,
+                category: "Sonnet 18",
+                question: "In Sonnet 18, when the poet says, 'So long lives this, and this gives life to thee,' he means:",
+                options: [
+                    "His beloved will die soon.",
+                    "The poem will fade with time.",
+                    "The poem will keep his beloved's beauty alive forever.",
+                    "Love is temporary."
+                ],
+                correctAnswer: 2,
+                explanation: "'This' refers to the poem itself. The line asserts that the sonnet will live on, and in doing so, it will give eternal life to the beloved's beauty.",
+                topic: "Interpretation of the final couplet"
+            },
+            {
+                id: 16,
+                category: "Poetry Analysis",
+                question: "According to the notes, the main purpose of figurative language in poetry is to:",
+                options: [
+                    "Decorate the poem with beautiful words.",
+                    "Make language more complicated and mysterious.",
+                    "Replace literal meaning with historical facts.",
+                    "Express ideas indirectly and make difficult concepts easier to understand."
+                ],
+                correctAnswer: 3,
+                explanation: "Figurative language helps convey complex ideas, emotions, and imagery in a more vivid, imaginative, and understandable way than literal language alone.",
+                topic: "Purpose of figurative language"
+            },
+            {
+                id: 17,
+                category: "Literary Devices",
+                question: "In the line 'Faithful friends from flattering foes', the poet mainly uses:",
+                options: [
+                    "Assonance",
+                    "Alliteration",
+                    "Consonance",
+                    "Refrain"
+                ],
+                correctAnswer: 1,
+                explanation: "The line uses alliteration through the repetition of the initial 'f' sound in 'faithful friends from flattering foes.'",
+                topic: "Identifying alliteration in context"
+            },
+            {
+                id: 18,
+                category: "Sonnet 18",
+                question: "When the poet says 'Rough winds do shake the darling buds of May', the phrase 'rough winds' is an example of:",
+                options: [
+                    "Hyperbole",
+                    "Personification",
+                    "Irony",
+                    "Symbolism"
+                ],
+                correctAnswer: 1,
+                explanation: "The winds are described as 'rough' and are given the human-like action of 'shaking,' which is an example of personification.",
+                topic: "Personification in Sonnet 18"
+            },
+            {
+                id: 19,
+                category: "Literary Devices",
+                question: "Which of the following best distinguishes alliteration from consonance?",
+                options: [
+                    "Alliteration repeats consonant sounds only at the end of words.",
+                    "Consonance repeats both vowel and consonant sounds.",
+                    "Alliteration occurs at the beginning of words, while consonance may appear anywhere.",
+                    "There is no real difference between them."
+                ],
+                correctAnswer: 2,
+                explanation: "Alliteration is the repetition of initial consonant sounds, while consonance is the repetition of consonant sounds anywhere within words (beginning, middle, or end).",
+                topic: "Alliteration vs. consonance"
+            },
+            {
+                id: 20,
+                category: "Literary Devices",
+                question: "The figure of speech in 'The camel is the ship of the desert' is a:",
+                options: [
+                    "Simile",
+                    "Metaphor",
+                    "Symbol",
+                    "Apostrophe"
+                ],
+                correctAnswer: 1,
+                explanation: "This is a metaphor. It directly states that the camel *is* the ship of the desert, comparing it to a ship without using 'like' or 'as.'",
+                topic: "Identifying metaphor"
+            },
+            {
+                id: 21,
+                category: "Sonnet 18",
+                question: "In Sonnet 18, the poet rejects the comparison between his beloved and a summer's day mainly because:",
+                options: [
+                    "He believes summer is too perfect to be compared with a person.",
+                    "Summer is short, rough, and fades --- unlike his beloved's beauty.",
+                    "The beloved prefers winter.",
+                    "The comparison is used by other poets."
+                ],
+                correctAnswer: 1,
+                explanation: "The poet finds summer flawed: it can be too hot, windy, and is transient. His beloved's beauty is described as more 'temperate' and eternal.",
+                topic: "Reason for rejecting the comparison"
+            },
+            {
+                id: 22,
+                category: "Sonnet 18",
+                question: "In the poem, the expression 'thy eternal summer shall not fade' implies that:",
+                options: [
+                    "The beloved will live forever physically.",
+                    "Summer will last longer than usual.",
+                    "The beloved's beauty will remain everlasting through poetry.",
+                    "Time will stop passing."
+                ],
+                correctAnswer: 2,
+                explanation: "'Eternal summer' is a metaphor for the beloved's enduring beauty, which will not fade because it is immortalized in the 'eternal lines' of the poem.",
+                topic: "Interpretation of 'eternal summer'"
+            },
+            {
+                id: 23,
+                category: "Sonnet 18",
+                question: "The phrase 'Death shall not brag thou wanderest in his shade' is an example of:",
+                options: [
+                    "Personification",
+                    "Metaphor",
+                    "Apostrophe",
+                    "Irony"
+                ],
+                correctAnswer: 0,
+                explanation: "Death is personified as a being who can 'brag' and has a 'shade,' giving it human-like qualities and actions.",
+                topic: "Personification of Death"
+            },
+            {
+                id: 24,
+                category: "Sonnet 18",
+                question: "In Sonnet 18, the speaker moves from describing nature's change to describing:",
+                options: [
+                    "His own death.",
+                    "The coming of winter.",
+                    "The permanence of his beloved through art.",
+                    "His regret over love."
+                ],
+                correctAnswer: 2,
+                explanation: "The poem progresses from illustrating the impermanence of natural beauty to declaring the permanent preservation of the beloved's beauty through poetry.",
+                topic: "Structural progression of the sonnet"
+            },
+            {
+                id: 25,
+                category: "Sonnet 18",
+                question: "The final couplet of Sonnet 18 primarily emphasizes:",
+                options: [
+                    "The immortality of the beloved through verse.",
+                    "The sadness of separation.",
+                    "The weakness of time.",
+                    "The return of summer."
+                ],
+                correctAnswer: 0,
+                explanation: "The couplet serves as the poem's conclusion, powerfully stating that the beloved will live on for as long as the poem exists and is read.",
+                topic: "Emphasis of the final couplet"
+            },
+            {
+                id: 26,
+                category: "Sonnet 18",
+                question: "The tone of Sonnet 18 can best be described as:",
+                options: [
+                    "Angry and regretful.",
+                    "Admiring and confident.",
+                    "Sorrowful and nostalgic.",
+                    "Objective and cold."
+                ],
+                correctAnswer: 1,
+                explanation: "The tone is one of deep admiration for the beloved and confident assurance in the power of his poetry to grant her immortality.",
+                topic: "Tone of Sonnet 18"
+            },
+            {
+                id: 27,
+                category: "Sonnet 18",
+                question: "Which device is used in the opening line 'Shall I compare thee to a summer's day?'",
+                options: [
+                    "Rhetorical question",
+                    "Irony",
+                    "Apostrophe",
+                    "Symbol"
+                ],
+                correctAnswer: 0,
+                explanation: "The line is a rhetorical question—it is asked not to receive an answer but to introduce the central theme and engage the reader.",
+                topic: "Rhetorical question in the opening"
+            },
+            {
+                id: 28,
+                category: "Sonnet 18",
+                question: "When Shakespeare says 'So long lives this,' the word 'this' refers to:",
+                options: [
+                    "The poem itself.",
+                    "The beloved's physical beauty.",
+                    "The summer season.",
+                    "The poet's lifetime."
+                ],
+                correctAnswer: 0,
+                explanation: "In the final couplet, 'this' is a direct reference to the sonnet he has just written, which he claims will live on eternally.",
+                topic: "Meaning of 'this' in the couplet"
+            },
+            {
+                id: 29,
+                category: "Sonnet 18",
+                question: "In Sonnet 18, Shakespeare contrasts the beauty of his beloved with:",
+                options: [
+                    "The imperfection and changeability of nature.",
+                    "The beauty of other women.",
+                    "The warmth of the sun.",
+                    "The decay of human emotions."
+                ],
+                correctAnswer: 0,
+                explanation: "The entire poem is built on a contrast between the beloved's timeless, perfect beauty and the flawed, temporary beauty found in nature (like a summer's day).",
+                topic: "Central contrast in the poem"
+            },
+            {
+                id: 30,
+                category: "Sonnet 18",
+                question: "The deeper message of Sonnet 18 suggests that poetry:",
+                options: [
+                    "Is temporary like summer.",
+                    "Has the power to immortalize love and beauty beyond time.",
+                    "Can only describe physical beauty.",
+                    "Is less powerful than nature."
+                ],
+                correctAnswer: 1,
+                explanation: "The poem's core argument is that art (specifically, this poem) transcends time and decay, granting eternal life to the subject it celebrates.",
+                topic: "Overall message about art and immortality"
+            }
+        ]
+    },
+  {
+    title: "Metaphysical Poetry, Romanticism, and Poetic Devices (Arabic/English)",
+    questions: [
+      {
+        id: 1,
+        category: "Metaphysical Poetry / الشعر الميتافيزيقي",
+        question: "What is a defining feature of metaphysical poetry? / ما هي السمة الأساسية للشعر الميتافيزيقي؟",
+        options: [
+          "Use of simple nature imagery / استخدام صور طبيعية بسيطة",
+          "Extended conceits comparing dissimilar things / استخدام التصوير الممتد لمقارنة أشياء مختلفة",
+          "Focus on political satire / التركيز على السخرية السياسية",
+          "Emphasis on emotional spontaneity / التركيز على العفوية العاطفية"
+        ],
+        correctAnswer: 1,
+        explanation: "Metaphysical poetry is known for its elaborate conceits—extended metaphors that compare very unlike things to create intellectual depth. / يشتهر الشعر الميتافيزيقي بـ 'conceit'، وهو تشبيه ممتد يقارن بين أشياء مختلفة لإنتاج معنى عميق.",
+        topic: "Metaphysical Poetry Features / سمات الشعر الميتافيزيقي"
+      },
+      {
+        id: 2,
+        category: "Metaphysical Poetry / الشعر الميتافيزيقي",
+        question: "Which poet is NOT considered a metaphysical poet? / أي شاعر لا يُعتبر من شعراء الميتافيزيقا؟",
+        options: [
+          "John Donne / جون دن",
+          "Alexander Pope / ألكسندر بوب",
+          "Andrew Marvell / أندرو مارفيل",
+          "George Herbert / جورج هربرت"
+        ],
+        correctAnswer: 1,
+        explanation: "Alexander Pope is a neoclassical poet, not a metaphysical poet. Metaphysical poets include Donne, Herbert, Marvell, Crashaw, and Vaughan. / ألكسندر بوب شاعر كلاسيكي جديد، وليس شاعراً ميتافيزيقياً. شعراء الميتافيزيقا يشملون دن وهربرت ومارفيل وكاراشاو وفون.",
+        topic: "Metaphysical Poets / شعراء الميتافيزيقا"
+      },
+      {
+        id: 3,
+        category: "John Donne's 'The Flea' / قصيدة 'البرغوث' لجون دن",
+        question: "What does the flea symbolize in Donne's poem? / ماذا يرمز البرغوث في قصيدة دن؟",
+        options: [
+          "Death and decay / الموت والفساد",
+          "The mixing of lovers' blood / اختلاط دم العاشقين",
+          "Social injustice / الظلم الاجتماعي",
+          "Religious devotion / الورع الديني"
+        ],
+        correctAnswer: 1,
+        explanation: "The flea represents the union of the two lovers through the mingling of their blood, used as a playful argument for physical intimacy. / البرغوث يرمز لاتحاد العاشقين عبر اختلاط دمائهما، ويُستخدم كحجة مرحّة للإقناع بالعلاقة الحميمة.",
+        topic: "Symbolism in 'The Flea' / الرمزية في 'البرغوث'"
+      },
+      {
+        id: 4,
+        category: "Age of Reason / عصر العقل",
+        question: "Which term describes the 18th-century literary emphasis on reason and order? / أي مصطلح يصف تركيز الأدب في القرن الثامن عشر على العقل والنظام؟",
+        options: [
+          "Romanticism / الرومانسية",
+          "Metaphysical / الميتافيزيقي",
+          "Neoclassicism / الكلاسيكية الجديدة",
+          "Modernism / الحداثة"
+        ],
+        correctAnswer: 2,
+        explanation: "The 18th century is known as the Neoclassical Age, emphasizing reason, balance, harmony, and imitation of classical models. / القرن الثامن عشر يُعرف بالعصر الكلاسيكي الجديد، مع التركيز على العقل والتوازن والانسجام وتقليد النماذج الكلاسيكية.",
+        topic: "Neoclassical Period / العصر الكلاسيكي الجديد"
+      },
+      {
+        id: 5,
+        category: "Alexander Pope / ألكسندر بوب",
+        question: "What is the main theme of Pope's 'Ode on Solitude'? / ما هو الموضوع الرئيسي لأنشودة بوب 'في العزلة'؟",
+        options: [
+          "The glory of war / مجد الحرب",
+          "Criticism of urban life / نقد الحياة الحضرية",
+          "Praise of simple, self-sufficient life / تمجيد الحياة البسيطة المعتمدة على الذات",
+          "Celebration of romantic love / احتفاء بالحب الرومانسي"
+        ],
+        correctAnswer: 2,
+        explanation: "The poem praises a simple, quiet, and self-sufficient life, finding happiness in solitude and modest desires. / القصيدة تمجد الحياة البسيطة الهادئة المعتمدة على الذات، وتجد السعادة في العزلة والرغبات المتواضعة.",
+        topic: "Themes in 'Ode on Solitude' / موضوعات 'أنشودة العزلة'"
+      },
+      {
+        id: 6,
+        category: "Social Protest Poetry / شعر الاحتجاج الاجتماعي",
+        question: "What is the primary aim of social protest poetry? / ما هو الهدف الأساسي لشعر الاحتجاج الاجتماعي؟",
+        options: [
+          "To entertain with complex rhymes / للتسلية بقوافي معقدة",
+          "To expose injustice and mobilize change / لكشف الظلم وتحفيز التغيير",
+          "To imitate classical forms / لتقليد الأشكال الكلاسيكية",
+          "To explore personal dreams / لاستكشاف الأحلام الشخصية"
+        ],
+        correctAnswer: 1,
+        explanation: "Social protest poetry intentionally addresses social, political, or economic injustice to critique it and encourage action. / شعر الاحتجاج الاجتماعي يتعمد معالجة الظلم الاجتماعي أو السياسي أو الاقتصادي لينقده ويشجع على التغيير.",
+        topic: "Purpose of Protest Poetry / هدف شعر الاحتجاج"
+      },
+      {
+        id: 7,
+        category: "Maya Angelou – 'Still I Rise' / مايا أنجيلو – 'ومع ذلك أرتفع'",
+        question: "Which figure of speech is used in 'You may shoot me with your words'? / أي أسلوب بلاغي مستخدم في 'قد تطلق عليّ بكلماتك'؟",
+        options: [
+          "Simile / تشبيه",
+          "Metaphor / استعارة",
+          "Hyperbole / مبالغة",
+          "Personification / تشخيص"
+        ],
+        correctAnswer: 1,
+        explanation: "This is a metaphor—words are compared to weapons to emphasize the pain of hateful language. / هذه استعارة—حيث شُبّهت الكلمات بالأسلحة لتأكيد ألم اللغة الكارهة.",
+        topic: "Figurative Language in 'Still I Rise' / اللغة المجازية في 'ومع ذلك أرتفع'"
+      },
+      {
+        id: 8,
+        category: "Romanticism / الرومانسية",
+        question: "What did Romanticism react against? / ضد ماذا كانت الرومانسية ردة فعل؟",
+        options: [
+          "Emotion and imagination / العاطفة والخيال",
+          "Reason and rules of the Enlightenment / العقل وقواعد عصر التنوير",
+          "Medieval traditions / التقاليد العصور الوسطى",
+          "Industrial progress / التقدم الصناعي"
+        ],
+        correctAnswer: 1,
+        explanation: "Romanticism was a reaction against the reason, order, and rationality of the Enlightenment, emphasizing emotion and individuality. / الرومانسية كانت ردة فعل ضد العقل والنظام والعقلانية في عصر التنوير، مع التركيز على العاطفة والفردية.",
+        topic: "Romanticism as a Reaction / الرومانسية كردة فعل"
+      },
+      {
+        id: 9,
+        category: "William Wordsworth / ويليام ووردزورث",
+        question: "What is personified in 'I Wandered Lonely as a Cloud'? / ما الذي تم تشخيصه في 'تجولت وحيداً كسحابة'؟",
+        options: [
+          "The cloud / السحابة",
+          "The lake / البحيرة",
+          "The daffodils / أزهار النرجس",
+          "The hills / التلال"
+        ],
+        correctAnswer: 2,
+        explanation: "The daffodils are personified as dancing, tossing their heads, and being in 'jocund company.' / أزهار النرجس مُشخّصة كراقصة ترمي رؤوسها وتكون في 'صحبة مرحّة'.",
+        topic: "Personification in Wordsworth / التشخيص في شعر ووردزورث"
+      },
+      {
+        id: 10,
+        category: "Poetic Devices / الأدوات الشعرية",
+        question: "What is the difference between a simile and a metaphor? / ما الفرق بين التشبيه والاستعارة؟",
+        options: [
+          "Simile uses 'like' or 'as'; metaphor does not / التشبيه يستخدم 'كـ' أو 'مثل'؛ الاستعارة لا تستخدم",
+          "Metaphor is always longer / الاستعارة دائماً أطول",
+          "Simile is only about people / التشبيه يدور فقط حول الأشخاص",
+          "Metaphor uses rhyme / الاستعارة تستخدم القافية"
+        ],
+        correctAnswer: 0,
+        explanation: "A simile explicitly compares two things using 'like' or 'as,' while a metaphor implies a comparison without those words. / التشبيه يقارن صراحة بين شيئين باستخدام 'كـ' أو 'مثل'، بينما الاستعارة توحي بالمقارنة دون تلك الكلمات.",
+        topic: "Simile vs. Metaphor / التشبيه مقابل الاستعارة"
+      },
+      {
+        id: 11,
+        category: "Sound Devices / الأجهزة الصوتية",
+        question: "Which device repeats vowel sounds in nearby words? / أي أداة تكرر أصوات الحركات في كلمات متقاربة؟",
+        options: [
+          "Alliteration / الجناس",
+          "Assonance / التناغم الصوتي",
+          "Consonance / التناغم الساكن",
+          "Refrain / المقطع المتكرر"
+        ],
+        correctAnswer: 1,
+        explanation: "Assonance is the repetition of vowel sounds within words close together, e.g., 'No pain, no gain.' / التناغم الصوتي (Assonance) هو تكرار أصوات الحركات في كلمات متقاربة، مثل: 'لا ألم، لا مكسب.'",
+        topic: "Assonance / التناغم الصوتي"
+      },
+      {
+        id: 12,
+        category: "Shakespeare – Sonnet 18 / شكسبير – السونيتة 18",
+        question: "What is the rhyme scheme of Shakespeare's Sonnet 18? / ما هو نظام القافية في سونيتة شكسبير 18؟",
+        options: [
+          "ABAB BCBC CDCD EE",
+          "ABAB CDCD EFEF GG",
+          "AABB CCDD EEFF GG",
+          "ABBA ABBA CDE CDE"
+        ],
+        correctAnswer: 1,
+        explanation: "The Shakespearean sonnet follows ABAB CDCD EFEF GG, with three quatrains and a closing couplet. / سونيتة شكسبير تتبع نظام ABAB CDCD EFEF GG، مع ثلاثة مقاطع رباعية ومقطع ثنائي ختامي.",
+        topic: "Sonnet Form / شكل السونيتة"
+      },
+      {
+        id: 13,
+        category: "Shakespeare – Sonnet 18 / شكسبير – السونيتة 18",
+        question: "Which theme is central to Sonnet 18? / أي موضوع مركزي في السونيتة 18؟",
+        options: [
+          "The cruelty of time / قسوة الزمن",
+          "The immortality of poetry / خلود الشعر",
+          "The pain of betrayal / ألم الخيانة",
+          "The beauty of nature / جمال الطبيعة"
+        ],
+        correctAnswer: 1,
+        explanation: "A central theme is how poetry can immortalize the beloved’s beauty, making it eternal. / موضوع مركزي هو كيف يمكن للشعر أن يخلّد جمال المحبوب، فيجعله أبدياً.",
+        topic: "Themes in Sonnet 18 / موضوعات السونيتة 18"
+      },
+      {
+        id: 14,
+        category: "Poetic Terms / المصطلحات الشعرية",
+        question: "What is a 'refrain' in poetry? / ما هو 'المقطع المتكرر' في الشعر؟",
+        options: [
+          "The title of the poem / عنوان القصيدة",
+          "A repeated line or stanza for emphasis / سطر أو مقطع متكرر للتأكيد",
+          "The final couplet / المقطع الثنائي الأخير",
+          "A type of metaphor / نوع من الاستعارة"
+        ],
+        correctAnswer: 1,
+        explanation: "A refrain is a line or group of lines that repeat at intervals, often used in songs and poems for emphasis. / المقطع المتكرر هو سطر أو مجموعة أسطر تتكرر على فترات، غالباً في الأغاني والقوافي للتأكيد.",
+        topic: "Refrain / المقطع المتكرر"
+      },
+      {
+        id: 15,
+        category: "Poetic Devices / الأدوات الشعرية",
+        question: "Which device gives human traits to non-human things? / أي أداة تمنح صفات بشرية لأشياء غير بشرية؟",
+        options: [
+          "Hyperbole / المبالغة",
+          "Irony / المفارقة",
+          "Personification / التشخيص",
+          "Apostrophe / النداء"
+        ],
+        correctAnswer: 2,
+        explanation: "Personification attributes human qualities to animals, objects, or ideas. / التشخيص يمنح الصفات البشرية للحيوانات أو الأشياء أو الأفكار.",
+        topic: "Personification / التشخيص"
+      },
+      {
+        id: 16,
+        category: "Types of Poetry / أنواع الشعر",
+        question: "Which type of poetry expresses personal feelings in a musical way? / أي نوع من الشعر يعبر عن المشاعر الشخصية بطريقة موسيقية؟",
+        options: [
+          "Narrative poetry / الشعر القصصي",
+          "Dramatic poetry / الشعر الدرامي",
+          "Lyric poetry / الشعر الغنائي",
+          "Epic poetry / الشعر الملحمي"
+        ],
+        correctAnswer: 2,
+        explanation: "Lyric poetry expresses the poet's personal emotions and thoughts in a short, song-like form. / الشعر الغنائي يعبر عن مشاعر الشاعر وأفكاره الشخصية بشكل قصير يشبه الأغنية.",
+        topic: "Lyric Poetry / الشعر الغنائي"
+      },
+      {
+        id: 17,
+        category: "Sound Devices / الأجهزة الصوتية",
+        question: "What is alliteration? / ما هو الجناس؟",
+        options: [
+          "Repetition of vowel sounds / تكرار أصوات الحركات",
+          "Repetition of initial consonant sounds / تكرار الحروف الساكنة الأولى",
+          "Repetition of a line / تكرار سطر",
+          "Repetition of final consonants / تكرار الحروف الساكنة الأخيرة"
+        ],
+        correctAnswer: 1,
+        explanation: "Alliteration is the repetition of the same consonant sound at the beginning of nearby words. / الجناس هو تكرار نفس الحرف الساكن في بداية كلمات متقاربة.",
+        topic: "Alliteration / الجناس"
+      },
+      {
+        id: 18,
+        category: "Poetic Devices / الأدوات الشعرية",
+        question: "What is hyperbole? / ما هي المبالغة؟",
+        options: [
+          "Understatement for effect / التخفيف للتأثير",
+          "Exaggeration for emphasis / المبالغة للتأكيد",
+          "Saying the opposite of what is meant / قول عكس المقصود",
+          "Addressing the absent / مناداة الغائب"
+        ],
+        correctAnswer: 1,
+        explanation: "Hyperbole is deliberate exaggeration to emphasize a point or create humor. / المبالغة هي تكبير متعمد لتأكيد نقطة أو خلق فكاهة.",
+        topic: "Hyperbole / المبالغة"
+      },
+      {
+        id: 19,
+        category: "Poetic Analysis / التحليل الشعري",
+        question: "In 'Still I Rise,' what does the speaker’s joy represent? / في 'ومع ذلك أرتفع'، ماذا تمثل فرحة المتحدثة؟",
+        options: [
+          "Ignorance of danger / جهل بالخطر",
+          "An act of resistance / فعل مقاومة",
+          "Material greed / جشع مادي",
+          "Temporary happiness / سعادة مؤقتة"
+        ],
+        correctAnswer: 1,
+        explanation: "Her joy, laughter, and pride are presented as acts of defiance and resistance against oppression. / فرحها وضحكها وفخرها مقدّمة كأفعال تحدّ ومقاومة ضد الظلم.",
+        topic: "Joy as Resistance / الفرح كمقاومة"
+      },
+      {
+        id: 20,
+        category: "Historical Context / السياق التاريخي",
+        question: "Which movement celebrated Black culture and fused art with activism in the 1920s-1930s? / أي حركة احتفلت بالثقافة السوداء ودمجت الفن بالنضال في العشرينيات والثلاثينيات؟",
+        options: [
+          "The Enlightenment / عصر التنوير",
+          "The Harlem Renaissance / نهضة هارلم",
+          "The Romantic Movement / الحركة الرومانسية",
+          "The Metaphysical Movement / الحركة الميتافيزيقية"
+        ],
+        correctAnswer: 1,
+        explanation: "The Harlem Renaissance was a cultural movement where Black artists, writers, and musicians celebrated Black identity and fought racism through art. / نهضة هارلم كانت حركة ثقافية احتفل فيها الفنانون والكتّاب والموسيقيون السود بالهوية السوداء وحاربوا العنصرية عبر الفن.",
+        topic: "Harlem Renaissance / نهضة هارلم"
+      }
+    ]
+  },
+    {
+        title: "Shakespeare's Sonnet 18 Analysis Quiz",
+        questions: [
+            {
+                id: 1,
+                category: "Structure and Form",
+                question: "What is the rhyme scheme of Shakespeare's Sonnet 18?",
+                options: [
+                    "ABBA, ABBA, CDE, CDE",
+                    "ABAB, BCBC, CDCD, EE",
+                    "ABAB, CDCD, EFEF, GG",
+                    "AABB, CCDD, EEFF, GG"
+                ],
+                correctAnswer: 2,
+                explanation: "The correct rhyme scheme is ABAB, CDCD, EFEF, GG. This structure consists of three quatrains (four-line stanzas) followed by a final rhyming couplet.",
+                topic: "Sonnet form and rhyme"
+            },
+            {
+                id: 2,
+                category: "Structure and Form",
+                question: "What does 'iambic pentameter' mean in the context of Sonnet 18?",
+                options: [
+                    "Each line contains twelve syllables with alternating stresses.",
+                    "Each line has ten syllables following an unstressed-stressed pattern.",
+                    "The poem uses a meter of five feet with trochaic stress.",
+                    "It consists of eight syllables per line with a dactylic rhythm."
+                ],
+                correctAnswer: 1,
+                explanation: "Iambic pentameter means each line has ten syllables arranged in five iambs (an unstressed syllable followed by a stressed one). This creates the poem's rhythmic heartbeat.",
+                topic: "Meter and rhythm in poetry"
+            },
+            {
+                id: 3,
+                category: "Literary Devices",
+                question: "In the line 'Rough winds do shake the darling buds of May,' what literary device is primarily used?",
+                options: [
+                    "Apostrophe addressing the wind directly",
+                    "Metaphor comparing winds to dancers",
+                    "Personification attributing human action to the wind",
+                    "Synecdoche using 'buds' to represent all of nature"
+                ],
+                correctAnswer: 2,
+                explanation: "The line uses personification. The 'rough winds' are described as actively 'shaking' the buds, attributing a human-like, harsh action to a natural force.",
+                topic: "Personification in Renaissance poetry"
+            },
+            {
+                id: 4,
+                category: "Literary Devices",
+                question: "What is the 'eye of heaven' a metaphor for in the second quatrain?",
+                options: [
+                    "The moon and its changing phases",
+                    "The stars that watch over the night",
+                    "The sun and its powerful light",
+                    "The clouds that cover the sky"
+                ],
+                correctAnswer: 2,
+                explanation: "'The eye of heaven' is a metaphor for the sun. Shakespeare compares the sun to a celestial eye that shines upon the world, sometimes too intensely.",
+                topic: "Metaphor and celestial imagery"
+            },
+            {
+                id: 5,
+                category: "Themes and Content",
+                question: "According to the poem, what is the main flaw of a 'summer's day' that the beloved does not possess?",
+                options: [
+                    "It is often too dark and lacks sufficient light.",
+                    "It arrives too late and departs too early in the year.",
+                    "It can be excessively hot, windy, and is short-lived.",
+                    "It is unpredictable and brings constant storms."
+                ],
+                correctAnswer: 2,
+                explanation: "The poem states summer can be 'too hot,' subject to 'rough winds,' and has 'all too short a date.' The beloved's beauty is described as more temperate and lasting.",
+                topic: "The theme of impermanence vs. eternal beauty"
+            },
+            {
+                id: 6,
+                category: "Themes and Content",
+                question: "What does the 'eternal summer' in the third quatrain symbolize?",
+                options: [
+                    "The actual season of summer in the poet's homeland",
+                    "The beloved's youth, which will physically never age",
+                    "The timeless beauty of the beloved preserved in verse",
+                    "A promise of immortality through religious faith"
+                ],
+                correctAnswer: 2,
+                explanation: "'Thy eternal summer' is a metaphor for the beloved's enduring beauty, which will not fade because it is immortalized within the 'eternal lines' of the poem itself.",
+                topic: "The power of art and poetry to preserve"
+            },
+            {
+                id: 7,
+                category: "Literary Devices",
+                question: "In the final couplet, what is the meaning of 'this gives life to thee'?",
+                options: [
+                    "The poet's love physically sustains the beloved.",
+                    "The poem itself will keep the beloved's memory alive.",
+                    "Nature will regenerate the beloved's spirit each spring.",
+                    "Future readers will resurrect the beloved literally."
+                ],
+                correctAnswer: 1,
+                explanation: "The 'this' refers to the poem. The line is a metaphor stating that the sonnet has the power to give lasting life to the beloved's beauty and memory for as long as it is read.",
+                topic: "Metaphor and the concluding couplet"
+            },
+            {
+                id: 8,
+                category: "Structure and Form",
+                question: "How many quatrains and how many couplets make up the standard Shakespearean sonnet form?",
+                options: [
+                    "2 quatrains and 2 couplets",
+                    "3 quatrains and 2 couplets",
+                    "3 quatrains and 1 couplet",
+                    "4 quatrains and no couplet"
+                ],
+                correctAnswer: 2,
+                explanation: "A Shakespearean (or English) sonnet has a specific structure of three quatrains (four-line sections) followed by one final, conclusive rhyming couplet (two lines).",
+                topic: "Sonnet structure: Quatrains and Couplet"
+            },
+            {
+                id: 9,
+                category: "Literary Devices",
+                question: "What sound device is present in 'hot the eye of heaven'?",
+                options: [
+                    "Onomatopoeia mimicking the sound of the sun",
+                    "Consonance with the repetition of 'h' sounds",
+                    "Assonance with the repetition of long 'o' sounds",
+                    "Alliteration with the repetition of the 'h' sound"
+                ],
+                correctAnswer: 3,
+                explanation: "The phrase uses alliteration, which is the repetition of initial consonant sounds. The /h/ sound is repeated in 'hot,' 'heaven,' creating a cohesive sonic effect.",
+                topic: "Alliteration and sound patterns"
+            },
+            {
+                id: 10,
+                category: "Themes and Content",
+                question: "What force does the poet claim will never be able to boast about capturing the beloved?",
+                options: [
+                    "Time, which erodes all physical things",
+                    "Death, which claims every life eventually",
+                    "Fortune, which controls human destiny",
+                    "Winter, which destroys all remnants of summer"
+                ],
+                correctAnswer: 1,
+                explanation: "The line 'Nor shall Death brag thou wander'st in his shade' personifies Death as a being who cannot boast of claiming the beloved, as her beauty lives on in the poem.",
+                topic: "Personification of Death and immortality"
+            },
+            {
+                id: 11,
+                category: "Themes and Content",
+                question: "What does the poet suggest is responsible for the decline of beauty, according to the second quatrain?",
+                options: [
+                    "Human neglect and a lack of proper care",
+                    "The inevitable and natural progression of time",
+                  "The malicious intent of cosmic forces",
+                  "A predetermined and unchangeable fate"
+                ],
+                correctAnswer: 1,
+                explanation: "The lines state that beauty declines 'By chance, or nature's changing course.' This attributes the loss to random accident or the unavoidable, natural cycle of change over time.",
+                topic: "The causes of imperfection and decay"
+            },
+            {
+                id: 12,
+                category: "Literary Devices",
+                question: "The initial question, 'Shall I compare thee to a summer's day?' serves as an example of what?",
+                options: [
+                    "A rhetorical question that introduces the central metaphor",
+                    "An apostrophe directly questioning the summer's day",
+                    "A hyperbole exaggerating the beloved's importance",
+                    "An ironic statement meant to be taken as the opposite"
+                ],
+                correctAnswer: 0,
+                explanation: "It is a rhetorical question that immediately introduces the poem's central extended metaphor (the comparison of the beloved to a summer's day) and guides the entire sonnet's argument.",
+                topic: "Rhetorical questions and metaphorical structure"
+            },
+{
+    id: 13,
+    category: "Structure and Form",
+    question: "What is the function of the couplet (GG) in a Shakespearean sonnet like Sonnet 18?",
+    options: [
+        "It introduces a new problem for the following sonnets to solve",
+        "It provides a thematic summary and delivers the poem's final resolution",
+        "It shifts the focus to a completely unrelated philosophical topic",
+        "It breaks from rhyme to create a jarring, modern effect"
+    ],
+    correctAnswer: 1,
+    explanation: "The final rhyming couplet in a Shakespearean sonnet typically serves as a powerful conclusion—it summarizes the argument, offers a resolution, or delivers the poem's ultimate thematic point.",
+    topic: "Function of the couplet in sonnet structure"
+},
+{
+    id: 14,
+    category: "Structure and Form",
+    question: "In the rhyme scheme ABAB, CDCD, EFEF, GG, what does each new set of letters primarily indicate?",
+    options: [
+        "A change in the poem's meter from iambic to trochaic",
+        "A shift to a new speaker presenting a different perspective",
+        "The introduction of a completely new rhyme sound in each quatrain",
+        "A visual separation indicating where the poet paused while writing"
+    ],
+    correctAnswer: 2,
+    explanation: "Each new letter (A, B, C, etc.) represents a distinct end-rhyme sound. ABAB forms the first quatrain's pattern, CDCD the second with new rhymes, EFEF the third, and GG the final couplet's rhyme.",
+    topic: "Understanding rhyme scheme notation"
+},
+{
+    id: 15,
+    category: "Structure and Form",
+    question: "How does the iambic pentameter's rhythm (˘ /) typically affect the reading of Sonnet 18?",
+    options: [
+        "It creates a halting, irregular pace that mirrors nature's chaos",
+        "It forces an unnatural emphasis on every other syllable for drama",
+        "It establishes a steady, heartbeat-like cadence that feels natural in English",
+        "It makes each line sound exactly identical, removing all variation"
+    ],
+    correctAnswer: 2,
+    explanation: "Iambic pentameter (unstressed-stressed, repeated five times) creates a rhythm close to natural English speech patterns, giving the poem a flowing, musical quality while maintaining formal structure.",
+    topic: "The effect and purpose of iambic pentameter"
+},
+{
+    id: 16,
+    category: "Structure and Form",
+    question: "In the structure '3 quatrains + 1 couplet,' what typically happens in the third quatrain (EFEF)?",
+    options: [
+        "It directly contradicts everything stated in the first two quatrains",
+        "It introduces a 'turn' or shift in the poem's argument before the conclusion",
+        "It repeats the first quatrain's ideas word-for-word for emphasis",
+        "It abandons the rhyme scheme and meter entirely"
+    ],
+    correctAnswer: 1,
+    explanation: "The third quatrain often contains the 'volta' or turn—a shift in perspective, tone, or argument that prepares the reader for the resolution in the final couplet.",
+    topic: "The role of quatrains and the volta in sonnet structure"
+}
+        ]
+    },
+        {
+        title: "Poetry Analysis Revision Quiz",
+        questions: [
+            {
+                id: 1,
+                category: "William Blake - The Tyger",
+                question: "In 'The Tyger,' what literary device is primarily used in the phrase 'burning bright'?",
+                options: [
+                    "Simile, comparing the tiger to a small candle flame",
+                    "Hyperbole, exaggerating the tiger's visual impact",
+                    "Metaphor, comparing the tiger's essence to fire",
+                    "Onomatopoeia, mimicking the sound of a fire"
+                ],
+                correctAnswer: 2,
+                explanation: "The phrase 'burning bright' is a metaphor that compares the tiger's fierce vitality, striking appearance, or spiritual presence to a living flame.",
+                topic: "Metaphor and animal imagery"
+            },
+            {
+                id: 2,
+                category: "William Blake - The Tyger",
+                question: "What does the 'fearful symmetry' of the tiger most likely represent?",
+                options: [
+                    "The mathematical precision of its stripes",
+                    "The balanced but terrifying beauty of its creation",
+                    "Its perfectly matched eyes and teeth",
+                    "The way it moves symmetrically through the forest"
+                ],
+                correctAnswer: 1,
+                explanation: "'Fearful symmetry' refers to the awe-inspiring balance and perfection in the tiger's design—both beautiful and terrifying, suggesting divine craftsmanship.",
+                topic: "Imagery and divine creation"
+            },
+            {
+                id: 3,
+                category: "Robert Frost - Stopping by Woods",
+                question: "What does 'sleep' most likely symbolize in the repeated line 'miles to go before I sleep'?",
+                options: [
+                    "A temporary rest during the journey",
+                    "The final rest of death after life's duties",
+                    "The quiet of the snowy woods at night",
+                    "A metaphor for giving up on promises"
+                ],
+                correctAnswer: 1,
+                explanation: "While literally meaning rest, 'sleep' is widely interpreted as a metaphor for death, with 'miles to go' representing life's responsibilities before that final rest.",
+                topic: "Symbolism and mortality"
+            },
+            {
+                id: 4,
+                category: "Robert Frost - Stopping by Woods",
+                question: "What is the primary conflict in 'Stopping by Woods on a Snowy Evening'?",
+                options: [
+                    "Between the speaker and the horse he is riding",
+                    "Between the beauty of nature and the pull of responsibility",
+                    "Between winter's cold and the speaker's desire for warmth",
+                    "Between day and night, light and darkness"
+                ],
+                correctAnswer: 1,
+                explanation: "The central conflict is between the speaker's desire to stay and contemplate the beautiful, peaceful woods and his duty to keep his promises and continue his journey.",
+                topic: "Theme: duty vs. desire"
+            },
+            {
+                id: 5,
+                category: "Percy Bysshe Shelley - Ode to the West Wind",
+                question: "In 'Ode to the West Wind,' what literary device is used in 'like ghosts from an enchanter fleeing'?",
+                options: [
+                    "Metaphor directly calling leaves ghosts",
+                    "Simile comparing leaves to fleeing ghosts",
+                    "Personification giving ghosts human actions",
+                    "Allusion to magical folklore stories"
+                ],
+                correctAnswer: 1,
+                explanation: "This is a simile, explicitly using 'like' to compare the dead leaves driven by the wind to ghosts fleeing from a magician.",
+                topic: "Simile and natural imagery"
+            },
+            {
+                id: 6,
+                category: "Percy Bysshe Shelley - Ode to the West Wind",
+                question: "What is the 'West Wind' metaphorically called in the first line of the excerpt?",
+                options: [
+                    "The voice of winter's coming",
+                    "The breath of Autumn's being",
+                    "The hand of seasonal change",
+                    "The spirit of the dying year"
+                ],
+                correctAnswer: 1,
+                explanation: "Shelley addresses the wind as 'thou breath of Autumn's being,' a metaphor that presents the wind as the vital, animating force of the autumn season.",
+                topic: "Metaphor and personification"
+            },
+            {
+                id: 7,
+                category: "Emily Dickinson - Hope is the thing with feathers",
+                question: "What is the main metaphor in Dickinson's poem?",
+                options: [
+                    "Hope is a small, fragile bird in the soul",
+                    "Hope is a song without understandable words",
+                    "Hope is a feather that tickles the heart",
+                    "Hope is a creature that never eats or sleeps"
+                ],
+                correctAnswer: 0,
+                explanation: "The entire poem is built on an extended metaphor: 'Hope is the thing with feathers' compares the abstract concept of hope to a persistent, singing bird that lives within the human soul.",
+                topic: "Extended metaphor"
+            },
+            {
+                id: 8,
+                category: "Emily Dickinson - Hope is the thing with feathers",
+                question: "What human quality is given to hope in the line 'That perches in the soul'?",
+                options: [
+                    "The ability to fly away when threatened",
+                    "The need to build a nest for safety",
+                    "The action of perching, like a bird",
+                    "The desire to sing only in daylight"
+                ],
+                correctAnswer: 2,
+                explanation: "This is personification—giving the abstract concept of hope the physical, bird-like action of perching, making it a tangible, living presence within a person.",
+                topic: "Personification of abstract concepts"
+            },
+            {
+                id: 9,
+                category: "Lord Byron - She Walks in Beauty",
+                question: "What is the primary comparison in 'She Walks in Beauty'?",
+                options: [
+                    "The woman is compared to a bright sunny day",
+                    "The woman's beauty is compared to a clear, starry night",
+                    "The woman's movements are compared to a flowing river",
+                    "The woman's eyes are compared to dark clouds"
+                ],
+                correctAnswer: 1,
+                explanation: "Byron uses a simile: 'She walks in beauty, like the night / Of cloudless climes and starry skies,' comparing her grace and radiant beauty to a perfect, star-lit night.",
+                topic: "Simile and romantic imagery"
+            },
+            {
+                id: 10,
+                category: "Lord Byron - She Walks in Beauty",
+                question: "What does the phrase 'all that's best of dark and bright' suggest about the woman's beauty?",
+                options: [
+                    "It is confusing and difficult to understand",
+                    "It is a perfect balance of contrasting elements",
+                    "It changes drastically from moment to moment",
+                    "It is more bright than dark, more day than night"
+                ],
+                correctAnswer: 1,
+                explanation: "This line suggests her beauty harmoniously combines the best qualities of both darkness (mystery, depth) and light (radiance, purity), creating a balanced perfection.",
+                topic: "Theme: balance and harmony in beauty"
+            }
+        ]
+    },
+  {
+    title: "Poetry Analysis & Figurative Language",
+    questions: [
+      {
+        id: 1,
+        category: "Poetry Fundamentals",
+        question: "Which of the following best defines poetry according to the notes?",
+        options: [
+          "A spontaneous overflow of powerful feelings",
+          "Language arranged in definite rhythm, usually in verse",
+          "A momentary stay against confusion",
+          "The opening and closing of a door, leaving viewers to guess"
+        ],
+        correctAnswer: 1,
+        explanation: "The notes describe poetry as language with a definite rhythm or beat, usually arranged in verse, though it is also acknowledged to be more than just rhythm and rhyme.",
+        topic: "Definition of Poetry"
+      },
+      {
+        id: 2,
+        category: "Figurative Language",
+        question: "What is the key difference between literal and figurative language?",
+        options: [
+          "Literal language uses more complex vocabulary",
+          "Figurative language states meaning indirectly",
+          "Literal language is only used in formal writing",
+          "Figurative language avoids emotional content"
+        ],
+        correctAnswer: 1,
+        explanation: "Figurative language takes a roundabout path to meaning and is not intended to be interpreted directly, unlike literal language which says exactly what it means.",
+        topic: "Literal vs. Figurative Language"
+      },
+      {
+        id: 3,
+        category: "Figurative Language",
+        question: "Which term describes a direct comparison between two dissimilar things without using 'like' or 'as'?",
+        options: [
+          "Simile",
+          "Personification",
+          "Metaphor",
+          "Hyperbole"
+        ],
+        correctAnswer: 2,
+        explanation: "A metaphor is a figure of speech in which one thing stands for another, making an implicit comparison without using 'like' or 'as'.",
+        topic: "Metaphor"
+      },
+      {
+        id: 4,
+        category: "Figurative Language",
+        question: "In the line 'The waves sang to the moon,' which figure of speech is used?",
+        options: [
+          "Metonymy",
+          "Apostrophe",
+          "Personification",
+          "Consonance"
+        ],
+        correctAnswer: 2,
+        explanation: "Personification attributes human qualities (singing) to an inanimate object (the waves).",
+        topic: "Personification"
+      },
+      {
+        id: 5,
+        category: "Sound Devices",
+        question: "What is the repetition of the same consonant sound at the start of words called?",
+        options: [
+          "Assonance",
+          "Consonance",
+          "Alliteration",
+          "Refrain"
+        ],
+        correctAnswer: 2,
+        explanation: "Alliteration is the repetition of initial consonant sounds in neighboring words or stressed syllables.",
+        topic: "Alliteration"
+      },
+      {
+        id: 6,
+        category: "Sound Devices",
+        question: "Which device repeats vowel sounds in the middle of words?",
+        options: [
+          "Alliteration",
+          "Consonance",
+          "Assonance",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 2,
+        explanation: "Assonance is the repetition of vowel sounds within words that are close together.",
+        topic: "Assonance"
+      },
+      {
+        id: 7,
+        category: "Sound Devices",
+        question: "Consonance differs from alliteration because consonance:",
+        options: [
+          "Repeats only vowel sounds",
+          "Repeats sounds at the end of words",
+          "Repeats consonant sounds anywhere in words",
+          "Is only used in formal poetry"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance involves the repetition of consonant sounds anywhere in a word, not necessarily at the beginning.",
+        topic: "Consonance vs. Alliteration"
+      },
+      {
+        id: 8,
+        category: "Poetic Devices",
+        question: "What is a thematic line that repeats throughout a poem called?",
+        options: [
+          "Refrain",
+          "Stanza",
+          "Couplet",
+          "Enjambment"
+        ],
+        correctAnswer: 0,
+        explanation: "A refrain is a repeated line or group of lines, often used in poetry and songs to emphasize a theme.",
+        topic: "Refrain"
+      },
+      {
+        id: 9,
+        category: "Poetic Devices",
+        question: "Which figure of speech uses exaggerated statements not meant to be taken literally?",
+        options: [
+          "Irony",
+          "Apostrophe",
+          "Hyperbole",
+          "Symbol"
+        ],
+        correctAnswer: 2,
+        explanation: "Hyperbole is intentional overstatement or exaggeration used for emphasis or effect.",
+        topic: "Hyperbole"
+      },
+      {
+        id: 10,
+        category: "Poetic Devices",
+        question: "What is the term for addressing an absent person, dead figure, or abstract idea?",
+        options: [
+          "Metonymy",
+          "Apostrophe",
+          "Synecdoche",
+          "Allegory"
+        ],
+        correctAnswer: 1,
+        explanation: "Apostrophe is a direct address to someone or something not physically present, as if they could respond.",
+        topic: "Apostrophe"
+      },
+      {
+        id: 11,
+        category: "Types of Poetry",
+        question: "Which type of poetry tells a story with a plot, characters, and setting?",
+        options: [
+          "Lyric poetry",
+          "Dramatic poetry",
+          "Narrative poetry",
+          "Epic poetry"
+        ],
+        correctAnswer: 2,
+        explanation: "Narrative poetry tells a story, similar to prose narratives, but is written in verse with rhythm and sometimes rhyme.",
+        topic: "Narrative Poetry"
+      },
+      {
+        id: 12,
+        category: "Types of Poetry",
+        question: "In dramatic poetry, the speaker is typically:",
+        options: [
+          "The poet themselves",
+          "A fictional character distinct from the poet",
+          "An omniscient narrator",
+          "A chorus representing society"
+        ],
+        correctAnswer: 1,
+        explanation: "Dramatic poetry features a speaker who is clearly a character other than the poet, often in a monologue or dialogue.",
+        topic: "Dramatic Poetry"
+      },
+      {
+        id: 13,
+        category: "Types of Poetry",
+        question: "Lyric poetry is most closely associated with:",
+        options: [
+          "Epic storytelling",
+          "Musical expression and personal emotion",
+          "Dialogue between characters",
+          "Satirical commentary"
+        ],
+        correctAnswer: 1,
+        explanation: "Lyric poetry expresses personal thoughts and feelings in a musical, songlike manner, originally accompanied by a lyre.",
+        topic: "Lyric Poetry"
+      },
+      {
+        id: 14,
+        category: "Sonnet Analysis",
+        question: "In Shakespeare's 'Sonnet 18,' what does the speaker ultimately compare his beloved to?",
+        options: [
+          "A summer's day",
+          "The eternal sun",
+          "The poem itself",
+          "Death's shadow"
+        ],
+        correctAnswer: 2,
+        explanation: "The speaker concludes that the beloved's eternal beauty is best captured and preserved by the poem, making the poem itself the ultimate comparison.",
+        topic: "Sonnet 18 – Central Metaphor"
+      },
+      {
+        id: 15,
+        category: "Sonnet Analysis",
+        question: "What is the rhyme scheme of Shakespeare's 'Sonnet 18'?",
+        options: [
+          "abba abba cde cde",
+          "abab cdcd efef gg",
+          "aabb ccdd eeff gg",
+          "abab bcbc cdcd ee"
+        ],
+        correctAnswer: 1,
+        explanation: "The Shakespearean sonnet follows the rhyme scheme abab cdcd efef gg, consisting of three quatrains and a concluding couplet.",
+        topic: "Sonnet Form and Rhyme Scheme"
+      },
+      {
+        id: 16,
+        category: "Literary Devices in Sonnet 18",
+        question: "Which sound device is used in 'Nor lose possession of that fair thou ow’st'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 1,
+        explanation: "Assonance is present in the repetition of the long /o/ sound in 'lose,' 'possession,' and 'ow’st.'",
+        topic: "Assonance in Sonnet 18"
+      },
+      {
+        id: 17,
+        category: "Literary Devices in Sonnet 18",
+        question: "The line 'Rough winds do shake the darling buds of May' uses which figure of speech?",
+        options: [
+          "Simile",
+          "Personification",
+          "Metonymy",
+          "Hyperbole"
+        ],
+        correctAnswer: 1,
+        explanation: "Personification is used by giving human action ('shake') to the wind.",
+        topic: "Personification in Sonnet 18"
+      },
+      {
+        id: 18,
+        category: "Themes in Sonnet 18",
+        question: "Which theme is central to 'Sonnet 18'?",
+        options: [
+          "The cruelty of nature",
+          "The immortality of poetry",
+          "The pain of unrequited love",
+          "The passage of seasons"
+        ],
+        correctAnswer: 1,
+        explanation: "A major theme is the power of poetry to grant immortality, preserving the beloved's beauty beyond natural decay.",
+        topic: "Themes – Immortality of Art"
+      },
+      {
+        id: 19,
+        category: "Figurative Language",
+        question: "What is the term for substituting one thing with something closely associated with it (e.g., 'the White House' for 'the president')?",
+        options: [
+          "Synecdoche",
+          "Metonymy",
+          "Allegory",
+          "Euphemism"
+        ],
+        correctAnswer: 1,
+        explanation: "Metonymy replaces the name of something with the name of something else closely related to it.",
+        topic: "Metonymy"
+      },
+      {
+        id: 20,
+        category: "Figurative Language",
+        question: "Which device uses 'like' or 'as' to compare two essentially unlike things?",
+        options: [
+          "Metaphor",
+          "Simile",
+          "Analogy",
+          "Symbolism"
+        ],
+        correctAnswer: 1,
+        explanation: "A simile explicitly compares two different things using 'like' or 'as.'",
+        topic: "Simile"
+      },
+      {
+        id: 21,
+        category: "Sound Devices",
+        question: "The phrase 'dogs are frogs living in sprogs' demonstrates which sound device?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance is shown through the repetition of the /g/ and /s/ consonant sounds within the words.",
+        topic: "Consonance Example"
+      },
+      {
+        id: 22,
+        category: "Poetic Devices",
+        question: "Which term describes saying one thing but meaning the opposite, often for humorous or emphatic effect?",
+        options: [
+          "Hyperbole",
+          "Apostrophe",
+          "Irony",
+          "Paradox"
+        ],
+        correctAnswer: 2,
+        explanation: "Irony involves a discrepancy between literal meaning and intended meaning, often signaling the opposite.",
+        topic: "Irony"
+      },
+      {
+        id: 23,
+        category: "Poetic Devices",
+        question: "A symbol in poetry is defined as:",
+        options: [
+          "A direct comparison between two objects",
+          "A repeated line that emphasizes theme",
+          "An object that stands for an abstract idea",
+          "An exaggerated statement for effect"
+        ],
+        correctAnswer: 2,
+        explanation: "A symbol uses a concrete object to represent an abstract concept, such as a white hat symbolizing goodness.",
+        topic: "Symbol"
+      },
+      {
+        id: 24,
+        category: "Sonnet Structure",
+        question: "How many lines are in a Shakespearean sonnet?",
+        options: [
+          "12",
+          "14",
+          "16",
+          "18"
+        ],
+        correctAnswer: 1,
+        explanation: "A Shakespearean sonnet consists of 14 lines, typically divided into three quatrains and a final couplet.",
+        topic: "Sonnet Form"
+      },
+      {
+        id: 25,
+        category: "Poetry Analysis",
+        question: "In John Donne's 'The Flea,' what does the flea primarily symbolize?",
+        options: [
+          "Death and decay",
+          "The mixing of two lovers' blood",
+          "Religious sin and guilt",
+          "The fleeting nature of time"
+        ],
+        correctAnswer: 1,
+        explanation: "The flea represents the union of the two lovers through the mingling of their blood, used as a playful argument for physical intimacy.",
+        topic: "Symbolism in 'The Flea'"
+      }
+    ]
+  },
+   {
+    title: "Social Protest Poetry & Maya Angelou's 'Still I Rise'",
+    questions: [
+      {
+        id: 1,
+        category: "Social Protest Poetry",
+        question: "What is the primary aim of social protest poetry?",
+        options: [
+          "To entertain readers with beautiful language",
+          "To critique and mobilize against social injustice",
+          "To imitate traditional poetic forms and rhythms",
+          "To explore purely personal emotions in isolation"
+        ],
+        correctAnswer: 1,
+        explanation: "Social protest poetry intentionally addresses social, political, or economic injustice to expose, critique, and mobilize readers toward change.",
+        topic: "Definition of Social Protest Poetry"
+      },
+      {
+        id: 2,
+        category: "Social Protest Poetry",
+        question: "Which era of poetry reclaimed Black cultural representation and fused art with activism?",
+        options: [
+          "The Romantic Period",
+          "The Harlem Renaissance",
+          "The Victorian Era",
+          "The Beat Generation"
+        ],
+        correctAnswer: 1,
+        explanation: "The Harlem Renaissance (1920s–1930s) centered Black arts and expression, celebrating Black life while documenting systemic racism.",
+        topic: "Historical Context – Harlem Renaissance"
+      },
+      {
+        id: 3,
+        category: "Social Protest Poetry",
+        question: "Which characteristic of protest poetry uses 'we' to frame issues as systemic rather than personal?",
+        options: [
+          "Emotional intensity",
+          "Direct language",
+          "Collective voice",
+          "Imagery of liberation"
+        ],
+        correctAnswer: 2,
+        explanation: "The collective voice builds solidarity by speaking on behalf of a community, emphasizing shared systemic struggles.",
+        topic: "Characteristics – Collective Voice"
+      },
+      {
+        id: 4,
+        category: "Poetic Devices",
+        question: "In 'Still I Rise,' the line 'You may shoot me with your words' uses which figurative device?",
+        options: [
+          "Simile",
+          "Metaphor",
+          "Hyperbole",
+          "Personification"
+        ],
+        correctAnswer: 1,
+        explanation: "This is a metaphor—words are compared to weapons ('shoot') to emphasize the pain of hateful language.",
+        topic: "Metaphor in 'Still I Rise'"
+      },
+      {
+        id: 5,
+        category: "Poetic Devices",
+        question: "What figure of speech is used when the speaker directly addresses an absent oppressor as 'you'?",
+        options: [
+          "Apostrophe",
+          "Metonymy",
+          "Synecdoche",
+          "Irony"
+        ],
+        correctAnswer: 0,
+        explanation: "Apostrophe involves directly addressing someone or something absent, as Angelou does with the oppressive 'you.'",
+        topic: "Apostrophe in 'Still I Rise'"
+      },
+      {
+        id: 6,
+        category: "Poetic Structure",
+        question: "What is the rhyme scheme of the first stanza of 'Still I Rise'?",
+        options: [
+          "ABAB",
+          "AABB",
+          "ABCB",
+          "Free verse"
+        ],
+        correctAnswer: 2,
+        explanation: "The first quatrain rhymes the second and fourth lines ('lies' with 'rise'), following an ABCB pattern.",
+        topic: "Rhyme Scheme – Quatrain Structure"
+      },
+      {
+        id: 7,
+        category: "Themes",
+        question: "Which theme is most central to 'Still I Rise'?",
+        options: [
+          "The beauty of nature",
+          "Defiance in the face of oppression",
+          "The sorrow of lost love",
+          "The passage of time"
+        ],
+        correctAnswer: 1,
+        explanation: "The poem celebrates defiant resilience and triumph over systemic hatred and racism.",
+        topic: "Central Theme – Defiance"
+      },
+      {
+        id: 8,
+        category: "Themes",
+        question: "What does the speaker's rise from 'history’s shame' specifically allude to?",
+        options: [
+          "Personal financial failure",
+          "The institution of slavery",
+          "A failed romantic relationship",
+          "Natural disasters"
+        ],
+        correctAnswer: 1,
+        explanation: "'History's shame' is a metaphorical reference to the shameful legacy of slavery in America.",
+        topic: "Historical Allusion – Slavery"
+      },
+      {
+        id: 9,
+        category: "Poetic Devices",
+        question: "In the line 'I am a black ocean,' which literary device is used?",
+        options: [
+          "Simile",
+          "Personification",
+          "Metaphor",
+          "Alliteration"
+        ],
+        correctAnswer: 2,
+        explanation: "This is a metaphor—the speaker directly identifies herself as 'a black ocean,' embodying a natural force.",
+        topic: "Metaphor vs. Simile"
+      },
+      {
+        id: 10,
+        category: "Poetic Devices",
+        question: "Which device is evident in the repetition of 'I rise' throughout the poem?",
+        options: [
+          "Refrain",
+          "Enjambment",
+          "Consonance",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 0,
+        explanation: "The repeated line 'I rise' acts as a refrain, emphasizing the poem's central theme of resilience.",
+        topic: "Refrain in 'Still I Rise'"
+      },
+      {
+        id: 11,
+        category: "Social Protest Poetry",
+        question: "Why is social protest poetry considered both aesthetic and ethical?",
+        options: [
+          "It uses complex rhyme schemes only scholars understand",
+          "It creates beauty while making moral claims about justice",
+          "It avoids all political topics to remain universal",
+          "It is written only by established historical figures"
+        ],
+        correctAnswer: 1,
+        explanation: "Protest poetry merges artistic form with ethical purpose, using aesthetic tools to advocate for justice.",
+        topic: "Aesthetics and Ethics in Protest Poetry"
+      },
+      {
+        id: 12,
+        category: "Poetic Analysis",
+        question: "What does the speaker imply by comparing herself to 'dust' in the first stanza?",
+        options: [
+          "That she is insignificant and easily ignored",
+          "That she is created by God and equal to all",
+          "That she will disappear without a trace",
+          "That she is part of the earth's pollution"
+        ],
+        correctAnswer: 1,
+        explanation: "The dust allusion references biblical creation, asserting the speaker's God-given humanity and equality.",
+        topic: "Biblical Allusion – Dust"
+      },
+      {
+        id: 13,
+        category: "Poetic Analysis",
+        question: "How does the poem's structure change in the final stanzas?",
+        options: [
+          "It shifts from quatrains to a longer, irregular form",
+          "It becomes a strict sonnet with a couplet",
+          "It switches to prose poetry without line breaks",
+          "It adopts a haiku-like three-line format"
+        ],
+        correctAnswer: 0,
+        explanation: "The last two stanzas break from the quatrain form, using longer lines and repetition to build to a climax.",
+        topic: "Structural Shift in 'Still I Rise'"
+      },
+      {
+        id: 14,
+        category: "Themes",
+        question: "What does the speaker’s joy and pride represent in the face of oppression?",
+        options: [
+          "A naive ignorance of danger",
+          "An act of defiance and resistance",
+          "A desire for material wealth",
+          "A temporary emotional state"
+        ],
+        correctAnswer: 1,
+        explanation: "Her joy, laughter, and dance are presented as acts of defiance—refusing to be broken by hatred.",
+        topic: "Theme – Joy as Resistance"
+      }
+    ]
+  },
+];
     let state = {
             screen: 'selection', // 'selection', 'quiz', 'results'
             selectedExam: null,
