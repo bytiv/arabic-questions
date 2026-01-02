@@ -11,6 +11,12 @@
             --text-color: #1f2937;
             --muted: #6b7280;
             --accent: #9333ea;
+            --accent-2: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: #e5e7eb;
+            --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --exam-card-text: white;
             --card-bg: #f9fafb;
             --option-border: #d1d5db;
             --option-bg: white;
@@ -19,18 +25,113 @@
         }
 
         [data-theme="dark"] {
-            --bg-gradient: linear-gradient(180deg, #0f172a, #0b1220);
-            --container-bg: #071227;
-            --text-color: #e6eef8;
-            --muted: #9aa6b2;
-            --accent: #a78bfa;
-            --card-bg: #071029;
-            --option-border: #1f2937;
-            --option-bg: #071127;
-            --correct-bg: #052e16;
-            --incorrect-bg: #2b0b0b;
+                    /* VS Code-like very dark palette */
+                    --bg-gradient: linear-gradient(180deg, #0b1116, #07090b);
+                    --container-bg: #0b0f12;
+                    --text-color: #d4d4d4;
+                    --muted: #9aa3b2;
+                    --accent: #0ea5ff;
+                    --card-bg: #0d1114;
+                    --option-border: #1b2430;
+                    --option-bg: #0f1316;
+                    --correct-bg: #083b2e;
+                    --incorrect-bg: #3f1a1a;
+                    --accent-2: #2563eb;
+                    --success: #16a34a;
+                    --danger: #f87171;
+                    --border: #121720;
+                    --exam-card-bg: linear-gradient(135deg, #0f1724 0%, #0b1220 100%);
+                    --exam-card-text: var(--text-color);
             color-scheme: dark;
         }
+    [data-theme="dark"] {
+                /* Friendly Night Mode palette (softer, less high-contrast than true black) */
+                --bg-gradient: linear-gradient(180deg, #0f263b, #021526);
+                --container-bg: #071825;
+                --text-color: #dceefb;
+                --muted: #9fb6c8;
+                --accent: #60a5fa;
+                --accent-2: #38bdf8;
+                --success: #2dd4bf;
+                --danger: #fb7185;
+                --border: #123244;
+                --card-bg: #071a25;
+                --option-border: #123244;
+                --option-bg: #071a22;
+                --correct-bg: rgba(45,212,191,0.06);
+                --incorrect-bg: rgba(251,113,133,0.06);
+                --exam-card-bg: linear-gradient(135deg, #082433 0%, #04202b 100%);
+                --exam-card-text: #e6f3ff;
+                color-scheme: dark;
+            }
+
+        /* Dark-mode component overrides for better VS Code-like contrast */
+        [data-theme="dark"] .exam-card {
+            background: linear-gradient(135deg, #0f1724 0%, #0b1220 100%);
+            color: var(--text-color);
+            border-color: transparent;
+            box-shadow: 0 6px 12px rgba(2,6,23,0.6);
+        }
+
+        [data-theme="dark"] .exam-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(14,165,255,0.12);
+        }
+
+        [data-theme="dark"] .exam-card p {
+            color: var(--muted);
+        }
+
+        [data-theme="dark"] .option-btn:not(:disabled):hover {
+            border-color: var(--accent);
+            background: rgba(14,165,255,0.04);
+        }
+
+        [data-theme="dark"] .option-btn {
+            background: var(--option-bg);
+            border-color: var(--option-border);
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .option-btn.neutral { color: var(--muted); }
+
+        [data-theme="dark"] .option-btn.correct {
+            border-color: #10b981;
+            background: rgba(16,185,129,0.06);
+            color: #c7f7e6;
+        }
+
+        [data-theme="dark"] .option-btn.incorrect {
+            border-color: #ef4444;
+            background: rgba(239,68,68,0.06);
+            color: #ffd6d6;
+        }
+
+        [data-theme="dark"] .explanation-box.correct {
+            background: rgba(6,78,59,0.12);
+            border-color: rgba(16,185,129,0.18);
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .explanation-box.incorrect {
+            background: rgba(76,29,29,0.12);
+            border-color: rgba(239,68,68,0.18);
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .next-btn {
+            background: linear-gradient(to right, #0ea5ff, #2563eb);
+            color: white;
+        }
+
+        [data-theme="dark"] .results-container .final-score {
+            color: var(--accent);
+        }
+
+        [data-theme="dark"] .category-stats { background: #0b0f12; border-color: #121721; }
+
+        [data-theme="dark"] .stat-item { background: #0d1114; border-color: #121720; color: var(--text-color); }
+
 
         /* Theme toggle button */
         #theme-toggle {
@@ -82,7 +183,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+                    background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -93,9 +194,9 @@
         .container {
             max-width: 48rem;
             width: 100%;
-            background: white;
+                    background: var(--container-bg);
             border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                    box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12);
             padding: 2rem;
         }
 
@@ -107,13 +208,13 @@
         .exam-selection h1 {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #1f2937;
+                    color: var(--text-color);
             margin-bottom: 1rem;
         }
 
         .exam-selection p {
             font-size: 1.25rem;
-            color: #6b7280;
+                    color: var(--muted);
             margin-bottom: 2rem;
         }
 
@@ -125,15 +226,15 @@
         }
 
         .exam-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 3px solid transparent;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
+                    background: var(--exam-card-bg);
+                    color: var(--exam-card-text);
+                    padding: 2rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    border: 3px solid transparent;
+                    box-shadow: 0 4px 6px -1px rgba(2,6,23,0.22);
+                }
 
         .exam-card:hover {
             transform: translateY(-5px);
@@ -147,9 +248,9 @@
         }
 
         .exam-card p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
+                    font-size: 1rem;
+                    color: var(--exam-card-text);
+                }
 
         .exam-card .question-count {
             margin-top: 1rem;
@@ -168,7 +269,7 @@
         .header h1 {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #1f2937;
+                    color: var(--text-color);
         }
 
         .score-info {
@@ -177,16 +278,16 @@
 
         .score-info .question-number {
             font-size: 0.875rem;
-            color: #6b7280;
+            color: var(--muted);
         }
 
         .score-info .score {
             font-weight: bold;
-            color: #9333ea;
+            color: var(--accent);
         }
 
         .question-container {
-            background: #f9fafb;
+            background: var(--card-bg);
             border-radius: 0.75rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -218,8 +319,8 @@
             padding: 1.25rem;
             text-align: right;
             border-radius: 0.75rem;
-            border: 2px solid #d1d5db;
-            background: white;
+            border: 2px solid var(--option-border);
+            background: var(--option-bg);
             font-size: 1.125rem;
             font-weight: 600;
             cursor: pointer;
@@ -230,8 +331,8 @@
         }
 
         .option-btn:not(:disabled):hover {
-            border-color: #a855f7;
-            background: #faf5ff;
+            border-color: var(--accent);
+            background: rgba(14,165,255,0.04);
         }
 
         .option-btn:disabled {
@@ -239,21 +340,21 @@
         }
 
         .option-btn.correct {
-            border-color: #10b981;
-            background: #f0fdf4;
+            border-color: var(--success);
+            background: var(--correct-bg);
             color: #065f46;
         }
 
         .option-btn.incorrect {
-            border-color: #ef4444;
-            background: #fef2f2;
+            border-color: var(--danger);
+            background: var(--incorrect-bg);
             color: #991b1b;
         }
 
         .option-btn.neutral {
-            border-color: #d1d5db;
-            background: #f9fafb;
-            color: #6b7280;
+            border-color: var(--option-border);
+            background: var(--card-bg);
+            color: var(--muted);
         }
 
         .icon {
@@ -270,13 +371,13 @@
         }
 
         .explanation-box.correct {
-            background: #f0fdf4;
-            border-color: #86efac;
+            background: var(--correct-bg);
+            border-color: rgba(16,185,129,0.35);
         }
 
         .explanation-box.incorrect {
-            background: #fef2f2;
-            border-color: #fca5a5;
+            background: var(--incorrect-bg);
+            border-color: rgba(239,68,68,0.28);
         }
 
         .explanation-title {
@@ -287,7 +388,7 @@
         }
 
         .explanation-content {
-            background: white;
+            background: var(--option-bg);
             padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 0.75rem;
@@ -295,27 +396,27 @@
 
         .explanation-text {
             text-align: right;
-            color: #1f2937;
+            color: var(--text-color);
             line-height: 1.75;
             font-size: 1.125rem;
         }
 
         .explanation-text strong {
-            color: #7c3aed;
+            color: var(--accent);
         }
 
         .topic-info {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #1d4ed8;
+            color: var(--accent);
             text-align: right;
             font-weight: 600;
         }
 
         .next-btn {
             width: 100%;
-            background: linear-gradient(to right, #9333ea, #3b82f6);
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
             color: white;
             padding: 1rem;
             border-radius: 0.75rem;
@@ -324,32 +425,32 @@
             border: none;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(2,6,23,0.18);
         }
 
         .next-btn:hover {
-            background: linear-gradient(to right, #7c3aed, #2563eb);
+            filter: brightness(0.98);
         }
 
         .current-score {
             text-align: center;
             margin-top: 1.5rem;
             padding-top: 1rem;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
             font-size: 1.125rem;
         }
 
         .current-score .score-value {
             font-weight: bold;
-            color: #9333ea;
+            color: var(--accent);
             font-size: 1.25rem;
         }
 
         .restart-btn {
             padding: 0.75rem 1.5rem;
-            background: white;
-            border: 1px solid #d1d5db;
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
             border-radius: 0.75rem;
             font-weight: 600;
             cursor: pointer;
@@ -357,12 +458,12 @@
         }
 
         .restart-btn:hover {
-            background: #f9fafb;
+            background: var(--card-bg);
         }
 
         .back-to-menu-btn {
             padding: 0.75rem 1.5rem;
-            background: linear-gradient(to right, #9333ea, #3b82f6);
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
             color: white;
             border: none;
             border-radius: 0.75rem;
@@ -373,7 +474,7 @@
         }
 
         .back-to-menu-btn:hover {
-            background: linear-gradient(to right, #7c3aed, #2563eb);
+            filter: brightness(0.98);
         }
 
         /* Results Page Styles */
@@ -392,19 +493,19 @@
             font-size: 2.25rem;
             font-weight: bold;
             margin-bottom: 1rem;
-            color: #1f2937;
+            color: var(--text-color);
         }
 
         .final-score {
             font-size: 4.5rem;
             font-weight: bold;
-            color: #3b82f6;
+            color: var(--accent);
             margin-bottom: 0.75rem;
         }
 
         .percentage {
             font-size: 1.875rem;
-            color: #6b7280;
+            color: var(--muted);
             margin-bottom: 1rem;
         }
 
@@ -415,7 +516,7 @@
         }
 
         .category-stats {
-            background: #f9fafb;
+            background: var(--card-bg);
             border-radius: 0.75rem;
             padding: 1.5rem;
             margin-bottom: 2rem;
@@ -425,7 +526,7 @@
             font-weight: bold;
             font-size: 1.25rem;
             margin-bottom: 1rem;
-            color: #1f2937;
+            color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -433,9 +534,9 @@
 
         .stat-item {
             padding: 1rem;
-            background: white;
+            background: var(--option-bg);
             border-radius: 0.75rem;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border);
             margin-bottom: 0.75rem;
         }
 
@@ -463,7 +564,7 @@
 
         .btn-primary {
             flex: 1;
-            background: linear-gradient(to right, #9333ea, #3b82f6);
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
             color: white;
             padding: 0.75rem;
             border-radius: 0.75rem;
@@ -474,13 +575,13 @@
         }
 
         .btn-primary:hover {
-            background: linear-gradient(to right, #7c3aed, #2563eb);
+            filter: brightness(0.98);
         }
 
         .btn-secondary {
             flex: 1;
-            border: 2px solid #d1d5db;
-            background: white;
+            border: 2px solid var(--option-border);
+            background: var(--option-bg);
             padding: 0.75rem;
             border-radius: 0.75rem;
             font-weight: 600;
@@ -489,20 +590,20 @@
         }
 
         .btn-secondary:hover {
-            background: #f9fafb;
+            background: var(--card-bg);
         }
 
         .final-stats {
             margin-top: 1.5rem;
             text-align: center;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             padding-top: 1rem;
-            color: #6b7280;
+            color: var(--muted);
             font-size: 1.125rem;
         }
 
         .final-stats .final-score-value {
             font-weight: bold;
-            color: #9333ea;
+            color: var(--accent);
             font-size: 1.25rem;
         }
