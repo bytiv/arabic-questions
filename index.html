@@ -13,306 +13,7 @@
     <script>
 
 const examSets = [
-  {
-    title: "Last year final Exam",
-    questions: [
-      {
-        id: 1,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'I wandered lonely as a cloud'",
-        options: [
-          "Metaphor",
-          "Simile",
-          "Personification",
-          "Apostrophe"
-        ],
-        correctAnswer: 1,
-        explanation: "Simile: A comparison between two different things using 'like' or 'as.' Here, the poet compares himself to a cloud using 'as.'",
-        topic: "Simile"
-      },
-      {
-        id: 2,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'Shall I compare thee to a summer's day?'",
-        options: [
-          "Metaphor",
-          "Rhetorical question",
-          "Hyperbole",
-          "Antithesis"
-        ],
-        correctAnswer: 1,
-        explanation: "Rhetorical question: A question asked for effect, not to receive an answer, used to emphasize a point or provoke thought.",
-        topic: "Rhetorical Question"
-      },
-      {
-        id: 3,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'The wind was a knife cutting through our garments'",
-        options: [
-          "Simile",
-          "Personification",
-          "Metaphor",
-          "Symbol"
-        ],
-        correctAnswer: 2,
-        explanation: "Metaphor: A direct comparison between two unlike things without using 'like' or 'as.' The wind is directly called a knife.",
-        topic: "Metaphor"
-      },
-      {
-        id: 4,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'And then my heart with pleasure fills / And dances with the daffodils'",
-        options: [
-          "Apostrophe",
-          "Simile",
-          "Personification",
-          "Alliteration"
-        ],
-        correctAnswer: 2,
-        explanation: "Personification: Giving human qualities (dancing) to a non-human thing (heart).",
-        topic: "Personification"
-      },
-      {
-        id: 5,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'Break, break, break'",
-        options: [
-          "Refrain",
-          "Repetition",
-          "Assonance",
-          "Consonance"
-        ],
-        correctAnswer: 1,
-        explanation: "Repetition: The intentional reuse of a word or phrase for emphasis and rhythmic effect.",
-        topic: "Repetition"
-      },
-      {
-        id: 6,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'On thy cold gray stones, O Sea!'",
-        options: [
-          "Apostrophe",
-          "Metonymy",
-          "Irony",
-          "Hyperbole"
-        ],
-        correctAnswer: 0,
-        explanation: "Apostrophe: A direct address to an absent person, abstract idea, or inanimate object (the Sea) as if it could respond.",
-        topic: "Apostrophe"
-      },
-      {
-        id: 7,
-        category: "Figures of Speech",
-        question: "Identify the figure of speech: 'when I consider how my light is spent'",
-        options: [
-          "Visual imagery",
-          "Metaphor",
-          "Simile",
-          "Symbol"
-        ],
-        correctAnswer: 1,
-        explanation: "Metaphor: 'Light' is used metaphorically to represent sight, talent, or life, not literal light.",
-        topic: "Metaphor (Extended)"
-      },
-      {
-        id: 8,
-        category: "Poetic Terms",
-        question: "What is the term for 'comparing two things using like, as, or similar to'?",
-        options: [
-          "Metaphor",
-          "Analogy",
-          "Simile",
-          "Conceit"
-        ],
-        correctAnswer: 2,
-        explanation: "Simile: A figure of speech that explicitly compares two unlike things using 'like' or 'as.'",
-        topic: "Definition: Simile"
-      },
-      {
-        id: 9,
-        category: "Poetic Terms",
-        question: "What is 'exaggeration of action or qualities' called?",
-        options: [
-          "Irony",
-          "Understatement",
-          "Hyperbole",
-          "Paradox"
-        ],
-        correctAnswer: 2,
-        explanation: "Hyperbole: Intentional exaggeration for emphasis or dramatic effect.",
-        topic: "Definition: Hyperbole"
-      },
-      {
-        id: 10,
-        category: "Poetic Terms",
-        question: "What is 'giving human qualities to an inanimate thing' called?",
-        options: [
-          "Apostrophe",
-          "Personification",
-          "Allegory",
-          "Synecdoche"
-        ],
-        correctAnswer: 1,
-        explanation: "Personification: Attributing human characteristics to animals, objects, or abstract ideas.",
-        topic: "Definition: Personification"
-      },
-      {
-        id: 11,
-        category: "Poetic Terms",
-        question: "What is 'a question to which the answer is obvious or not needed' called?",
-        options: [
-          "Interrogative",
-          "Rhetorical question",
-          "Hypophora",
-          "Inquiry"
-        ],
-        correctAnswer: 1,
-        explanation: "Rhetorical question: A question asked to make a point rather than to elicit an answer.",
-        topic: "Definition: Rhetorical Question"
-      },
-      {
-        id: 12,
-        category: "Poetic Terms",
-        question: "What is 'contrast and sharp opposition between words in poetry' called?",
-        options: [
-          "Oxymoron",
-          "Antithesis",
-          "Paradox",
-          "Juxtaposition"
-        ],
-        correctAnswer: 1,
-        explanation: "Antithesis: The juxtaposition of contrasting ideas in balanced phrases or clauses.",
-        topic: "Definition: Antithesis"
-      },
-      {
-        id: 13,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'Give crowns and pounds and guineas'?",
-        options: [
-          "Alliteration",
-          "Assonance",
-          "Consonance",
-          "Rhyme"
-        ],
-        correctAnswer: 2,
-        explanation: "Consonance: Repetition of consonant sounds within or at the end of words ('crowns,' 'pounds,' 'guineas').",
-        topic: "Consonance"
-      },
-      {
-        id: 14,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'And shakes this fragile frame with throbbings of noontide'?",
-        options: [
-          "Assonance",
-          "Consonance",
-          "Alliteration",
-          "Onomatopoeia"
-        ],
-        correctAnswer: 2,
-        explanation: "Alliteration: Repetition of the initial consonant sound, as in 'fragile frame.'",
-        topic: "Alliteration"
-      },
-      {
-        id: 15,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'So you left me in secret sad and sorrow'?",
-        options: [
-          "Assonance",
-          "Consonance",
-          "Alliteration",
-          "Refrain"
-        ],
-        correctAnswer: 2,
-        explanation: "Alliteration: Repetition of the 's' sound at the beginning of 'secret,' 'sad,' and 'sorrow.'",
-        topic: "Alliteration"
-      },
-{
-        id: 16,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'Could lonely wait my endless rest With equanimity'?",
-        options: [
-          "Alliteration",
-          "Assonance",
-          "Consonance",
-          "Rhyme"
-        ],
-        correctAnswer: 2,
-        explanation: "Consonance: Repetition of consonant sounds, such as the 'l' sound in 'lonely,' 'endless,' and the 'n' sounds in 'lonely,' 'endless,' and 'equanimity.'",
-        topic: "Consonance"
-      },
-{
-  id: 17,
-  category: "Musical Devices",
-  question: "What musical device is used in: 'A violet by a mossy stone Half hidden from the eye!'?",
-  options: [
-    "Alliteration",
-    "Assonance",
-    "Consonance",
-    "Onomatopoeia"
-  ],
-  correctAnswer: 0,
-  explanation: "Alliteration: repetition of the initial 'h' sound in 'Half hidden.'",
-  topic: "Alliteration"
-},
-      {
-        id: 18,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'Come live with me and be my love, / And we will all the pleasures prove'?",
-        options: [
-          "Alliteration",
-          "Rhyme scheme",
-          "Refrain",
-          "Meter"
-        ],
-        correctAnswer: 1,
-        explanation: "Rhyme scheme: The pattern of rhymes at the end of lines, here 'love' and 'prove' rhyme.",
-        topic: "Rhyme Scheme"
-      },
-      {
-        id: 19,
-        category: "Musical Devices",
-        question: "What musical device is used in: 'She dwelt among the untrodden ways Beside the springs of Dove,'?",
-        options: [
-          "Alliteration",
-          "Assonance",
-          "Consonance",
-          "Rhyme"
-        ],
-        correctAnswer: 2,
-        explanation: "Consonance: Repetition of consonant sounds, such as the 'd' in 'dwelt,' 'untrodden,' and 'Dove.'",
-        topic: "Consonance"
-      },
-      {
-        id: 20,
-        category: "Figures of Speech",
-        question: "Which term describes 'words that have an identical or similar meaning'?",
-        options: [
-          "Antonyms",
-          "Homophones",
-          "Synonyms",
-          "Homonyms"
-        ],
-        correctAnswer: 2,
-        explanation: "Synonyms: Words that have the same or nearly the same meaning as another word.",
-        topic: "Definition: Synonyms" 
-      },
-
-      // {
-      //   id: 1,
-      //   category: "Stanza Analysis",
-      //   question: "Read the following stanza from Thomas Hardy's poem. Which analysis best explains its central themes and literary devices?\n\nI look into my glass,\nAnd view my wasting skin,\nAnd say, 'Would God it came to pass\nMy heart had shrunk as thin!'\nFor then, I, undistrest\nBy hearts grown cold to me,\nCould lonely wait my endless rest\nWith equanimity.\nBut Time, to make me grieve,\nPart steals, lets part abide;",
-      //   options: [
-      //     "This Hardy poem contrasts physical aging with emotional pain. The speaker's body ages with wasting skin but his heart stays young, still feeling hurt from rejection. He wishes his heart had shrunk too so he could face death or endless rest calmly. Time is personified as cruel, taking youth but leaving emotional suffering. Main devices are metaphor, personification, imagery, euphemism, and irony.",
-      //     "The poem explores the theme of spiritual renewal and divine forgiveness. The 'glass' symbolizes a mirror of the soul, and 'wasting skin' reflects moral decay. The speaker prays for a heart as thin as his skin to achieve purity. Time is shown as a benevolent force that removes sin but preserves faith, using allegory and biblical allusion.",
-      //     "This stanza presents a meditation on artistic creation and intellectual decline. The 'glass' represents the poet's fading inspiration, and 'wasting skin' signifies lost creativity. The speaker desires emotional detachment to focus on his work. Time is personified as a thief of talent, employing metaphors of theft and imagery of emptiness.",
-      //     "The poem deals with social isolation and economic hardship in old age. The 'wasting skin' is a metaphor for poverty and neglect, while the 'heart' symbolizes unfulfilled desires for companionship. The speaker critiques a society that abandons the elderly, using irony and social commentary to highlight injustice."
-      //   ],
-      //   correctAnswer: 0,
-      //   explanation: "Option 1 correctly identifies the central contrast between physical aging and enduring emotional pain, the speaker's wish for emotional numbness, the personification of Time as cruel, and the key literary devices used (metaphor, personification, imagery, euphemism, irony).",
-      //   topic: "Poetic Analysis: Theme, Contrast & Devices"
-      // }
-    ]
-  },
+  
         {
         title: "Introduction to Poetry Fundamentals Quiz",
         questions: [
@@ -2360,7 +2061,307 @@ const examSets = [
         topic: "Understanding Metaphor - How Comparisons Work"
       }
     ]
-  }
+  },
+  {
+    title: "Last year final Exam || not recommended",
+    questions: [
+      {
+        id: 1,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'I wandered lonely as a cloud'",
+        options: [
+          "Metaphor",
+          "Simile",
+          "Personification",
+          "Apostrophe"
+        ],
+        correctAnswer: 1,
+        explanation: "Simile: A comparison between two different things using 'like' or 'as.' Here, the poet compares himself to a cloud using 'as.'",
+        topic: "Simile"
+      },
+      {
+        id: 2,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'Shall I compare thee to a summer's day?'",
+        options: [
+          "Metaphor",
+          "Rhetorical question",
+          "Hyperbole",
+          "Antithesis"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhetorical question: A question asked for effect, not to receive an answer, used to emphasize a point or provoke thought.",
+        topic: "Rhetorical Question"
+      },
+      {
+        id: 3,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'The wind was a knife cutting through our garments'",
+        options: [
+          "Simile",
+          "Personification",
+          "Metaphor",
+          "Symbol"
+        ],
+        correctAnswer: 2,
+        explanation: "Metaphor: A direct comparison between two unlike things without using 'like' or 'as.' The wind is directly called a knife.",
+        topic: "Metaphor"
+      },
+      {
+        id: 4,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'And then my heart with pleasure fills / And dances with the daffodils'",
+        options: [
+          "Apostrophe",
+          "Simile",
+          "Personification",
+          "Alliteration"
+        ],
+        correctAnswer: 2,
+        explanation: "Personification: Giving human qualities (dancing) to a non-human thing (heart).",
+        topic: "Personification"
+      },
+      {
+        id: 5,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'Break, break, break'",
+        options: [
+          "Refrain",
+          "Repetition",
+          "Assonance",
+          "Consonance"
+        ],
+        correctAnswer: 1,
+        explanation: "Repetition: The intentional reuse of a word or phrase for emphasis and rhythmic effect.",
+        topic: "Repetition"
+      },
+      {
+        id: 6,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'On thy cold gray stones, O Sea!'",
+        options: [
+          "Apostrophe",
+          "Metonymy",
+          "Irony",
+          "Hyperbole"
+        ],
+        correctAnswer: 0,
+        explanation: "Apostrophe: A direct address to an absent person, abstract idea, or inanimate object (the Sea) as if it could respond.",
+        topic: "Apostrophe"
+      },
+      {
+        id: 7,
+        category: "Figures of Speech",
+        question: "Identify the figure of speech: 'when I consider how my light is spent'",
+        options: [
+          "Visual imagery",
+          "Metaphor",
+          "Simile",
+          "Symbol"
+        ],
+        correctAnswer: 1,
+        explanation: "Metaphor: 'Light' is used metaphorically to represent sight, talent, or life, not literal light.",
+        topic: "Metaphor (Extended)"
+      },
+      {
+        id: 8,
+        category: "Poetic Terms",
+        question: "What is the term for 'comparing two things using like, as, or similar to'?",
+        options: [
+          "Metaphor",
+          "Analogy",
+          "Simile",
+          "Conceit"
+        ],
+        correctAnswer: 2,
+        explanation: "Simile: A figure of speech that explicitly compares two unlike things using 'like' or 'as.'",
+        topic: "Definition: Simile"
+      },
+      {
+        id: 9,
+        category: "Poetic Terms",
+        question: "What is 'exaggeration of action or qualities' called?",
+        options: [
+          "Irony",
+          "Understatement",
+          "Hyperbole",
+          "Paradox"
+        ],
+        correctAnswer: 2,
+        explanation: "Hyperbole: Intentional exaggeration for emphasis or dramatic effect.",
+        topic: "Definition: Hyperbole"
+      },
+      {
+        id: 10,
+        category: "Poetic Terms",
+        question: "What is 'giving human qualities to an inanimate thing' called?",
+        options: [
+          "Apostrophe",
+          "Personification",
+          "Allegory",
+          "Synecdoche"
+        ],
+        correctAnswer: 1,
+        explanation: "Personification: Attributing human characteristics to animals, objects, or abstract ideas.",
+        topic: "Definition: Personification"
+      },
+      {
+        id: 11,
+        category: "Poetic Terms",
+        question: "What is 'a question to which the answer is obvious or not needed' called?",
+        options: [
+          "Interrogative",
+          "Rhetorical question",
+          "Hypophora",
+          "Inquiry"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhetorical question: A question asked to make a point rather than to elicit an answer.",
+        topic: "Definition: Rhetorical Question"
+      },
+      {
+        id: 12,
+        category: "Poetic Terms",
+        question: "What is 'contrast and sharp opposition between words in poetry' called?",
+        options: [
+          "Oxymoron",
+          "Antithesis",
+          "Paradox",
+          "Juxtaposition"
+        ],
+        correctAnswer: 1,
+        explanation: "Antithesis: The juxtaposition of contrasting ideas in balanced phrases or clauses.",
+        topic: "Definition: Antithesis"
+      },
+      {
+        id: 13,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Give crowns and pounds and guineas'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds within or at the end of words ('crowns,' 'pounds,' 'guineas').",
+        topic: "Consonance"
+      },
+      {
+        id: 14,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'And shakes this fragile frame with throbbings of noontide'?",
+        options: [
+          "Assonance",
+          "Consonance",
+          "Alliteration",
+          "Onomatopoeia"
+        ],
+        correctAnswer: 2,
+        explanation: "Alliteration: Repetition of the initial consonant sound, as in 'fragile frame.'",
+        topic: "Alliteration"
+      },
+      {
+        id: 15,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'So you left me in secret sad and sorrow'?",
+        options: [
+          "Assonance",
+          "Consonance",
+          "Alliteration",
+          "Refrain"
+        ],
+        correctAnswer: 2,
+        explanation: "Alliteration: Repetition of the 's' sound at the beginning of 'secret,' 'sad,' and 'sorrow.'",
+        topic: "Alliteration"
+      },
+{
+        id: 16,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Could lonely wait my endless rest With equanimity'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds, such as the 'l' sound in 'lonely,' 'endless,' and the 'n' sounds in 'lonely,' 'endless,' and 'equanimity.'",
+        topic: "Consonance"
+      },
+{
+  id: 17,
+  category: "Musical Devices",
+  question: "What musical device is used in: 'A violet by a mossy stone Half hidden from the eye!'?",
+  options: [
+    "Alliteration",
+    "Assonance",
+    "Consonance",
+    "Onomatopoeia"
+  ],
+  correctAnswer: 0,
+  explanation: "Alliteration: repetition of the initial 'h' sound in 'Half hidden.'",
+  topic: "Alliteration"
+},
+      {
+        id: 18,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'Come live with me and be my love, / And we will all the pleasures prove'?",
+        options: [
+          "Alliteration",
+          "Rhyme scheme",
+          "Refrain",
+          "Meter"
+        ],
+        correctAnswer: 1,
+        explanation: "Rhyme scheme: The pattern of rhymes at the end of lines, here 'love' and 'prove' rhyme.",
+        topic: "Rhyme Scheme"
+      },
+      {
+        id: 19,
+        category: "Musical Devices",
+        question: "What musical device is used in: 'She dwelt among the untrodden ways Beside the springs of Dove,'?",
+        options: [
+          "Alliteration",
+          "Assonance",
+          "Consonance",
+          "Rhyme"
+        ],
+        correctAnswer: 2,
+        explanation: "Consonance: Repetition of consonant sounds, such as the 'd' in 'dwelt,' 'untrodden,' and 'Dove.'",
+        topic: "Consonance"
+      },
+      {
+        id: 20,
+        category: "Figures of Speech",
+        question: "Which term describes 'words that have an identical or similar meaning'?",
+        options: [
+          "Antonyms",
+          "Homophones",
+          "Synonyms",
+          "Homonyms"
+        ],
+        correctAnswer: 2,
+        explanation: "Synonyms: Words that have the same or nearly the same meaning as another word.",
+        topic: "Definition: Synonyms" 
+      },
+
+      // {
+      //   id: 1,
+      //   category: "Stanza Analysis",
+      //   question: "Read the following stanza from Thomas Hardy's poem. Which analysis best explains its central themes and literary devices?\n\nI look into my glass,\nAnd view my wasting skin,\nAnd say, 'Would God it came to pass\nMy heart had shrunk as thin!'\nFor then, I, undistrest\nBy hearts grown cold to me,\nCould lonely wait my endless rest\nWith equanimity.\nBut Time, to make me grieve,\nPart steals, lets part abide;",
+      //   options: [
+      //     "This Hardy poem contrasts physical aging with emotional pain. The speaker's body ages with wasting skin but his heart stays young, still feeling hurt from rejection. He wishes his heart had shrunk too so he could face death or endless rest calmly. Time is personified as cruel, taking youth but leaving emotional suffering. Main devices are metaphor, personification, imagery, euphemism, and irony.",
+      //     "The poem explores the theme of spiritual renewal and divine forgiveness. The 'glass' symbolizes a mirror of the soul, and 'wasting skin' reflects moral decay. The speaker prays for a heart as thin as his skin to achieve purity. Time is shown as a benevolent force that removes sin but preserves faith, using allegory and biblical allusion.",
+      //     "This stanza presents a meditation on artistic creation and intellectual decline. The 'glass' represents the poet's fading inspiration, and 'wasting skin' signifies lost creativity. The speaker desires emotional detachment to focus on his work. Time is personified as a thief of talent, employing metaphors of theft and imagery of emptiness.",
+      //     "The poem deals with social isolation and economic hardship in old age. The 'wasting skin' is a metaphor for poverty and neglect, while the 'heart' symbolizes unfulfilled desires for companionship. The speaker critiques a society that abandons the elderly, using irony and social commentary to highlight injustice."
+      //   ],
+      //   correctAnswer: 0,
+      //   explanation: "Option 1 correctly identifies the central contrast between physical aging and enduring emotional pain, the speaker's wish for emotional numbness, the personification of Time as cruel, and the key literary devices used (metaphor, personification, imagery, euphemism, irony).",
+      //   topic: "Poetic Analysis: Theme, Contrast & Devices"
+      // }
+    ]
+  },
 ];
     
 
