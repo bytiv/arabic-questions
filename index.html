@@ -19,477 +19,957 @@ const examSets = [
         questions: [
             {
                 id: 1,
-                category: "Terminology",
-                question: "The Greek word 'krino' contributes which specific meaning to the word 'critic'?",
+                category: "Etymology",
+                question: "The Greek word 'krites' means:",
                 options: [
-                    "It means 'judgment' and refers to the act of evaluating or deciding",
-                    "It means 'judge' and refers to the person who performs the criticism",
-                    "It means 'writing' and refers to the textual nature of literary criticism",
-                    "It means 'analysis' and refers to the method of breaking down a text"
+                    "A judge — the person who evaluates",
+                    "A judgment — the act of evaluating",
+                    "A writer — the person who creates",
+                    "A method — the process of analysis"
                 ],
                 correctAnswer: 0,
-                explanation: "'Krino' means 'judgment' (the act), while 'krites' means 'judge' (the person). Literary critics (kritikos) are 'literary judges' combining both words.",
-                topic: "Etymology of Criticism"
+                explanation: "Pair to memorize: 'krino' = judgment (the act), 'krites' = judge (the person). Together → 'kritikos' = literary judges.",
+                topic: "Origin of the Word Critic"
             },
             {
                 id: 2,
-                category: "Definition",
-                question: "Which of the following most accurately describes what literary criticism does as a discipline?",
+                category: "Definitions",
+                question: "Literary criticism involves five activities. Which list is correct?",
                 options: [
-                    "It produces new fictional narratives inspired by existing literary works and genres",
-                    "It defines, classifies by genre, analyzes structure and style, interprets meaning, and evaluates worth",
-                    "It translates literary works across languages and adapts them for modern audiences",
-                    "It documents biographical facts about authors and compiles historical publication records"
+                    "Defining, classifying, analyzing, interpreting, evaluating",
+                    "Defining, translating, analyzing, interpreting, comparing",
+                    "Describing, classifying, summarizing, interpreting, publishing",
+                    "Defining, classifying, analyzing, rewriting, evaluating"
                 ],
-                correctAnswer: 1,
-                explanation: "Literary criticism is the overall term for studies concerned with defining, classifying (by genre), analyzing (structure and style), interpreting (meaning), and evaluating (worth by comparison) works of literature.",
+                correctAnswer: 0,
+                explanation: "The 5-step chain: Define → Classify (genre) → Analyze (structure & style) → Interpret (meaning) → Evaluate (judge worth by comparison).",
                 topic: "Definition of Literary Criticism"
             },
             {
                 id: 3,
-                category: "Literary Theory",
-                question: "How does literary theory function in relation to literary criticism?",
+                category: "Definitions",
+                question: "A literary theory acts as a 'critical lens.' This means it:",
                 options: [
-                    "It replaces the need for criticism by offering definitive interpretations of canonical texts",
-                    "It serves as a critical lens — a guiding idea with specific assumptions through which a text is analyzed",
-                    "It focuses exclusively on the historical background of texts without offering interpretive tools",
-                    "It provides a strict methodology for editing and publishing literary manuscripts"
+                    "Gives a final definitive interpretation of any text",
+                    "Provides assumptions through which a critic analyzes a text",
+                    "Replaces the critic's personal judgment entirely",
+                    "Focuses only on the biography of the author"
                 ],
                 correctAnswer: 1,
-                explanation: "Literary theory is the idea that guides literary criticism. It acts as a critical lens through which a critic evaluates a text based on specific assumptions within that theory.",
+                explanation: "Theory = lens = a WAY TO VIEW a text. Pick a theory (feminist, Marxist, etc.) → use its assumptions to analyze. Different lenses → different readings of the same work.",
                 topic: "Literary Theory as a Critical Lens"
             },
             {
                 id: 4,
-                category: "Abrams' Framework",
-                question: "M.H. Abrams in 'The Mirror and the Lamp' identifies four main features in the study of literary texts. Which combination below is correct?",
+                category: "Abrams",
+                question: "M.H. Abrams identifies four features in studying literature. Which is NOT one?",
                 options: [
-                    "The work, the artist, the universe, and the audience",
-                    "The work, the publisher, the audience, and the critic",
-                    "The artist, the reader, the genre, and the historical period",
-                    "The work, the language, the culture, and the moral framework"
+                    "The work itself",
+                    "The artist who creates it",
+                    "The critic who evaluates it",
+                    "The audience who receives it"
                 ],
-                correctAnswer: 0,
-                explanation: "Abrams outlines: the work itself, the artist (creator), the universe (nature being imitated), and the audience — leading to text-based, author-based, reader-based, and imitative theories.",
+                correctAnswer: 2,
+                explanation: "Abrams' four: Work, Artist, Universe (nature being imitated), Audience. The CRITIC is NOT one. The tricky one people forget is 'the universe.'",
                 topic: "Abrams' Four Features"
             },
             {
                 id: 5,
-                category: "Applied Criticism",
-                question: "When Chinua Achebe argued that Conrad's 'Heart of Darkness' fails to grant full humanity to Africans, which critical approach was he applying?",
+                category: "Applied Example",
+                question: "Achebe criticized Conrad's Heart of Darkness for failing to grant full humanity to Africans. This is:",
                 options: [
-                    "Formalist criticism, because he focused on the language and style of the text itself",
-                    "Biographical criticism, because he drew on Conrad's personal experiences in the Congo",
-                    "Post-colonial criticism, emphasizing a history of exploitation, racism, and the colonized perspective",
-                    "Marxist criticism, focusing on the economic motivations and class dynamics behind colonialism"
+                    "Marxist criticism about class struggle",
+                    "Formalist criticism about literary technique",
+                    "Post-colonial criticism about exploitation and racism",
+                    "Biographical criticism about Conrad's personal life"
                 ],
                 correctAnswer: 2,
-                explanation: "Achebe's argument is rooted in post-colonial literary theory, which emphasizes a history of exploitation and racism and questions how colonized peoples are represented in literature.",
+                explanation: "Achebe = post-colonial. He's exposing how Conrad dehumanizes Africans — that's about colonialism & racism, not class (Marxist) or form (Formalist).",
                 topic: "Post-Colonial Applied Example"
             },
             {
                 id: 6,
-                category: "Formalist Criticism",
-                question: "Formalism is described as 'the theory of art for art's sake.' What does this mean for how a formalist critic approaches a text?",
+                category: "Critical Approaches",
+                question: "Formalism is 'art for art's sake' because the critic:",
                 options: [
-                    "The critic evaluates the text's social impact and moral effect on its original historical audience",
-                    "The critic focuses exclusively on the words of the text, ignoring the author's biography and historical context",
-                    "The critic traces how historical events directly shaped the language and symbolism within the work",
-                    "The critic interprets the text by examining the unconscious motivations hidden behind the author's choices"
+                    "Focuses only on the text's words, ignoring biography and history",
+                    "Evaluates the moral impact of the art on its readers",
+                    "Studies how the art reflects socio-economic conditions",
+                    "Analyzes how the reader's own experience shapes meaning"
                 ],
-                correctAnswer: 1,
-                explanation: "Formalist critics focus on the words of the text itself — its structure, style, and form — rather than facts about the author's life or the historical milieu in which it was written.",
+                correctAnswer: 0,
+                explanation: "Formalism = ONLY the text matters. Ignore author's life, ignore history, ignore politics. Just words, structure, style on the page.",
                 topic: "Formalist Criticism"
             },
             {
                 id: 7,
-                category: "Biographical Criticism",
-                question: "A critic studying a novel examines how the main character's depression mirrors the author's own mental health struggles documented in personal letters. Which critical approach is this?",
+                category: "Critical Approaches",
+                question: "Psychological (Freudian) criticism is based on the belief that:",
                 options: [
-                    "Historical criticism, because personal letters are historical documents from a particular era",
-                    "Psychological criticism, because it involves analysis of depression and unconscious mental states",
-                    "Biographical criticism, analyzing the work through the author's personality, life experiences, and psychology",
-                    "Reader-response criticism, because personal documents change how different readers interpret the text"
+                    "All actions are influenced by the unconscious mind",
+                    "All actions are determined by socio-economic class",
+                    "All actions reflect the reader's personal history",
+                    "All actions mirror the author's stated moral values"
                 ],
-                correctAnswer: 2,
-                explanation: "Biographical criticism analyzes literary work through the lens of the author's experience, examining personality characteristics, life experiences, and psychological dynamics of the author.",
-                topic: "Biographical Criticism"
+                correctAnswer: 0,
+                explanation: "Psychological = the UNCONSCIOUS drives everything. Freud → unconscious → hidden desires/fears. It analyzes characters' actions and motivations through psychoanalysis.",
+                topic: "Psychological Criticism"
             },
             {
                 id: 8,
-                category: "Historical Criticism",
-                question: "Why does historical criticism insist on reading literary references within the environment in which they were written?",
+                category: "Critical Approaches",
+                question: "Reader-Response criticism says meaning is created by:",
                 options: [
-                    "Because modern readers are incapable of understanding older texts without specialized expert guidance",
-                    "Because both language and cultures change over time, altering the meaning of signs and symbols used in texts",
-                    "Because authors always intended their works to be read only by their own historical contemporaries",
-                    "Because historical criticism rejects the idea that literature can ever carry timeless or universal meanings"
-                ],
-                correctAnswer: 1,
-                explanation: "Historical criticism recognizes that both language and cultures change over time, making it essential to understand literary signs and symbols in the context of when and where they were originally produced.",
-                topic: "Historical Criticism"
-            },
-            {
-                id: 9,
-                category: "Psychological Criticism",
-                question: "What is the core belief that underlies psychological (Freudian) criticism when applied to literary analysis?",
-                options: [
-                    "That literary works gain their meaning primarily from the cultural and economic class of the author",
-                    "That all human actions in literature are influenced by the unconscious, which psychoanalysis can reveal",
-                    "That the reader's emotional response to a text is the only valid and measurable basis for interpretation",
-                    "That literary characters must be evaluated using the moral standards of their own historical period"
-                ],
-                correctAnswer: 1,
-                explanation: "Psychological criticism is based on the belief that all actions are influenced by the unconscious. Psychoanalysts analyze literature to reveal insights about the human mind and to analyze characters' actions and motivations.",
-                topic: "Psychological / Freudian Criticism"
-            },
-            {
-                id: 10,
-                category: "Feminist Criticism",
-                question: "Feminist literary criticism examines stereotypical portrayals of female characters. Which of the following best describes its broader analytical scope?",
-                options: [
-                    "It evaluates literary works purely on aesthetic and stylistic grounds without making any reference to gender",
-                    "It explores social relationships, roles of men and women, and how literature portrays and is shaped by patriarchal narratives",
-                    "It focuses solely on recovering lost works by female authors and entirely ignores works written by men",
-                    "It applies Freudian psychoanalytic categories specifically to the study of female psychology in literary texts"
-                ],
-                correctAnswer: 1,
-                explanation: "Feminist criticism explores social relationships and the roles of men and women, examining how literature portrays and is influenced by patriarchal (male-controlled) narratives, as well as stereotypical portrayals of female characters.",
-                topic: "Feminist Criticism"
-            },
-            {
-                id: 11,
-                category: "Reader-Response Criticism",
-                question: "Reader-response criticism claims that even the same reader reading the same text twice may produce different meanings. What does this reveal about the nature of literary meaning?",
-                options: [
-                    "Meaning is stable and fixed within the text; any variations are caused by inattentive or careless reading",
-                    "Meaning is purely accidental and therefore has no reliable or consistent connection to the text's language",
-                    "Meaning is constructed through the interaction of the reader's experience and the text, making it inherently variable",
-                    "Meaning belongs solely to the author's original intention and cannot be legitimately altered by any reader"
+                    "The author's original conscious intentions alone",
+                    "The text's fixed internal structure and language",
+                    "The interaction between reader's experience and the text",
+                    "The historical context in which the work was written"
                 ],
                 correctAnswer: 2,
-                explanation: "Reader-response criticism holds that a literary work is converted into an activity in the reader's mind. Many variables contribute to our reading experience, so even the same reader on different occasions may produce different meanings.",
+                explanation: "Reader-Response = meaning lives in the READER'S MIND. Even the SAME reader reading TWICE may get different meanings because variables (mood, knowledge, life experience) change.",
                 topic: "Reader-Response Criticism"
             },
             {
-                id: 12,
-                category: "Deconstructionist Criticism",
-                question: "Deconstructionists reject the assumption that language can accurately represent reality. How does this shape their view of what literary texts mean?",
+                id: 9,
+                category: "Critical Approaches",
+                question: "Deconstructionists believe literary texts have:",
                 options: [
-                    "They believe texts contain a single correct meaning that trained critics can reliably uncover through close reading",
-                    "They argue texts have no fixed meaning, since both authors and readers are inevitably shaped by their own cultural assumptions",
-                    "They hold that all texts ultimately reflect the author's conscious intentions if studied with enough scholarly rigor",
-                    "They claim literary texts are only meaningful when correctly placed in their original historical and political context"
+                    "One true meaning placed by the author",
+                    "No fixed meaning due to cultural assumptions",
+                    "Meaning only through historical context",
+                    "A stable meaning all critics can agree on"
                 ],
                 correctAnswer: 1,
-                explanation: "Deconstructionists argue that literary texts have no fixed or single meaning. Authors draw on cultural assumptions when constructing texts, and readers draw on theirs when constructing readings — making meaning always unstable.",
+                explanation: "Deconstruction = NO fixed meaning. Authors are shaped by THEIR cultural assumptions when writing; readers by THEIRS when reading. Language can't accurately represent reality.",
                 topic: "Deconstructionist Criticism"
             },
             {
-                id: 13,
-                category: "Moralist Criticism",
-                question: "How does moralistic criticism fundamentally differ from formalist criticism in the way it evaluates a literary work?",
+                id: 10,
+                category: "Critical Approaches",
+                question: "Marxist criticism seeks to uncover how a work reflects:",
                 options: [
-                    "Moralistic criticism prioritizes the historical context of the work, while formalism focuses on its ethical teachings and effects",
-                    "Moralistic criticism judges works based on moral principles and effects on readers, while formalism focuses on form and artistic structure",
-                    "Moralistic criticism ignores the text entirely and instead focuses on the author's personal conduct and public reputation",
-                    "Moralistic criticism applies psychoanalytic categories to literary characters, while formalism evaluates narrative technique"
+                    "The unconscious desires of characters and creators",
+                    "The socio-economic conditions and class struggle",
+                    "The stereotypical gender roles in patriarchal society",
+                    "The colonized people's resistance against oppressors"
                 ],
                 correctAnswer: 1,
-                explanation: "Moralistic criticism judges works based on moral rather than formal principles, evaluating them by their ethical teachings and effects on readers — the opposite of formalism's 'art for art's sake' approach.",
-                topic: "Moralist Criticism"
-            },
-            {
-                id: 14,
-                category: "Marxist Criticism",
-                question: "Marxist criticism is often interested in what a literary work reveals intentionally or not. What specifically does it seek to uncover?",
-                options: [
-                    "How the author's unconscious anxieties and repressed desires are projected onto the characters and plot",
-                    "How a literary work reflects the socio-economic conditions of its time and what those reveal about class struggle",
-                    "How reader responses to the text differ across different demographic groups and economic backgrounds",
-                    "How colonial ideologies have been embedded in the language and structure of dominant literary traditions"
-                ],
-                correctAnswer: 1,
-                explanation: "Marxist criticism is interested in how a literary work — intentionally or not — reflects the socio-economic conditions of its time, and what those conditions reveal about the history of class struggle.",
+                explanation: "Marxist = CLASS + ECONOMICS. What socio-economic conditions existed? How does the work reveal the history of class struggle? Think Marx → class → economics.",
                 topic: "Marxist Criticism"
             },
             {
-                id: 15,
-                category: "Post-Colonial Criticism",
-                question: "Post-colonial criticism analyzes two opposing forces found in colonial and post-colonial literature. Which option correctly describes both forces?",
+                id: 11,
+                category: "Critical Approaches",
+                question: "Post-colonial criticism analyzes two opposing forces:",
                 options: [
-                    "It studies how colonizers used literature to entertain and how the colonized used literature to document their history",
-                    "It examines forces that pressured the colonized to internalize the colonizers' values, and forces that promoted resistance against oppression",
-                    "It analyzes how colonial governments censored native literature and how underground presses responded with counter-narratives",
-                    "It examines how economic exploitation shaped colonizers' literary output and how poverty influenced colonized writers' styles"
+                    "Artistic innovation vs. literary tradition",
+                    "Colonized accepting colonizer values vs. resisting oppression",
+                    "Religious authority vs. secular philosophy",
+                    "Economic growth vs. cultural preservation"
                 ],
                 correctAnswer: 1,
-                explanation: "Post-colonial criticism analyzes: (1) ideological forces that pressed the colonized to internalize (absorb as their own) the colonizers' values, and (2) forces that promoted resistance of colonized peoples against their oppressors.",
+                explanation: "Post-colonial = two sides: (1) Pressure to INTERNALIZE colonizer's values, (2) RESISTANCE against oppressors. Also studies literature produced by colonized cultures.",
                 topic: "Post-Colonial Criticism"
             },
             {
-                id: 16,
+                id: 12,
                 category: "Literary Elements",
-                question: "In critical analysis, the term 'tone' refers to which of the following?",
+                question: "In literary analysis, 'tone' refers to:",
                 options: [
-                    "The grammatical register of the text, such as formal or informal sentence structures used by the narrator",
-                    "The writer's feelings about or attitude towards the subject matter, for example depressed or hopeful",
-                    "The pace and rhythm at which events unfold across the narrative over the course of the plot",
-                    "The overall category or classification of the work, such as drama, poetry, or fiction"
+                    "The category of literature (drama, poetry, fiction)",
+                    "The writer's attitude towards the subject matter",
+                    "The way a writer presents thoughts (subjective/objective)",
+                    "The sequence of events forming the narrative"
                 ],
                 correctAnswer: 1,
-                explanation: "Tone expresses the writer's feelings about or attitude towards the subject matter — for example depressed, hopeful, ironic, or celebratory. It is distinct from genre, style, or narrative pacing.",
-                topic: "Literary Elements — Tone"
+                explanation: "Tone = writer's FEELINGS/ATTITUDE (depressed, hopeful, sarcastic). Remember the trio: Tone = WHAT feeling, Style = HOW presented, Genre = WHAT type.",
+                topic: "Literary Elements"
             },
             {
-                id: 17,
+                id: 13,
                 category: "Literary Elements",
-                question: "In the context of literary criticism, how is 'style' best distinguished from related literary elements?",
+                question: "Which terms are specifically used for analyzing poetry?",
                 options: [
-                    "Style is the category of literature a work belongs to, such as drama, poetry, or fiction",
-                    "Style is the emotional attitude the writer takes toward the subject matter throughout the work",
-                    "Style refers to the ways a writer presents his thoughts, for example subjectively or objectively",
-                    "Style is the sequence of events organized to create tension and resolution across the narrative"
+                    "Rhyme, imagery, simile, metaphor, symbol",
+                    "Characterization, plot, setting, conflict",
+                    "Narrative technique, 1st person narrator, motifs",
+                    "Point of view, plot structure, setting"
                 ],
-                correctAnswer: 2,
-                explanation: "Style refers to the ways the writer presents his thoughts — e.g., subjective (personal/emotional) or objective (factual/detached). It is different from tone (attitude toward subject) or genre (category of literature).",
-                topic: "Literary Elements — Style"
+                correctAnswer: 0,
+                explanation: "Poetry = rhyme + imagery (simile, metaphor, symbol). Drama = characterization, plot, setting, motifs, conflict. Fiction = narrative technique (1st/3rd person), setting, plot, motifs.",
+                topic: "Literary Terms by Genre"
+            },
+            {
+                id: 14,
+                category: "Critical Approaches",
+                question: "Moralistic criticism judges a work based on:",
+                options: [
+                    "Its artistic structure and formal qualities",
+                    "Its ethical teachings and effects on readers",
+                    "Its reflection of socio-economic conditions",
+                    "Its representation of colonial power dynamics"
+                ],
+                correctAnswer: 1,
+                explanation: "Moralistic = MORAL judgment. Does this teach good values? Good effect on readers? It's the OPPOSITE of Formalism (which ignores morality, cares only about artistic form).",
+                topic: "Moralist Criticism"
+            },
+            {
+                id: 15,
+                category: "Critical Approaches",
+                question: "Feminist criticism examines how literature is influenced by:",
+                options: [
+                    "Economic class divisions between characters",
+                    "Patriarchal narratives and roles of men and women",
+                    "Unconscious desires in the author's biography",
+                    "The colonizer-colonized power dynamic"
+                ],
+                correctAnswer: 1,
+                explanation: "Feminist = patriarchy + gender. It examines: social relationships of men & women, male-dominated narratives, and stereotypical portrayals of female characters.",
+                topic: "Feminist Criticism"
             }
         ]
     },
     {
-        title: "Critics-2: Classical Athens",
+        title: "Critics-3: Plato's Republic & Allegory of the Cave",
         lang: "en",
         questions: [
             {
                 id: 1,
-                category: "Social Structures",
-                question: "Ancient civilizations are described as having hierarchical social structures. Which of the following correctly lists the order from highest to lowest in those hierarchies?",
+                category: "Socrates",
+                question: "Socrates is known for a unique philosophical method. What is it called?",
                 options: [
-                    "Nobles, ruling elites (pharaohs/kings), priests, commoners, then slaves at the bottom",
-                    "Ruling elites (pharaohs, emperors, kings) at the top, followed by subordinate classes including nobles, priests, commoners, and slaves",
-                    "Priests at the top due to religious authority, followed by rulers, nobles, commoners, and slaves",
-                    "Commoners forming the largest group at the top, with rulers, nobles, and priests serving subordinate administrative roles"
+                    "The Platonic method based on written dialogues",
+                    "The Socratic method based on questioning and dialogue",
+                    "The Aristotelian method based on logical syllogisms",
+                    "The Rhetorical method based on persuasive speeches"
                 ],
                 correctAnswer: 1,
-                explanation: "Hierarchical social structures consisted of ruling elites (pharaohs, emperors, kings) at the top and subordinate classes (nobles, priests, commoners, slaves) below them.",
-                topic: "Social Structures and Governance"
+                explanation: "The Socratic method = question after question + identifying contradictions in beliefs. Also called Socratic dialogue or dialectic. It emphasizes critical thinking through dialogue, NOT lectures.",
+                topic: "Socratic Method"
             },
             {
                 id: 2,
-                category: "Governance",
-                question: "Which combination of functions did centralized governments in ancient civilizations primarily manage?",
+                category: "Socrates",
+                question: "What do we learn by the END of a Socratic dialogue?",
                 options: [
-                    "Religious ceremonies, artistic production, and the writing of philosophical texts for public education",
-                    "Taxation, public works, and military forces — the core administrative pillars of centralized authority",
-                    "Trade negotiations, agricultural planning, and the distribution of slaves across conquered territories",
-                    "Scientific research, architectural design, and the maintenance of written legal codes for all citizens"
+                    "A clear and definitive answer to the question being discussed",
+                    "That what we thought we knew, we actually don't know",
+                    "That the student's original belief was correct all along",
+                    "That philosophy cannot answer any meaningful questions"
                 ],
                 correctAnswer: 1,
-                explanation: "Centralized governments managed taxation, public works, and military forces as their primary administrative functions.",
-                topic: "Social Structures and Governance"
+                explanation: "Two outcomes of Socratic dialogue: (1) What we thought we knew, we know NOT. (2) By eliminating contradictions, we learn what something is NOT. You never get a final 'yes' answer.",
+                topic: "Socratic Method"
             },
             {
                 id: 3,
-                category: "Religion",
-                question: "In Ancient Greek religion, Apollo was associated with a notably wide range of domains. Which of the following correctly identifies all of them as stated in the text?",
+                category: "Socrates",
+                question: "Socrates was sentenced to death on charges of:",
                 options: [
-                    "Apollo governed war, wisdom, arts, and the underworld — making him one of the most powerful Olympian gods",
-                    "Apollo was the god of the Sun, medicine, poetry, music, and prophecy — a uniquely broad set of domains",
-                    "Apollo represented justice, trade, travel, and athletic competition — linking him to civic and physical life",
-                    "Apollo was associated with the sea, harvest, fertility, and agriculture — connecting him to natural cycles"
+                    "Plotting to overthrow the Athenian government",
+                    "Corrupting the youth and impiety against the gods",
+                    "Writing texts that insulted the Greek philosophers",
+                    "Refusing to serve in the Athenian military forces"
                 ],
                 correctAnswer: 1,
-                explanation: "According to the text, Apollo was the god of the Sun, medicine, poetry, music, and prophecy — an unusually broad set of domains for a single deity in the Greek pantheon.",
-                topic: "Religious Beliefs and Practices"
+                explanation: "Two charges: (1) corrupting the youth, (2) impiety (lack of respect) against the gods. He was found guilty and sentenced to death.",
+                topic: "Socrates' Life"
             },
             {
                 id: 4,
-                category: "Religion",
-                question: "What was the primary purpose of myths in Ancient Greek religion as described in the text?",
+                category: "Plato",
+                question: "What did Plato found after Socrates' death?",
                 options: [
-                    "Myths served as entertainment for the ruling classes and were performed only during royal ceremonies",
-                    "Myths functioned as legal codes, establishing rules of conduct and punishment for crimes against the gods",
-                    "Myths explained natural phenomena, with gods such as Zeus, Athena, and Apollo representing natural forces and human attributes",
-                    "Myths were written by philosophers to challenge religious authority and promote rational over supernatural thinking"
+                    "A political party to reform Athenian democracy",
+                    "The Academy — an institute of scientific and philosophical research",
+                    "A religious temple dedicated to the Greek gods",
+                    "A school of rhetoric and public speaking for politicians"
                 ],
-                correctAnswer: 2,
-                explanation: "Ancient Greek religion included gods representing natural forces and human attributes, with myths explaining natural phenomena — for example, Zeus (king of gods), Athena (wisdom and arts), Apollo (sun, medicine, poetry, music, prophecy).",
-                topic: "Religious Beliefs and Practices"
+                correctAnswer: 1,
+                explanation: "After Socrates died in 399 BC, Plato founded the ACADEMY — an institute for scientific and philosophical research. Aristotle was one of his students there.",
+                topic: "Plato's Life"
             },
             {
                 id: 5,
-                category: "Art & Architecture",
-                question: "Architecture such as pyramids and temples in ancient civilizations served which dual symbolic function according to the text?",
+                category: "Platonism",
+                question: "Platonism is the belief that:",
                 options: [
-                    "They functioned as centers of trade and education, combining economic activity with the spread of literacy",
-                    "They served as symbols of military power and political conquest, celebrating victories over enemy civilizations",
-                    "They acted as symbols of political power and religious devotion, marking the authority of rulers and gods simultaneously",
-                    "They were designed primarily as astronomical observatories and scientific research centers for elite scholars"
+                    "The physical world we see is the only true reality",
+                    "The physical world is just an imperfect reflection of a perfect realm",
+                    "Knowledge comes only through the five physical senses",
+                    "Art and poetry are the highest forms of human knowledge"
                 ],
-                correctAnswer: 2,
-                explanation: "Architecture (e.g. pyramids, temples) served as symbols of power and religious devotion — representing both the authority of rulers and the centrality of religion in ancient civilization.",
-                topic: "Art and Architecture"
+                correctAnswer: 1,
+                explanation: "Platonism = the physical world is NOT real reality. It's a blurry, shadowy, imperfect REFLECTION of a perfect realm. This is the foundation for the Allegory of the Cave.",
+                topic: "Platonism"
             },
             {
                 id: 6,
-                category: "Art & Architecture",
-                question: "What was the defining characteristic of Ancient Greek sculpture as mentioned in the text?",
+                category: "The Republic",
+                question: "In The Republic, the Allegory of the Cave is a dialogue between:",
                 options: [
-                    "Greek sculptures emphasized realistic depictions of ordinary commoners and everyday domestic life",
-                    "Greek sculptures emphasized beauty, depicting gods, rulers, and idealized human forms",
-                    "Greek sculptures focused exclusively on battle scenes and military victories to honor warrior culture",
-                    "Greek sculptures were deliberately abstract, using geometric forms to represent divine and spiritual concepts"
+                    "Socrates and Aristotle discussing the ideal state",
+                    "Socrates and Glaucon (Plato's older brother)",
+                    "Plato and his students at the Academy",
+                    "Socrates and the judges at his trial"
                 ],
                 correctAnswer: 1,
-                explanation: "Ancient Greek sculptures emphasized beauty — they depicted gods, rulers, and idealized human forms, reflecting the Greek cultural value placed on physical and aesthetic perfection.",
-                topic: "Art and Architecture"
+                explanation: "The Allegory is told by Socrates to GLAUCON (Plato's older brother). Plato wrote it, but Socrates is the speaker and Glaucon is the listener.",
+                topic: "Allegory of the Cave"
             },
             {
                 id: 7,
-                category: "Literature",
-                question: "The Iliad and the Odyssey are mentioned as examples of epic poetry. What function did they serve in ancient culture?",
+                category: "Allegory Symbols",
+                question: "In the Allegory of the Cave, what do the SHADOWS on the wall represent?",
                 options: [
-                    "They were used as legal documents that recorded property rights, inheritance laws, and civic obligations",
-                    "They served as religious prayer books recited during temple rituals and seasonal agricultural festivals",
-                    "They preserved cultural narratives and values, passing down stories that reflected a civilization's identity and beliefs",
-                    "They were written as philosophical arguments debating the nature of justice, beauty, and the ideal state"
+                    "True knowledge gained through philosophical reasoning",
+                    "The perfect Forms that exist in the ideal realm",
+                    "Illusions and false beliefs people hold about reality",
+                    "The teachings of the philosopher who escaped the cave"
                 ],
                 correctAnswer: 2,
-                explanation: "Epic poetry and myths (e.g., Iliad, Odyssey) preserved cultural narratives and values — functioning as a form of collective cultural memory and identity for ancient civilizations.",
-                topic: "Literature and Written Traditions"
+                explanation: "Shadows = ILLUSIONS & FALSE BELIEFS. The prisoners think shadows are real because they've never seen anything else. Shadows are temporal objects known through the senses — not true reality.",
+                topic: "Allegory Symbols"
             },
             {
                 id: 8,
-                category: "Literature",
-                question: "Plato's dialogues are classified under which category of ancient written traditions in the text?",
+                category: "Allegory Symbols",
+                question: "The FREED PRISONER in the Allegory represents:",
                 options: [
-                    "Religious texts, because Plato's dialogues addressed the nature of the divine and the soul's immortality",
-                    "Historical records, because Plato documented the political events and achievements of Athenian rulers",
-                    "Epic poetry, because Plato composed dramatic narratives about heroic figures and mythological events",
-                    "Philosophical works, because Plato's dialogues explored ethics, politics, and fundamental questions of knowledge"
+                    "A politician who governs the ideal city",
+                    "A philosopher seeking true knowledge outside the cave",
+                    "A poet who creates art based on imitation",
+                    "A priest who teaches religious beliefs to the masses"
                 ],
-                correctAnswer: 3,
-                explanation: "Plato's dialogues are listed under philosophical works, which explored ethics, politics, and other fundamental questions — distinguishing them from religious texts, historical records, or literary poetry.",
-                topic: "Literature and Written Traditions"
+                correctAnswer: 1,
+                explanation: "Freed prisoner = the PHILOSOPHER. He escapes ignorance (the cave), sees real truth (sunlight), and has a responsibility to go back and educate others — even though they resist.",
+                topic: "Allegory Symbols"
             },
             {
                 id: 9,
-                category: "Science & Technology",
-                question: "Pythagoras is mentioned in the text in relation to which specific field of knowledge?",
+                category: "Allegory Symbols",
+                question: "The CAVE itself represents:",
                 options: [
-                    "Medicine — Pythagoras is identified as a physician who advanced understanding of disease and its treatment",
-                    "Geometry — Pythagoras is identified as a Greek philosopher and mathematician who made advances in geometry",
-                    "Astronomy — Pythagoras is credited with calculating the movements of celestial bodies and predicting eclipses",
-                    "Agriculture — Pythagoras developed irrigation techniques that significantly increased food production in Greece"
+                    "The perfect realm of true Forms and ideas",
+                    "The physical world where people cannot obtain true knowledge",
+                    "The Academy where philosophers study and teach",
+                    "The afterlife where souls are judged for their actions"
                 ],
                 correctAnswer: 1,
-                explanation: "The text identifies Pythagoras as a Greek philosopher and mathematician who made advances in geometry specifically — as part of the broader development of mathematics (geometry, algebra) in the ancient world.",
-                topic: "Scientific and Technological Advancements"
+                explanation: "Cave = the PHYSICAL WORLD (the visible/sensible world). It is NOT a place where people can obtain knowledge of true reality. People inside are bound to mere imitations of truth.",
+                topic: "Allegory Symbols"
             },
             {
                 id: 10,
-                category: "Science & Technology",
-                question: "According to the text, what was the significance of developments in mathematics such as geometry and algebra in ancient civilizations?",
+                category: "Allegory Meaning",
+                question: "When the freed prisoner returns to the cave, the other prisoners:",
                 options: [
-                    "They allowed philosophers to develop abstract theories of ethics and governance without practical application",
-                    "They enabled complex calculations and engineering, directly supporting achievements in architecture and construction",
-                    "They replaced religious explanations of natural phenomena, leading directly to the decline of polytheistic belief",
-                    "They were used primarily by merchants to develop trade networks and calculate profits across the Indian Ocean"
+                    "Welcome him and eagerly learn about the outside world",
+                    "Ignore him completely and continue watching the shadows",
+                    "Think he is mad and would sooner kill him than be freed",
+                    "Ask him to lead them out of the cave one at a time"
                 ],
-                correctAnswer: 1,
-                explanation: "Developments in mathematics (geometry, algebra) enabled complex calculations and engineering — directly underpinning major architectural and infrastructural achievements of ancient civilizations.",
-                topic: "Scientific and Technological Advancements"
+                correctAnswer: 2,
+                explanation: "The prisoners think he's MAD and violently resist his attempts to free them — they'd rather KILL him than leave. This shows: people are comfortable in ignorance and hostile to anyone who tries to free them.",
+                topic: "Allegory Meaning"
             },
             {
                 id: 11,
-                category: "Trade & Economy",
-                question: "The Indian Ocean trade network is mentioned as an example of what broader phenomenon in ancient civilizations?",
+                category: "Allegory Meaning",
+                question: "The main lesson of the Allegory of the Cave is that philosophers who have seen truth:",
                 options: [
-                    "Military expansion, showing how ancient empires used naval dominance to conquer distant coastal territories",
-                    "Religious spread, demonstrating how ancient trade routes carried sacred texts and missionary activity across regions",
-                    "The establishment of trade networks that facilitated exchange of goods, ideas, and cultures between civilizations",
-                    "Agricultural innovation, as coastal trade brought new crops and farming techniques to inland communities"
+                    "Should keep their knowledge private and avoid public life",
+                    "Have a responsibility to educate people in society",
+                    "Should force people to accept the truth by any means necessary",
+                    "Must abandon society entirely and live in isolation"
                 ],
-                correctAnswer: 2,
-                explanation: "The Indian Ocean trade is cited as an example of the establishment of trade networks that facilitated the exchange of goods, ideas, and cultures — connecting distant civilizations.",
-                topic: "Cultural Innovations and Achievements"
+                correctAnswer: 1,
+                explanation: "Plato's key message: philosophers who've seen the ideal world have a RESPONSIBILITY TO EDUCATE society. They must return to the cave and teach, even though people resist.",
+                topic: "Allegory Meaning"
             },
             {
                 id: 12,
-                category: "Legacy",
-                question: "Neoclassical architecture in the 18th–19th centuries is mentioned as part of which broader legacy of ancient civilizations?",
+                category: "Allegory Symbols",
+                question: "The prisoners see 'shadows of models of animals made of stone' — this means their reality is:",
                 options: [
-                    "It represents the scientific legacy, showing how ancient engineering principles were revived for industrial construction",
-                    "It represents the artistic legacy, as classical styles and motifs inspired later movements including the neoclassical revival",
-                    "It represents the political legacy, demonstrating how ancient democratic institutions were rebuilt in the modern era",
-                    "It represents the religious legacy, as temple designs were adapted for Christian churches and Islamic mosques"
+                    "A direct and accurate copy of the real world",
+                    "A copy of a copy — twice removed from true reality",
+                    "An artistic creation by the people behind them",
+                    "A divine projection sent by the gods above"
                 ],
                 correctAnswer: 1,
-                explanation: "Artistic styles and motifs (e.g., Classical) inspired later movements — including Neoclassical architecture in the 18th–19th centuries, which explicitly revived Greek and Roman architectural elements.",
-                topic: "Legacy and Modern Influence"
+                explanation: "KEY detail: they see shadows (copy) of MODELS (already a copy) — so it's a COPY OF A COPY. Not even shadows of real animals! This connects directly to Plato's mimesis theory later.",
+                topic: "Allegory Symbols"
             },
             {
                 id: 13,
-                category: "Legacy",
-                question: "According to the text, what is the linguistic legacy of the Greek language in particular?",
+                category: "Plato's Solution",
+                question: "For Plato, the solution to people's ignorance was:",
                 options: [
-                    "Greek became the official administrative language of the Roman Empire, replacing Latin in all eastern provinces",
-                    "Greek had great linguistic influence on many languages through loanwords and language spread, including Arabic and Latin",
-                    "Greek was the first fully alphabetic writing system and directly replaced all earlier cuneiform and hieroglyphic scripts",
-                    "Greek philosophical terminology was adopted exclusively by medieval European universities with no influence in the Arab world"
+                    "Giving everyone political power through direct democracy",
+                    "Educating society carefully through the Socratic Method",
+                    "Banning all art and poetry from the ideal society",
+                    "Allowing individuals to discover truth on their own"
                 ],
                 correctAnswer: 1,
-                explanation: "The text states that the Greek language had great linguistic influences on many languages through loanwords and language spread — explicitly citing Arabic and Latin as examples.",
-                topic: "Legacy and Modern Influence"
+                explanation: "Plato's solution = EDUCATE society using the Socratic Method (critical thinking + dialogue + questioning). Philosophy and reason are the path to truth, not senses or emotion.",
+                topic: "Plato's Educational Philosophy"
+            }
+        ]
+    },
+    {
+        title: "Critics-4: Plato's Theory of Forms",
+        lang: "en",
+        questions: [
+            {
+                id: 1,
+                category: "Core Concept",
+                question: "Plato's Theory of Forms states that behind every physical thing there is:",
+                options: [
+                    "A shadow that distorts its true appearance",
+                    "A Form — the true eternal essence of that thing",
+                    "A story created by poets to explain its existence",
+                    "A material cause that science can fully explain"
+                ],
+                correctAnswer: 1,
+                explanation: "Behind EVERY thing = a Form = the TRUE ETERNAL ESSENCE. Forms are perfect, abstract, unchanging, non-physical, and universal. The physical thing is just a shadow/image of the Form.",
+                topic: "Theory of Forms — Core"
+            },
+            {
+                id: 2,
+                category: "Core Concept",
+                question: "According to Plato, the physical world we experience through our senses is:",
+                options: [
+                    "The only reality that truly exists",
+                    "A shadow or image of the true reality of Forms",
+                    "More real than the realm of abstract ideas",
+                    "Equally real alongside the world of Forms"
+                ],
+                correctAnswer: 1,
+                explanation: "Physical world = SHADOW/IMAGE of the real realm of Forms. The senses only show us imperfect copies. True reality is the realm of Forms, which is timeless and perfect.",
+                topic: "Theory of Forms — Core"
+            },
+            {
+                id: 3,
+                category: "Forms Characteristics",
+                question: "Plato's Forms are described as:",
+                options: [
+                    "Perfect, abstract, unchanging, non-physical, universal",
+                    "Imperfect, concrete, changing, physical, particular",
+                    "Beautiful, emotional, temporary, visible, cultural",
+                    "Scientific, measurable, testable, observable, material"
+                ],
+                correctAnswer: 0,
+                explanation: "Five key traits of Forms: PERFECT + ABSTRACT + UNCHANGING + NON-PHYSICAL + UNIVERSAL. Everything in the physical world is the opposite — imperfect, concrete, changing, physical, particular.",
+                topic: "Characteristics of Forms"
+            },
+            {
+                id: 4,
+                category: "Knowledge",
+                question: "According to Plato, the ONLY way to truly understand a Form is through:",
+                options: [
+                    "Our five senses like sight and hearing",
+                    "Artistic representation and poetic imagination",
+                    "Logic and mathematics (reason, not senses)",
+                    "Religious rituals and spiritual meditation"
+                ],
+                correctAnswer: 2,
+                explanation: "You CANNOT perceive Forms through senses (sight, hearing, etc.). The ONLY way = LOGIC and MATHEMATICS. This is why Plato values philosophy and reason above art and poetry.",
+                topic: "How We Know Forms"
+            },
+            {
+                id: 5,
+                category: "Examples",
+                question: "Plato's triangle example shows that:",
+                options: [
+                    "We can draw a perfect triangle on a whiteboard if we use a ruler",
+                    "Even a triangle drawn with a ruler is an imperfect copy of the Ideal triangle",
+                    "Mathematics is useless for understanding geometric forms",
+                    "Physical triangles are more real than the mathematical concept"
+                ],
+                correctAnswer: 1,
+                explanation: "Through math we DISCOVER the Form of a triangle (3 sides). But any triangle you draw — even with a ruler — is IMPERFECT and TEMPORARY. The Ideal triangle exists only as a concept, never as a physical drawing.",
+                topic: "Theory of Forms — Triangle Example"
+            },
+            {
+                id: 6,
+                category: "Examples",
+                question: "In the biscuit example, the 'Form' of a biscuit is:",
+                options: [
+                    "The best biscuit that comes out of the oven",
+                    "The perfect version of biscuits that exists in our head",
+                    "The recipe written down on paper by the cook",
+                    "The flour and ingredients before they are baked"
+                ],
+                correctAnswer: 1,
+                explanation: "The Form = the PERFECT VERSION IN YOUR HEAD (right taste, smell, shape). The baked biscuits are copies — and no two are identical. Some are more toasted, others deflated. All are imperfect copies of the Ideal.",
+                topic: "Theory of Forms — Biscuit Example"
+            },
+            {
+                id: 7,
+                category: "Examples",
+                question: "In the horse example, every physical horse is:",
+                options: [
+                    "A unique creation unrelated to any other horse",
+                    "An imperfect copy of the one true horse Form",
+                    "A perfect representation of what a horse should be",
+                    "A shadow cast by the fire inside Plato's cave"
+                ],
+                correctAnswer: 1,
+                explanation: "Big, small, grey, white, old, young — every horse is an IMPERFECT COPY of the horse Form (the one true horse). All physical horses are imitations of the perfect horse.",
+                topic: "Theory of Forms — Horse Example"
+            },
+            {
+                id: 8,
+                category: "Abstract Forms",
+                question: "The Theory of Forms applies to abstract concepts too. Which is the MOST important Form according to Plato?",
+                options: [
+                    "The Form of Beauty, which inspires all art",
+                    "The Form of Truth, which guides all science",
+                    "The Form of the Good, which lets us understand everything else",
+                    "The Form of Justice, which governs all societies"
+                ],
+                correctAnswer: 2,
+                explanation: "The Form of the GOOD = the most important. It allows us to understand EVERYTHING else, providing knowledge and truth. Other Forms (Justice, Beauty, Truth, Equality) exist but Good is supreme.",
+                topic: "The Form of the Good"
+            },
+            {
+                id: 9,
+                category: "Abstract Forms",
+                question: "According to Plato, the Forms of Justice, Goodness, Beauty and Truth:",
+                options: [
+                    "Exist only as human opinions that vary from culture to culture",
+                    "Are true and real, existing as eternal, unchanging ideas",
+                    "Were invented by poets to make their stories more meaningful",
+                    "Can only be understood through physical sensory experience"
+                ],
+                correctAnswer: 1,
+                explanation: "Abstract Forms are just as REAL as physical Forms. Justice, Goodness, Equality, Truth, Beauty = true and real, existing as IDEAS. They are eternal and unchanging — not cultural opinions.",
+                topic: "Abstract Forms"
+            },
+            {
+                id: 10,
+                category: "Core Concept",
+                question: "A tree casting a shadow is used by Plato to illustrate that:",
+                options: [
+                    "Trees are the most perfect objects in nature",
+                    "The tree itself is an image of the Form (the one true tree)",
+                    "Shadows are more real than the physical objects that cast them",
+                    "Nature proves that Forms don't exist outside the mind"
+                ],
+                correctAnswer: 1,
+                explanation: "Even the TREE ITSELF is just an image/copy of the Form — the one true tree. The tree isn't the ultimate reality; the Form of the tree is. Physical objects are always copies.",
+                topic: "Theory of Forms — Tree Example"
+            },
+            {
+                id: 11,
+                category: "Knowledge",
+                question: "Plato says we CANNOT perceive Forms through our senses. This means:",
+                options: [
+                    "Seeing and hearing can reveal the true nature of things",
+                    "Art and poetry provide the best path to understanding reality",
+                    "Only reason and logic can lead us to true understanding",
+                    "Physical experience is more reliable than abstract thinking"
+                ],
+                correctAnswer: 2,
+                explanation: "Senses = CANNOT reach Forms. Only LOGIC and MATHEMATICS can. This is why Plato values philosophy/reason over art/poetry/emotion — the senses deceive, reason reveals.",
+                topic: "How We Know Forms"
+            }
+        ]
+    },
+    {
+        title: "Critics-5: Plato's Theory of Mimesis & Accusations Against Poetry",
+        lang: "en",
+        questions: [
+            {
+                id: 1,
+                category: "Mimesis",
+                question: "Plato uses the word 'mimesis' to mean:",
+                options: [
+                    "Creation of original and entirely new ideas",
+                    "Imitation or representation in educational contexts",
+                    "Destruction of false beliefs through reasoning",
+                    "Translation of philosophical texts into poetry"
+                ],
+                correctAnswer: 1,
+                explanation: "Mimesis = IMITATION or REPRESENTATION. Plato uses it in educational and ethical contexts. He says young people learn through imitation, so we must carefully select what they imitate.",
+                topic: "Theory of Mimesis"
+            },
+            {
+                id: 2,
+                category: "Mimesis",
+                question: "Plato judges poetry from which three perspectives?",
+                options: [
+                    "Educational, philosophical, and ethical",
+                    "Artistic, historical, and political",
+                    "Economic, social, and psychological",
+                    "Religious, military, and cultural"
+                ],
+                correctAnswer: 0,
+                explanation: "Three perspectives: EDUCATIONAL + PHILOSOPHICAL + ETHICAL. Not artistic! Plato doesn't care if poetry is beautiful — he cares if it teaches truth, wisdom, and good morals.",
+                topic: "How Plato Judges Poetry"
+            },
+            {
+                id: 3,
+                category: "Accusation 1",
+                question: "Plato's FIRST accusation against poetry is that poets:",
+                options: [
+                    "Make heroes appear weak and flawed in their stories",
+                    "Represent gods as unjust, as if gods cause unhappiness",
+                    "Encourage the youth to laugh at comedies irresponsibly",
+                    "Create art that is twice removed from ultimate reality"
+                ],
+                correctAnswer: 1,
+                explanation: "1st accusation = poets show GODS as UNJUST, as if gods are responsible for human unhappiness. Plato says gods CANNOT be evil, and showing their deficiencies harms the community.",
+                topic: "First Accusation — Gods"
+            },
+            {
+                id: 4,
+                category: "Accusation 2",
+                question: "Plato's SECOND accusation is that poetry misrepresents heroes by:",
+                options: [
+                    "Making them too perfect and unrealistically powerful",
+                    "Giving them tragic flaws, which badly impacts youth education",
+                    "Showing them as comedic figures who lack all seriousness",
+                    "Depicting them as philosophers rather than warriors"
+                ],
+                correctAnswer: 1,
+                explanation: "2nd accusation = heroes shown with TRAGIC FLAWS → bad influence on youth. Plato believes real heroes CANNOT be weak. Heroes should be noble with souls in harmony (inner peace/balance).",
+                topic: "Second Accusation — Heroes"
+            },
+            {
+                id: 5,
+                category: "Accusation 3",
+                question: "Plato's THIRD accusation says poetry is a 'dangerous rival to morality' because it:",
+                options: [
+                    "Teaches philosophical truths that challenge religious beliefs",
+                    "Encourages all desires and corrupts even good men",
+                    "Represents gods as responsible for human unhappiness",
+                    "Makes the youth laugh and lose their serious character"
+                ],
+                correctAnswer: 1,
+                explanation: "3rd accusation = poetry ENCOURAGES ALL DESIRES and CORRUPTS even good men. Poetry → dangerous rival to morality. Poetry has the capacity to DEMORALIZE minds, unlike philosophy which gives wisdom.",
+                topic: "Third Accusation — Corruption"
+            },
+            {
+                id: 6,
+                category: "Accusation 4",
+                question: "Plato's FOURTH accusation concerns comedies. He argues they:",
+                options: [
+                    "Cause youth to laugh and lose their serious character",
+                    "Misrepresent the gods as comedic and disrespectful",
+                    "Encourage class struggle between the rich and poor",
+                    "Teach children to imitate immoral adult behavior"
+                ],
+                correctAnswer: 0,
+                explanation: "4th accusation = youth take pleasure in LAUGHING at comedies → new generations won't have SERIOUS CHARACTERS. Comic works badly affect youth attitudes in real life.",
+                topic: "Fourth Accusation — Comedy"
+            },
+            {
+                id: 7,
+                category: "Accusation 5",
+                question: "Plato's FIFTH accusation uses the chair example to show that a painter's art is:",
+                options: [
+                    "A direct and faithful copy of the Form of a chair",
+                    "An imitation of an imitation — twice removed from reality",
+                    "A more perfect version of the carpenter's physical chair",
+                    "Equal in truth to the philosopher's understanding of a chair"
+                ],
+                correctAnswer: 1,
+                explanation: "The chain: Form of chair (ultimate reality) → Carpenter's chair (imitation) → Painter's painting of chair (imitation of imitation). Art = COPY OF A COPY = only a proportion of reality.",
+                topic: "Fifth Accusation — Imitation of Imitation"
+            },
+            {
+                id: 8,
+                category: "Accusation 5",
+                question: "In the chair example, who has MORE knowledge — the painter or the craftsman?",
+                options: [
+                    "The painter, because art captures the essence of beauty",
+                    "They have equal knowledge from different perspectives",
+                    "The craftsman, because he understands the chair's function",
+                    "Neither — only the philosopher knows the true Form"
+                ],
+                correctAnswer: 2,
+                explanation: "The CRAFTSMAN knows more than the painter. But NEITHER knows the true Form — only the PHILOSOPHER does. The path to reality is through philosophy and reason, NOT art and emotion.",
+                topic: "Fifth Accusation — Knowledge Hierarchy"
+            },
+            {
+                id: 9,
+                category: "Key Ideas",
+                question: "Plato believes the path to understanding reality is through:",
+                options: [
+                    "Art, poetry, and emotional expression",
+                    "Philosophy, reason, and rational thinking",
+                    "Imitation of brave and noble characters",
+                    "Religious worship and spiritual meditation"
+                ],
+                correctAnswer: 1,
+                explanation: "PHILOSOPHY + REASON = path to reality. NOT art, poetry, or emotion. This is the core of ALL Plato's accusations — art deals with imitation and emotion, philosophy deals with truth and reason.",
+                topic: "Philosophy vs. Art"
+            },
+            {
+                id: 10,
+                category: "Rhetoric",
+                question: "Plato scorned rhetoric (political speeches) because he believed they:",
+                options: [
+                    "Were too philosophical and abstract for common people",
+                    "Were insincere compliments aimed to deceive ignorant listeners",
+                    "Taught people critical thinking and the Socratic method",
+                    "Represented the highest form of logical argumentation"
+                ],
+                correctAnswer: 1,
+                explanation: "Plato REJECTED rhetoric. Why? Political speeches = INSINCERE COMPLIMENTS to DECEIVE ignorant listeners. Rhetoric provides pleasure without concern for truth, and appeals to EMOTIONS rather than logic/reason.",
+                topic: "Accusations Against Rhetoric"
+            },
+            {
+                id: 11,
+                category: "Mimesis",
+                question: "Plato says 'young people learn through imitation,' so we must:",
+                options: [
+                    "Let them freely imitate any character they choose",
+                    "Ban all forms of literature from their education",
+                    "Carefully select models for them to imitate",
+                    "Teach them only through mathematical exercises"
+                ],
+                correctAnswer: 2,
+                explanation: "Since youth learn through IMITATION, we must SELECT MODELS carefully. Plato wants them to imitate only brave, pious, noble men — to build strength, not infect them with weakness.",
+                topic: "Education and Imitation"
+            },
+            {
+                id: 12,
+                category: "Key Ideas",
+                question: "According to Plato, poetry must be subject to control because:",
+                options: [
+                    "It is an important source of youth experience and must follow ethical principles",
+                    "It generates too much profit and must be regulated economically",
+                    "It competes with philosophy for students at the Academy",
+                    "It is written in a language that common people cannot understand"
+                ],
+                correctAnswer: 0,
+                explanation: "Poetry = important source of youth experience → it MUST be controlled. Contents should be based on ETHICAL PRINCIPLES. Plato doesn't want to eliminate poetry entirely — he wants it controlled ethically.",
+                topic: "Poetry and Ethics"
+            }
+        ]
+    },
+    {
+        title: "🎯 Final Exam Simulation (Midterm Style)",
+        lang: "en",
+        questions: [
+            {
+                id: 1,
+                category: "Exam Q2 Style",
+                question: "What is literary criticism?",
+                options: [
+                    "The study of authors' biographies and their personal correspondence",
+                    "Studies concerned with defining, classifying, analyzing, interpreting, and evaluating literary works",
+                    "The process of translating literary works from one language into another",
+                    "A method of editing and publishing manuscripts for academic audiences"
+                ],
+                correctAnswer: 1,
+                explanation: "Literary criticism = defining + classifying (genre) + analyzing (structure/style) + interpreting (meaning) + evaluating (worth by comparison). Memorize these five verbs.",
+                topic: "Definition of Literary Criticism"
+            },
+            {
+                id: 2,
+                category: "Exam Q2 Style",
+                question: "What do you know about Plato?",
+                options: [
+                    "A Roman emperor who conquered Greece and established democracy in Athens",
+                    "A Greek philosopher who founded the Academy and wrote The Republic in 375 BC",
+                    "A Greek mathematician who developed geometry and the Pythagorean theorem",
+                    "A Greek poet who wrote the Iliad and Odyssey about the Trojan War"
+                ],
+                correctAnswer: 1,
+                explanation: "Plato = Greek philosopher, student of Socrates, teacher of Aristotle. Founded the ACADEMY. Wrote THE REPUBLIC (375 BC). Developed Platonism and the Theory of Forms.",
+                topic: "Plato — Key Facts"
+            },
+            {
+                id: 3,
+                category: "Exam Q2 Style",
+                question: "What do you know about Socrates?",
+                options: [
+                    "He wrote The Republic and founded the Academy in Athens after Plato's death",
+                    "He was a defining figure in Western philosophy known for the Socratic method of questioning",
+                    "He was Plato's student who developed formal logic and the theory of syllogisms",
+                    "He was a Greek poet who represented gods with tragic flaws in his dramas"
+                ],
+                correctAnswer: 1,
+                explanation: "Socrates = defining figure in Western philosophy. Known for the Socratic method (questioning + dialogue). Teacher of Plato. Sentenced to death for corrupting youth and impiety. He wrote NOTHING — we know him through Plato.",
+                topic: "Socrates — Key Facts"
+            },
+            {
+                id: 4,
+                category: "Exam Q2 Style",
+                question: "What is the Allegory of the Cave about?",
+                options: [
+                    "A story about prisoners who see only shadows and mistake them for reality, representing humanity's ignorance",
+                    "A dialogue about the ideal form of government in which poets rule the state",
+                    "An argument for why art and poetry should be the foundation of education",
+                    "A description of the Academy that Plato founded for teaching rhetoric"
+                ],
+                correctAnswer: 0,
+                explanation: "Prisoners chained in a cave see SHADOWS on the wall and think they're real. A freed prisoner (philosopher) escapes, sees truth, returns — but others resist. Message: people are comfortable in ignorance; philosophers must educate them.",
+                topic: "Allegory of the Cave"
+            },
+            {
+                id: 5,
+                category: "Exam Q2 Style",
+                question: "What is Plato's Theory of Forms?",
+                options: [
+                    "The belief that physical objects are the ultimate reality and ideas are merely human inventions",
+                    "The belief that behind every physical thing is a perfect, abstract, unchanging, non-physical Form",
+                    "The belief that art creates perfect representations of objects in the physical world",
+                    "The belief that knowledge comes primarily through our five physical senses"
+                ],
+                correctAnswer: 1,
+                explanation: "Theory of Forms: behind every thing = a FORM (perfect, abstract, unchanging, non-physical, universal). Physical world = shadow/image of true reality. Forms are understood through LOGIC, not senses.",
+                topic: "Theory of Forms"
+            },
+            {
+                id: 6,
+                category: "Exam Q2 Style",
+                question: "What is Plato's theory of mimesis?",
+                options: [
+                    "The idea that art creates original ideas independent of reality",
+                    "The idea that art is imitation, and artists imitate copies of the true Forms",
+                    "The idea that all knowledge comes from imitating great philosophers",
+                    "The idea that the physical world is more real than abstract ideas"
+                ],
+                correctAnswer: 1,
+                explanation: "Mimesis = IMITATION. Artists imitate physical objects, which are ALREADY copies of Forms. So art = copy of a copy. Example: Form of chair → carpenter's chair → painter's painting = imitation of imitation.",
+                topic: "Theory of Mimesis"
+            },
+            {
+                id: 7,
+                category: "Exam Q1 Style",
+                question: "What is Formalist criticism and what does 'art for art's sake' mean?",
+                options: [
+                    "It focuses on a text's words, structure, and style — ignoring biography and history entirely",
+                    "It evaluates how art contributes to moral education and ethical development",
+                    "It examines how socio-economic conditions are reflected in literary works",
+                    "It studies the unconscious motivations behind characters' actions in a text"
+                ],
+                correctAnswer: 0,
+                explanation: "Formalism = art for art's sake. ONLY the text matters — words, structure, style. Ignore the author's life, ignore history, ignore morality. Judge the art ONLY by its artistic qualities.",
+                topic: "Formalist Criticism"
+            },
+            {
+                id: 8,
+                category: "Exam Q1 Style",
+                question: "What is Psychological criticism based on?",
+                options: [
+                    "The belief that socio-economic class determines literary meaning",
+                    "The belief that the unconscious mind influences all human actions",
+                    "The belief that the reader's response is the only source of meaning",
+                    "The belief that patriarchal narratives shape all literary traditions"
+                ],
+                correctAnswer: 1,
+                explanation: "Psychological/Freudian criticism = the UNCONSCIOUS drives all actions. Uses psychoanalysis to analyze characters' motivations and reveal insights about how the human mind works.",
+                topic: "Psychological Criticism"
+            },
+            {
+                id: 9,
+                category: "Exam Q1 Style",
+                question: "What does Marxist criticism focus on?",
+                options: [
+                    "How a work reflects socio-economic conditions and the history of class struggle",
+                    "How a work reflects patriarchal narratives and the roles of men and women",
+                    "How a work reveals the unconscious fears and desires of its characters",
+                    "How a work imitates the perfect Forms through artistic representation"
+                ],
+                correctAnswer: 0,
+                explanation: "Marxist = socio-economic conditions + class struggle. It asks: how does this work reflect (intentionally or NOT) the economic conditions and class dynamics of its time?",
+                topic: "Marxist Criticism"
+            },
+            {
+                id: 10,
+                category: "Exam Q1 Style",
+                question: "What does Feminist criticism examine?",
+                options: [
+                    "The socio-economic class structure reflected in literary works",
+                    "The social roles of men and women and patriarchal narratives in literature",
+                    "The unconscious psychological motivations of female characters only",
+                    "The historical context and changing cultural symbols over time"
+                ],
+                correctAnswer: 1,
+                explanation: "Feminist = gender roles + patriarchy. It explores social relationships of men & women, how literature is influenced by male-dominated (patriarchal) narratives, and stereotypical portrayals of women.",
+                topic: "Feminist Criticism"
+            },
+            {
+                id: 11,
+                category: "Exam Q1 Style",
+                question: "What does Post-colonial criticism analyze?",
+                options: [
+                    "Forces that pushed colonized to internalize colonizer values AND forces of resistance against oppression",
+                    "Forces that shaped the unconscious mind of authors from colonized nations only",
+                    "Forces that determined the artistic form and structural style of colonial literature",
+                    "Forces that made colonial economies dependent on art and literary production"
+                ],
+                correctAnswer: 0,
+                explanation: "Post-colonial = TWO forces: (1) pressure on colonized to INTERNALIZE colonizer values, (2) RESISTANCE against oppression. Also analyzes literature produced by cultures that developed under colonial domination.",
+                topic: "Post-Colonial Criticism"
+            },
+            {
+                id: 12,
+                category: "Exam Q2 Style",
+                question: "What is the Socratic Method?",
+                options: [
+                    "A method of writing philosophical dialogues in dramatic poetic form",
+                    "A method of investigation through asking questions and identifying contradictions",
+                    "A method of memorizing philosophical texts through repeated recitation",
+                    "A method of teaching through lectures delivered to large audiences"
+                ],
+                correctAnswer: 1,
+                explanation: "Socratic Method = asking QUESTION AFTER QUESTION + identifying CONTRADICTIONS in beliefs. Based on two or more sides holding different viewpoints. You don't get a final answer — you learn what you DON'T know.",
+                topic: "Socratic Method"
+            },
+            {
+                id: 13,
+                category: "Exam Q2 Style",
+                question: "What are Plato's main accusations against poetry?",
+                options: [
+                    "Poetry misrepresents gods, gives heroes tragic flaws, corrupts good men, makes youth unserious, and is an imitation of an imitation",
+                    "Poetry is too difficult for common people, too expensive to produce, and too long to memorize",
+                    "Poetry competes with philosophy for students, steals ideas from other poets, and promotes democracy",
+                    "Poetry ignores the physical world, rejects mathematics, and teaches only abstract concepts"
+                ],
+                correctAnswer: 0,
+                explanation: "Five accusations: (1) Poets misrepresent GODS as unjust, (2) Heroes shown with TRAGIC FLAWS, (3) Poetry CORRUPTS even good men, (4) Comedies make youth UNSERIOUS, (5) Art is IMITATION OF IMITATION (copy of copy).",
+                topic: "Plato's Five Accusations"
             },
             {
                 id: 14,
-                category: "Gender & Society",
-                question: "How does the text characterize the role of women in the social structures of ancient civilizations?",
+                category: "Exam Q1 Style",
+                question: "What is Reader-Response criticism?",
                 options: [
-                    "Women held equal status to men in religious institutions and often served as high priests in major temples",
-                    "Women's roles and rights were generally subordinate to men in patriarchal societies where men held primary positions of power",
-                    "Women in ancient Greece were uniquely exempt from patriarchal norms due to the influence of goddesses like Athena",
-                    "Women controlled domestic economic production and held significant informal authority equal to formal male governance"
+                    "Criticism that focuses on the author's biography and life experiences",
+                    "Criticism that focuses on how meaning is created through the reader's interaction with the text",
+                    "Criticism that focuses on the moral teachings and ethical effects of literature",
+                    "Criticism that focuses on the historical environment when the text was produced"
                 ],
                 correctAnswer: 1,
-                explanation: "Ancient societies were patriarchal, with men holding primary positions of power and authority. Women's roles and rights were generally subordinate to men across these civilizations.",
-                topic: "Social Structures and Governance"
+                explanation: "Reader-Response = meaning is created in the READER'S MIND through interaction with the text. Many variables (mood, experience, background) contribute, so the same reader can get different meanings on different readings.",
+                topic: "Reader-Response Criticism"
             },
             {
                 id: 15,
-                category: "Slavery",
-                question: "According to the text, in which three domains were slaves primarily used as labor in ancient civilizations?",
+                category: "Exam Q2 Style",
+                question: "What is the Form of the Good and why is it important?",
                 options: [
-                    "Military service, religious ceremonies, and long-distance maritime trade across the Indian Ocean",
-                    "Philosophical instruction, architectural design, and management of royal court administration",
-                    "Households, agriculture, and construction projects — the core areas of ancient economic and domestic life",
-                    "Artistic production, record-keeping, and operation of trade networks along major commercial routes"
-                ],
-                correctAnswer: 2,
-                explanation: "The text states that slavery was widespread in ancient civilizations, with slaves serving as labor for households, agriculture, and construction projects specifically.",
-                topic: "Social Structures and Governance"
-            },
-            {
-                id: 16,
-                category: "Religion",
-                question: "Religious institutions such as temples held which types of power in ancient civilizations, according to the text?",
-                options: [
-                    "They held exclusively spiritual authority, with no involvement in political decisions or economic transactions",
-                    "They held significant political and economic power alongside their religious function in ancient societies",
-                    "They held judicial power only, serving as courts where legal disputes were resolved by priestly authority",
-                    "They held military power, commanding armies on behalf of the gods during wars against neighboring civilizations"
+                    "It is the most beautiful Form that inspires all artistic creation and poetry",
+                    "It is the most important Form that allows us to understand everything else",
+                    "It is the Form that governs all political systems and laws in society",
+                    "It is the Form that determines moral behavior in everyday social life"
                 ],
                 correctAnswer: 1,
-                explanation: "According to the text, religious institutions (e.g. temples) held significant political and economic power — not merely spiritual authority — making them central to the governance and economy of ancient civilizations.",
-                topic: "Religious Beliefs and Practices"
+                explanation: "The Form of the Good = the MOST IMPORTANT Form. It lets us understand EVERYTHING else. It provides knowledge and truth. It stands above all other Forms (Justice, Beauty, Truth, Equality).",
+                topic: "The Form of the Good"
             }
         ]
     }
 ];
       
-// example of questions to replace later
+// All 5 exam sets loaded
 
 
 // Theme toggle: initialize, apply, and persist user preference
