@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>امتحانات لتحضير الفاينال</title>
+    <title>امتحانات لتحضير الميدترم</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,261 +14,483 @@
 
 const examSets = [
     {
-        title: "Classic Short Stories: Authors & Nationalities",
+        title: "Critics-1: Exam 1",
+        lang: "en",
         questions: [
             {
                 id: 1,
-                category: "Author Identification",
-                question: "Which American author wrote 'The Gift of the Magi'?",
+                category: "Terminology",
+                question: "The Greek word 'krino' contributes which specific meaning to the word 'critic'?",
                 options: [
-                    "Edgar Allan Poe",
-                    "Kate Chopin",
-                    "O. Henry",
-                    "Katherine Mansfield"
+                    "It means 'judgment' and refers to the act of evaluating or deciding",
+                    "It means 'judge' and refers to the person who performs the criticism",
+                    "It means 'writing' and refers to the textual nature of literary criticism",
+                    "It means 'analysis' and refers to the method of breaking down a text"
                 ],
-                correctAnswer: 2,
-                explanation: "'The Gift of the Magi' was written by the American author O. Henry, whose real name was William Sydney Porter.",
-                topic: "American Short Story Writers"
+                correctAnswer: 0,
+                explanation: "'Krino' means 'judgment' (the act), while 'krites' means 'judge' (the person). Literary critics (kritikos) are 'literary judges' combining both words.",
+                topic: "Etymology of Criticism"
             },
             {
                 id: 2,
-                category: "Author Identification",
-                question: "Who is the author of 'The Story of an Hour'?",
+                category: "Definition",
+                question: "Which of the following most accurately describes what literary criticism does as a discipline?",
                 options: [
-                    "Anton Chekhov",
-                    "Edgar Allan Poe",
-                    "Katherine Mansfield",
-                    "Kate Chopin"
+                    "It produces new fictional narratives inspired by existing literary works and genres",
+                    "It defines, classifies by genre, analyzes structure and style, interprets meaning, and evaluates worth",
+                    "It translates literary works across languages and adapts them for modern audiences",
+                    "It documents biographical facts about authors and compiles historical publication records"
                 ],
-                correctAnswer: 3,
-                explanation: "'The Story of an Hour' was written by the American author Kate Chopin.",
-                topic: "American Literature"
+                correctAnswer: 1,
+                explanation: "Literary criticism is the overall term for studies concerned with defining, classifying (by genre), analyzing (structure and style), interpreting (meaning), and evaluating (worth by comparison) works of literature.",
+                topic: "Definition of Literary Criticism"
             },
             {
                 id: 3,
-                category: "Author Identification",
-                question: "Which famous American writer is known for 'The Tell-Tale Heart'?",
+                category: "Literary Theory",
+                question: "How does literary theory function in relation to literary criticism?",
                 options: [
-                    "O. Henry",
-                    "Kate Chopin",
-                    "Edgar Allan Poe",
-                    "Mark Twain"
+                    "It replaces the need for criticism by offering definitive interpretations of canonical texts",
+                    "It serves as a critical lens — a guiding idea with specific assumptions through which a text is analyzed",
+                    "It focuses exclusively on the historical background of texts without offering interpretive tools",
+                    "It provides a strict methodology for editing and publishing literary manuscripts"
                 ],
-                correctAnswer: 2,
-                explanation: "'The Tell-Tale Heart' was written by the American author Edgar Allan Poe, a master of Gothic and horror fiction.",
-                topic: "American Gothic Literature"
+                correctAnswer: 1,
+                explanation: "Literary theory is the idea that guides literary criticism. It acts as a critical lens through which a critic evaluates a text based on specific assumptions within that theory.",
+                topic: "Literary Theory as a Critical Lens"
             },
             {
                 id: 4,
-                category: "Author Identification",
-                question: "Who wrote 'The Garden Party'?",
+                category: "Abrams' Framework",
+                question: "M.H. Abrams in 'The Mirror and the Lamp' identifies four main features in the study of literary texts. Which combination below is correct?",
                 options: [
-                    "Katherine Mansfield",
-                    "Anton Chekhov",
-                    "Kate Chopin",
-                    "Virginia Woolf"
+                    "The work, the artist, the universe, and the audience",
+                    "The work, the publisher, the audience, and the critic",
+                    "The artist, the reader, the genre, and the historical period",
+                    "The work, the language, the culture, and the moral framework"
                 ],
                 correctAnswer: 0,
-                explanation: "'The Garden Party' was written by the New Zealand-born author Katherine Mansfield.",
-                topic: "Modernist Short Stories"
+                explanation: "Abrams outlines: the work itself, the artist (creator), the universe (nature being imitated), and the audience — leading to text-based, author-based, reader-based, and imitative theories.",
+                topic: "Abrams' Four Features"
             },
             {
                 id: 5,
-                category: "Author Identification",
-                question: "Which Russian author wrote 'The Bet'?",
+                category: "Applied Criticism",
+                question: "When Chinua Achebe argued that Conrad's 'Heart of Darkness' fails to grant full humanity to Africans, which critical approach was he applying?",
                 options: [
-                    "Fyodor Dostoevsky",
-                    "Leo Tolstoy",
-                    "Anton Chekhov",
-                    "Ivan Turgenev"
+                    "Formalist criticism, because he focused on the language and style of the text itself",
+                    "Biographical criticism, because he drew on Conrad's personal experiences in the Congo",
+                    "Post-colonial criticism, emphasizing a history of exploitation, racism, and the colonized perspective",
+                    "Marxist criticism, focusing on the economic motivations and class dynamics behind colonialism"
                 ],
                 correctAnswer: 2,
-                explanation: "'The Bet' was written by the renowned Russian author and playwright Anton Chekhov.",
-                topic: "Russian Literature"
+                explanation: "Achebe's argument is rooted in post-colonial literary theory, which emphasizes a history of exploitation and racism and questions how colonized peoples are represented in literature.",
+                topic: "Post-Colonial Applied Example"
             },
             {
                 id: 6,
-                category: "Nationality Identification",
-                question: "What was the nationality of author O. Henry?",
+                category: "Formalist Criticism",
+                question: "Formalism is described as 'the theory of art for art's sake.' What does this mean for how a formalist critic approaches a text?",
                 options: [
-                    "British",
-                    "Canadian",
-                    "American",
-                    "Australian"
+                    "The critic evaluates the text's social impact and moral effect on its original historical audience",
+                    "The critic focuses exclusively on the words of the text, ignoring the author's biography and historical context",
+                    "The critic traces how historical events directly shaped the language and symbolism within the work",
+                    "The critic interprets the text by examining the unconscious motivations hidden behind the author's choices"
                 ],
-                correctAnswer: 2,
-                explanation: "O. Henry was an American writer, known for his clever twist endings and vivid portrayal of ordinary people in New York City.",
-                topic: "American Authors"
+                correctAnswer: 1,
+                explanation: "Formalist critics focus on the words of the text itself — its structure, style, and form — rather than facts about the author's life or the historical milieu in which it was written.",
+                topic: "Formalist Criticism"
             },
             {
                 id: 7,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Kate Chopin?",
+                category: "Biographical Criticism",
+                question: "A critic studying a novel examines how the main character's depression mirrors the author's own mental health struggles documented in personal letters. Which critical approach is this?",
                 options: [
-                    "French",
-                    "British",
-                    "American",
-                    "Canadian"
+                    "Historical criticism, because personal letters are historical documents from a particular era",
+                    "Psychological criticism, because it involves analysis of depression and unconscious mental states",
+                    "Biographical criticism, analyzing the work through the author's personality, life experiences, and psychology",
+                    "Reader-response criticism, because personal documents change how different readers interpret the text"
                 ],
                 correctAnswer: 2,
-                explanation: "Kate Chopin was an American author, born in St. Louis, Missouri, and known for her stories about the complexities of women's lives.",
-                topic: "American Women Writers"
+                explanation: "Biographical criticism analyzes literary work through the lens of the author's experience, examining personality characteristics, life experiences, and psychological dynamics of the author.",
+                topic: "Biographical Criticism"
             },
             {
                 id: 8,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Katherine Mansfield?",
+                category: "Historical Criticism",
+                question: "Why does historical criticism insist on reading literary references within the environment in which they were written?",
                 options: [
-                    "Australian",
-                    "British",
-                    "New Zealander",
-                    "American"
+                    "Because modern readers are incapable of understanding older texts without specialized expert guidance",
+                    "Because both language and cultures change over time, altering the meaning of signs and symbols used in texts",
+                    "Because authors always intended their works to be read only by their own historical contemporaries",
+                    "Because historical criticism rejects the idea that literature can ever carry timeless or universal meanings"
                 ],
-                correctAnswer: 2,
-                explanation: "Katherine Mansfield was a prominent modernist writer from New Zealand, though she spent much of her adult life in Europe.",
-                topic: "New Zealand Literature"
+                correctAnswer: 1,
+                explanation: "Historical criticism recognizes that both language and cultures change over time, making it essential to understand literary signs and symbols in the context of when and where they were originally produced.",
+                topic: "Historical Criticism"
             },
             {
                 id: 9,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Anton Chekhov?",
+                category: "Psychological Criticism",
+                question: "What is the core belief that underlies psychological (Freudian) criticism when applied to literary analysis?",
                 options: [
-                    "Polish",
-                    "Russian",
-                    "Ukrainian",
-                    "German"
+                    "That literary works gain their meaning primarily from the cultural and economic class of the author",
+                    "That all human actions in literature are influenced by the unconscious, which psychoanalysis can reveal",
+                    "That the reader's emotional response to a text is the only valid and measurable basis for interpretation",
+                    "That literary characters must be evaluated using the moral standards of their own historical period"
                 ],
                 correctAnswer: 1,
-                explanation: "Anton Chekhov was a Russian physician, playwright, and master of the modern short story.",
-                topic: "Russian Authors"
+                explanation: "Psychological criticism is based on the belief that all actions are influenced by the unconscious. Psychoanalysts analyze literature to reveal insights about the human mind and to analyze characters' actions and motivations.",
+                topic: "Psychological / Freudian Criticism"
             },
             {
                 id: 10,
-                category: "Comprehensive Matching",
-                question: "Which pairing correctly matches an author with their nationality?",
+                category: "Feminist Criticism",
+                question: "Feminist literary criticism examines stereotypical portrayals of female characters. Which of the following best describes its broader analytical scope?",
                 options: [
-                    "Katherine Mansfield - American",
-                    "O. Henry - British",
-                    "Anton Chekhov - French",
-                    "Edgar Allan Poe - American"
+                    "It evaluates literary works purely on aesthetic and stylistic grounds without making any reference to gender",
+                    "It explores social relationships, roles of men and women, and how literature portrays and is shaped by patriarchal narratives",
+                    "It focuses solely on recovering lost works by female authors and entirely ignores works written by men",
+                    "It applies Freudian psychoanalytic categories specifically to the study of female psychology in literary texts"
                 ],
-                correctAnswer: 3,
-                explanation: "Edgar Allan Poe was indeed American. Katherine Mansfield was New Zealander, O. Henry was American, and Anton Chekhov was Russian.",
-                topic: "Author Nationalities"
+                correctAnswer: 1,
+                explanation: "Feminist criticism explores social relationships and the roles of men and women, examining how literature portrays and is influenced by patriarchal (male-controlled) narratives, as well as stereotypical portrayals of female characters.",
+                topic: "Feminist Criticism"
+            },
+            {
+                id: 11,
+                category: "Reader-Response Criticism",
+                question: "Reader-response criticism claims that even the same reader reading the same text twice may produce different meanings. What does this reveal about the nature of literary meaning?",
+                options: [
+                    "Meaning is stable and fixed within the text; any variations are caused by inattentive or careless reading",
+                    "Meaning is purely accidental and therefore has no reliable or consistent connection to the text's language",
+                    "Meaning is constructed through the interaction of the reader's experience and the text, making it inherently variable",
+                    "Meaning belongs solely to the author's original intention and cannot be legitimately altered by any reader"
+                ],
+                correctAnswer: 2,
+                explanation: "Reader-response criticism holds that a literary work is converted into an activity in the reader's mind. Many variables contribute to our reading experience, so even the same reader on different occasions may produce different meanings.",
+                topic: "Reader-Response Criticism"
+            },
+            {
+                id: 12,
+                category: "Deconstructionist Criticism",
+                question: "Deconstructionists reject the assumption that language can accurately represent reality. How does this shape their view of what literary texts mean?",
+                options: [
+                    "They believe texts contain a single correct meaning that trained critics can reliably uncover through close reading",
+                    "They argue texts have no fixed meaning, since both authors and readers are inevitably shaped by their own cultural assumptions",
+                    "They hold that all texts ultimately reflect the author's conscious intentions if studied with enough scholarly rigor",
+                    "They claim literary texts are only meaningful when correctly placed in their original historical and political context"
+                ],
+                correctAnswer: 1,
+                explanation: "Deconstructionists argue that literary texts have no fixed or single meaning. Authors draw on cultural assumptions when constructing texts, and readers draw on theirs when constructing readings — making meaning always unstable.",
+                topic: "Deconstructionist Criticism"
+            },
+            {
+                id: 13,
+                category: "Moralist Criticism",
+                question: "How does moralistic criticism fundamentally differ from formalist criticism in the way it evaluates a literary work?",
+                options: [
+                    "Moralistic criticism prioritizes the historical context of the work, while formalism focuses on its ethical teachings and effects",
+                    "Moralistic criticism judges works based on moral principles and effects on readers, while formalism focuses on form and artistic structure",
+                    "Moralistic criticism ignores the text entirely and instead focuses on the author's personal conduct and public reputation",
+                    "Moralistic criticism applies psychoanalytic categories to literary characters, while formalism evaluates narrative technique"
+                ],
+                correctAnswer: 1,
+                explanation: "Moralistic criticism judges works based on moral rather than formal principles, evaluating them by their ethical teachings and effects on readers — the opposite of formalism's 'art for art's sake' approach.",
+                topic: "Moralist Criticism"
+            },
+            {
+                id: 14,
+                category: "Marxist Criticism",
+                question: "Marxist criticism is often interested in what a literary work reveals intentionally or not. What specifically does it seek to uncover?",
+                options: [
+                    "How the author's unconscious anxieties and repressed desires are projected onto the characters and plot",
+                    "How a literary work reflects the socio-economic conditions of its time and what those reveal about class struggle",
+                    "How reader responses to the text differ across different demographic groups and economic backgrounds",
+                    "How colonial ideologies have been embedded in the language and structure of dominant literary traditions"
+                ],
+                correctAnswer: 1,
+                explanation: "Marxist criticism is interested in how a literary work — intentionally or not — reflects the socio-economic conditions of its time, and what those conditions reveal about the history of class struggle.",
+                topic: "Marxist Criticism"
+            },
+            {
+                id: 15,
+                category: "Post-Colonial Criticism",
+                question: "Post-colonial criticism analyzes two opposing forces found in colonial and post-colonial literature. Which option correctly describes both forces?",
+                options: [
+                    "It studies how colonizers used literature to entertain and how the colonized used literature to document their history",
+                    "It examines forces that pressured the colonized to internalize the colonizers' values, and forces that promoted resistance against oppression",
+                    "It analyzes how colonial governments censored native literature and how underground presses responded with counter-narratives",
+                    "It examines how economic exploitation shaped colonizers' literary output and how poverty influenced colonized writers' styles"
+                ],
+                correctAnswer: 1,
+                explanation: "Post-colonial criticism analyzes: (1) ideological forces that pressed the colonized to internalize (absorb as their own) the colonizers' values, and (2) forces that promoted resistance of colonized peoples against their oppressors.",
+                topic: "Post-Colonial Criticism"
+            },
+            {
+                id: 16,
+                category: "Literary Elements",
+                question: "In critical analysis, the term 'tone' refers to which of the following?",
+                options: [
+                    "The grammatical register of the text, such as formal or informal sentence structures used by the narrator",
+                    "The writer's feelings about or attitude towards the subject matter, for example depressed or hopeful",
+                    "The pace and rhythm at which events unfold across the narrative over the course of the plot",
+                    "The overall category or classification of the work, such as drama, poetry, or fiction"
+                ],
+                correctAnswer: 1,
+                explanation: "Tone expresses the writer's feelings about or attitude towards the subject matter — for example depressed, hopeful, ironic, or celebratory. It is distinct from genre, style, or narrative pacing.",
+                topic: "Literary Elements — Tone"
+            },
+            {
+                id: 17,
+                category: "Literary Elements",
+                question: "In the context of literary criticism, how is 'style' best distinguished from related literary elements?",
+                options: [
+                    "Style is the category of literature a work belongs to, such as drama, poetry, or fiction",
+                    "Style is the emotional attitude the writer takes toward the subject matter throughout the work",
+                    "Style refers to the ways a writer presents his thoughts, for example subjectively or objectively",
+                    "Style is the sequence of events organized to create tension and resolution across the narrative"
+                ],
+                correctAnswer: 2,
+                explanation: "Style refers to the ways the writer presents his thoughts — e.g., subjective (personal/emotional) or objective (factual/detached). It is different from tone (attitude toward subject) or genre (category of literature).",
+                topic: "Literary Elements — Style"
             }
         ]
     },
-
     {
-        title: "Short Stories: Setting & Narration",
+        title: "Critics-2: Classical Athens",
+        lang: "en",
         questions: [
             {
                 id: 1,
-                category: "The Story of an Hour – Kate Chopin",
-                question: "Where and when is 'The Story of an Hour' set?",
+                category: "Social Structures",
+                question: "Ancient civilizations are described as having hierarchical social structures. Which of the following correctly lists the order from highest to lowest in those hierarchies?",
                 options: [
-                    "In Mrs. Mallard’s house in the late 19th century over the course of one hour.",
-                    "In a New York apartment at the turn of the 20th century for a single evening.",
-                    "At a rural farm in the American South during a long summer day.",
-                    "In a London boarding house during a brief afternoon in the 1800s."
+                    "Nobles, ruling elites (pharaohs/kings), priests, commoners, then slaves at the bottom",
+                    "Ruling elites (pharaohs, emperors, kings) at the top, followed by subordinate classes including nobles, priests, commoners, and slaves",
+                    "Priests at the top due to religious authority, followed by rulers, nobles, commoners, and slaves",
+                    "Commoners forming the largest group at the top, with rulers, nobles, and priests serving subordinate administrative roles"
                 ],
-                correctAnswer: 0,
-                explanation: "The story is set in Mrs. Mallard’s house in the late 19th century over the course of one hour.",
-                topic: "Setting in The Story of an Hour"
+                correctAnswer: 1,
+                explanation: "Hierarchical social structures consisted of ruling elites (pharaohs, emperors, kings) at the top and subordinate classes (nobles, priests, commoners, slaves) below them.",
+                topic: "Social Structures and Governance"
             },
             {
                 id: 2,
-                category: "The Story of an Hour – Kate Chopin",
-                question: "What is the narrative perspective of 'The Story of an Hour'?",
+                category: "Governance",
+                question: "Which combination of functions did centralized governments in ancient civilizations primarily manage?",
                 options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
+                    "Religious ceremonies, artistic production, and the writing of philosophical texts for public education",
+                    "Taxation, public works, and military forces — the core administrative pillars of centralized authority",
+                    "Trade negotiations, agricultural planning, and the distribution of slaves across conquered territories",
+                    "Scientific research, architectural design, and the maintenance of written legal codes for all citizens"
                 ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Story of an Hour"
+                correctAnswer: 1,
+                explanation: "Centralized governments managed taxation, public works, and military forces as their primary administrative functions.",
+                topic: "Social Structures and Governance"
             },
             {
                 id: 3,
-                category: "The Bet – Anton Chekhov",
-                question: "Where is 'The Bet' primarily set?",
+                category: "Religion",
+                question: "In Ancient Greek religion, Apollo was associated with a notably wide range of domains. Which of the following correctly identifies all of them as stated in the text?",
                 options: [
-                    "In the banker’s house and the garden lodge in Russia in the late 19th century.",
-                    "In a Moscow prison and a country estate during a single decade.",
-                    "In a St. Petersburg library and a summer cottage over many years.",
-                    "In a remote Siberian cabin and a university town throughout a winter."
+                    "Apollo governed war, wisdom, arts, and the underworld — making him one of the most powerful Olympian gods",
+                    "Apollo was the god of the Sun, medicine, poetry, music, and prophecy — a uniquely broad set of domains",
+                    "Apollo represented justice, trade, travel, and athletic competition — linking him to civic and physical life",
+                    "Apollo was associated with the sea, harvest, fertility, and agriculture — connecting him to natural cycles"
                 ],
-                correctAnswer: 0,
-                explanation: "The story is set in Russia in the late 19th century, mainly in the banker’s house and the garden lodge.",
-                topic: "Setting in The Bet"
+                correctAnswer: 1,
+                explanation: "According to the text, Apollo was the god of the Sun, medicine, poetry, music, and prophecy — an unusually broad set of domains for a single deity in the Greek pantheon.",
+                topic: "Religious Beliefs and Practices"
             },
             {
                 id: 4,
-                category: "The Bet – Anton Chekhov",
-                question: "What narrative point of view is used in 'The Bet'?",
+                category: "Religion",
+                question: "What was the primary purpose of myths in Ancient Greek religion as described in the text?",
                 options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
+                    "Myths served as entertainment for the ruling classes and were performed only during royal ceremonies",
+                    "Myths functioned as legal codes, establishing rules of conduct and punishment for crimes against the gods",
+                    "Myths explained natural phenomena, with gods such as Zeus, Athena, and Apollo representing natural forces and human attributes",
+                    "Myths were written by philosophers to challenge religious authority and promote rational over supernatural thinking"
                 ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Bet"
+                correctAnswer: 2,
+                explanation: "Ancient Greek religion included gods representing natural forces and human attributes, with myths explaining natural phenomena — for example, Zeus (king of gods), Athena (wisdom and arts), Apollo (sun, medicine, poetry, music, prophecy).",
+                topic: "Religious Beliefs and Practices"
             },
             {
                 id: 5,
-                category: "The Tell-Tale Heart – Edgar Allan Poe",
-                question: "When and where is 'The Tell-Tale Heart' set?",
+                category: "Art & Architecture",
+                question: "Architecture such as pyramids and temples in ancient civilizations served which dual symbolic function according to the text?",
                 options: [
-                    "In an unspecified place in the 19th century.",
-                    "In a specific unnamed town during a dark autumn.",
-                    "In a remote castle during a stormy night long ago.",
-                    "In a city apartment at the turn of the century."
+                    "They functioned as centers of trade and education, combining economic activity with the spread of literacy",
+                    "They served as symbols of military power and political conquest, celebrating victories over enemy civilizations",
+                    "They acted as symbols of political power and religious devotion, marking the authority of rulers and gods simultaneously",
+                    "They were designed primarily as astronomical observatories and scientific research centers for elite scholars"
                 ],
-                correctAnswer: 0,
-                explanation: "The story is set in an unspecified place in the 19th century.",
-                topic: "Setting in The Tell-Tale Heart"
+                correctAnswer: 2,
+                explanation: "Architecture (e.g. pyramids, temples) served as symbols of power and religious devotion — representing both the authority of rulers and the centrality of religion in ancient civilization.",
+                topic: "Art and Architecture"
             },
             {
                 id: 6,
-                category: "The Tell-Tale Heart – Edgar Allan Poe",
-                question: "Who narrates 'The Tell-Tale Heart'?",
+                category: "Art & Architecture",
+                question: "What was the defining characteristic of Ancient Greek sculpture as mentioned in the text?",
                 options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
+                    "Greek sculptures emphasized realistic depictions of ordinary commoners and everyday domestic life",
+                    "Greek sculptures emphasized beauty, depicting gods, rulers, and idealized human forms",
+                    "Greek sculptures focused exclusively on battle scenes and military victories to honor warrior culture",
+                    "Greek sculptures were deliberately abstract, using geometric forms to represent divine and spiritual concepts"
                 ],
                 correctAnswer: 1,
-                explanation: "It is told by a first-person narrator.",
-                topic: "Narration in The Tell-Tale Heart"
+                explanation: "Ancient Greek sculptures emphasized beauty — they depicted gods, rulers, and idealized human forms, reflecting the Greek cultural value placed on physical and aesthetic perfection.",
+                topic: "Art and Architecture"
             },
             {
-    id: 7,
-    category: "The Garden Party – Katherine Mansfield",
-    question: "What is the setting of 'The Garden Party'?",
-    options: [
-        "In the Sheridan family’s garden and house in New Zealand on the day of a garden party, and it is suggested to be in the early 20th century.",
-        "In a public city park in England during a festive spring celebration on a warm afternoon in the late 19th century.",
-        "At a remote country estate in rural Australia during a large summer celebration and party in the 1920s decade.",
-        "In a large botanical conservatory in London on the afternoon of a very formal and important high society social event."
-    ],
-    correctAnswer: 0,
-    explanation: "The story is set in the Sheridan family’s garden and house in New Zealand on the day of a garden party, and it is suggested to be in the early 20th century.",
-    topic: "Setting in The Garden Party"
-},
+                id: 7,
+                category: "Literature",
+                question: "The Iliad and the Odyssey are mentioned as examples of epic poetry. What function did they serve in ancient culture?",
+                options: [
+                    "They were used as legal documents that recorded property rights, inheritance laws, and civic obligations",
+                    "They served as religious prayer books recited during temple rituals and seasonal agricultural festivals",
+                    "They preserved cultural narratives and values, passing down stories that reflected a civilization's identity and beliefs",
+                    "They were written as philosophical arguments debating the nature of justice, beauty, and the ideal state"
+                ],
+                correctAnswer: 2,
+                explanation: "Epic poetry and myths (e.g., Iliad, Odyssey) preserved cultural narratives and values — functioning as a form of collective cultural memory and identity for ancient civilizations.",
+                topic: "Literature and Written Traditions"
+            },
             {
                 id: 8,
-                category: "The Garden Party – Katherine Mansfield",
-                question: "How is 'The Garden Party' narrated?",
+                category: "Literature",
+                question: "Plato's dialogues are classified under which category of ancient written traditions in the text?",
                 options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
+                    "Religious texts, because Plato's dialogues addressed the nature of the divine and the soul's immortality",
+                    "Historical records, because Plato documented the political events and achievements of Athenian rulers",
+                    "Epic poetry, because Plato composed dramatic narratives about heroic figures and mythological events",
+                    "Philosophical works, because Plato's dialogues explored ethics, politics, and fundamental questions of knowledge"
                 ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Garden Party"
+                correctAnswer: 3,
+                explanation: "Plato's dialogues are listed under philosophical works, which explored ethics, politics, and other fundamental questions — distinguishing them from religious texts, historical records, or literary poetry.",
+                topic: "Literature and Written Traditions"
+            },
+            {
+                id: 9,
+                category: "Science & Technology",
+                question: "Pythagoras is mentioned in the text in relation to which specific field of knowledge?",
+                options: [
+                    "Medicine — Pythagoras is identified as a physician who advanced understanding of disease and its treatment",
+                    "Geometry — Pythagoras is identified as a Greek philosopher and mathematician who made advances in geometry",
+                    "Astronomy — Pythagoras is credited with calculating the movements of celestial bodies and predicting eclipses",
+                    "Agriculture — Pythagoras developed irrigation techniques that significantly increased food production in Greece"
+                ],
+                correctAnswer: 1,
+                explanation: "The text identifies Pythagoras as a Greek philosopher and mathematician who made advances in geometry specifically — as part of the broader development of mathematics (geometry, algebra) in the ancient world.",
+                topic: "Scientific and Technological Advancements"
+            },
+            {
+                id: 10,
+                category: "Science & Technology",
+                question: "According to the text, what was the significance of developments in mathematics such as geometry and algebra in ancient civilizations?",
+                options: [
+                    "They allowed philosophers to develop abstract theories of ethics and governance without practical application",
+                    "They enabled complex calculations and engineering, directly supporting achievements in architecture and construction",
+                    "They replaced religious explanations of natural phenomena, leading directly to the decline of polytheistic belief",
+                    "They were used primarily by merchants to develop trade networks and calculate profits across the Indian Ocean"
+                ],
+                correctAnswer: 1,
+                explanation: "Developments in mathematics (geometry, algebra) enabled complex calculations and engineering — directly underpinning major architectural and infrastructural achievements of ancient civilizations.",
+                topic: "Scientific and Technological Advancements"
+            },
+            {
+                id: 11,
+                category: "Trade & Economy",
+                question: "The Indian Ocean trade network is mentioned as an example of what broader phenomenon in ancient civilizations?",
+                options: [
+                    "Military expansion, showing how ancient empires used naval dominance to conquer distant coastal territories",
+                    "Religious spread, demonstrating how ancient trade routes carried sacred texts and missionary activity across regions",
+                    "The establishment of trade networks that facilitated exchange of goods, ideas, and cultures between civilizations",
+                    "Agricultural innovation, as coastal trade brought new crops and farming techniques to inland communities"
+                ],
+                correctAnswer: 2,
+                explanation: "The Indian Ocean trade is cited as an example of the establishment of trade networks that facilitated the exchange of goods, ideas, and cultures — connecting distant civilizations.",
+                topic: "Cultural Innovations and Achievements"
+            },
+            {
+                id: 12,
+                category: "Legacy",
+                question: "Neoclassical architecture in the 18th–19th centuries is mentioned as part of which broader legacy of ancient civilizations?",
+                options: [
+                    "It represents the scientific legacy, showing how ancient engineering principles were revived for industrial construction",
+                    "It represents the artistic legacy, as classical styles and motifs inspired later movements including the neoclassical revival",
+                    "It represents the political legacy, demonstrating how ancient democratic institutions were rebuilt in the modern era",
+                    "It represents the religious legacy, as temple designs were adapted for Christian churches and Islamic mosques"
+                ],
+                correctAnswer: 1,
+                explanation: "Artistic styles and motifs (e.g., Classical) inspired later movements — including Neoclassical architecture in the 18th–19th centuries, which explicitly revived Greek and Roman architectural elements.",
+                topic: "Legacy and Modern Influence"
+            },
+            {
+                id: 13,
+                category: "Legacy",
+                question: "According to the text, what is the linguistic legacy of the Greek language in particular?",
+                options: [
+                    "Greek became the official administrative language of the Roman Empire, replacing Latin in all eastern provinces",
+                    "Greek had great linguistic influence on many languages through loanwords and language spread, including Arabic and Latin",
+                    "Greek was the first fully alphabetic writing system and directly replaced all earlier cuneiform and hieroglyphic scripts",
+                    "Greek philosophical terminology was adopted exclusively by medieval European universities with no influence in the Arab world"
+                ],
+                correctAnswer: 1,
+                explanation: "The text states that the Greek language had great linguistic influences on many languages through loanwords and language spread — explicitly citing Arabic and Latin as examples.",
+                topic: "Legacy and Modern Influence"
+            },
+            {
+                id: 14,
+                category: "Gender & Society",
+                question: "How does the text characterize the role of women in the social structures of ancient civilizations?",
+                options: [
+                    "Women held equal status to men in religious institutions and often served as high priests in major temples",
+                    "Women's roles and rights were generally subordinate to men in patriarchal societies where men held primary positions of power",
+                    "Women in ancient Greece were uniquely exempt from patriarchal norms due to the influence of goddesses like Athena",
+                    "Women controlled domestic economic production and held significant informal authority equal to formal male governance"
+                ],
+                correctAnswer: 1,
+                explanation: "Ancient societies were patriarchal, with men holding primary positions of power and authority. Women's roles and rights were generally subordinate to men across these civilizations.",
+                topic: "Social Structures and Governance"
+            },
+            {
+                id: 15,
+                category: "Slavery",
+                question: "According to the text, in which three domains were slaves primarily used as labor in ancient civilizations?",
+                options: [
+                    "Military service, religious ceremonies, and long-distance maritime trade across the Indian Ocean",
+                    "Philosophical instruction, architectural design, and management of royal court administration",
+                    "Households, agriculture, and construction projects — the core areas of ancient economic and domestic life",
+                    "Artistic production, record-keeping, and operation of trade networks along major commercial routes"
+                ],
+                correctAnswer: 2,
+                explanation: "The text states that slavery was widespread in ancient civilizations, with slaves serving as labor for households, agriculture, and construction projects specifically.",
+                topic: "Social Structures and Governance"
+            },
+            {
+                id: 16,
+                category: "Religion",
+                question: "Religious institutions such as temples held which types of power in ancient civilizations, according to the text?",
+                options: [
+                    "They held exclusively spiritual authority, with no involvement in political decisions or economic transactions",
+                    "They held significant political and economic power alongside their religious function in ancient societies",
+                    "They held judicial power only, serving as courts where legal disputes were resolved by priestly authority",
+                    "They held military power, commanding armies on behalf of the gods during wars against neighboring civilizations"
+                ],
+                correctAnswer: 1,
+                explanation: "According to the text, religious institutions (e.g. temples) held significant political and economic power — not merely spiritual authority — making them central to the governance and economy of ancient civilizations.",
+                topic: "Religious Beliefs and Practices"
             }
         ]
     }
 ];
+      
+// example of questions to replace later
+
 
 // Theme toggle: initialize, apply, and persist user preference
 (function() {
@@ -347,6 +569,15 @@ let state = {
         }
         function selectExam(index) {
             state.selectedExam = index;
+            // Apply language direction based on exam lang field
+            const examLang = examSets[index].lang || 'ar';
+            if (examLang === 'en') {
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
+            } else {
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+            }
             // prepare a shuffled copy of questions for the exam and shuffle each question's options
             const questions = examSets[index].questions || [];
             state.initialQuestionCount = questions.length;
@@ -450,6 +681,9 @@ let state = {
         }
 
         function backToMenu() {
+            // Restore English/LTR for the main menu
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
             state = {
                 screen: 'selection',
                 selectedExam: null,
@@ -481,9 +715,9 @@ let state = {
             if (examSets.length === 0 || examSets.every(set => set.questions.length === 0)) {
                 return `
                     <div class="exam-selection">
-                        <h1>مرحباً بك في كويز الإعراب</h1>
-                        <p style="color: #ef4444; margin-top: 2rem;">الرجاء إضافة الأسئلة في ملف HTML</p>
-                        <p style="color: #6b7280; font-size: 1rem;">ابحث عن "PASTE YOUR QUESTIONS ARRAYS HERE" في الكود</p>
+                        <h1>Welcome to the Quiz</h1>
+                        <p style="color: #ef4444; margin-top: 2rem;">Please add questions in the HTML file</p>
+                        <p style="color: #6b7280; font-size: 1rem;">Search for "PASTE YOUR QUESTIONS ARRAYS HERE" in the code</p>
                     </div>
                 `;
             }
@@ -493,15 +727,15 @@ let state = {
                 return `
                     <div class="exam-card" onclick="selectExam(${index})">
                         <h3>${examSet.title}</h3>
-                        <p class="question-count">${examSet.questions.length} سؤال</p>
+                        <p class="question-count">${examSet.questions.length} questions</p>
                     </div>
                 `;
             }).join('');
 
             return `
                 <div class="exam-selection">
-                    <h1>مرحباً بك في امتحانات الفاينال</h1>
-                    <p>اختر الامتحان الذي تريد البدء به</p>
+                    <h1>Welcome to Final Exams</h1>
+                    <p>Choose the exam you want to start with</p>
                     <div class="exam-options">
                         ${examCards}
                     </div>
@@ -517,19 +751,19 @@ let state = {
             let colorClass = "";
 
             if (percentage >= 90) {
-                message = "ممتاز جداً! أنت متمكن ومستعد تماماً للامتحان";
+                message = "Excellent! You are confident and fully prepared for the exam";
                 colorClass = "color: #16a34a;";
             } else if (percentage >= 80) {
-                message = "ممتاز! مستواك جيد جداً، راجع الأخطاء فقط";
+                message = "Great! Your level is very good, review only the errors";
                 colorClass = "color: #22c55e;";
             } else if (percentage >= 70) {
-                message = "جيد جداً! تحتاج لمراجعة بعض النقاط";
+                message = "Very good! You need to review some points";
                 colorClass = "color: #2563eb;";
             } else if (percentage >= 60) {
-                message = "جيد! ركز على المواضيع التي أخطأت فيها";
+                message = "Good! Focus on the topics you made mistakes in";
                 colorClass = "color: #ca8a04;";
             } else {
-                message = "تحتاج لمزيد من المراجعة والتدريب";
+                message = "You need more review and practice";
                 colorClass = "color: #ea580c;";
             }
 
@@ -558,25 +792,25 @@ let state = {
             return `
                 <div class="results-container">
                     ${icons.award}
-                    <h2 class="results-title">انتهى الكويز!</h2>
+                    <h2 class="results-title">Quiz Completed!</h2>
                     <div class="final-score">${state.score}/${total}</div>
-                    <div class="percentage">النسبة: ${percentage}%</div>
+                    <div class="percentage">Percentage: ${percentage}%</div>
                     <p class="results-message" style="${colorClass}">${message}</p>
 
                     <div class="category-stats">
                         <h3 class="stats-title">
                             ${icons.bookOpen}
-                            أداؤك حسب المواضيع:
+                            Your Performance by Topics:
                         </h3>
-                        ${statsHTML.length > 0 ? statsHTML : '<p style="text-align: right; color: #6b7280;">لم يتم تسجيل إجابات.</p>'}
+                        ${statsHTML.length > 0 ? statsHTML : '<p style="text-align: center; color: #6b7280;">No answers recorded.</p>'}
 
                         <div class="action-buttons">
-                            <button class="btn-primary" onclick="handleRestart()">أعد المحاولة</button>
-                            <button class="btn-secondary" onclick="backToMenu()">العودة للقائمة الرئيسية</button>
+                            <button class="btn-primary" onclick="handleRestart()">Try Again</button>
+                            <button class="btn-secondary" onclick="backToMenu()">Back to Main Menu</button>
                         </div>
 
                         <div class="final-stats">
-                            <p>النقاط النهائية: <span class="final-score-value">${state.score}</span></p>
+                            <p>Final Score: <span class="final-score-value">${state.score}</span></p>
                         </div>
                     </div>
                 </div>
@@ -590,7 +824,7 @@ let state = {
             
             // Determine label for question number (show repeat-phase clearly)
             const mainTotal = state.initialQuestionCount || questions.length;
-            const questionNumberText = state.inRepeatPhase ? `إعادة السؤال ${state.currentQuestion + 1} من ${questions.length}` : `السؤال ${state.currentQuestion + 1} من ${mainTotal}`;
+            const questionNumberText = state.inRepeatPhase ? `Review Question ${state.currentQuestion + 1} of ${questions.length}` : `Question ${state.currentQuestion + 1} of ${mainTotal}`;
 
             const optionsHTML = question.options.map((option, index) => {
                 let btnClass = "option-btn";
@@ -614,7 +848,7 @@ let state = {
                         onclick="handleAnswerSelect(${index})"
                         ${state.selectedAnswer !== null ? 'disabled' : ''}
                     >
-                        <span style="text-align: right; line-height: 1.75;">${option}</span>
+                        <span style="text-align: start; line-height: 1.75;">${option}</span>
                         ${iconHTML}
                     </button>
                 `;
@@ -623,21 +857,21 @@ let state = {
             const explanationHTML = state.showExplanation ? `
                 <div class="explanation-box ${state.selectedAnswer === question.correctAnswer ? 'correct' : 'incorrect'}">
                     <p class="explanation-title">
-                        ${state.selectedAnswer === question.correctAnswer ? '✅ إجابة صحيحة! ممتاز' : '❌ إجابة خاطئة'}
+                        ${state.selectedAnswer === question.correctAnswer ? '✅ Correct Answer! Excellent' : '❌ Incorrect Answer'}
                     </p>
                     <div class="explanation-content">
                         <p class="explanation-text">
-                            <strong>الشرح التفصيلي:</strong><br>
+                            <strong>Detailed Explaination:</strong><br>
                             ${question.explanation}
                         </p>
                     </div>
                     <div class="topic-info">
                         ${icons.bookOpen}
-                        <p><strong>راجع:</strong> ${question.topic}</p>
+                        <p><strong>Review:</strong> ${question.topic}</p>
                     </div>
                 </div>
                 <button class="next-btn" onclick="handleNext()">
-                    ${state.currentQuestion < questions.length - 1 ? 'السؤال التالي ←' : 'إنهاء الكويز وعرض النتائج 🎉'}
+                    ${state.currentQuestion < questions.length - 1 ? 'Next Question' : 'End Quiz and Show Results 🎉'}
                 </button>
             ` : '';
 
@@ -646,7 +880,7 @@ let state = {
                     <h1>${examTitle}</h1>
                     <div class="score-info">
                         <div class="question-number">${questionNumberText}</div>
-                        <div class="score">النقاط: ${state.score}</div>
+                        <div class="score">Score: ${state.score}</div>
                     </div>
                 </div>
 
@@ -661,13 +895,13 @@ let state = {
                     ${explanationHTML}
 
                     <div class="current-score">
-                        <p>النتيجة الحالية: <span class="score-value">${state.score}</span> من ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
+                        <p>Current Score: <span class="score-value">${state.score}</span> From ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
                     </div>
                 </div>
 
                 <div style="text-align: center;">
-                    <button class="restart-btn" onclick="handleRestart()">إعادة البدء</button>
-                    <button class="back-to-menu-btn" onclick="backToMenu()">القائمة الرئيسية</button>
+                    <button class="restart-btn" onclick="handleRestart()">Restart</button>
+                    <button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button>
                 </div>
             `;
         }
