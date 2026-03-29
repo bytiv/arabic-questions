@@ -3,225 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drama Course Exams</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg-gradient: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
-            --container-bg: white;
-            --text-color: #1f2937;
-            --muted: #6b7280;
-            --accent: #9333ea;
-            --accent-2: #3b82f6;
-            --success: #10b981;
-            --danger: #ef4444;
-            --border: #e5e7eb;
-            --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --exam-card-text: white;
-            --card-bg: #f9fafb;
-            --option-border: #d1d5db;
-            --option-bg: white;
-            --correct-bg: #f0fdf4;
-            --incorrect-bg: #fef2f2;
-        }
-
-        [data-theme="dark"] {
-            --bg-gradient: linear-gradient(180deg, #0f263b, #021526);
-            --container-bg: #071825;
-            --text-color: #dceefb;
-            --muted: #9fb6c8;
-            --accent: #60a5fa;
-            --accent-2: #38bdf8;
-            --success: #2dd4bf;
-            --danger: #fb7185;
-            --border: #123244;
-            --card-bg: #071a25;
-            --option-border: #123244;
-            --option-bg: #071a22;
-            --correct-bg: rgba(45,212,191,0.06);
-            --incorrect-bg: rgba(251,113,133,0.06);
-            --exam-card-bg: linear-gradient(135deg, #082433 0%, #04202b 100%);
-            --exam-card-text: #e6f3ff;
-            color-scheme: dark;
-        }
-
-        [data-theme="dark"] .exam-card {
-            background: linear-gradient(135deg, #0f1724 0%, #0b1220 100%);
-            color: var(--text-color);
-            border-color: transparent;
-            box-shadow: 0 6px 12px rgba(2,6,23,0.6);
-        }
-        [data-theme="dark"] .exam-card:hover { transform: translateY(-4px); border-color: rgba(14,165,255,0.12); }
-        [data-theme="dark"] .exam-card p { color: var(--muted); }
-        [data-theme="dark"] .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(14,165,255,0.04); }
-        [data-theme="dark"] .option-btn { background: var(--option-bg); border-color: var(--option-border); color: var(--text-color); }
-        [data-theme="dark"] .option-btn.neutral { color: var(--muted); }
-        [data-theme="dark"] .option-btn.correct { border-color: #10b981; background: rgba(16,185,129,0.06); color: #c7f7e6; }
-        [data-theme="dark"] .option-btn.incorrect { border-color: #ef4444; background: rgba(239,68,68,0.06); color: #ffd6d6; }
-        [data-theme="dark"] .explanation-box.correct { background: rgba(6,78,59,0.12); border-color: rgba(16,185,129,0.18); color: var(--text-color); }
-        [data-theme="dark"] .explanation-box.incorrect { background: rgba(76,29,29,0.12); border-color: rgba(239,68,68,0.18); color: var(--text-color); }
-        [data-theme="dark"] .next-btn { background: linear-gradient(to right, #0ea5ff, #2563eb); color: white; }
-        [data-theme="dark"] .results-container .final-score { color: var(--accent); }
-        [data-theme="dark"] .category-stats { background: #0b0f12; border-color: #121721; }
-        [data-theme="dark"] .stat-item { background: #0d1114; border-color: #121720; color: var(--text-color); }
-        [data-theme="dark"] .essay-quote-box { background: rgba(255,255,255,0.04); border-color: var(--accent); color: var(--text-color); }
-        [data-theme="dark"] .show-model-btn { background: var(--option-bg); border-color: var(--accent); color: var(--accent); }
-        [data-theme="dark"] .show-model-btn:hover { background: var(--accent); color: white; }
-        [data-theme="dark"] .essay-reveal-box { background: var(--card-bg); border-color: var(--border); color: var(--text-color); }
-        [data-theme="dark"] .para-label { color: var(--accent-2); }
-
-        #theme-toggle {
-            position: fixed; top: 1rem; right: 1rem;
-            background: rgba(255,255,255,0.9);
-            border: 1px solid rgba(0,0,0,0.08);
-            padding: 0.45rem 0.6rem;
-            border-radius: 0.5rem;
-            cursor: pointer; font-size: 1.125rem;
-            z-index: 60; transition: background .2s, color .2s, border-color .2s;
-            direction: ltr;
-        }
-        [data-theme="dark"] #theme-toggle { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); color: var(--text-color); }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            padding: 1rem;
-            transition: background .25s ease, color .25s ease;
-        }
-
-        .container {
-            max-width: 48rem; width: 100%;
-            background: var(--container-bg);
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12);
-            padding: 2rem;
-            transition: background .25s ease;
-        }
-
-        /* SELECTION */
-        .exam-selection { text-align: center; }
-        .exam-selection h1 { font-size: 2.5rem; font-weight: bold; color: var(--text-color); margin-bottom: 1rem; }
-        .exam-selection p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
-        .exam-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .exam-card {
-            background: var(--exam-card-bg); color: var(--exam-card-text);
-            padding: 2rem; border-radius: 1rem; cursor: pointer;
-            transition: all 0.3s; border: 3px solid transparent;
-            box-shadow: 0 4px 6px -1px rgba(2,6,23,0.22); text-align: left;
-        }
-        .exam-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); border-color: #fbbf24; }
-        .exam-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .exam-card p { font-size: 1rem; color: var(--exam-card-text); }
-        .exam-card .question-count { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3); font-weight: bold; }
-
-        /* HEADER */
-        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
-        .header h1 { font-size: 1.5rem; font-weight: bold; color: var(--text-color); }
-        .score-info { text-align: end; }
-        .score-info .question-number { font-size: 0.875rem; color: var(--muted); }
-        .score-info .score { font-weight: bold; color: var(--accent); }
-
-        /* QUESTION */
-        .question-container { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
-        .category { text-align: start; font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; }
-        .question { text-align: start; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1rem; }
-        .options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-        .option-btn {
-            width: 100%; padding: 1.25rem; text-align: start;
-            border-radius: 0.75rem; border: 2px solid var(--option-border);
-            background: var(--option-bg); font-size: 1.125rem; font-weight: 600;
-            cursor: pointer; transition: all 0.2s;
-            display: flex; align-items: center; justify-content: space-between;
-            color: var(--text-color);
-        }
-        .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(147,51,234,0.04); }
-        .option-btn:disabled { cursor: not-allowed; }
-        .option-btn.correct { border-color: var(--success); background: var(--correct-bg); color: #065f46; }
-        .option-btn.incorrect { border-color: var(--danger); background: var(--incorrect-bg); color: #991b1b; }
-        .option-btn.neutral { border-color: var(--option-border); background: var(--card-bg); color: var(--muted); }
-        .icon { width: 26px; height: 26px; flex-shrink: 0; }
-
-        /* EXPLANATION */
-        .explanation-box { padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem; border: 2px solid; }
-        .explanation-box.correct { background: var(--correct-bg); border-color: rgba(16,185,129,0.35); }
-        .explanation-box.incorrect { background: var(--incorrect-bg); border-color: rgba(239,68,68,0.28); }
-        .explanation-title { text-align: start; font-weight: bold; font-size: 1.25rem; margin-bottom: 0.75rem; }
-        .explanation-content { background: var(--option-bg); padding: 1rem; border-radius: 0.5rem; margin-bottom: 0.75rem; }
-        .explanation-text { text-align: start; color: var(--text-color); line-height: 1.75; font-size: 1.125rem; }
-        .explanation-text strong { color: var(--accent); }
-        .topic-info { display: flex; align-items: center; gap: 0.5rem; color: var(--accent); text-align: start; font-weight: 600; }
-
-        .next-btn {
-            width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-2));
-            color: white; padding: 1rem; border-radius: 0.75rem;
-            font-weight: bold; font-size: 1.25rem; border: none;
-            cursor: pointer; transition: all 0.2s;
-            box-shadow: 0 10px 15px -3px rgba(2,6,23,0.18);
-        }
-        .next-btn:hover { filter: brightness(0.98); }
-
-        .current-score { text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 1.125rem; }
-        .current-score .score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
-
-        .restart-btn { padding: 0.75rem 1.5rem; background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--text-color); }
-        .restart-btn:hover { background: var(--card-bg); }
-        .back-to-menu-btn { padding: 0.75rem 1.5rem; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; border: none; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-left: 0.5rem; }
-        .back-to-menu-btn:hover { filter: brightness(0.98); }
-
-        /* RESULTS */
-        .results-container { text-align: center; }
-        .trophy-icon { width: 6rem; height: 6rem; margin: 0 auto 1.5rem; color: #eab308; }
-        .results-title { font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; color: var(--text-color); }
-        .final-score { font-size: 4.5rem; font-weight: bold; color: var(--accent); margin-bottom: 0.75rem; }
-        .percentage { font-size: 1.875rem; color: var(--muted); margin-bottom: 1rem; }
-        .results-message { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
-        .category-stats { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; }
-        .stats-title { font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color); display: flex; align-items: center; gap: 0.5rem; }
-        .stat-item { padding: 1rem; background: var(--option-bg); border-radius: 0.75rem; border: 1px solid var(--border); margin-bottom: 0.75rem; }
-        .stat-row { display: flex; justify-content: space-between; align-items: center; }
-        .stat-category { text-align: start; font-weight: 600; }
-        .stat-score { text-align: left; font-weight: bold; }
-        .action-buttons { display: flex; gap: 0.75rem; margin-top: 1rem; }
-        .btn-primary { flex: 1; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 0.75rem; border-radius: 0.75rem; font-weight: bold; border: none; cursor: pointer; transition: all 0.2s; }
-        .btn-primary:hover { filter: brightness(0.98); }
-        .btn-secondary { flex: 1; border: 2px solid var(--option-border); background: var(--option-bg); padding: 0.75rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--text-color); }
-        .btn-secondary:hover { background: var(--card-bg); }
-        .final-stats { margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border); padding-top: 1rem; color: var(--muted); font-size: 1.125rem; }
-        .final-stats .final-score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
-
-        /* ESSAY */
-        .essay-quote-box {
-            font-style: italic; font-size: 1.1rem; line-height: 1.8;
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.5rem; background: var(--card-bg);
-            border-radius: 0 0.75rem 0.75rem 0; margin-bottom: 1.5rem; color: var(--text-color);
-        }
-        .essay-instructions { font-size: 1rem; color: var(--text-color); line-height: 1.7; margin-bottom: 1.2rem; }
-        .essay-instructions li { margin-bottom: 0.5rem; padding-left: 0.3rem; }
-        .essay-instructions strong { color: var(--accent); }
-        .essay-note { margin-top: 0.8rem; color: var(--muted); font-size: 0.9rem; font-style: italic; }
-        .show-model-btn {
-            width: 100%; margin-top: 1rem; padding: 1rem;
-            background: var(--option-bg); border: 2px solid var(--accent);
-            border-radius: 0.75rem; font-size: 1rem; font-weight: bold;
-            color: var(--accent); cursor: pointer; transition: all 0.2s;
-        }
-        .show-model-btn:hover { background: var(--accent); color: white; }
-        .essay-reveal-box {
-            margin-top: 1.2rem; padding: 1.5rem;
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 0.75rem; display: none;
-        }
-        .essay-reveal-box.show { display: block; }
-        .essay-reveal-box h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 1rem; font-weight: bold; }
-        .essay-reveal-box p { font-size: 0.97rem; line-height: 1.75; margin-bottom: 0.8rem; color: var(--text-color); }
-        .para-label { font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent-2); margin-bottom: 0.3rem; }
-        .essay-disclaimer { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
-    </style>
+    <title>Midterm Exams</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme" onclick="toggleTheme()">🌙</button>
@@ -803,6 +586,584 @@ const examSets = [
         {
             label: "Paragraph 3 — Plot, Character & Theme",
             content: "This quote is central to all three dramatic elements. In terms of plot, it foreshadows the central conflict: Shylock's bond of a pound of flesh — the mechanism of revenge he will try to execute later. In terms of character, it reveals Shylock's complexity: not a simple villain, but a man driven by years of humiliation and genuine grievance. In terms of theme, the quote raises questions of justice, prejudice, and revenge — asking the audience whether Shylock's anger is understandable given Antonio's open antisemitism. Figure of Speech: the line contains 'Disordering' (inverted syntax) — 'the ancient grudge I bear him' departs from standard Subject+Verb+Object order, placing 'the ancient grudge' before the subject-verb relationship for dramatic emphasis."
+        }
+    ]
+},
+{
+    title: "Exam 1: Understanding Computers - Set A",
+    icon: "💻",
+    label: "Computer Systems",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Computer Basics",
+            question: "What is the best definition of a computer?",
+            options: [
+                "A device that only performs mathematical calculations",
+                "A programmable machine that can store and process information",
+                "A machine used exclusively for word processing",
+                "An electronic device that only connects to the Internet"
+            ],
+            correctAnswer: 1,
+            explanation: "A computer is a programmable machine that allows the user to store all sorts of information and then process that information or carry out actions with it, such as calculating numbers or organising words.",
+            topic: "Lesson 1 — What is a Computer"
+        },
+        {
+            id: 2,
+            category: "Computer Types",
+            question: "Which type of computer can support hundreds or thousands of users simultaneously?",
+            options: [
+                "Personal computer (PC)",
+                "Workstation",
+                "Mainframe computer",
+                "Laptop computer"
+            ],
+            correctAnswer: 2,
+            explanation: "Mainframe computers are large-sized, powerful multi-user computers that can support concurrent programs and can be used by hundreds or thousands of users at the same time.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 3,
+            category: "Computer Types",
+            question: "What distinguishes a workstation from a personal computer?",
+            options: [
+                "Workstations can only be used offline",
+                "Workstations are more powerful and often have higher-quality monitors",
+                "Workstations cannot be connected to networks",
+                "Workstations are designed for multiple simultaneous users"
+            ],
+            correctAnswer: 1,
+            explanation: "A workstation is similar to a personal computer but is more powerful and often comes with a higher-quality monitor. In terms of computing power, workstations lie between personal computers and mini-computers.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 4,
+            category: "Hardware",
+            question: "Which of the following is NOT a required hardware component of a computer?",
+            options: [
+                "Central processing unit (CPU)",
+                "Memory",
+                "Scanner",
+                "Storage device"
+            ],
+            correctAnswer: 2,
+            explanation: "All computers require a CPU, memory, storage device, input devices, and output devices. A scanner is a peripheral input device but is not a required component — a keyboard is the standard input device.",
+            topic: "Lesson 1 — Components of a Computer"
+        },
+        {
+            id: 5,
+            category: "Hardware",
+            question: "What is the primary function of the Central Processing Unit (CPU)?",
+            options: [
+                "To store data permanently on the hard drive",
+                "To carry out all instructions given in a program",
+                "To connect the computer to the Internet",
+                "To display output on the monitor screen"
+            ],
+            correctAnswer: 1,
+            explanation: "The CPU is the heart of the computer. It carries out all of the instructions given in a program, such as a word processing or spreadsheet program.",
+            topic: "Lesson 1 — CPU"
+        },
+        {
+            id: 6,
+            category: "Software",
+            question: "What is the difference between systems software and applications software?",
+            options: [
+                "Systems software is free; applications software must be purchased",
+                "Systems software includes the operating system that enables the computer to function; applications software is used to carry out work",
+                "Systems software is only used on mainframes; applications software is for PCs",
+                "There is no real difference between the two types"
+            ],
+            correctAnswer: 1,
+            explanation: "Systems software includes the operating system and utilities that enable the computer to function. Applications software includes programs that users access to carry out work, such as word processing, spreadsheets, and databases.",
+            topic: "Lesson 1 — Software Types"
+        },
+        {
+            id: 7,
+            category: "Data Processing",
+            question: "What number system do computers use to process all information?",
+            options: [
+                "Decimal number system using digits 0-9",
+                "Hexadecimal system using digits 0-F",
+                "Binary number system using only 0 and 1",
+                "Octal number system using digits 0-7"
+            ],
+            correctAnswer: 2,
+            explanation: "Computers use the binary number system, where each digit stands for a power of two and uses only two symbols: 0 and 1. The computer's electronic circuits have only two states — on or off — so they can only understand 0s and 1s.",
+            topic: "Lesson 1 — Binary System"
+        },
+        {
+            id: 8,
+            category: "Data Processing",
+            question: "What is a byte?",
+            options: [
+                "The smallest unit of information in a computer",
+                "A combination of bits, usually 8, that represent one character",
+                "A unit of processing speed measured in megahertz",
+                "A type of storage device used in mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "A byte is a combination of bits that represent one character and is usually composed of 8 bits. A bit (binary digit) is the smallest unit of information, while a byte combines bits into meaningful characters.",
+            topic: "Lesson 1 — Bits and Bytes"
+        },
+        {
+            id: 9,
+            category: "Memory",
+            question: "What happens to data stored in RAM when the computer is turned off?",
+            options: [
+                "It is automatically saved to the hard drive",
+                "It remains intact until the computer is turned on again",
+                "It disappears because RAM is volatile memory",
+                "It is transferred to ROM for safekeeping"
+            ],
+            correctAnswer: 2,
+            explanation: "Most RAM is volatile, which means it requires a steady flow of electricity to maintain its contents. As soon as the power is turned off, whatever data was in RAM disappears.",
+            topic: "Lesson 1 — Computer Memory"
+        },
+        {
+            id: 10,
+            category: "Storage",
+            question: "What is the main advantage of a hard drive over a diskette?",
+            options: [
+                "A hard drive is portable and can be easily removed",
+                "A hard drive provides faster access and far greater storage capacity",
+                "A hard drive uses optical laser technology for reading data",
+                "A hard drive does not require electricity to retain data"
+            ],
+            correctAnswer: 1,
+            explanation: "Hard disk storage provides faster access to files than a diskette, and its storage capacity far exceeds that of a floppy disk. Unlike diskettes, hard disks are continually in motion, so there is no delay as the disk spins up to speed.",
+            topic: "Lesson 1 — Storage Devices"
+        },
+        {
+            id: 11,
+            category: "Storage",
+            question: "What does CD-ROM stand for?",
+            options: [
+                "Computer Data — Read Only Memory",
+                "Compact Disc Read Only Memory",
+                "Central Data Recording Output Module",
+                "Compact Digital Rewritable Optical Media"
+            ],
+            correctAnswer: 1,
+            explanation: "CD-ROM stands for Compact Disc Read Only Memory. It is the most popular type of optical storage, containing data stamped on the disk surface as a series of pits that are read by an optical read head.",
+            topic: "Lesson 1 — Optical Storage"
+        },
+        {
+            id: 12,
+            category: "Storage",
+            question: "Why is backing up electronic data considered critical?",
+            options: [
+                "Because it makes the computer run faster",
+                "Because data on magnetic storage can be easily destroyed, erased, or lost",
+                "Because backups are required by international law",
+                "Because computers cannot function without backup copies"
+            ],
+            correctAnswer: 1,
+            explanation: "Data on magnetic storage can be easily destroyed, erased, or otherwise lost. Protecting the data on the hard disk is of particular concern because it contains so much data, which could be difficult and time consuming to reconstruct.",
+            topic: "Lesson 1 — Backups"
+        },
+        {
+            id: 13,
+            category: "Computing Environments",
+            question: "What is a key advantage of mainframe computing in modern organisations?",
+            options: [
+                "Mainframes are the cheapest computers to purchase",
+                "Mainframes do not require trained staff to operate",
+                "Mainframes provide security, data integrity, and system availability",
+                "Mainframes can only run one application at a time"
+            ],
+            correctAnswer: 2,
+            explanation: "The current reasons for sharing mainframe computer power include security (protection from unauthorised access), integrity (guarantee that data is not corrupted), system availability (24-hour operation), and data sharing across the organisation.",
+            topic: "Lesson 2 — Mainframe Computing"
+        },
+        {
+            id: 14,
+            category: "Networks",
+            question: "What is a Local Area Network (LAN)?",
+            options: [
+                "A network connecting computers across different countries",
+                "A computer network located within a relatively limited area such as a building",
+                "A network that only connects mainframe computers",
+                "A wireless connection between a computer and the Internet"
+            ],
+            correctAnswer: 1,
+            explanation: "A Local Area Network (LAN) is a computer network located within a relatively limited area such as a building, agency or university campus.",
+            topic: "Lesson 2 — Networks"
+        },
+        {
+            id: 15,
+            category: "Networks",
+            question: "What is the primary role of a file server in a network?",
+            options: [
+                "To provide Internet access to all users",
+                "To serve or distribute application programs and data files to workstations",
+                "To protect the network from viruses",
+                "To print documents for all network users"
+            ],
+            correctAnswer: 1,
+            explanation: "A file server is a computer that serves or distributes application programs and data files to workstations within a computer network. The hard drive of the file server is shared by the workstations on the network.",
+            topic: "Lesson 2 — Network Servers"
+        },
+        {
+            id: 16,
+            category: "Internet",
+            question: "What is a URL?",
+            options: [
+                "A type of computer virus that spreads through email",
+                "The global address of documents and resources on the World Wide Web",
+                "A programming language used to create websites",
+                "A security protocol for protecting online data"
+            ],
+            correctAnswer: 1,
+            explanation: "URL stands for Uniform Resource Locator — the global address of documents and other resources on the World Wide Web. URLs can point to files or Web pages that can be retrieved using protocols like HTTP.",
+            topic: "Lesson 2 — Internet"
+        },
+        {
+            id: 17,
+            category: "Databases",
+            question: "What is a data field in a database?",
+            options: [
+                "A complete set of all information in the database",
+                "A space allocated for a particular item of information — the smallest unit you can access",
+                "A collection of related database tables",
+                "The software used to manage the database"
+            ],
+            correctAnswer: 1,
+            explanation: "A data field is a space allocated for a particular item of information. In a database, fields are the smallest units of information you can access. A data field contains a single piece of information such as a first name or employee number.",
+            topic: "Lesson 3 — Databases"
+        },
+        {
+            id: 18,
+            category: "Databases",
+            question: "What is the main advantage of a relational database over other database models?",
+            options: [
+                "It can only store numerical data, making it faster",
+                "It allows new links between tables to be created as needs arise",
+                "It requires all data to be stored in a single table",
+                "It does not require any software to manage it"
+            ],
+            correctAnswer: 1,
+            explanation: "Relational databases are powerful because they require few assumptions about how data is related or how it will be extracted. They allow new links to be forged as needs arise, and the same database can be viewed in many different ways.",
+            topic: "Lesson 3 — Relational Databases"
+        },
+        {
+            id: 19,
+            category: "Email",
+            question: "Which of the following best describes how electronic mail works?",
+            options: [
+                "Messages are printed and physically delivered to the recipient",
+                "The originator creates a message which is posted to a transport system that delivers it to the recipient's mailbox",
+                "Email can only be sent between users with the same software program",
+                "Email requires a direct phone call between sender and receiver"
+            ],
+            correctAnswer: 1,
+            explanation: "The message originator creates a message file in the e-mail software editor. When complete, the message is posted to a message transport system that delivers it to the recipient's mailbox. Users do not need the same email software.",
+            topic: "Lesson 3 — Electronic Mail"
+        },
+        {
+            id: 20,
+            category: "Viruses & Documentation",
+            question: "Why should computer documentation always be retained?",
+            options: [
+                "Because documentation has no monetary value and takes up no space",
+                "Because it may be needed to reload software and may contain licences for legitimate use",
+                "Because documentation automatically updates the software",
+                "Because it is required only for mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "Disposing of documentation can cause problems in the future, particularly if you have to reload software from the beginning. Documentation can also contain licences for the legitimate use of the software.",
+            topic: "Lesson 1 — Documentation"
+        }
+    ]
+},
+{
+    title: "Exam 2: Understanding Computers - Set B",
+    icon: "🖥️",
+    label: "Computer Systems",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Computer Types",
+            question: "Which type of computer is described as a mid-sized multi-processing computer that can support 4 to 200 users?",
+            options: [
+                "Mainframe computer",
+                "Personal computer",
+                "Mini-computer",
+                "Workstation"
+            ],
+            correctAnswer: 2,
+            explanation: "Mini-computers are mid-sized multi-processing computers that can perform several actions at the same time and can support from 4 to 200 users simultaneously.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 2,
+            category: "Computer Types",
+            question: "The world of personal computers is basically divided between which two types of machines?",
+            options: [
+                "Dell-compatible and HP-compatible",
+                "IBM-compatible and Macintosh-compatible",
+                "Intel-compatible and AMD-compatible",
+                "Linux-based and Unix-based"
+            ],
+            correctAnswer: 1,
+            explanation: "The world of PCs is basically divided between IBM-compatible and Macintosh-compatible machines, named after the two computer manufacturers.",
+            topic: "Lesson 1 — Personal Computers"
+        },
+        {
+            id: 3,
+            category: "Hardware",
+            question: "What is a peripheral device?",
+            options: [
+                "The main chip inside the CPU",
+                "Any piece of equipment in a computer system that is not inside the computer itself",
+                "The operating system software that runs the computer",
+                "The binary code used to process information"
+            ],
+            correctAnswer: 1,
+            explanation: "A peripheral device is any piece of equipment in a computer system that is not actually inside the computer itself, such as printers, scanners, and external disk drives.",
+            topic: "Lesson 1 — Hardware Components"
+        },
+        {
+            id: 4,
+            category: "Hardware",
+            question: "What does the system clock in a computer determine?",
+            options: [
+                "The current time and date displayed on screen",
+                "The speed at which the computer can execute instructions",
+                "How long the computer can run before shutting down",
+                "The schedule for automatic software updates"
+            ],
+            correctAnswer: 1,
+            explanation: "The system clock determines the speed at which the computer can execute an instruction, measured in megahertz (MHz) or millions of cycles per second. Higher MHz ratings mean faster processing.",
+            topic: "Lesson 1 — Processing Speed"
+        },
+        {
+            id: 5,
+            category: "Hardware",
+            question: "What are the three main parts of the CPU?",
+            options: [
+                "Monitor, keyboard, and mouse",
+                "Hard drive, floppy drive, and CD-ROM drive",
+                "Arithmetic and logic unit (ALU), control unit, and registers",
+                "RAM, ROM, and PROM"
+            ],
+            correctAnswer: 2,
+            explanation: "The CPU consists of an arithmetic and logic unit (ALU) which performs calculations, a control unit which supervises general operations, and registers which hold data inside memory long enough to execute a function.",
+            topic: "Lesson 1 — CPU Components"
+        },
+        {
+            id: 6,
+            category: "Data Processing",
+            question: "What is the correct sequence of how a computer functions?",
+            options: [
+                "Output → Processing → Storage → Input",
+                "Storage → Input → Output → Processing",
+                "Input → Processing → Storage → Output",
+                "Processing → Input → Output → Storage"
+            ],
+            correctAnswer: 2,
+            explanation: "A computer functions by first accepting input, then processing the data, storing it, and finally producing output. This is the fundamental cycle of computer operation.",
+            topic: "Lesson 1 — How Computers Work"
+        },
+        {
+            id: 7,
+            category: "Data Processing",
+            question: "What is a bus in a computer?",
+            options: [
+                "A type of external storage device",
+                "The channel or path that lets the parts of a computer communicate with each other",
+                "A program that detects and removes viruses",
+                "The protective casing around the CPU chip"
+            ],
+            correctAnswer: 1,
+            explanation: "A bus is the channel or path that lets the parts of a computer communicate with each other. It picks up data from one component on the main board and transfers it to another component.",
+            topic: "Lesson 1 — Data Bus"
+        },
+        {
+            id: 8,
+            category: "Software",
+            question: "What is the main role of an operating system?",
+            options: [
+                "To create documents and spreadsheets for the user",
+                "To enable the computer to function by controlling hardware, software, and storage",
+                "To connect the computer to the Internet",
+                "To protect the computer from viruses and malware"
+            ],
+            correctAnswer: 1,
+            explanation: "The operating system controls functions such as coordinating hardware and applications software, allocating storage facilities, controlling input and output devices, and managing time sharing. Every computer must have one to run other programs.",
+            topic: "Lesson 1 — Operating Systems"
+        },
+        {
+            id: 9,
+            category: "Software",
+            question: "What is the difference between proprietary (closed) and open software?",
+            options: [
+                "Proprietary software is free; open software requires payment",
+                "Proprietary software is privately owned with hidden specs; open software uses publicly accessible specifications",
+                "Proprietary software runs faster than open software",
+                "Open software can only run on mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "Proprietary software is privately owned and controlled, with undisclosed specifications. Open software is designed using publicly accessible specifications, allowing anyone to create add-on products and mix and match products from different manufacturers.",
+            topic: "Lesson 1 — Software Types"
+        },
+        {
+            id: 10,
+            category: "Storage",
+            question: "What is the key difference between sequential access and random access storage?",
+            options: [
+                "Sequential access is faster than random access",
+                "Sequential access reads data in order along the tape; random access can go directly to any location",
+                "Random access can only read data; sequential access can read and write",
+                "There is no practical difference between the two"
+            ],
+            correctAnswer: 1,
+            explanation: "Sequential access means data is stored and read as a sequence of bytes along the length of the tape — you must go through the tape in order. Random access allows positioning the read-write head directly over the sector containing the requested data.",
+            topic: "Lesson 1 — Storage Access Methods"
+        },
+        {
+            id: 11,
+            category: "Storage",
+            question: "What does WORM stand for in optical storage?",
+            options: [
+                "Wide Output Reading Module",
+                "Write Once Read Many",
+                "Web Oriented Resource Management",
+                "Wireless Optical Recording Media"
+            ],
+            correctAnswer: 1,
+            explanation: "WORM stands for Write Once Read Many. These optical disks allow computer users to write data to an optical disk once, and then the data can be read many times but cannot be changed.",
+            topic: "Lesson 1 — Optical Storage"
+        },
+        {
+            id: 12,
+            category: "Storage",
+            question: "What is ASCII and why is it important?",
+            options: [
+                "A type of virus that corrupts computer files",
+                "A standard character code that allows data to be read by different computers and software",
+                "A programming language used to build databases",
+                "A hardware component inside the CPU"
+            ],
+            correctAnswer: 1,
+            explanation: "ASCII (American Standard Code for Information Interchange) assigns a specific pattern of bits to each character. Its main value is storing information so it is readable by other computers, allowing people to retrieve and use data across different hardware or software.",
+            topic: "Lesson 1 — Data Encoding"
+        },
+        {
+            id: 13,
+            category: "Computing Environments",
+            question: "What is an information system?",
+            options: [
+                "Any computer connected to the Internet",
+                "The combination of information, technology, processes and people brought together to support a business objective",
+                "A database that stores employee records",
+                "The physical building where computers are kept"
+            ],
+            correctAnswer: 1,
+            explanation: "An information system is the combination of information, technology, processes and people brought together to support a given business objective, such as processing government payroll.",
+            topic: "Lesson 2 — Mainframe Computing"
+        },
+        {
+            id: 14,
+            category: "Networks",
+            question: "What is an Intranet?",
+            options: [
+                "The global network connecting millions of computers worldwide",
+                "An internal computer network accessible only by an organisation's members",
+                "A type of virus that spreads through local networks",
+                "A wireless connection between two personal computers"
+            ],
+            correctAnswer: 1,
+            explanation: "An Intranet is an internal computer network that belongs to an organisation and is accessible only by that organisation's members.",
+            topic: "Lesson 2 — Networks"
+        },
+        {
+            id: 15,
+            category: "Networks",
+            question: "What is the difference between groupware and workflow software?",
+            options: [
+                "Groupware is for mainframes; workflow software is for PCs",
+                "Groupware manages shared documents (information-centred); workflow automates a series of steps (process-centred)",
+                "Groupware is open-source; workflow software is proprietary",
+                "There is no meaningful difference between the two"
+            ],
+            correctAnswer: 1,
+            explanation: "Groupware manages a pool of documents and allows simultaneous access (information-centred model). Workflow software automates the process of electronically routing documents from one person to another in a specified sequence (process-centred model).",
+            topic: "Lesson 2 — Network Software"
+        },
+        {
+            id: 16,
+            category: "Internet",
+            question: "What is HTML?",
+            options: [
+                "A type of computer hardware used in web servers",
+                "A markup language that controls how Web pages are formatted and displayed",
+                "A database management system for online data",
+                "An Internet Service Provider for academic institutions"
+            ],
+            correctAnswer: 1,
+            explanation: "HyperText Markup Language (HTML) is one of the main standards that controls how the World Wide Web works. It determines how Web pages are formatted and displayed, enabling information exchange on the Web.",
+            topic: "Lesson 2 — World Wide Web"
+        },
+        {
+            id: 17,
+            category: "Databases",
+            question: "Which database model stores information across different tables while maintaining links between them?",
+            options: [
+                "Hierarchical database",
+                "Network database",
+                "Relational database",
+                "Object-oriented database"
+            ],
+            correctAnswer: 2,
+            explanation: "A relational database stores facts in tables called relations and spreads information across different tables while maintaining links between them. It allows new links to be forged as needs arise.",
+            topic: "Lesson 3 — Database Models"
+        },
+        {
+            id: 18,
+            category: "Databases",
+            question: "What is SQL?",
+            options: [
+                "A type of computer virus",
+                "A structured query language used to direct a computer to locate and manage database information",
+                "A file format for storing images",
+                "A network protocol for email communication"
+            ],
+            correctAnswer: 1,
+            explanation: "SQL (Structured Query Language) is a query language — a set of command words used to direct a computer to create databases, locate information, sort records and change data in those records.",
+            topic: "Lesson 3 — Query Languages"
+        },
+        {
+            id: 19,
+            category: "Databases",
+            question: "In a relational database, what is a 'common key'?",
+            options: [
+                "A password required to access the database",
+                "A deliberately duplicated column in two or more tables that allows them to be linked together",
+                "The first record entered into any database table",
+                "The programming language used to build the database"
+            ],
+            correctAnswer: 1,
+            explanation: "A common key results from deliberate duplication of columns in two or more tables. For example, if two tables each contain a student ID column, this number can be used to find related information across both tables.",
+            topic: "Lesson 3 — Relational Databases"
+        },
+        {
+            id: 20,
+            category: "Viruses",
+            question: "Which of the following is a way computer viruses can spread?",
+            options: [
+                "By reading documentation manuals",
+                "Through exchanging floppy disks, email messages, and downloading from the Web",
+                "By turning the computer on and off too frequently",
+                "Through using licensed and properly purchased software"
+            ],
+            correctAnswer: 1,
+            explanation: "Viruses can be caught by exchanging floppy disks, via electronic mail messages, and through downloading documents from the Web. Networks make it much easier for viruses to spread quickly through an organisation.",
+            topic: "Lesson 1 — Viruses"
         }
     ]
 }
