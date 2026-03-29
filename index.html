@@ -1,1406 +1,1143 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>امتحانات لتحضير الميدترم</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>Drama Course Exams</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-gradient: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+            --container-bg: white;
+            --text-color: #1f2937;
+            --muted: #6b7280;
+            --accent: #9333ea;
+            --accent-2: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: #e5e7eb;
+            --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --exam-card-text: white;
+            --card-bg: #f9fafb;
+            --option-border: #d1d5db;
+            --option-bg: white;
+            --correct-bg: #f0fdf4;
+            --incorrect-bg: #fef2f2;
+        }
+
+        [data-theme="dark"] {
+            --bg-gradient: linear-gradient(180deg, #0f263b, #021526);
+            --container-bg: #071825;
+            --text-color: #dceefb;
+            --muted: #9fb6c8;
+            --accent: #60a5fa;
+            --accent-2: #38bdf8;
+            --success: #2dd4bf;
+            --danger: #fb7185;
+            --border: #123244;
+            --card-bg: #071a25;
+            --option-border: #123244;
+            --option-bg: #071a22;
+            --correct-bg: rgba(45,212,191,0.06);
+            --incorrect-bg: rgba(251,113,133,0.06);
+            --exam-card-bg: linear-gradient(135deg, #082433 0%, #04202b 100%);
+            --exam-card-text: #e6f3ff;
+            color-scheme: dark;
+        }
+
+        [data-theme="dark"] .exam-card {
+            background: linear-gradient(135deg, #0f1724 0%, #0b1220 100%);
+            color: var(--text-color);
+            border-color: transparent;
+            box-shadow: 0 6px 12px rgba(2,6,23,0.6);
+        }
+        [data-theme="dark"] .exam-card:hover { transform: translateY(-4px); border-color: rgba(14,165,255,0.12); }
+        [data-theme="dark"] .exam-card p { color: var(--muted); }
+        [data-theme="dark"] .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(14,165,255,0.04); }
+        [data-theme="dark"] .option-btn { background: var(--option-bg); border-color: var(--option-border); color: var(--text-color); }
+        [data-theme="dark"] .option-btn.neutral { color: var(--muted); }
+        [data-theme="dark"] .option-btn.correct { border-color: #10b981; background: rgba(16,185,129,0.06); color: #c7f7e6; }
+        [data-theme="dark"] .option-btn.incorrect { border-color: #ef4444; background: rgba(239,68,68,0.06); color: #ffd6d6; }
+        [data-theme="dark"] .explanation-box.correct { background: rgba(6,78,59,0.12); border-color: rgba(16,185,129,0.18); color: var(--text-color); }
+        [data-theme="dark"] .explanation-box.incorrect { background: rgba(76,29,29,0.12); border-color: rgba(239,68,68,0.18); color: var(--text-color); }
+        [data-theme="dark"] .next-btn { background: linear-gradient(to right, #0ea5ff, #2563eb); color: white; }
+        [data-theme="dark"] .results-container .final-score { color: var(--accent); }
+        [data-theme="dark"] .category-stats { background: #0b0f12; border-color: #121721; }
+        [data-theme="dark"] .stat-item { background: #0d1114; border-color: #121720; color: var(--text-color); }
+        [data-theme="dark"] .essay-quote-box { background: rgba(255,255,255,0.04); border-color: var(--accent); color: var(--text-color); }
+        [data-theme="dark"] .show-model-btn { background: var(--option-bg); border-color: var(--accent); color: var(--accent); }
+        [data-theme="dark"] .show-model-btn:hover { background: var(--accent); color: white; }
+        [data-theme="dark"] .essay-reveal-box { background: var(--card-bg); border-color: var(--border); color: var(--text-color); }
+        [data-theme="dark"] .para-label { color: var(--accent-2); }
+
+        #theme-toggle {
+            position: fixed; top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 0.45rem 0.6rem;
+            border-radius: 0.5rem;
+            cursor: pointer; font-size: 1.125rem;
+            z-index: 60; transition: background .2s, color .2s, border-color .2s;
+            direction: ltr;
+        }
+        [data-theme="dark"] #theme-toggle { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); color: var(--text-color); }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 1rem;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        .container {
+            max-width: 48rem; width: 100%;
+            background: var(--container-bg);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12);
+            padding: 2rem;
+            transition: background .25s ease;
+        }
+
+        /* SELECTION */
+        .exam-selection { text-align: center; }
+        .exam-selection h1 { font-size: 2.5rem; font-weight: bold; color: var(--text-color); margin-bottom: 1rem; }
+        .exam-selection p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
+        .exam-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .exam-card {
+            background: var(--exam-card-bg); color: var(--exam-card-text);
+            padding: 2rem; border-radius: 1rem; cursor: pointer;
+            transition: all 0.3s; border: 3px solid transparent;
+            box-shadow: 0 4px 6px -1px rgba(2,6,23,0.22); text-align: left;
+        }
+        .exam-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); border-color: #fbbf24; }
+        .exam-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .exam-card p { font-size: 1rem; color: var(--exam-card-text); }
+        .exam-card .question-count { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3); font-weight: bold; }
+
+        /* HEADER */
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .header h1 { font-size: 1.5rem; font-weight: bold; color: var(--text-color); }
+        .score-info { text-align: end; }
+        .score-info .question-number { font-size: 0.875rem; color: var(--muted); }
+        .score-info .score { font-weight: bold; color: var(--accent); }
+
+        /* QUESTION */
+        .question-container { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .category { text-align: start; font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; }
+        .question { text-align: start; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1rem; }
+        .options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .option-btn {
+            width: 100%; padding: 1.25rem; text-align: start;
+            border-radius: 0.75rem; border: 2px solid var(--option-border);
+            background: var(--option-bg); font-size: 1.125rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: space-between;
+            color: var(--text-color);
+        }
+        .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(147,51,234,0.04); }
+        .option-btn:disabled { cursor: not-allowed; }
+        .option-btn.correct { border-color: var(--success); background: var(--correct-bg); color: #065f46; }
+        .option-btn.incorrect { border-color: var(--danger); background: var(--incorrect-bg); color: #991b1b; }
+        .option-btn.neutral { border-color: var(--option-border); background: var(--card-bg); color: var(--muted); }
+        .icon { width: 26px; height: 26px; flex-shrink: 0; }
+
+        /* EXPLANATION */
+        .explanation-box { padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem; border: 2px solid; }
+        .explanation-box.correct { background: var(--correct-bg); border-color: rgba(16,185,129,0.35); }
+        .explanation-box.incorrect { background: var(--incorrect-bg); border-color: rgba(239,68,68,0.28); }
+        .explanation-title { text-align: start; font-weight: bold; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .explanation-content { background: var(--option-bg); padding: 1rem; border-radius: 0.5rem; margin-bottom: 0.75rem; }
+        .explanation-text { text-align: start; color: var(--text-color); line-height: 1.75; font-size: 1.125rem; }
+        .explanation-text strong { color: var(--accent); }
+        .topic-info { display: flex; align-items: center; gap: 0.5rem; color: var(--accent); text-align: start; font-weight: 600; }
+
+        .next-btn {
+            width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-2));
+            color: white; padding: 1rem; border-radius: 0.75rem;
+            font-weight: bold; font-size: 1.25rem; border: none;
+            cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(2,6,23,0.18);
+        }
+        .next-btn:hover { filter: brightness(0.98); }
+
+        .current-score { text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 1.125rem; }
+        .current-score .score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
+
+        .restart-btn { padding: 0.75rem 1.5rem; background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--text-color); }
+        .restart-btn:hover { background: var(--card-bg); }
+        .back-to-menu-btn { padding: 0.75rem 1.5rem; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; border: none; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-left: 0.5rem; }
+        .back-to-menu-btn:hover { filter: brightness(0.98); }
+
+        /* RESULTS */
+        .results-container { text-align: center; }
+        .trophy-icon { width: 6rem; height: 6rem; margin: 0 auto 1.5rem; color: #eab308; }
+        .results-title { font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; color: var(--text-color); }
+        .final-score { font-size: 4.5rem; font-weight: bold; color: var(--accent); margin-bottom: 0.75rem; }
+        .percentage { font-size: 1.875rem; color: var(--muted); margin-bottom: 1rem; }
+        .results-message { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
+        .category-stats { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; }
+        .stats-title { font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color); display: flex; align-items: center; gap: 0.5rem; }
+        .stat-item { padding: 1rem; background: var(--option-bg); border-radius: 0.75rem; border: 1px solid var(--border); margin-bottom: 0.75rem; }
+        .stat-row { display: flex; justify-content: space-between; align-items: center; }
+        .stat-category { text-align: start; font-weight: 600; }
+        .stat-score { text-align: left; font-weight: bold; }
+        .action-buttons { display: flex; gap: 0.75rem; margin-top: 1rem; }
+        .btn-primary { flex: 1; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 0.75rem; border-radius: 0.75rem; font-weight: bold; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-primary:hover { filter: brightness(0.98); }
+        .btn-secondary { flex: 1; border: 2px solid var(--option-border); background: var(--option-bg); padding: 0.75rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--text-color); }
+        .btn-secondary:hover { background: var(--card-bg); }
+        .final-stats { margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border); padding-top: 1rem; color: var(--muted); font-size: 1.125rem; }
+        .final-stats .final-score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
+
+        /* ESSAY */
+        .essay-quote-box {
+            font-style: italic; font-size: 1.1rem; line-height: 1.8;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem; background: var(--card-bg);
+            border-radius: 0 0.75rem 0.75rem 0; margin-bottom: 1.5rem; color: var(--text-color);
+        }
+        .essay-instructions { font-size: 1rem; color: var(--text-color); line-height: 1.7; margin-bottom: 1.2rem; }
+        .essay-instructions li { margin-bottom: 0.5rem; padding-left: 0.3rem; }
+        .essay-instructions strong { color: var(--accent); }
+        .essay-note { margin-top: 0.8rem; color: var(--muted); font-size: 0.9rem; font-style: italic; }
+        .show-model-btn {
+            width: 100%; margin-top: 1rem; padding: 1rem;
+            background: var(--option-bg); border: 2px solid var(--accent);
+            border-radius: 0.75rem; font-size: 1rem; font-weight: bold;
+            color: var(--accent); cursor: pointer; transition: all 0.2s;
+        }
+        .show-model-btn:hover { background: var(--accent); color: white; }
+        .essay-reveal-box {
+            margin-top: 1.2rem; padding: 1.5rem;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 0.75rem; display: none;
+        }
+        .essay-reveal-box.show { display: block; }
+        .essay-reveal-box h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 1rem; font-weight: bold; }
+        .essay-reveal-box p { font-size: 0.97rem; line-height: 1.75; margin-bottom: 0.8rem; color: var(--text-color); }
+        .para-label { font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent-2); margin-bottom: 0.3rem; }
+        .essay-disclaimer { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+    </style>
 </head>
 <body>
-    <button id="theme-toggle" aria-label="Toggle theme" title="تبديل الثيم" onclick="toggleTheme()">🌙</button>
+    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme" onclick="toggleTheme()">🌙</button>
     <div class="container" id="app"></div>
 
-    <script>
+<script>
+// ── EXAM 1: History of Drama ─────────────────────────────────
 
-const examSets = [
+const examSets = [ 
     {
-        title: "Critics-1: Introduction to Literary Criticism",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Etymology",
-                question: "The Greek word 'krites' means:",
-                options: [
-                    "A judge — the person who evaluates",
-                    "A judgment — the act of evaluating",
-                    "A writer — the person who creates",
-                    "A method — the process of analysis"
-                ],
-                correctAnswer: 0,
-                explanation: "Pair to memorize: 'krino' = judgment (the act), 'krites' = judge (the person). Together → 'kritikos' = literary judges.",
-                topic: "Origin of the Word Critic"
-            },
-            {
-                id: 2,
-                category: "Definitions",
-                question: "Literary criticism involves five activities. Which list is correct?",
-                options: [
-                    "Defining, classifying, analyzing, interpreting, evaluating",
-                    "Defining, translating, analyzing, interpreting, comparing",
-                    "Describing, classifying, summarizing, interpreting, publishing",
-                    "Defining, classifying, analyzing, rewriting, evaluating"
-                ],
-                correctAnswer: 0,
-                explanation: "The 5-step chain: Define → Classify (genre) → Analyze (structure & style) → Interpret (meaning) → Evaluate (judge worth by comparison).",
-                topic: "Definition of Literary Criticism"
-            },
-            {
-                id: 3,
-                category: "Definitions",
-                question: "A literary theory acts as a 'critical lens.' This means it:",
-                options: [
-                    "Gives a final definitive interpretation of any text",
-                    "Provides assumptions through which a critic analyzes a text",
-                    "Replaces the critic's personal judgment entirely",
-                    "Focuses only on the biography of the author"
-                ],
-                correctAnswer: 1,
-                explanation: "Theory = lens = a WAY TO VIEW a text. Pick a theory (feminist, Marxist, etc.) → use its assumptions to analyze. Different lenses → different readings of the same work.",
-                topic: "Literary Theory as a Critical Lens"
-            },
-            {
-                id: 4,
-                category: "Abrams",
-                question: "M.H. Abrams identifies four features in studying literature. Which is NOT one?",
-                options: [
-                    "The work itself",
-                    "The artist who creates it",
-                    "The critic who evaluates it",
-                    "The audience who receives it"
-                ],
-                correctAnswer: 2,
-                explanation: "Abrams' four: Work, Artist, Universe (nature being imitated), Audience. The CRITIC is NOT one. The tricky one people forget is 'the universe.'",
-                topic: "Abrams' Four Features"
-            },
-            {
-                id: 5,
-                category: "Applied Example",
-                question: "Achebe criticized Conrad's Heart of Darkness for failing to grant full humanity to Africans. This is:",
-                options: [
-                    "Marxist criticism about class struggle",
-                    "Formalist criticism about literary technique",
-                    "Post-colonial criticism about exploitation and racism",
-                    "Biographical criticism about Conrad's personal life"
-                ],
-                correctAnswer: 2,
-                explanation: "Achebe = post-colonial. He's exposing how Conrad dehumanizes Africans — that's about colonialism & racism, not class (Marxist) or form (Formalist).",
-                topic: "Post-Colonial Applied Example"
-            },
-            {
-                id: 6,
-                category: "Critical Approaches",
-                question: "Formalism is 'art for art's sake' because the critic:",
-                options: [
-                    "Focuses only on the text's words, ignoring biography and history",
-                    "Evaluates the moral impact of the art on its readers",
-                    "Studies how the art reflects socio-economic conditions",
-                    "Analyzes how the reader's own experience shapes meaning"
-                ],
-                correctAnswer: 0,
-                explanation: "Formalism = ONLY the text matters. Ignore author's life, ignore history, ignore politics. Just words, structure, style on the page.",
-                topic: "Formalist Criticism"
-            },
-            {
-                id: 7,
-                category: "Critical Approaches",
-                question: "Psychological (Freudian) criticism is based on the belief that:",
-                options: [
-                    "All actions are influenced by the unconscious mind",
-                    "All actions are determined by socio-economic class",
-                    "All actions reflect the reader's personal history",
-                    "All actions mirror the author's stated moral values"
-                ],
-                correctAnswer: 0,
-                explanation: "Psychological = the UNCONSCIOUS drives everything. Freud → unconscious → hidden desires/fears. It analyzes characters' actions and motivations through psychoanalysis.",
-                topic: "Psychological Criticism"
-            },
-            {
-                id: 8,
-                category: "Critical Approaches",
-                question: "Reader-Response criticism says meaning is created by:",
-                options: [
-                    "The author's original conscious intentions alone",
-                    "The text's fixed internal structure and language",
-                    "The interaction between reader's experience and the text",
-                    "The historical context in which the work was written"
-                ],
-                correctAnswer: 2,
-                explanation: "Reader-Response = meaning lives in the READER'S MIND. Even the SAME reader reading TWICE may get different meanings because variables (mood, knowledge, life experience) change.",
-                topic: "Reader-Response Criticism"
-            },
-            {
-                id: 9,
-                category: "Critical Approaches",
-                question: "Deconstructionists believe literary texts have:",
-                options: [
-                    "One true meaning placed by the author",
-                    "No fixed meaning due to cultural assumptions",
-                    "Meaning only through historical context",
-                    "A stable meaning all critics can agree on"
-                ],
-                correctAnswer: 1,
-                explanation: "Deconstruction = NO fixed meaning. Authors are shaped by THEIR cultural assumptions when writing; readers by THEIRS when reading. Language can't accurately represent reality.",
-                topic: "Deconstructionist Criticism"
-            },
-            {
-                id: 10,
-                category: "Critical Approaches",
-                question: "Marxist criticism seeks to uncover how a work reflects:",
-                options: [
-                    "The unconscious desires of characters and creators",
-                    "The socio-economic conditions and class struggle",
-                    "The stereotypical gender roles in patriarchal society",
-                    "The colonized people's resistance against oppressors"
-                ],
-                correctAnswer: 1,
-                explanation: "Marxist = CLASS + ECONOMICS. What socio-economic conditions existed? How does the work reveal the history of class struggle? Think Marx → class → economics.",
-                topic: "Marxist Criticism"
-            },
-            {
-                id: 11,
-                category: "Critical Approaches",
-                question: "Post-colonial criticism analyzes two opposing forces:",
-                options: [
-                    "Artistic innovation vs. literary tradition",
-                    "Colonized accepting colonizer values vs. resisting oppression",
-                    "Religious authority vs. secular philosophy",
-                    "Economic growth vs. cultural preservation"
-                ],
-                correctAnswer: 1,
-                explanation: "Post-colonial = two sides: (1) Pressure to INTERNALIZE colonizer's values, (2) RESISTANCE against oppressors. Also studies literature produced by colonized cultures.",
-                topic: "Post-Colonial Criticism"
-            },
-            {
-                id: 12,
-                category: "Literary Elements",
-                question: "In literary analysis, 'tone' refers to:",
-                options: [
-                    "The category of literature (drama, poetry, fiction)",
-                    "The writer's attitude towards the subject matter",
-                    "The way a writer presents thoughts (subjective/objective)",
-                    "The sequence of events forming the narrative"
-                ],
-                correctAnswer: 1,
-                explanation: "Tone = writer's FEELINGS/ATTITUDE (depressed, hopeful, sarcastic). Remember the trio: Tone = WHAT feeling, Style = HOW presented, Genre = WHAT type.",
-                topic: "Literary Elements"
-            },
-            {
-                id: 13,
-                category: "Literary Elements",
-                question: "Which terms are specifically used for analyzing poetry?",
-                options: [
-                    "Rhyme, imagery, simile, metaphor, symbol",
-                    "Characterization, plot, setting, conflict",
-                    "Narrative technique, 1st person narrator, motifs",
-                    "Point of view, plot structure, setting"
-                ],
-                correctAnswer: 0,
-                explanation: "Poetry = rhyme + imagery (simile, metaphor, symbol). Drama = characterization, plot, setting, motifs, conflict. Fiction = narrative technique (1st/3rd person), setting, plot, motifs.",
-                topic: "Literary Terms by Genre"
-            },
-            {
-                id: 14,
-                category: "Critical Approaches",
-                question: "Moralistic criticism judges a work based on:",
-                options: [
-                    "Its artistic structure and formal qualities",
-                    "Its ethical teachings and effects on readers",
-                    "Its reflection of socio-economic conditions",
-                    "Its representation of colonial power dynamics"
-                ],
-                correctAnswer: 1,
-                explanation: "Moralistic = MORAL judgment. Does this teach good values? Good effect on readers? It's the OPPOSITE of Formalism (which ignores morality, cares only about artistic form).",
-                topic: "Moralist Criticism"
-            },
-            {
-                id: 15,
-                category: "Critical Approaches",
-                question: "Feminist criticism examines how literature is influenced by:",
-                options: [
-                    "Economic class divisions between characters",
-                    "Patriarchal narratives and roles of men and women",
-                    "Unconscious desires in the author's biography",
-                    "The colonizer-colonized power dynamic"
-                ],
-                correctAnswer: 1,
-                explanation: "Feminist = patriarchy + gender. It examines: social relationships of men & women, male-dominated narratives, and stereotypical portrayals of female characters.",
-                topic: "Feminist Criticism"
-            }
-        ]
-    },
-    {
-        title: "Critics-3: Plato's Republic & Allegory of the Cave",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Socrates",
-                question: "Socrates is known for a unique philosophical method. What is it called?",
-                options: [
-                    "The Platonic method based on written dialogues",
-                    "The Socratic method based on questioning and dialogue",
-                    "The Aristotelian method based on logical syllogisms",
-                    "The Rhetorical method based on persuasive speeches"
-                ],
-                correctAnswer: 1,
-                explanation: "The Socratic method = question after question + identifying contradictions in beliefs. Also called Socratic dialogue or dialectic. It emphasizes critical thinking through dialogue, NOT lectures.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 2,
-                category: "Socrates",
-                question: "What do we learn by the END of a Socratic dialogue?",
-                options: [
-                    "A clear and definitive answer to the question being discussed",
-                    "That what we thought we knew, we actually don't know",
-                    "That the student's original belief was correct all along",
-                    "That philosophy cannot answer any meaningful questions"
-                ],
-                correctAnswer: 1,
-                explanation: "Two outcomes of Socratic dialogue: (1) What we thought we knew, we know NOT. (2) By eliminating contradictions, we learn what something is NOT. You never get a final 'yes' answer.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 3,
-                category: "Socrates",
-                question: "Socrates was sentenced to death on charges of:",
-                options: [
-                    "Plotting to overthrow the Athenian government",
-                    "Corrupting the youth and impiety against the gods",
-                    "Writing texts that insulted the Greek philosophers",
-                    "Refusing to serve in the Athenian military forces"
-                ],
-                correctAnswer: 1,
-                explanation: "Two charges: (1) corrupting the youth, (2) impiety (lack of respect) against the gods. He was found guilty and sentenced to death.",
-                topic: "Socrates' Life"
-            },
-            {
-                id: 4,
-                category: "Plato",
-                question: "What did Plato found after Socrates' death?",
-                options: [
-                    "A political party to reform Athenian democracy",
-                    "The Academy — an institute of scientific and philosophical research",
-                    "A religious temple dedicated to the Greek gods",
-                    "A school of rhetoric and public speaking for politicians"
-                ],
-                correctAnswer: 1,
-                explanation: "After Socrates died in 399 BC, Plato founded the ACADEMY — an institute for scientific and philosophical research. Aristotle was one of his students there.",
-                topic: "Plato's Life"
-            },
-            {
-                id: 5,
-                category: "Platonism",
-                question: "Platonism is the belief that:",
-                options: [
-                    "The physical world we see is the only true reality",
-                    "The physical world is just an imperfect reflection of a perfect realm",
-                    "Knowledge comes only through the five physical senses",
-                    "Art and poetry are the highest forms of human knowledge"
-                ],
-                correctAnswer: 1,
-                explanation: "Platonism = the physical world is NOT real reality. It's a blurry, shadowy, imperfect REFLECTION of a perfect realm. This is the foundation for the Allegory of the Cave.",
-                topic: "Platonism"
-            },
-            {
-                id: 6,
-                category: "The Republic",
-                question: "In The Republic, the Allegory of the Cave is a dialogue between:",
-                options: [
-                    "Socrates and Aristotle discussing the ideal state",
-                    "Socrates and Glaucon (Plato's older brother)",
-                    "Plato and his students at the Academy",
-                    "Socrates and the judges at his trial"
-                ],
-                correctAnswer: 1,
-                explanation: "The Allegory is told by Socrates to GLAUCON (Plato's older brother). Plato wrote it, but Socrates is the speaker and Glaucon is the listener.",
-                topic: "Allegory of the Cave"
-            },
-            {
-                id: 7,
-                category: "Allegory Symbols",
-                question: "In the Allegory of the Cave, what do the SHADOWS on the wall represent?",
-                options: [
-                    "True knowledge gained through philosophical reasoning",
-                    "The perfect Forms that exist in the ideal realm",
-                    "Illusions and false beliefs people hold about reality",
-                    "The teachings of the philosopher who escaped the cave"
-                ],
-                correctAnswer: 2,
-                explanation: "Shadows = ILLUSIONS & FALSE BELIEFS. The prisoners think shadows are real because they've never seen anything else. Shadows are temporal objects known through the senses — not true reality.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 8,
-                category: "Allegory Symbols",
-                question: "The FREED PRISONER in the Allegory represents:",
-                options: [
-                    "A politician who governs the ideal city",
-                    "A philosopher seeking true knowledge outside the cave",
-                    "A poet who creates art based on imitation",
-                    "A priest who teaches religious beliefs to the masses"
-                ],
-                correctAnswer: 1,
-                explanation: "Freed prisoner = the PHILOSOPHER. He escapes ignorance (the cave), sees real truth (sunlight), and has a responsibility to go back and educate others — even though they resist.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 9,
-                category: "Allegory Symbols",
-                question: "The CAVE itself represents:",
-                options: [
-                    "The perfect realm of true Forms and ideas",
-                    "The physical world where people cannot obtain true knowledge",
-                    "The Academy where philosophers study and teach",
-                    "The afterlife where souls are judged for their actions"
-                ],
-                correctAnswer: 1,
-                explanation: "Cave = the PHYSICAL WORLD (the visible/sensible world). It is NOT a place where people can obtain knowledge of true reality. People inside are bound to mere imitations of truth.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 10,
-                category: "Allegory Meaning",
-                question: "When the freed prisoner returns to the cave, the other prisoners:",
-                options: [
-                    "Welcome him and eagerly learn about the outside world",
-                    "Ignore him completely and continue watching the shadows",
-                    "Think he is mad and would sooner kill him than be freed",
-                    "Ask him to lead them out of the cave one at a time"
-                ],
-                correctAnswer: 2,
-                explanation: "The prisoners think he's MAD and violently resist his attempts to free them — they'd rather KILL him than leave. This shows: people are comfortable in ignorance and hostile to anyone who tries to free them.",
-                topic: "Allegory Meaning"
-            },
-            {
-                id: 11,
-                category: "Allegory Meaning",
-                question: "The main lesson of the Allegory of the Cave is that philosophers who have seen truth:",
-                options: [
-                    "Should keep their knowledge private and avoid public life",
-                    "Have a responsibility to educate people in society",
-                    "Should force people to accept the truth by any means necessary",
-                    "Must abandon society entirely and live in isolation"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato's key message: philosophers who've seen the ideal world have a RESPONSIBILITY TO EDUCATE society. They must return to the cave and teach, even though people resist.",
-                topic: "Allegory Meaning"
-            },
-            {
-                id: 12,
-                category: "Allegory Symbols",
-                question: "The prisoners see 'shadows of models of animals made of stone' — this means their reality is:",
-                options: [
-                    "A direct and accurate copy of the real world",
-                    "A copy of a copy — twice removed from true reality",
-                    "An artistic creation by the people behind them",
-                    "A divine projection sent by the gods above"
-                ],
-                correctAnswer: 1,
-                explanation: "KEY detail: they see shadows (copy) of MODELS (already a copy) — so it's a COPY OF A COPY. Not even shadows of real animals! This connects directly to Plato's mimesis theory later.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 13,
-                category: "Plato's Solution",
-                question: "For Plato, the solution to people's ignorance was:",
-                options: [
-                    "Giving everyone political power through direct democracy",
-                    "Educating society carefully through the Socratic Method",
-                    "Banning all art and poetry from the ideal society",
-                    "Allowing individuals to discover truth on their own"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato's solution = EDUCATE society using the Socratic Method (critical thinking + dialogue + questioning). Philosophy and reason are the path to truth, not senses or emotion.",
-                topic: "Plato's Educational Philosophy"
-            }
-        ]
-    },
-    {
-        title: "Critics-4: Plato's Theory of Forms",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Core Concept",
-                question: "Plato's Theory of Forms states that behind every physical thing there is:",
-                options: [
-                    "A shadow that distorts its true appearance",
-                    "A Form — the true eternal essence of that thing",
-                    "A story created by poets to explain its existence",
-                    "A material cause that science can fully explain"
-                ],
-                correctAnswer: 1,
-                explanation: "Behind EVERY thing = a Form = the TRUE ETERNAL ESSENCE. Forms are perfect, abstract, unchanging, non-physical, and universal. The physical thing is just a shadow/image of the Form.",
-                topic: "Theory of Forms — Core"
-            },
-            {
-                id: 2,
-                category: "Core Concept",
-                question: "According to Plato, the physical world we experience through our senses is:",
-                options: [
-                    "The only reality that truly exists",
-                    "A shadow or image of the true reality of Forms",
-                    "More real than the realm of abstract ideas",
-                    "Equally real alongside the world of Forms"
-                ],
-                correctAnswer: 1,
-                explanation: "Physical world = SHADOW/IMAGE of the real realm of Forms. The senses only show us imperfect copies. True reality is the realm of Forms, which is timeless and perfect.",
-                topic: "Theory of Forms — Core"
-            },
-            {
-                id: 3,
-                category: "Forms Characteristics",
-                question: "Plato's Forms are described as:",
-                options: [
-                    "Perfect, abstract, unchanging, non-physical, universal",
-                    "Imperfect, concrete, changing, physical, particular",
-                    "Beautiful, emotional, temporary, visible, cultural",
-                    "Scientific, measurable, testable, observable, material"
-                ],
-                correctAnswer: 0,
-                explanation: "Five key traits of Forms: PERFECT + ABSTRACT + UNCHANGING + NON-PHYSICAL + UNIVERSAL. Everything in the physical world is the opposite — imperfect, concrete, changing, physical, particular.",
-                topic: "Characteristics of Forms"
-            },
-            {
-                id: 4,
-                category: "Knowledge",
-                question: "According to Plato, the ONLY way to truly understand a Form is through:",
-                options: [
-                    "Our five senses like sight and hearing",
-                    "Artistic representation and poetic imagination",
-                    "Logic and mathematics (reason, not senses)",
-                    "Religious rituals and spiritual meditation"
-                ],
-                correctAnswer: 2,
-                explanation: "You CANNOT perceive Forms through senses (sight, hearing, etc.). The ONLY way = LOGIC and MATHEMATICS. This is why Plato values philosophy and reason above art and poetry.",
-                topic: "How We Know Forms"
-            },
-            {
-                id: 5,
-                category: "Examples",
-                question: "Plato's triangle example shows that:",
-                options: [
-                    "We can draw a perfect triangle on a whiteboard if we use a ruler",
-                    "Even a triangle drawn with a ruler is an imperfect copy of the Ideal triangle",
-                    "Mathematics is useless for understanding geometric forms",
-                    "Physical triangles are more real than the mathematical concept"
-                ],
-                correctAnswer: 1,
-                explanation: "Through math we DISCOVER the Form of a triangle (3 sides). But any triangle you draw — even with a ruler — is IMPERFECT and TEMPORARY. The Ideal triangle exists only as a concept, never as a physical drawing.",
-                topic: "Theory of Forms — Triangle Example"
-            },
-            {
-                id: 6,
-                category: "Examples",
-                question: "In the biscuit example, the 'Form' of a biscuit is:",
-                options: [
-                    "The best biscuit that comes out of the oven",
-                    "The perfect version of biscuits that exists in our head",
-                    "The recipe written down on paper by the cook",
-                    "The flour and ingredients before they are baked"
-                ],
-                correctAnswer: 1,
-                explanation: "The Form = the PERFECT VERSION IN YOUR HEAD (right taste, smell, shape). The baked biscuits are copies — and no two are identical. Some are more toasted, others deflated. All are imperfect copies of the Ideal.",
-                topic: "Theory of Forms — Biscuit Example"
-            },
-            {
-                id: 7,
-                category: "Examples",
-                question: "In the horse example, every physical horse is:",
-                options: [
-                    "A unique creation unrelated to any other horse",
-                    "An imperfect copy of the one true horse Form",
-                    "A perfect representation of what a horse should be",
-                    "A shadow cast by the fire inside Plato's cave"
-                ],
-                correctAnswer: 1,
-                explanation: "Big, small, grey, white, old, young — every horse is an IMPERFECT COPY of the horse Form (the one true horse). All physical horses are imitations of the perfect horse.",
-                topic: "Theory of Forms — Horse Example"
-            },
-            {
-                id: 8,
-                category: "Abstract Forms",
-                question: "The Theory of Forms applies to abstract concepts too. Which is the MOST important Form according to Plato?",
-                options: [
-                    "The Form of Beauty, which inspires all art",
-                    "The Form of Truth, which guides all science",
-                    "The Form of the Good, which lets us understand everything else",
-                    "The Form of Justice, which governs all societies"
-                ],
-                correctAnswer: 2,
-                explanation: "The Form of the GOOD = the most important. It allows us to understand EVERYTHING else, providing knowledge and truth. Other Forms (Justice, Beauty, Truth, Equality) exist but Good is supreme.",
-                topic: "The Form of the Good"
-            },
-            {
-                id: 9,
-                category: "Abstract Forms",
-                question: "According to Plato, the Forms of Justice, Goodness, Beauty and Truth:",
-                options: [
-                    "Exist only as human opinions that vary from culture to culture",
-                    "Are true and real, existing as eternal, unchanging ideas",
-                    "Were invented by poets to make their stories more meaningful",
-                    "Can only be understood through physical sensory experience"
-                ],
-                correctAnswer: 1,
-                explanation: "Abstract Forms are just as REAL as physical Forms. Justice, Goodness, Equality, Truth, Beauty = true and real, existing as IDEAS. They are eternal and unchanging — not cultural opinions.",
-                topic: "Abstract Forms"
-            },
-            {
-                id: 10,
-                category: "Core Concept",
-                question: "A tree casting a shadow is used by Plato to illustrate that:",
-                options: [
-                    "Trees are the most perfect objects in nature",
-                    "The tree itself is an image of the Form (the one true tree)",
-                    "Shadows are more real than the physical objects that cast them",
-                    "Nature proves that Forms don't exist outside the mind"
-                ],
-                correctAnswer: 1,
-                explanation: "Even the TREE ITSELF is just an image/copy of the Form — the one true tree. The tree isn't the ultimate reality; the Form of the tree is. Physical objects are always copies.",
-                topic: "Theory of Forms — Tree Example"
-            },
-            {
-                id: 11,
-                category: "Knowledge",
-                question: "Plato says we CANNOT perceive Forms through our senses. This means:",
-                options: [
-                    "Seeing and hearing can reveal the true nature of things",
-                    "Art and poetry provide the best path to understanding reality",
-                    "Only reason and logic can lead us to true understanding",
-                    "Physical experience is more reliable than abstract thinking"
-                ],
-                correctAnswer: 2,
-                explanation: "Senses = CANNOT reach Forms. Only LOGIC and MATHEMATICS can. This is why Plato values philosophy/reason over art/poetry/emotion — the senses deceive, reason reveals.",
-                topic: "How We Know Forms"
-            }
-        ]
-    },
-    {
-        title: "Critics-5: Plato's Theory of Mimesis & Accusations Against Poetry",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Mimesis",
-                question: "Plato uses the word 'mimesis' to mean:",
-                options: [
-                    "Creation of original and entirely new ideas",
-                    "Imitation or representation in educational contexts",
-                    "Destruction of false beliefs through reasoning",
-                    "Translation of philosophical texts into poetry"
-                ],
-                correctAnswer: 1,
-                explanation: "Mimesis = IMITATION or REPRESENTATION. Plato uses it in educational and ethical contexts. He says young people learn through imitation, so we must carefully select what they imitate.",
-                topic: "Theory of Mimesis"
-            },
-            {
-                id: 2,
-                category: "Mimesis",
-                question: "Plato judges poetry from which three perspectives?",
-                options: [
-                    "Educational, philosophical, and ethical",
-                    "Artistic, historical, and political",
-                    "Economic, social, and psychological",
-                    "Religious, military, and cultural"
-                ],
-                correctAnswer: 0,
-                explanation: "Three perspectives: EDUCATIONAL + PHILOSOPHICAL + ETHICAL. Not artistic! Plato doesn't care if poetry is beautiful — he cares if it teaches truth, wisdom, and good morals.",
-                topic: "How Plato Judges Poetry"
-            },
-            {
-                id: 3,
-                category: "Accusation 1",
-                question: "Plato's FIRST accusation against poetry is that poets:",
-                options: [
-                    "Make heroes appear weak and flawed in their stories",
-                    "Represent gods as unjust, as if gods cause unhappiness",
-                    "Encourage the youth to laugh at comedies irresponsibly",
-                    "Create art that is twice removed from ultimate reality"
-                ],
-                correctAnswer: 1,
-                explanation: "1st accusation = poets show GODS as UNJUST, as if gods are responsible for human unhappiness. Plato says gods CANNOT be evil, and showing their deficiencies harms the community.",
-                topic: "First Accusation — Gods"
-            },
-            {
-                id: 4,
-                category: "Accusation 2",
-                question: "Plato's SECOND accusation is that poetry misrepresents heroes by:",
-                options: [
-                    "Making them too perfect and unrealistically powerful",
-                    "Giving them tragic flaws, which badly impacts youth education",
-                    "Showing them as comedic figures who lack all seriousness",
-                    "Depicting them as philosophers rather than warriors"
-                ],
-                correctAnswer: 1,
-                explanation: "2nd accusation = heroes shown with TRAGIC FLAWS → bad influence on youth. Plato believes real heroes CANNOT be weak. Heroes should be noble with souls in harmony (inner peace/balance).",
-                topic: "Second Accusation — Heroes"
-            },
-            {
-                id: 5,
-                category: "Accusation 3",
-                question: "Plato's THIRD accusation says poetry is a 'dangerous rival to morality' because it:",
-                options: [
-                    "Teaches philosophical truths that challenge religious beliefs",
-                    "Encourages all desires and corrupts even good men",
-                    "Represents gods as responsible for human unhappiness",
-                    "Makes the youth laugh and lose their serious character"
-                ],
-                correctAnswer: 1,
-                explanation: "3rd accusation = poetry ENCOURAGES ALL DESIRES and CORRUPTS even good men. Poetry → dangerous rival to morality. Poetry has the capacity to DEMORALIZE minds, unlike philosophy which gives wisdom.",
-                topic: "Third Accusation — Corruption"
-            },
-            {
-                id: 6,
-                category: "Accusation 4",
-                question: "Plato's FOURTH accusation concerns comedies. He argues they:",
-                options: [
-                    "Cause youth to laugh and lose their serious character",
-                    "Misrepresent the gods as comedic and disrespectful",
-                    "Encourage class struggle between the rich and poor",
-                    "Teach children to imitate immoral adult behavior"
-                ],
-                correctAnswer: 0,
-                explanation: "4th accusation = youth take pleasure in LAUGHING at comedies → new generations won't have SERIOUS CHARACTERS. Comic works badly affect youth attitudes in real life.",
-                topic: "Fourth Accusation — Comedy"
-            },
-            {
-                id: 7,
-                category: "Accusation 5",
-                question: "Plato's FIFTH accusation uses the chair example to show that a painter's art is:",
-                options: [
-                    "A direct and faithful copy of the Form of a chair",
-                    "An imitation of an imitation — twice removed from reality",
-                    "A more perfect version of the carpenter's physical chair",
-                    "Equal in truth to the philosopher's understanding of a chair"
-                ],
-                correctAnswer: 1,
-                explanation: "The chain: Form of chair (ultimate reality) → Carpenter's chair (imitation) → Painter's painting of chair (imitation of imitation). Art = COPY OF A COPY = only a proportion of reality.",
-                topic: "Fifth Accusation — Imitation of Imitation"
-            },
-            {
-                id: 8,
-                category: "Accusation 5",
-                question: "In the chair example, who has MORE knowledge — the painter or the craftsman?",
-                options: [
-                    "The painter, because art captures the essence of beauty",
-                    "They have equal knowledge from different perspectives",
-                    "The craftsman, because he understands the chair's function",
-                    "Neither — only the philosopher knows the true Form"
-                ],
-                correctAnswer: 2,
-                explanation: "The CRAFTSMAN knows more than the painter. But NEITHER knows the true Form — only the PHILOSOPHER does. The path to reality is through philosophy and reason, NOT art and emotion.",
-                topic: "Fifth Accusation — Knowledge Hierarchy"
-            },
-            {
-                id: 9,
-                category: "Key Ideas",
-                question: "Plato believes the path to understanding reality is through:",
-                options: [
-                    "Art, poetry, and emotional expression",
-                    "Philosophy, reason, and rational thinking",
-                    "Imitation of brave and noble characters",
-                    "Religious worship and spiritual meditation"
-                ],
-                correctAnswer: 1,
-                explanation: "PHILOSOPHY + REASON = path to reality. NOT art, poetry, or emotion. This is the core of ALL Plato's accusations — art deals with imitation and emotion, philosophy deals with truth and reason.",
-                topic: "Philosophy vs. Art"
-            },
-            {
-                id: 10,
-                category: "Rhetoric",
-                question: "Plato scorned rhetoric (political speeches) because he believed they:",
-                options: [
-                    "Were too philosophical and abstract for common people",
-                    "Were insincere compliments aimed to deceive ignorant listeners",
-                    "Taught people critical thinking and the Socratic method",
-                    "Represented the highest form of logical argumentation"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato REJECTED rhetoric. Why? Political speeches = INSINCERE COMPLIMENTS to DECEIVE ignorant listeners. Rhetoric provides pleasure without concern for truth, and appeals to EMOTIONS rather than logic/reason.",
-                topic: "Accusations Against Rhetoric"
-            },
-            {
-                id: 11,
-                category: "Mimesis",
-                question: "Plato says 'young people learn through imitation,' so we must:",
-                options: [
-                    "Let them freely imitate any character they choose",
-                    "Ban all forms of literature from their education",
-                    "Carefully select models for them to imitate",
-                    "Teach them only through mathematical exercises"
-                ],
-                correctAnswer: 2,
-                explanation: "Since youth learn through IMITATION, we must SELECT MODELS carefully. Plato wants them to imitate only brave, pious, noble men — to build strength, not infect them with weakness.",
-                topic: "Education and Imitation"
-            },
-            {
-                id: 12,
-                category: "Key Ideas",
-                question: "According to Plato, poetry must be subject to control because:",
-                options: [
-                    "It is an important source of youth experience and must follow ethical principles",
-                    "It generates too much profit and must be regulated economically",
-                    "It competes with philosophy for students at the Academy",
-                    "It is written in a language that common people cannot understand"
-                ],
-                correctAnswer: 0,
-                explanation: "Poetry = important source of youth experience → it MUST be controlled. Contents should be based on ETHICAL PRINCIPLES. Plato doesn't want to eliminate poetry entirely — he wants it controlled ethically.",
-                topic: "Poetry and Ethics"
-            }
-        ]
-    },
-    {
-        title: "🎯 Final Exam Simulation (Midterm Style)",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Exam Q2 Style",
-                question: "What is literary criticism?",
-                options: [
-                    "The study of authors' biographies and their personal correspondence",
-                    "Studies concerned with defining, classifying, analyzing, interpreting, and evaluating literary works",
-                    "The process of translating literary works from one language into another",
-                    "A method of editing and publishing manuscripts for academic audiences"
-                ],
-                correctAnswer: 1,
-                explanation: "Literary criticism = defining + classifying (genre) + analyzing (structure/style) + interpreting (meaning) + evaluating (worth by comparison). Memorize these five verbs.",
-                topic: "Definition of Literary Criticism"
-            },
-            {
-                id: 2,
-                category: "Exam Q2 Style",
-                question: "What do you know about Plato?",
-                options: [
-                    "A Roman emperor who conquered Greece and established democracy in Athens",
-                    "A Greek philosopher who founded the Academy and wrote The Republic in 375 BC",
-                    "A Greek mathematician who developed geometry and the Pythagorean theorem",
-                    "A Greek poet who wrote the Iliad and Odyssey about the Trojan War"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato = Greek philosopher, student of Socrates, teacher of Aristotle. Founded the ACADEMY. Wrote THE REPUBLIC (375 BC). Developed Platonism and the Theory of Forms.",
-                topic: "Plato — Key Facts"
-            },
-            {
-                id: 3,
-                category: "Exam Q2 Style",
-                question: "What do you know about Socrates?",
-                options: [
-                    "He wrote The Republic and founded the Academy in Athens after Plato's death",
-                    "He was a defining figure in Western philosophy known for the Socratic method of questioning",
-                    "He was Plato's student who developed formal logic and the theory of syllogisms",
-                    "He was a Greek poet who represented gods with tragic flaws in his dramas"
-                ],
-                correctAnswer: 1,
-                explanation: "Socrates = defining figure in Western philosophy. Known for the Socratic method (questioning + dialogue). Teacher of Plato. Sentenced to death for corrupting youth and impiety. He wrote NOTHING — we know him through Plato.",
-                topic: "Socrates — Key Facts"
-            },
-            {
-                id: 4,
-                category: "Exam Q2 Style",
-                question: "What is the Allegory of the Cave about?",
-                options: [
-                    "A story about prisoners who see only shadows and mistake them for reality, representing humanity's ignorance",
-                    "A dialogue about the ideal form of government in which poets rule the state",
-                    "An argument for why art and poetry should be the foundation of education",
-                    "A description of the Academy that Plato founded for teaching rhetoric"
-                ],
-                correctAnswer: 0,
-                explanation: "Prisoners chained in a cave see SHADOWS on the wall and think they're real. A freed prisoner (philosopher) escapes, sees truth, returns — but others resist. Message: people are comfortable in ignorance; philosophers must educate them.",
-                topic: "Allegory of the Cave"
-            },
-            {
-                id: 5,
-                category: "Exam Q2 Style",
-                question: "What is Plato's Theory of Forms?",
-                options: [
-                    "The belief that physical objects are the ultimate reality and ideas are merely human inventions",
-                    "The belief that behind every physical thing is a perfect, abstract, unchanging, non-physical Form",
-                    "The belief that art creates perfect representations of objects in the physical world",
-                    "The belief that knowledge comes primarily through our five physical senses"
-                ],
-                correctAnswer: 1,
-                explanation: "Theory of Forms: behind every thing = a FORM (perfect, abstract, unchanging, non-physical, universal). Physical world = shadow/image of true reality. Forms are understood through LOGIC, not senses.",
-                topic: "Theory of Forms"
-            },
-            {
-                id: 6,
-                category: "Exam Q2 Style",
-                question: "What is Plato's theory of mimesis?",
-                options: [
-                    "The idea that art creates original ideas independent of reality",
-                    "The idea that art is imitation, and artists imitate copies of the true Forms",
-                    "The idea that all knowledge comes from imitating great philosophers",
-                    "The idea that the physical world is more real than abstract ideas"
-                ],
-                correctAnswer: 1,
-                explanation: "Mimesis = IMITATION. Artists imitate physical objects, which are ALREADY copies of Forms. So art = copy of a copy. Example: Form of chair → carpenter's chair → painter's painting = imitation of imitation.",
-                topic: "Theory of Mimesis"
-            },
-            {
-                id: 7,
-                category: "Exam Q1 Style",
-                question: "What is Formalist criticism and what does 'art for art's sake' mean?",
-                options: [
-                    "It focuses on a text's words, structure, and style — ignoring biography and history entirely",
-                    "It evaluates how art contributes to moral education and ethical development",
-                    "It examines how socio-economic conditions are reflected in literary works",
-                    "It studies the unconscious motivations behind characters' actions in a text"
-                ],
-                correctAnswer: 0,
-                explanation: "Formalism = art for art's sake. ONLY the text matters — words, structure, style. Ignore the author's life, ignore history, ignore morality. Judge the art ONLY by its artistic qualities.",
-                topic: "Formalist Criticism"
-            },
-            {
-                id: 8,
-                category: "Exam Q1 Style",
-                question: "What is Psychological criticism based on?",
-                options: [
-                    "The belief that socio-economic class determines literary meaning",
-                    "The belief that the unconscious mind influences all human actions",
-                    "The belief that the reader's response is the only source of meaning",
-                    "The belief that patriarchal narratives shape all literary traditions"
-                ],
-                correctAnswer: 1,
-                explanation: "Psychological/Freudian criticism = the UNCONSCIOUS drives all actions. Uses psychoanalysis to analyze characters' motivations and reveal insights about how the human mind works.",
-                topic: "Psychological Criticism"
-            },
-            {
-                id: 9,
-                category: "Exam Q1 Style",
-                question: "What does Marxist criticism focus on?",
-                options: [
-                    "How a work reflects socio-economic conditions and the history of class struggle",
-                    "How a work reflects patriarchal narratives and the roles of men and women",
-                    "How a work reveals the unconscious fears and desires of its characters",
-                    "How a work imitates the perfect Forms through artistic representation"
-                ],
-                correctAnswer: 0,
-                explanation: "Marxist = socio-economic conditions + class struggle. It asks: how does this work reflect (intentionally or NOT) the economic conditions and class dynamics of its time?",
-                topic: "Marxist Criticism"
-            },
-            {
-                id: 10,
-                category: "Exam Q1 Style",
-                question: "What does Feminist criticism examine?",
-                options: [
-                    "The socio-economic class structure reflected in literary works",
-                    "The social roles of men and women and patriarchal narratives in literature",
-                    "The unconscious psychological motivations of female characters only",
-                    "The historical context and changing cultural symbols over time"
-                ],
-                correctAnswer: 1,
-                explanation: "Feminist = gender roles + patriarchy. It explores social relationships of men & women, how literature is influenced by male-dominated (patriarchal) narratives, and stereotypical portrayals of women.",
-                topic: "Feminist Criticism"
-            },
-            {
-                id: 11,
-                category: "Exam Q1 Style",
-                question: "What does Post-colonial criticism analyze?",
-                options: [
-                    "Forces that pushed colonized to internalize colonizer values AND forces of resistance against oppression",
-                    "Forces that shaped the unconscious mind of authors from colonized nations only",
-                    "Forces that determined the artistic form and structural style of colonial literature",
-                    "Forces that made colonial economies dependent on art and literary production"
-                ],
-                correctAnswer: 0,
-                explanation: "Post-colonial = TWO forces: (1) pressure on colonized to INTERNALIZE colonizer values, (2) RESISTANCE against oppression. Also analyzes literature produced by cultures that developed under colonial domination.",
-                topic: "Post-Colonial Criticism"
-            },
-            {
-                id: 12,
-                category: "Exam Q2 Style",
-                question: "What is the Socratic Method?",
-                options: [
-                    "A method of writing philosophical dialogues in dramatic poetic form",
-                    "A method of investigation through asking questions and identifying contradictions",
-                    "A method of memorizing philosophical texts through repeated recitation",
-                    "A method of teaching through lectures delivered to large audiences"
-                ],
-                correctAnswer: 1,
-                explanation: "Socratic Method = asking QUESTION AFTER QUESTION + identifying CONTRADICTIONS in beliefs. Based on two or more sides holding different viewpoints. You don't get a final answer — you learn what you DON'T know.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 13,
-                category: "Exam Q2 Style",
-                question: "What are Plato's main accusations against poetry?",
-                options: [
-                    "Poetry misrepresents gods, gives heroes tragic flaws, corrupts good men, makes youth unserious, and is an imitation of an imitation",
-                    "Poetry is too difficult for common people, too expensive to produce, and too long to memorize",
-                    "Poetry competes with philosophy for students, steals ideas from other poets, and promotes democracy",
-                    "Poetry ignores the physical world, rejects mathematics, and teaches only abstract concepts"
-                ],
-                correctAnswer: 0,
-                explanation: "Five accusations: (1) Poets misrepresent GODS as unjust, (2) Heroes shown with TRAGIC FLAWS, (3) Poetry CORRUPTS even good men, (4) Comedies make youth UNSERIOUS, (5) Art is IMITATION OF IMITATION (copy of copy).",
-                topic: "Plato's Five Accusations"
-            },
-            {
-                id: 14,
-                category: "Exam Q1 Style",
-                question: "What is Reader-Response criticism?",
-                options: [
-                    "Criticism that focuses on the author's biography and life experiences",
-                    "Criticism that focuses on how meaning is created through the reader's interaction with the text",
-                    "Criticism that focuses on the moral teachings and ethical effects of literature",
-                    "Criticism that focuses on the historical environment when the text was produced"
-                ],
-                correctAnswer: 1,
-                explanation: "Reader-Response = meaning is created in the READER'S MIND through interaction with the text. Many variables (mood, experience, background) contribute, so the same reader can get different meanings on different readings.",
-                topic: "Reader-Response Criticism"
-            },
-            {
-                id: 15,
-                category: "Exam Q2 Style",
-                question: "What is the Form of the Good and why is it important?",
-                options: [
-                    "It is the most beautiful Form that inspires all artistic creation and poetry",
-                    "It is the most important Form that allows us to understand everything else",
-                    "It is the Form that governs all political systems and laws in society",
-                    "It is the Form that determines moral behavior in everyday social life"
-                ],
-                correctAnswer: 1,
-                explanation: "The Form of the Good = the MOST IMPORTANT Form. It lets us understand EVERYTHING else. It provides knowledge and truth. It stands above all other Forms (Justice, Beauty, Truth, Equality).",
-                topic: "The Form of the Good"
-            }
-        ]
-    }
-];
-      
-// All 5 exam sets loaded
+    title: "Exam 1: History of Drama",
+    icon: "🏛️",
+    label: "Lecture 1",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Greek Theatre",
+            question: "Greek plays were organized primarily in honor of which god?",
+            options: [
+                "Apollo, the god of the sun and music",
+                "Dionysus, the god of the grape-harvest and wine",
+                "Zeus, the king of all the gods",
+                "Hermes, the messenger of the gods"
+            ],
+            correctAnswer: 1,
+            explanation: "Greek theatre was organized in honor of Dionysus — god of fertility, wine, and the grape-harvest. This religious connection is what made theatre a communal, sacred event in ancient Greece.",
+            topic: "Greek Theatre — Event"
+        },
+        {
+            id: 2,
+            category: "Greek Theatre",
+            question: "Where were plays performed in ancient Greek theatre?",
+            options: [
+                "Inside dedicated temple buildings",
+                "In open-air market places",
+                "In private royal courts",
+                "In underground ceremonial halls"
+            ],
+            correctAnswer: 1,
+            explanation: "Greek plays were held in market places (the agora), open spaces that allowed large audiences to gather and participate as a community.",
+            topic: "Greek Theatre — Setting"
+        },
+        {
+            id: 3,
+            category: "Greek Theatre",
+            question: "Which of the following best describes the theme of Greek theatre?",
+            options: [
+                "Audiences came to be entertained through comedy alone",
+                "Plays focused on political debates among citizens",
+                "Audiences sought instruction, delight, and communion with the gods",
+                "Theatre was purely an artistic showcase for playwrights"
+            ],
+            correctAnswer: 2,
+            explanation: "The Greek audience attended to be instructed AND delighted, while also experiencing communion with the gods. The space was believed to be filled with spirits influencing human action.",
+            topic: "Greek Theatre — Theme"
+        },
+        {
+            id: 4,
+            category: "Greek Theatre",
+            question: "Which playwright is associated with ancient Greek theatre?",
+            options: [
+                "Christopher Marlowe",
+                "Henrik Ibsen",
+                "Samuel Beckett",
+                "Sophocles"
+            ],
+            correctAnswer: 3,
+            explanation: "Sophocles is the major playwright of Greek theatre. Marlowe and Jonson are Renaissance; Ibsen and Beckett are Modern.",
+            topic: "Greek Theatre — Playwrights"
+        },
+        {
+            id: 5,
+            category: "Play Types",
+            question: "Which of the original Greek play types involves death, sadness, conflict, and strong emotions?",
+            options: [
+                "Comedy, which uses witty remarks and strange circumstances",
+                "Drama, which involves an innumerous range of plays",
+                "Tragedy, which centers on suffering, conflict, and loss",
+                "Mime, which communicates without the use of words"
+            ],
+            correctAnswer: 2,
+            explanation: "Tragedy involves death, sadness, conflict, and deep emotions. Comedy uses witty remarks and strange characters. Drama is a broader term covering many play types.",
+            topic: "Original Play Types"
+        },
+        {
+            id: 6,
+            category: "Mystery / Miracle Plays",
+            question: "What triggered the emergence of Mystery/Miracle plays in theatre history?",
+            options: [
+                "The construction of large open-air amphitheatres",
+                "The rise of professional acting guilds",
+                "The dawn of Christianity and church influence",
+                "The patronage of wealthy merchant classes"
+            ],
+            correctAnswer: 2,
+            explanation: "With the dawn of Christianity, a new type of theatre emerged — the miracle play. These plays were performed inside churches by clergy and depicted stories from the Bible.",
+            topic: "Mystery/Miracle Plays — Event"
+        },
+        {
+            id: 7,
+            category: "Mystery / Miracle Plays",
+            question: "Who performed in Mystery/Miracle plays?",
+            options: [
+                "Trained actors from the royal court",
+                "Volunteer members of the community",
+                "Clergy men of the church",
+                "Professional playwrights themselves"
+            ],
+            correctAnswer: 2,
+            explanation: "In Mystery/Miracle plays, the performers were clergy men of the church — not professional actors. The plays took place inside the church itself.",
+            topic: "Mystery/Miracle Plays — Actors"
+        },
+        {
+            id: 8,
+            category: "Renaissance Theatre",
+            question: "Which group of playwrights belongs to the Renaissance period?",
+            options: [
+                "Sophocles, Aristophanes, and Euripides",
+                "Henrik Ibsen, Brecht, and Beckett",
+                "Shakespeare, Marlowe, Jonson, and Moliere",
+                "Pirandello, Hare, and Strindberg"
+            ],
+            correctAnswer: 2,
+            explanation: "Renaissance playwrights include Shakespeare, Christopher Marlowe, Ben Jonson, and Moliere. The others belong to Greek theatre or Modern Drama.",
+            topic: "Renaissance Theatre — Playwrights"
+        },
+        {
+            id: 9,
+            category: "Renaissance Theatre",
+            question: "What themes did Renaissance theatre primarily tackle?",
+            options: [
+                "Biblical stories and religious morality",
+                "Abstract philosophical ideas about existence",
+                "Problems of mankind such as greed, love, and family issues",
+                "Political propaganda for ruling monarchs"
+            ],
+            correctAnswer: 2,
+            explanation: "Renaissance theatre turned to humanist themes — greediness, love, family issues — problems of mankind. This was a shift away from purely religious content.",
+            topic: "Renaissance Theatre — Theme"
+        },
+        {
+            id: 10,
+            category: "Modern Drama",
+            question: "What is the setting most associated with Modern Drama performances?",
+            options: [
+                "Open-air market places and public squares",
+                "Church interiors and sacred halls",
+                "Theatre buildings shaped as a proscenium",
+                "Private courtyards of wealthy patrons"
+            ],
+            correctAnswer: 2,
+            explanation: "Modern Drama is performed in theatre buildings shaped like a proscenium — a stage with a framed arch separating the audience from the performers.",
+            topic: "Modern Drama — Setting"
+        },
+        {
+            id: 11,
+            category: "Modern Drama",
+            question: "Which of the following is a theme associated with Modern Drama?",
+            options: [
+                "Communion with gods and religious ritual",
+                "Bible stories performed for the congregation",
+                "Theatre of the absurd and naturalist drama",
+                "Witty comedy centered on strange characters"
+            ],
+            correctAnswer: 2,
+            explanation: "Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre — a rich variety of serious, experimental forms.",
+            topic: "Modern Drama — Theme"
+        },
+        {
+            id: 12,
+            category: "Modern Drama",
+            question: "Which playwright is NOT associated with Modern Drama?",
+            options: [
+                "Henrik Ibsen",
+                "Samuel Beckett",
+                "Bertolt Brecht",
+                "Ben Jonson"
+            ],
+            correctAnswer: 3,
+            explanation: "Ben Jonson is a Renaissance playwright, not Modern. Modern Drama playwrights include Ibsen, Pirandello, Brecht, Beckett, and David Hare.",
+            topic: "Modern Drama — Playwrights"
+        }
+    ]
+},
 
+// ── EXAM 2: Dramatic Techniques ──────────────────────────────
+{
+    title: "Exam 2: Dramatic Techniques",
+    icon: "🎭",
+    label: "Lecture 2",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Dramatic Techniques",
+            question: "What are dramatic techniques?",
+            options: [
+                "Rules for directing actors on stage during performance",
+                "Literary devices used by the playwright to formulate their work",
+                "Methods critics use to evaluate a finished play",
+                "Stage equipment used to create special effects"
+            ],
+            correctAnswer: 1,
+            explanation: "Dramatic techniques are the literary devices used by the PLAYWRIGHT to formulate their work of art. They include stage directions, characters, setting, time, and dialogue.",
+            topic: "Definition of Dramatic Techniques"
+        },
+        {
+            id: 2,
+            category: "Stage Directions",
+            question: "Stage directions are best described as:",
+            options: [
+                "The spoken dialogue exchanged between characters on stage",
+                "Notes left by the playwright to guide the reader, director, or actor",
+                "The audience's written reactions to a performance",
+                "Instructions given verbally by the director during rehearsal"
+            ],
+            correctAnswer: 1,
+            explanation: "Stage directions are notes left by the playwright — they guide the reader, producer, or director. They are part of the secondary text, not the spoken primary text.",
+            topic: "Stage Directions — Definition"
+        },
+        {
+            id: 3,
+            category: "Stage Directions",
+            question: "In the two-text model, the 'primary text' refers to:",
+            options: [
+                "The playwright's notes on costume and setting",
+                "The director's interpretation of the script",
+                "The dialogue exchange among characters",
+                "The summary printed in the programme booklet"
+            ],
+            correctAnswer: 2,
+            explanation: "Primary text = the dialogue characters speak. Secondary text = the playwright's notes (stage directions) that guide the designer or actor. Both appear in the written script.",
+            topic: "Primary vs Secondary Text"
+        },
+        {
+            id: 4,
+            category: "Stage Directions",
+            question: "Which of the following is an example of a secondary text (stage direction)?",
+            options: [
+                "Emmy: Oh thanks Daniel, you look great.",
+                "Daniel: Did you bring the money?",
+                "Emmy: (Wearing a red coat) Oh thanks Daniel.",
+                "Daniel: I totally forgot about it."
+            ],
+            correctAnswer: 2,
+            explanation: "Secondary text = notes in parentheses added by the playwright: '(Wearing a red coat)' tells the actor/designer about Emmy's costume. The spoken words alone are primary text.",
+            topic: "Stage Directions — Example"
+        },
+        {
+            id: 5,
+            category: "Fischer's Sign Systems",
+            question: "Erika Fischer's sign systems model is used to:",
+            options: [
+                "Classify the historical periods of Western drama",
+                "Identify and categorize the types of stage directions in drama",
+                "Rank playwrights by their historical importance",
+                "Analyze the plot structure of a dramatic text"
+            ],
+            correctAnswer: 1,
+            explanation: "Fischer's sign systems model provides a framework to identify and categorize ALL types of signs (directions) in drama — actor's activities, appearance, spatial signs, and acoustic signs.",
+            topic: "Fischer's Sign Systems Model"
+        },
+        {
+            id: 6,
+            category: "Fischer's Sign Systems",
+            question: "According to Fischer's model, which category covers linguistic and kinesic signs?",
+            options: [
+                "Actor's appearance as a sign",
+                "Spatial and acoustic signs",
+                "Actor's activities as a sign",
+                "Decorative and prop signs"
+            ],
+            correctAnswer: 2,
+            explanation: "Actor's activities as a sign covers language — broken into: Linguistic (spoken words) and Paralinguistic/Kinesic (movement: mimic-gestures and proxemic signs).",
+            topic: "Actor's Activities as a Sign"
+        },
+        {
+            id: 7,
+            category: "Fischer's Sign Systems",
+            question: "Proxemic signs in Fischer's model refer to:",
+            options: [
+                "The tone and rhythm of a character's voice",
+                "The physical distance and spatial relationship between characters",
+                "The lighting used to highlight actors on stage",
+                "The written words spoken by characters"
+            ],
+            correctAnswer: 1,
+            explanation: "Proxemics = the study of space between people. Proxemic signs = how close or far characters are from each other — a form of kinesic, body-based communication.",
+            topic: "Proxemic Signs"
+        },
+        {
+            id: 8,
+            category: "Fischer's Sign Systems",
+            question: "Actor's appearance as a sign includes which elements?",
+            options: [
+                "Music and background sounds used in performance",
+                "Lighting and stage decoration",
+                "Hairstyle and costume",
+                "Dialogue and soliloquy"
+            ],
+            correctAnswer: 2,
+            explanation: "Actor's appearance as a sign = how the actor LOOKS: hairstyle and costume. These are visual signs that communicate character before a single word is spoken.",
+            topic: "Actor's Appearance as a Sign"
+        },
+        {
+            id: 9,
+            category: "Fischer's Sign Systems",
+            question: "Which of the following belongs to spatial signs in Fischer's model?",
+            options: [
+                "The actor's vocal tone and speaking style",
+                "Background music and sound effects",
+                "Decoration, props, and lighting",
+                "The character's hairstyle and mask"
+            ],
+            correctAnswer: 2,
+            explanation: "Spatial signs = decoration, props, and lighting. These create the physical environment of the stage. Acoustic signs = sounds and music. Don't confuse the two.",
+            topic: "Spatial Signs"
+        },
+        {
+            id: 10,
+            category: "Fischer's Sign Systems",
+            question: "Acoustic signs in Fischer's model consist of:",
+            options: [
+                "Costume, hairstyle, and masks worn by actors",
+                "Sounds and music used during the performance",
+                "Lighting effects and stage decoration",
+                "The physical gestures and facial expressions of actors"
+            ],
+            correctAnswer: 1,
+            explanation: "Acoustic signs = what you HEAR: sounds and music. These are distinct from spatial signs (what you see in the environment) and kinesic signs (body movement).",
+            topic: "Acoustic Signs"
+        },
+        {
+            id: 11,
+            category: "Dramatic Techniques",
+            question: "Which of the following is NOT listed as a dramatic technique (literary device) in drama?",
+            options: [
+                "Stage directions",
+                "Space/setting",
+                "Publisher's foreword",
+                "Dialogue"
+            ],
+            correctAnswer: 2,
+            explanation: "The key dramatic techniques are: stage directions, characters, space/setting, time, and dialogue. A publisher's foreword is not a literary device created by the playwright.",
+            topic: "List of Dramatic Techniques"
+        },
+        {
+            id: 12,
+            category: "Fischer's Sign Systems",
+            question: "Mimic-gestures in Fischer's model fall under which branch?",
+            options: [
+                "Spatial signs",
+                "Actor's appearance as a sign",
+                "Actor's activities — paralinguistic/kinesic",
+                "Acoustic signs"
+            ],
+            correctAnswer: 2,
+            explanation: "Mimic-gestures are body-based (kinesic) signs under actor's activities. The chain: Actor's activities → Language → Paralinguistic/Kinesic → Mimic-Gestures + Proxemic.",
+            topic: "Kinesic Signs"
+        }
+    ]
+},
 
-// Theme toggle: initialize, apply, and persist user preference
+// ── EXAM 3: Characterization & Speech ────────────────────────
+{
+    title: "Exam 3: Characterization & Types of Speech",
+    icon: "🗣️",
+    label: "Lectures 3–4",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Characterization",
+            question: "Explicit-figural characterization techniques are described as:",
+            options: [
+                "Entirely non-verbal, relying on gesture and costume",
+                "Entirely verbal, using direct statements about characters",
+                "Dependent on the setting and spatial arrangement",
+                "Based solely on the actor's physical appearance"
+            ],
+            correctAnswer: 1,
+            explanation: "Explicit-figural techniques are ALL verbal — they involve direct statements, either by the character about themselves (self-commentary) or by another character about them (outside commentary).",
+            topic: "Explicit Characterization"
+        },
+        {
+            id: 2,
+            category: "Characterization",
+            question: "A self-commentary in explicit characterization means:",
+            options: [
+                "A critic's written analysis of a character's behavior",
+                "One character describing another character's personality",
+                "A figure explicitly articulating the way it sees itself",
+                "The playwright's notes describing a character's traits"
+            ],
+            correctAnswer: 2,
+            explanation: "Self-commentary = the character is BOTH the subject AND the object. The figure explicitly describes how it sees itself — like a monologue of self-reflection.",
+            topic: "Self-Commentary"
+        },
+        {
+            id: 3,
+            category: "Characterization",
+            question: "Outside commentary in explicit characterization occurs when:",
+            options: [
+                "The character reflects on their own identity and choices",
+                "One figure is characterized explicitly by another figure",
+                "The audience interprets a character's behavior silently",
+                "The playwright describes a character in the stage directions"
+            ],
+            correctAnswer: 1,
+            explanation: "Outside commentary = subject ≠ object. One figure (A) speaks about another figure (B). Note: these views need not match — different perspectives give different readings of the same character.",
+            topic: "Outside Commentary"
+        },
+        {
+            id: 4,
+            category: "Characterization",
+            question: "Implicit-figural characterization is described as only partially verbal because:",
+            options: [
+                "It only occurs in the final act of a play",
+                "It relies on the critic's interpretation rather than the playwright's intent",
+                "A character is also presented through appearance, behavior, and context",
+                "It depends entirely on what other characters say about them"
+            ],
+            correctAnswer: 2,
+            explanation: "Implicit = not only WHAT is said and HOW it's said, but also appearance, behavior, clothing, properties, and the context the character operates in. It goes beyond words.",
+            topic: "Implicit Characterization"
+        },
+        {
+            id: 5,
+            category: "Characterization",
+            question: "Which of the following is a non-verbal implicit characterization technique?",
+            options: [
+                "A character delivering a long soliloquy on stage",
+                "Stature, gesture, and facial expression of the actor",
+                "Dialogue spoken about a character by another figure",
+                "A character's verbal behavior and idiolect"
+            ],
+            correctAnswer: 1,
+            explanation: "Non-verbal implicit techniques include physiognomy, facial expression, stature, gesture, masks, costume, props, locale, and behavior. These communicate without words.",
+            topic: "Non-Verbal Implicit Techniques"
+        },
+        {
+            id: 6,
+            category: "Types of Speech",
+            question: "What distinguishes a monologue from a soliloquy?",
+            options: [
+                "A monologue is longer; a soliloquy is a short aside",
+                "A monologue is addressed to someone; a soliloquy is spoken alone as if to oneself",
+                "A monologue is non-verbal; a soliloquy is fully verbal",
+                "A monologue reveals inner thoughts; a soliloquy reveals plot events"
+            ],
+            correctAnswer: 1,
+            explanation: "Key distinction: Monologue = addressed to SOMEONE (other characters or audience). Soliloquy = spoken by one person ALONE on stage, as if talking to themselves — not intended to affect others.",
+            topic: "Monologue vs Soliloquy"
+        },
+        {
+            id: 7,
+            category: "Types of Speech",
+            question: "A soliloquy is best described as:",
+            options: [
+                "A speech exchange between two or more characters",
+                "A brief comment spoken quietly to one other character",
+                "A long report delivered when the character is alone, addressing the audience",
+                "A formal speech directed at a crowd within the play's world"
+            ],
+            correctAnswer: 2,
+            explanation: "Soliloquy = a longish report the character delivers when ALONE on stage, addressing the audience. It is a kind of talking to oneself — no other characters hear it.",
+            topic: "Soliloquy"
+        },
+        {
+            id: 8,
+            category: "Types of Speech",
+            question: "In an aside, who hears the character's speech?",
+            options: [
+                "All other characters on stage hear it clearly",
+                "Only one specific character is meant to hear it",
+                "The audience hears it; other characters pretend not to",
+                "Nobody hears it — it is purely internal thought"
+            ],
+            correctAnswer: 2,
+            explanation: "In an aside, ONLY THE AUDIENCE hears the speech. Other characters on stage pretend not to be hearing it. It is a convention that breaks the dramatic illusion briefly.",
+            topic: "Aside"
+        },
+        {
+            id: 9,
+            category: "Types of Speech",
+            question: "Dialogues in drama are defined as:",
+            options: [
+                "Self-contained autonomous speeches of a single character",
+                "Speech exchange among two or more characters",
+                "Notes written by the playwright to guide the actors",
+                "A character's inner thoughts spoken when alone on stage"
+            ],
+            correctAnswer: 1,
+            explanation: "Dialogue = speech EXCHANGE among two or more characters. It requires interaction. A monologue is self-contained and addressed to someone; a soliloquy requires being alone.",
+            topic: "Dialogue"
+        },
+        {
+            id: 10,
+            category: "Dramatic Structure",
+            question: "What distinguishes dramatic action from ordinary plot?",
+            options: [
+                "Dramatic action occurs only at the end of a play",
+                "Dramatic action depicts a tense conflict between two wills, not just events",
+                "Dramatic action refers to the physical fights between characters",
+                "Dramatic action is the chronological sequence of all events in a play"
+            ],
+            correctAnswer: 1,
+            explanation: "Dramatic action = a TENSE CONFLICT between two characters (conflict of two wills/minds, not physical). It can appear anywhere in a play and says little on the plot level — it's about psychological tension.",
+            topic: "Dramatic Action vs Plot"
+        },
+        {
+            id: 11,
+            category: "Functions of Speech",
+            question: "The expository function of dramatic speech means the speech:",
+            options: [
+                "Expresses the emotional state of the character speaking",
+                "Appeals to another character to act or respond",
+                "Provides background information necessary to understand the story",
+                "Refers to events happening in the outside world"
+            ],
+            correctAnswer: 2,
+            explanation: "Expository function = the speech EXPOSES/PROVIDES background information, context, or history that the audience needs. It sets up the world of the play.",
+            topic: "Functions of Dramatic Speech"
+        },
+        {
+            id: 12,
+            category: "Dramatic Structure",
+            question: "The plot is defined in drama as:",
+            options: [
+                "The tense conflict between two stubborn opposing wills",
+                "The chronological sequence of events in the play",
+                "The theme or central message the playwright conveys",
+                "The setting and physical space in which events occur"
+            ],
+            correctAnswer: 1,
+            explanation: "Plot = the CHRONOLOGICAL sequence of events. Dramatic action is different — it depicts a tensed conflict. Don't confuse the two: plot = timeline; dramatic action = conflict of wills.",
+            topic: "Plot"
+        },
+        {
+            id: 13,
+            category: "Dialogue and Action",
+            question: "Not every dialogue in drama is considered 'dramatic dialogue' because:",
+            options: [
+                "Some dialogues are too short to fulfill a dramatic purpose",
+                "Dramatic dialogue must involve a tense conflict, unlike mere conversation",
+                "Only dialogues written in verse qualify as dramatic",
+                "Dialogue must always be accompanied by physical stage action"
+            ],
+            correctAnswer: 1,
+            explanation: "There is a key distinction between CONVERSATION and DRAMATIC DIALOGUE. Not every speech exchange qualifies — dramatic dialogue must carry dramatic purpose: further events, reveal character, create conflict.",
+            topic: "Conversation vs Dramatic Dialogue"
+        }
+    ]
+},
+
+// ── EXAM 4: Final Essay (MCQ Format on Essay Structure) ──────
+{
+    title: "Exam 4: Final Essay Exam (Dr. AbdelKarim Format)",
+    icon: "📝",
+    label: "Final Exam",
+    lang: "en",
+    type: "essay",
+    quote: "If I can catch him once upon the hip, I will feed fat the ancient grudge I bear him. He hates our sacred nation and he rails…",
+    attribution: "— Shylock, The Merchant of Venice, William Shakespeare",
+    context: "This quote is spoken by Shylock, the Jewish moneylender, in Act I Scene III of The Merchant of Venice by William Shakespeare. Shylock speaks this aside to himself upon learning that Antonio — the Christian merchant who has publicly humiliated him — is now asking him for a loan. The occasion is a moment of suppressed anger and dark opportunity: Shylock sees a chance to finally get revenge on the man who has wronged him for years.",
+    paragraphs: [
+        {
+            label: "Paragraph 1 — Introduction & Quote Analysis",
+            content: "The quote is taken from Act I, Scene III of The Merchant of Venice (c. 1596–1597) by William Shakespeare, one of the most celebrated playwrights of the Renaissance period. It is delivered by Shylock, the Jewish moneylender, as an aside — spoken to himself and heard only by the audience — upon discovering that his long-time enemy Antonio now needs his financial help. The occasion is charged with bitter irony: the man who has publicly scorned and humiliated Shylock is now in a position of dependence before him. The tone is one of restrained fury and cold calculation."
+        },
+        {
+            label: "Paragraph 2 — Reproduction (Simplified Paraphrase)",
+            content: "In simpler terms, Shylock is saying: 'If I ever get the chance to have power over Antonio, I will take full revenge for all the hatred he has shown me for so long. He despises our Jewish people and speaks against us openly.' Shylock is not simply angry — he is patient and strategic, waiting for the right moment to settle a deep, old score against the man who has disrespected him and his community."
+        },
+        {
+            label: "Paragraph 3 — Plot, Character & Theme",
+            content: "This quote is central to all three dramatic elements. In terms of plot, it foreshadows the central conflict: Shylock's bond of a pound of flesh — the mechanism of revenge he will try to execute later. In terms of character, it reveals Shylock's complexity: not a simple villain, but a man driven by years of humiliation and genuine grievance. In terms of theme, the quote raises questions of justice, prejudice, and revenge — asking the audience whether Shylock's anger is understandable given Antonio's open antisemitism. Figure of Speech: the line contains 'Disordering' (inverted syntax) — 'the ancient grudge I bear him' departs from standard Subject+Verb+Object order, placing 'the ancient grudge' before the subject-verb relationship for dramatic emphasis."
+        }
+    ]
+}
+
+]; // end examSets
+
+// ═══════════════════════════════════════════════════════════════
+// THEME
+// ═══════════════════════════════════════════════════════════════
 (function() {
-    const THEME_KEY = 'theme';
-    const toggleBtnId = 'theme-toggle';
-
-    function applyTheme(theme) {
-        if (theme === 'dark') {
+    function applyTheme(t) {
+        if (t === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            const btn = document.getElementById(toggleBtnId);
+            const btn = document.getElementById('theme-toggle');
             if (btn) btn.textContent = '☀️';
         } else {
             document.documentElement.removeAttribute('data-theme');
-            const btn = document.getElementById(toggleBtnId);
+            const btn = document.getElementById('theme-toggle');
             if (btn) btn.textContent = '🌙';
         }
     }
-
     function initTheme() {
-        const saved = localStorage.getItem(THEME_KEY);
-        if (saved) {
-            applyTheme(saved);
-            return;
-        }
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
+        const saved = localStorage.getItem('theme');
+        if (saved) { applyTheme(saved); return; }
+        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
-
     function toggleTheme() {
-        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
+        const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = cur === 'dark' ? 'light' : 'dark';
         applyTheme(next);
-        localStorage.setItem(THEME_KEY, next);
+        localStorage.setItem('theme', next);
     }
-
     window.toggleTheme = toggleTheme;
     window.initTheme = initTheme;
 })();
 
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
 let state = {
-            screen: 'selection', // 'selection', 'quiz', 'results'
-            selectedExam: null,
-            selectedQuestions: [], // shuffled questions for the current exam
-            initialQuestionCount: 0, // original total before repeats
-            currentQuestion: 0,
-            selectedAnswer: null,
-            showExplanation: false,
-            score: 0,
-            quizCompleted: false,
-            answers: [], // records of initial-phase answers (used for scoring/stats)
-            repeatQueue: [], // questions to repeat at the end
-            inRepeatPhase: false,
-            repeatAnswers: [] // records of repeat-phase attempts (do not affect score)
-        };
+    screen: 'selection', selectedExam: null,
+    selectedQuestions: [], initialQuestionCount: 0,
+    currentQuestion: 0, selectedAnswer: null,
+    showExplanation: false, score: 0,
+    quizCompleted: false, answers: [],
+    repeatQueue: [], inRepeatPhase: false,
+    repeatAnswers: [], essayRevealed: false
+};
 
-        // Helper Functions
+// ═══════════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════════
+function shuffleArray(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+function shuffleQuestionOptions(question) {
+    const opts = question.options.map((opt, idx) => ({ opt, idx }));
+    const shuffled = shuffleArray(opts);
+    return Object.assign({}, question, {
+        options: shuffled.map(s => s.opt),
+        correctAnswer: shuffled.findIndex(s => s.idx === question.correctAnswer)
+    });
+}
 
-        // Fisher-Yates shuffle
-        function shuffleArray(arr) {
-            const a = arr.slice();
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        
-        // Shuffle options for a single question and adjust correctAnswer index
-        function shuffleQuestionOptions(question) {
-            const opts = question.options.map((opt, idx) => ({ opt, idx }));
-            const shuffled = shuffleArray(opts);
-            const newOptions = shuffled.map(s => s.opt);
-            const newCorrect = shuffled.findIndex(s => s.idx === question.correctAnswer);
-            // Return a shallow copy of question with shuffled options and adjusted correctAnswer
-            return Object.assign({}, question, { options: newOptions, correctAnswer: newCorrect });
-        }
-        function selectExam(index) {
-            state.selectedExam = index;
-            // Apply language direction based on exam lang field
-            const examLang = examSets[index].lang || 'ar';
-            if (examLang === 'en') {
-                document.documentElement.setAttribute('lang', 'en');
-                document.documentElement.setAttribute('dir', 'ltr');
-            } else {
-                document.documentElement.setAttribute('lang', 'ar');
-                document.documentElement.setAttribute('dir', 'rtl');
-            }
-            // prepare a shuffled copy of questions for the exam and shuffle each question's options
-            const questions = examSets[index].questions || [];
-            state.initialQuestionCount = questions.length;
-            state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
-            state.currentQuestion = 0;
-            state.selectedAnswer = null;
-            state.showExplanation = false;
-            state.score = 0;
-            state.quizCompleted = false;
-            state.answers = [];
-            state.repeatQueue = [];
-            state.inRepeatPhase = false;
-            state.repeatAnswers = [];
-            state.screen = 'quiz';
-            render();
-        }
+// ═══════════════════════════════════════════════════════════════
+// ACTIONS
+// ═══════════════════════════════════════════════════════════════
+function selectExam(index) {
+    state.selectedExam = index;
+    state.essayRevealed = false;
+    const exam = examSets[index];
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('dir', 'ltr');
+    if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
+    const questions = exam.questions || [];
+    state.initialQuestionCount = questions.length;
+    state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
+    state.score = 0; state.quizCompleted = false; state.answers = [];
+    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
+    state.screen = 'quiz';
+    render();
+}
 
-        function getCurrentQuestions() {
-            if (state.selectedExam === null) return [];
-            return state.selectedQuestions || examSets[state.selectedExam].questions || [];
-        }
+function getCurrentQuestions() {
+    if (state.selectedExam === null) return [];
+    return state.selectedQuestions || examSets[state.selectedExam].questions || [];
+}
 
-        function handleAnswerSelect(answerIndex) {
-            if (state.selectedAnswer !== null) return;
+function handleAnswerSelect(answerIndex) {
+    if (state.selectedAnswer !== null) return;
+    const questions = getCurrentQuestions();
+    const question = questions[state.currentQuestion];
+    state.selectedAnswer = answerIndex;
+    state.showExplanation = true;
+    const isCorrect = answerIndex === question.correctAnswer;
+    if (!state.inRepeatPhase) {
+        if (isCorrect) state.score++;
+        else if (!state.repeatQueue.some(q => q.id === question.id)) state.repeatQueue.push(question);
+        state.answers.push({ questionId: question.id, correct: isCorrect, category: question.category });
+    } else {
+        state.repeatAnswers.push({ questionId: question.id, correct: isCorrect });
+    }
+    render();
+}
 
-            const questions = getCurrentQuestions();
-            const question = questions[state.currentQuestion];
-            state.selectedAnswer = answerIndex;
-            state.showExplanation = true;
+function handleNext() {
+    const questions = getCurrentQuestions();
+    if (state.currentQuestion < questions.length - 1) {
+        state.currentQuestion++; state.selectedAnswer = null; state.showExplanation = false;
+    } else {
+        if (!state.inRepeatPhase && state.repeatQueue.length > 0) {
+            state.selectedQuestions = state.repeatQueue.slice(); state.repeatQueue = [];
+            state.inRepeatPhase = true; state.currentQuestion = 0;
+            state.selectedAnswer = null; state.showExplanation = false;
+        } else { state.quizCompleted = true; }
+    }
+    render();
+}
 
-            const isCorrect = answerIndex === question.correctAnswer;
+function handleRestart() {
+    const exam = examSets[state.selectedExam];
+    if (exam.type === 'essay') { state.essayRevealed = false; state.screen = 'essay'; render(); return; }
+    if (state.selectedExam !== null) {
+        const questions = exam.questions || [];
+        state.initialQuestionCount = questions.length;
+        state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+    }
+    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
+    state.score = 0; state.quizCompleted = false; state.answers = [];
+    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
+    render();
+}
 
-            if (!state.inRepeatPhase) {
-                // Main phase: correct answers increment score and are recorded.
-                if (isCorrect) {
-                    state.score++;
-                } else {
-                    // schedule for repeat at the end (avoid duplicates)
-                    if (!state.repeatQueue.some(q => q.id === question.id)) {
-                        state.repeatQueue.push(question);
-                    }
-                }
+function backToMenu() {
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('dir', 'ltr');
+    state = {
+        screen: 'selection', selectedExam: null,
+        selectedQuestions: [], initialQuestionCount: 0,
+        currentQuestion: 0, selectedAnswer: null,
+        showExplanation: false, score: 0, quizCompleted: false,
+        answers: [], repeatQueue: [], inRepeatPhase: false,
+        repeatAnswers: [], essayRevealed: false
+    };
+    render();
+}
 
-                state.answers.push({
-                    questionId: question.id,
-                    correct: isCorrect,
-                    category: question.category
-                });
-            } else {
-                // Repeat phase: attempts here do NOT affect main score or main answers/stats
-                state.repeatAnswers.push({
-                    questionId: question.id,
-                    correct: isCorrect
-                });
-            }
+function toggleEssayReveal() {
+    state.essayRevealed = !state.essayRevealed;
+    render();
+}
 
-            render();
-        }
+// ═══════════════════════════════════════════════════════════════
+// ICONS
+// ═══════════════════════════════════════════════════════════════
+const icons = {
+    checkCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#10b981;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+    xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#ef4444;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+    award: '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>',
+    bookOpen: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>'
+};
 
-        function handleNext() {
-            const questions = getCurrentQuestions();
-            if (state.currentQuestion < questions.length - 1) {
-                state.currentQuestion++;
-                state.selectedAnswer = null;
-                state.showExplanation = false;
-            } else {
-                // End of current phase
-                if (!state.inRepeatPhase && state.repeatQueue.length > 0) {
-                    // start repeat phase with the queued wrong questions (maintain their order as collected)
-                    state.selectedQuestions = state.repeatQueue.slice();
-                    state.repeatQueue = [];
-                    state.inRepeatPhase = true;
-                    state.currentQuestion = 0;
-                    state.selectedAnswer = null;
-                    state.showExplanation = false;
-                } else {
-                    // fully finished (either no repeats or repeats finished)
-                    state.quizCompleted = true;
-                }
-            }
-            render();
-        }
+// ═══════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════
+function renderExamSelection() {
+    const examCards = examSets.map((examSet, index) => `
+        <div class="exam-card" onclick="selectExam(${index})">
+            <h3>${examSet.title}</h3>
+            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : 'Multiple Choice Quiz'}</p>
+            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.questions.length + ' Questions'}</p>
+        </div>
+    `).join('');
+    return `
+        <div class="exam-selection">
+            <h1>Drama Course Exams</h1>
+            <p>Choose the exam you want to start with</p>
+            <div class="exam-options">${examCards}</div>
+        </div>`;
+}
 
-        function handleRestart() {
-            // restart current exam from scratch (reshuffle)
-            if (state.selectedExam !== null) {
-                const questions = examSets[state.selectedExam].questions || [];
-                state.initialQuestionCount = questions.length;
-                state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
-            }
-            state.currentQuestion = 0;
-            state.selectedAnswer = null;
-            state.showExplanation = false;
-            state.score = 0;
-            state.quizCompleted = false;
-            state.answers = [];
-            state.repeatQueue = [];
-            state.inRepeatPhase = false;
-            state.repeatAnswers = [];
-            render();
-        }
+function renderEssay() {
+    const exam = examSets[state.selectedExam];
+    const paras = exam.paragraphs.map(p => `
+        <div style="margin-bottom:1.2rem;">
+            <div class="para-label">${p.label}</div>
+            <p>${p.content}</p>
+        </div>`).join('');
+    return `
+        <div class="header">
+            <h1>${exam.title}</h1>
+        </div>
+        <div class="question-container">
+            <h2 class="category">Quote for Analysis</h2>
+            <div class="essay-quote-box">
+                "${exam.quote}"<br>
+                <small style="font-size:0.82rem;opacity:0.7;font-style:normal;">${exam.attribution}</small>
+            </div>
+            <div class="essay-instructions">
+                <p><strong>Write your answer in THREE paragraphs:</strong></p>
+                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
+                    <li><strong>Paragraph 1:</strong> Where is the quote from? (play title + author). What is the occasion it was said, and all relevant context details.</li>
+                    <li><strong>Paragraph 2:</strong> Reproduction — rewrite the meaning in simpler, more beautiful language.</li>
+                    <li><strong>Paragraph 3:</strong> Connect to plot, characters, and/or themes. Include a <strong>Figure of Speech</strong> — especially <em>Disordering</em> (inverted sentence, not standard S+V+O).</li>
+                </ol>
+                <p class="essay-note">💡 One idea per paragraph only. Write thoroughly. Don't forget the Figure of Speech.</p>
+            </div>
+            <button class="show-model-btn" onclick="toggleEssayReveal()">
+                ${state.essayRevealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
+            </button>
+            <div class="essay-reveal-box ${state.essayRevealed ? 'show' : ''}">
+                <h3>✅ Model Answer</h3>
+                ${paras}
+                <p class="essay-disclaimer">⚠️ This is a guide only — your own answer should reflect your understanding and style.</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
+        </div>`;
+}
 
-        function backToMenu() {
-            // Restore English/LTR for the main menu
-            document.documentElement.setAttribute('lang', 'en');
-            document.documentElement.setAttribute('dir', 'ltr');
-            state = {
-                screen: 'selection',
-                selectedExam: null,
-                selectedQuestions: [],
-                initialQuestionCount: 0,
-                currentQuestion: 0,
-                selectedAnswer: null,
-                showExplanation: false,
-                score: 0,
-                quizCompleted: false,
-                answers: [],
-                repeatQueue: [],
-                inRepeatPhase: false,
-                repeatAnswers: []
-            };
-            render();
-        }
-
-        // SVG Icons
-        const icons = {
-            checkCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color: #10b981;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
-            xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color: #ef4444;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
-            award: '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>',
-            bookOpen: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>'
-        };
-
-        // Render Functions
-        function renderExamSelection() {
-            if (examSets.length === 0 || examSets.every(set => set.questions.length === 0)) {
-                return `
-                    <div class="exam-selection">
-                        <h1>Welcome to the Quiz</h1>
-                        <p style="color: #ef4444; margin-top: 2rem;">Please add questions in the HTML file</p>
-                        <p style="color: #6b7280; font-size: 1rem;">Search for "PASTE YOUR QUESTIONS ARRAYS HERE" in the code</p>
-                    </div>
-                `;
-            }
-
-            const examCards = examSets.map((examSet, index) => {
-                if (examSet.questions.length === 0) return '';
-                return `
-                    <div class="exam-card" onclick="selectExam(${index})">
-                        <h3>${examSet.title}</h3>
-                        <p class="question-count">${examSet.questions.length} questions</p>
-                    </div>
-                `;
-            }).join('');
-
-            return `
-                <div class="exam-selection">
-                    <h1>Welcome to Mid Term Exams</h1>
-                    <p>Choose the exam you want to start with</p>
-                    <div class="exam-options">
-                        ${examCards}
-                    </div>
+function renderResults() {
+    const total = state.initialQuestionCount || (state.selectedExam !== null ? (examSets[state.selectedExam].questions || []).length : 0);
+    const percentage = total > 0 ? Math.round((state.score / total) * 100) : 0;
+    let message = "", colorClass = "";
+    if (percentage >= 90) { message = "Excellent! You are confident and fully prepared for the exam"; colorClass = "color: #16a34a;"; }
+    else if (percentage >= 80) { message = "Great! Your level is very good, review only the errors"; colorClass = "color: #22c55e;"; }
+    else if (percentage >= 70) { message = "Very good! You need to review some points"; colorClass = "color: #2563eb;"; }
+    else if (percentage >= 60) { message = "Good! Focus on the topics you made mistakes in"; colorClass = "color: #ca8a04;"; }
+    else { message = "You need more review and practice"; colorClass = "color: #ea580c;"; }
+    const categoryStats = {};
+    state.answers.forEach(answer => {
+        if (!categoryStats[answer.category]) categoryStats[answer.category] = { correct: 0, total: 0 };
+        categoryStats[answer.category].total++;
+        if (answer.correct) categoryStats[answer.category].correct++;
+    });
+    const statsHTML = Object.entries(categoryStats).map(([cat, stats]) => {
+        const pct = Math.round((stats.correct / stats.total) * 100);
+        return `<div class="stat-item"><div class="stat-row"><div class="stat-category">${cat}</div><div class="stat-score">${stats.correct}/${stats.total} (${pct}%)</div></div></div>`;
+    }).join('');
+    return `
+        <div class="results-container">
+            ${icons.award}
+            <h2 class="results-title">Quiz Completed!</h2>
+            <div class="final-score">${state.score}/${total}</div>
+            <div class="percentage">Percentage: ${percentage}%</div>
+            <p class="results-message" style="${colorClass}">${message}</p>
+            <div class="category-stats">
+                <h3 class="stats-title">${icons.bookOpen} Your Performance by Topics:</h3>
+                ${statsHTML.length > 0 ? statsHTML : '<p style="text-align:center;color:#6b7280;">No answers recorded.</p>'}
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="handleRestart()">Try Again</button>
+                    <button class="btn-secondary" onclick="backToMenu()">Back to Main Menu</button>
                 </div>
-            `;
+                <div class="final-stats"><p>Final Score: <span class="final-score-value">${state.score}</span></p></div>
+            </div>
+        </div>`;
+}
+
+function renderQuestion() {
+    const questions = getCurrentQuestions();
+    const question = questions[state.currentQuestion];
+    const examTitle = examSets[state.selectedExam].title;
+    const mainTotal = state.initialQuestionCount || questions.length;
+    const questionNumberText = state.inRepeatPhase
+        ? `Review Question ${state.currentQuestion + 1} of ${questions.length}`
+        : `Question ${state.currentQuestion + 1} of ${mainTotal}`;
+    const optionsHTML = question.options.map((option, index) => {
+        let btnClass = "option-btn", iconHTML = "";
+        if (state.selectedAnswer !== null) {
+            if (index === question.correctAnswer) { btnClass += " correct"; iconHTML = icons.checkCircle; }
+            else if (index === state.selectedAnswer) { btnClass += " incorrect"; iconHTML = icons.xCircle; }
+            else btnClass += " neutral";
         }
+        return `<button class="${btnClass}" onclick="handleAnswerSelect(${index})" ${state.selectedAnswer !== null ? 'disabled' : ''}>
+            <span style="text-align:start;line-height:1.75;">${option}</span>${iconHTML}
+        </button>`;
+    }).join('');
+    const explanationHTML = state.showExplanation ? `
+        <div class="explanation-box ${state.selectedAnswer === question.correctAnswer ? 'correct' : 'incorrect'}">
+            <p class="explanation-title">${state.selectedAnswer === question.correctAnswer ? '✅ Correct Answer! Excellent' : '❌ Incorrect Answer'}</p>
+            <div class="explanation-content">
+                <p class="explanation-text"><strong>Detailed Explanation:</strong><br>${question.explanation}</p>
+            </div>
+            <div class="topic-info">${icons.bookOpen}<p><strong>Review:</strong> ${question.topic}</p></div>
+        </div>
+        <button class="next-btn" onclick="handleNext()">
+            ${state.currentQuestion < questions.length - 1 ? 'Next Question' : 'End Quiz and Show Results 🎉'}
+        </button>` : '';
+    return `
+        <div class="header">
+            <h1>${examTitle}</h1>
+            <div class="score-info">
+                <div class="question-number">${questionNumberText}</div>
+                <div class="score">Score: ${state.score}</div>
+            </div>
+        </div>
+        <div class="question-container">
+            <h2 class="category">${question.category}</h2>
+            <p class="question">${question.question}</p>
+            <div class="options">${optionsHTML}</div>
+            ${explanationHTML}
+            <div class="current-score">
+                <p>Current Score: <span class="score-value">${state.score}</span> From ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="restart-btn" onclick="handleRestart()">Restart</button>
+            <button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button>
+        </div>`;
+}
 
-        function renderResults() {
-            // Use the initial question count for score/percentage calculation
-            const total = state.initialQuestionCount || (state.selectedExam !== null ? (examSets[state.selectedExam].questions || []).length : 0);
-            const percentage = total > 0 ? Math.round((state.score / total) * 100) : 0;
-            let message = "";
-            let colorClass = "";
+function render() {
+    const app = document.getElementById('app');
+    if (state.screen === 'selection') app.innerHTML = renderExamSelection();
+    else if (state.screen === 'essay') app.innerHTML = renderEssay();
+    else if (state.quizCompleted) app.innerHTML = renderResults();
+    else app.innerHTML = renderQuestion();
+}
 
-            if (percentage >= 90) {
-                message = "Excellent! You are confident and fully prepared for the exam";
-                colorClass = "color: #16a34a;";
-            } else if (percentage >= 80) {
-                message = "Great! Your level is very good, review only the errors";
-                colorClass = "color: #22c55e;";
-            } else if (percentage >= 70) {
-                message = "Very good! You need to review some points";
-                colorClass = "color: #2563eb;";
-            } else if (percentage >= 60) {
-                message = "Good! Focus on the topics you made mistakes in";
-                colorClass = "color: #ca8a04;";
-            } else {
-                message = "You need more review and practice";
-                colorClass = "color: #ea580c;";
-            }
+window.selectExam = selectExam;
+window.handleAnswerSelect = handleAnswerSelect;
+window.handleNext = handleNext;
+window.handleRestart = handleRestart;
+window.backToMenu = backToMenu;
+window.toggleEssayReveal = toggleEssayReveal;
 
-            // Calculate category stats
-            const categoryStats = {};
-            state.answers.forEach(answer => {
-                if (!categoryStats[answer.category]) {
-                    categoryStats[answer.category] = { correct: 0, total: 0 };
-                }
-                categoryStats[answer.category].total++;
-                if (answer.correct) categoryStats[answer.category].correct++;
-            });
-
-            const statsHTML = Object.entries(categoryStats).map(([cat, stats]) => {
-                const pct = Math.round((stats.correct / stats.total) * 100);
-                return `
-                    <div class="stat-item">
-                        <div class="stat-row">
-                            <div class="stat-category">${cat}</div>
-                            <div class="stat-score">${stats.correct}/${stats.total} (${pct}%)</div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            return `
-                <div class="results-container">
-                    ${icons.award}
-                    <h2 class="results-title">Quiz Completed!</h2>
-                    <div class="final-score">${state.score}/${total}</div>
-                    <div class="percentage">Percentage: ${percentage}%</div>
-                    <p class="results-message" style="${colorClass}">${message}</p>
-
-                    <div class="category-stats">
-                        <h3 class="stats-title">
-                            ${icons.bookOpen}
-                            Your Performance by Topics:
-                        </h3>
-                        ${statsHTML.length > 0 ? statsHTML : '<p style="text-align: center; color: #6b7280;">No answers recorded.</p>'}
-
-                        <div class="action-buttons">
-                            <button class="btn-primary" onclick="handleRestart()">Try Again</button>
-                            <button class="btn-secondary" onclick="backToMenu()">Back to Main Menu</button>
-                        </div>
-
-                        <div class="final-stats">
-                            <p>Final Score: <span class="final-score-value">${state.score}</span></p>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderQuestion() {
-            const questions = getCurrentQuestions();
-            const question = questions[state.currentQuestion];
-            const examTitle = examSets[state.selectedExam].title;
-            
-            // Determine label for question number (show repeat-phase clearly)
-            const mainTotal = state.initialQuestionCount || questions.length;
-            const questionNumberText = state.inRepeatPhase ? `Review Question ${state.currentQuestion + 1} of ${questions.length}` : `Question ${state.currentQuestion + 1} of ${mainTotal}`;
-
-            const optionsHTML = question.options.map((option, index) => {
-                let btnClass = "option-btn";
-                let iconHTML = "";
-
-                if (state.selectedAnswer === null) {
-                    // No answer selected yet
-                } else if (index === question.correctAnswer) {
-                    btnClass += " correct";
-                    iconHTML = icons.checkCircle;
-                } else if (index === state.selectedAnswer) {
-                    btnClass += " incorrect";
-                    iconHTML = icons.xCircle;
-                } else {
-                    btnClass += " neutral";
-                }
-
-                return `
-                    <button 
-                        class="${btnClass}" 
-                        onclick="handleAnswerSelect(${index})"
-                        ${state.selectedAnswer !== null ? 'disabled' : ''}
-                    >
-                        <span style="text-align: start; line-height: 1.75;">${option}</span>
-                        ${iconHTML}
-                    </button>
-                `;
-            }).join('');
-
-            const explanationHTML = state.showExplanation ? `
-                <div class="explanation-box ${state.selectedAnswer === question.correctAnswer ? 'correct' : 'incorrect'}">
-                    <p class="explanation-title">
-                        ${state.selectedAnswer === question.correctAnswer ? '✅ Correct Answer! Excellent' : '❌ Incorrect Answer'}
-                    </p>
-                    <div class="explanation-content">
-                        <p class="explanation-text">
-                            <strong>Detailed Explaination:</strong><br>
-                            ${question.explanation}
-                        </p>
-                    </div>
-                    <div class="topic-info">
-                        ${icons.bookOpen}
-                        <p><strong>Review:</strong> ${question.topic}</p>
-                    </div>
-                </div>
-                <button class="next-btn" onclick="handleNext()">
-                    ${state.currentQuestion < questions.length - 1 ? 'Next Question' : 'End Quiz and Show Results 🎉'}
-                </button>
-            ` : '';
-
-            return `
-                <div class="header">
-                    <h1>${examTitle}</h1>
-                    <div class="score-info">
-                        <div class="question-number">${questionNumberText}</div>
-                        <div class="score">Score: ${state.score}</div>
-                    </div>
-                </div>
-
-                <div class="question-container">
-                    <h2 class="category">${question.category}</h2>
-                    <p class="question">${question.question}</p>
-
-                    <div class="options">
-                        ${optionsHTML}
-                    </div>
-
-                    ${explanationHTML}
-
-                    <div class="current-score">
-                        <p>Current Score: <span class="score-value">${state.score}</span> From ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
-                    </div>
-                </div>
-
-                <div style="text-align: center;">
-                    <button class="restart-btn" onclick="handleRestart()">Restart</button>
-                    <button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button>
-                </div>
-            `;
-        }
-
-        function render() {
-            const app = document.getElementById('app');
-            
-            if (state.screen === 'selection') {
-                app.innerHTML = renderExamSelection();
-            } else if (state.quizCompleted) {
-                app.innerHTML = renderResults();
-            } else {
-                app.innerHTML = renderQuestion();
-            }
-        }
-
-        // Initialize theme, then initial render
-        initTheme();
-        render();
-    </script>
+initTheme();
+render();
+</script>
 </body>
 </html>
