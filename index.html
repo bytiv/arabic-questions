@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midterm Exams</title>
+    <title>Phonetics EC108 – Midterm Exams</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,1255 +11,1330 @@
     <div class="container" id="app"></div>
 
 <script>
-// ── EXAM 1: History of Drama ─────────────────────────────────
+const examSets = [
 
-const examSets = [ 
-    {
-    title: "Exam 1: History of Drama",
-    icon: "🏛️",
-    label: "Lecture 1",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Greek Theatre",
-            question: "Greek plays were organized primarily in honor of which god?",
-            options: [
-                "Apollo, the god of the sun and music",
-                "Dionysus, the god of the grape-harvest and wine",
-                "Zeus, the king of all the gods",
-                "Hermes, the messenger of the gods"
-            ],
-            correctAnswer: 1,
-            explanation: "Greek theatre was organized in honor of Dionysus — god of fertility, wine, and the grape-harvest. This religious connection is what made theatre a communal, sacred event in ancient Greece.",
-            topic: "Greek Theatre — Event"
-        },
-        {
-            id: 2,
-            category: "Greek Theatre",
-            question: "Where were plays performed in ancient Greek theatre?",
-            options: [
-                "Inside dedicated temple buildings",
-                "In open-air market places",
-                "In private royal courts",
-                "In underground ceremonial halls"
-            ],
-            correctAnswer: 1,
-            explanation: "Greek plays were held in market places (the agora), open spaces that allowed large audiences to gather and participate as a community.",
-            topic: "Greek Theatre — Setting"
-        },
-        {
-            id: 3,
-            category: "Greek Theatre",
-            question: "Which of the following best describes the theme of Greek theatre?",
-            options: [
-                "Audiences came to be entertained through comedy alone",
-                "Plays focused on political debates among citizens",
-                "Audiences sought instruction, delight, and communion with the gods",
-                "Theatre was purely an artistic showcase for playwrights"
-            ],
-            correctAnswer: 2,
-            explanation: "The Greek audience attended to be instructed AND delighted, while also experiencing communion with the gods. The space was believed to be filled with spirits influencing human action.",
-            topic: "Greek Theatre — Theme"
-        },
-        {
-            id: 4,
-            category: "Greek Theatre",
-            question: "Which playwright is associated with ancient Greek theatre?",
-            options: [
-                "Christopher Marlowe",
-                "Henrik Ibsen",
-                "Samuel Beckett",
-                "Sophocles"
-            ],
-            correctAnswer: 3,
-            explanation: "Sophocles is the major playwright of Greek theatre. Marlowe and Jonson are Renaissance; Ibsen and Beckett are Modern.",
-            topic: "Greek Theatre — Playwrights"
-        },
-        {
-            id: 5,
-            category: "Play Types",
-            question: "Which of the original Greek play types involves death, sadness, conflict, and strong emotions?",
-            options: [
-                "Comedy, which uses witty remarks and strange circumstances",
-                "Drama, which involves an innumerous range of plays",
-                "Tragedy, which centers on suffering, conflict, and loss",
-                "Mime, which communicates without the use of words"
-            ],
-            correctAnswer: 2,
-            explanation: "Tragedy involves death, sadness, conflict, and deep emotions. Comedy uses witty remarks and strange characters. Drama is a broader term covering many play types.",
-            topic: "Original Play Types"
-        },
-        {
-            id: 6,
-            category: "Mystery / Miracle Plays",
-            question: "What triggered the emergence of Mystery/Miracle plays in theatre history?",
-            options: [
-                "The construction of large open-air amphitheatres",
-                "The rise of professional acting guilds",
-                "The dawn of Christianity and church influence",
-                "The patronage of wealthy merchant classes"
-            ],
-            correctAnswer: 2,
-            explanation: "With the dawn of Christianity, a new type of theatre emerged — the miracle play. These plays were performed inside churches by clergy and depicted stories from the Bible.",
-            topic: "Mystery/Miracle Plays — Event"
-        },
-        {
-            id: 7,
-            category: "Mystery / Miracle Plays",
-            question: "Who performed in Mystery/Miracle plays?",
-            options: [
-                "Trained actors from the royal court",
-                "Volunteer members of the community",
-                "Clergy men of the church",
-                "Professional playwrights themselves"
-            ],
-            correctAnswer: 2,
-            explanation: "In Mystery/Miracle plays, the performers were clergy men of the church — not professional actors. The plays took place inside the church itself.",
-            topic: "Mystery/Miracle Plays — Actors"
-        },
-        {
-            id: 8,
-            category: "Renaissance Theatre",
-            question: "Which group of playwrights belongs to the Renaissance period?",
-            options: [
-                "Sophocles, Aristophanes, and Euripides",
-                "Henrik Ibsen, Brecht, and Beckett",
-                "Shakespeare, Marlowe, Jonson, and Moliere",
-                "Pirandello, Hare, and Strindberg"
-            ],
-            correctAnswer: 2,
-            explanation: "Renaissance playwrights include Shakespeare, Christopher Marlowe, Ben Jonson, and Moliere. The others belong to Greek theatre or Modern Drama.",
-            topic: "Renaissance Theatre — Playwrights"
-        },
-        {
-            id: 9,
-            category: "Renaissance Theatre",
-            question: "What themes did Renaissance theatre primarily tackle?",
-            options: [
-                "Biblical stories and religious morality",
-                "Abstract philosophical ideas about existence",
-                "Problems of mankind such as greed, love, and family issues",
-                "Political propaganda for ruling monarchs"
-            ],
-            correctAnswer: 2,
-            explanation: "Renaissance theatre turned to humanist themes — greediness, love, family issues — problems of mankind. This was a shift away from purely religious content.",
-            topic: "Renaissance Theatre — Theme"
-        },
-        {
-            id: 10,
-            category: "Modern Drama",
-            question: "What is the setting most associated with Modern Drama performances?",
-            options: [
-                "Open-air market places and public squares",
-                "Church interiors and sacred halls",
-                "Theatre buildings shaped as a proscenium",
-                "Private courtyards of wealthy patrons"
-            ],
-            correctAnswer: 2,
-            explanation: "Modern Drama is performed in theatre buildings shaped like a proscenium — a stage with a framed arch separating the audience from the performers.",
-            topic: "Modern Drama — Setting"
-        },
-        {
-            id: 11,
-            category: "Modern Drama",
-            question: "Which of the following is a theme associated with Modern Drama?",
-            options: [
-                "Communion with gods and religious ritual",
-                "Bible stories performed for the congregation",
-                "Theatre of the absurd and naturalist drama",
-                "Witty comedy centered on strange characters"
-            ],
-            correctAnswer: 2,
-            explanation: "Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre — a rich variety of serious, experimental forms.",
-            topic: "Modern Drama — Theme"
-        },
-        {
-            id: 12,
-            category: "Modern Drama",
-            question: "Which playwright is NOT associated with Modern Drama?",
-            options: [
-                "Henrik Ibsen",
-                "Samuel Beckett",
-                "Bertolt Brecht",
-                "Ben Jonson"
-            ],
-            correctAnswer: 3,
-            explanation: "Ben Jonson is a Renaissance playwright, not Modern. Modern Drama playwrights include Ibsen, Pirandello, Brecht, Beckett, and David Hare.",
-            topic: "Modern Drama — Playwrights"
-        }
-    ]
-},
-
-// ── EXAM 2: Dramatic Techniques ──────────────────────────────
+// ── EXAM 1: Foundations & Basic Concepts (Sessions 1–3) ──────────
 {
-    title: "Exam 2: Dramatic Techniques",
-    icon: "🎭",
-    label: "Lecture 2",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Dramatic Techniques",
-            question: "What are dramatic techniques?",
-            options: [
-                "Rules for directing actors on stage during performance",
-                "Literary devices used by the playwright to formulate their work",
-                "Methods critics use to evaluate a finished play",
-                "Stage equipment used to create special effects"
-            ],
-            correctAnswer: 1,
-            explanation: "Dramatic techniques are the literary devices used by the PLAYWRIGHT to formulate their work of art. They include stage directions, characters, setting, time, and dialogue.",
-            topic: "Definition of Dramatic Techniques"
-        },
-        {
-            id: 2,
-            category: "Stage Directions",
-            question: "Stage directions are best described as:",
-            options: [
-                "The spoken dialogue exchanged between characters on stage",
-                "Notes left by the playwright to guide the reader, director, or actor",
-                "The audience's written reactions to a performance",
-                "Instructions given verbally by the director during rehearsal"
-            ],
-            correctAnswer: 1,
-            explanation: "Stage directions are notes left by the playwright — they guide the reader, producer, or director. They are part of the secondary text, not the spoken primary text.",
-            topic: "Stage Directions — Definition"
-        },
-        {
-            id: 3,
-            category: "Stage Directions",
-            question: "In the two-text model, the 'primary text' refers to:",
-            options: [
-                "The playwright's notes on costume and setting",
-                "The director's interpretation of the script",
-                "The dialogue exchange among characters",
-                "The summary printed in the programme booklet"
-            ],
-            correctAnswer: 2,
-            explanation: "Primary text = the dialogue characters speak. Secondary text = the playwright's notes (stage directions) that guide the designer or actor. Both appear in the written script.",
-            topic: "Primary vs Secondary Text"
-        },
-        {
-            id: 4,
-            category: "Stage Directions",
-            question: "Which of the following is an example of a secondary text (stage direction)?",
-            options: [
-                "Emmy: Oh thanks Daniel, you look great.",
-                "Daniel: Did you bring the money?",
-                "Emmy: (Wearing a red coat) Oh thanks Daniel.",
-                "Daniel: I totally forgot about it."
-            ],
-            correctAnswer: 2,
-            explanation: "Secondary text = notes in parentheses added by the playwright: '(Wearing a red coat)' tells the actor/designer about Emmy's costume. The spoken words alone are primary text.",
-            topic: "Stage Directions — Example"
-        },
-        {
-            id: 5,
-            category: "Fischer's Sign Systems",
-            question: "Erika Fischer's sign systems model is used to:",
-            options: [
-                "Classify the historical periods of Western drama",
-                "Identify and categorize the types of stage directions in drama",
-                "Rank playwrights by their historical importance",
-                "Analyze the plot structure of a dramatic text"
-            ],
-            correctAnswer: 1,
-            explanation: "Fischer's sign systems model provides a framework to identify and categorize ALL types of signs (directions) in drama — actor's activities, appearance, spatial signs, and acoustic signs.",
-            topic: "Fischer's Sign Systems Model"
-        },
-        {
-            id: 6,
-            category: "Fischer's Sign Systems",
-            question: "According to Fischer's model, which category covers linguistic and kinesic signs?",
-            options: [
-                "Actor's appearance as a sign",
-                "Spatial and acoustic signs",
-                "Actor's activities as a sign",
-                "Decorative and prop signs"
-            ],
-            correctAnswer: 2,
-            explanation: "Actor's activities as a sign covers language — broken into: Linguistic (spoken words) and Paralinguistic/Kinesic (movement: mimic-gestures and proxemic signs).",
-            topic: "Actor's Activities as a Sign"
-        },
-        {
-            id: 7,
-            category: "Fischer's Sign Systems",
-            question: "Proxemic signs in Fischer's model refer to:",
-            options: [
-                "The tone and rhythm of a character's voice",
-                "The physical distance and spatial relationship between characters",
-                "The lighting used to highlight actors on stage",
-                "The written words spoken by characters"
-            ],
-            correctAnswer: 1,
-            explanation: "Proxemics = the study of space between people. Proxemic signs = how close or far characters are from each other — a form of kinesic, body-based communication.",
-            topic: "Proxemic Signs"
-        },
-        {
-            id: 8,
-            category: "Fischer's Sign Systems",
-            question: "Actor's appearance as a sign includes which elements?",
-            options: [
-                "Music and background sounds used in performance",
-                "Lighting and stage decoration",
-                "Hairstyle and costume",
-                "Dialogue and soliloquy"
-            ],
-            correctAnswer: 2,
-            explanation: "Actor's appearance as a sign = how the actor LOOKS: hairstyle and costume. These are visual signs that communicate character before a single word is spoken.",
-            topic: "Actor's Appearance as a Sign"
-        },
-        {
-            id: 9,
-            category: "Fischer's Sign Systems",
-            question: "Which of the following belongs to spatial signs in Fischer's model?",
-            options: [
-                "The actor's vocal tone and speaking style",
-                "Background music and sound effects",
-                "Decoration, props, and lighting",
-                "The character's hairstyle and mask"
-            ],
-            correctAnswer: 2,
-            explanation: "Spatial signs = decoration, props, and lighting. These create the physical environment of the stage. Acoustic signs = sounds and music. Don't confuse the two.",
-            topic: "Spatial Signs"
-        },
-        {
-            id: 10,
-            category: "Fischer's Sign Systems",
-            question: "Acoustic signs in Fischer's model consist of:",
-            options: [
-                "Costume, hairstyle, and masks worn by actors",
-                "Sounds and music used during the performance",
-                "Lighting effects and stage decoration",
-                "The physical gestures and facial expressions of actors"
-            ],
-            correctAnswer: 1,
-            explanation: "Acoustic signs = what you HEAR: sounds and music. These are distinct from spatial signs (what you see in the environment) and kinesic signs (body movement).",
-            topic: "Acoustic Signs"
-        },
-        {
-            id: 11,
-            category: "Dramatic Techniques",
-            question: "Which of the following is NOT listed as a dramatic technique (literary device) in drama?",
-            options: [
-                "Stage directions",
-                "Space/setting",
-                "Publisher's foreword",
-                "Dialogue"
-            ],
-            correctAnswer: 2,
-            explanation: "The key dramatic techniques are: stage directions, characters, space/setting, time, and dialogue. A publisher's foreword is not a literary device created by the playwright.",
-            topic: "List of Dramatic Techniques"
-        },
-        {
-            id: 12,
-            category: "Fischer's Sign Systems",
-            question: "Mimic-gestures in Fischer's model fall under which branch?",
-            options: [
-                "Spatial signs",
-                "Actor's appearance as a sign",
-                "Actor's activities — paralinguistic/kinesic",
-                "Acoustic signs"
-            ],
-            correctAnswer: 2,
-            explanation: "Mimic-gestures are body-based (kinesic) signs under actor's activities. The chain: Actor's activities → Language → Paralinguistic/Kinesic → Mimic-Gestures + Proxemic.",
-            topic: "Kinesic Signs"
-        }
-    ]
-},
-
-// ── EXAM 3: Characterization & Speech ────────────────────────
-{
-    title: "Exam 3: Characterization & Types of Speech",
+    title: "Exam 1: Foundations & Basic Concepts",
     icon: "🗣️",
-    label: "Lectures 3–4",
+    label: "Sessions 1–3",
     lang: "en",
     type: "mcq",
     questions: [
         {
             id: 1,
-            category: "Characterization",
-            question: "Explicit-figural characterization techniques are described as:",
+            category: "Phonetics vs Phonology",
+            question: "Phonetics is best defined as the study of:",
             options: [
-                "Entirely non-verbal, relying on gesture and costume",
-                "Entirely verbal, using direct statements about characters",
-                "Dependent on the setting and spatial arrangement",
-                "Based solely on the actor's physical appearance"
+                "the classification of sounds within the system of a particular language",
+                "the production, transmission, reception, and transcription of speech sounds",
+                "the grammar rules that govern the structure of spoken sentences",
+                "the historical development of pronunciation across different time periods"
             ],
             correctAnswer: 1,
-            explanation: "Explicit-figural techniques are ALL verbal — they involve direct statements, either by the character about themselves (self-commentary) or by another character about them (outside commentary).",
-            topic: "Explicit Characterization"
+            explanation: "Phonetics deals with the physical properties of speech sounds — their production, transmission, reception, analysis, classification, and transcription. Phonology, on the other hand, classifies sounds within a particular language system.",
+            topic: "Phonetics vs Phonology — Definitions"
         },
         {
             id: 2,
-            category: "Characterization",
-            question: "A self-commentary in explicit characterization means:",
+            category: "Phonetics vs Phonology",
+            question: "Which of the following correctly describes phonology?",
             options: [
-                "A critic's written analysis of a character's behavior",
-                "One character describing another character's personality",
-                "A figure explicitly articulating the way it sees itself",
-                "The playwright's notes describing a character's traits"
+                "the study of how speech sounds are physically produced by the vocal organs",
+                "the classification of sounds within a language and the patterns they form",
+                "the transcription of all human sounds using the International Phonetic Alphabet",
+                "the analysis of how sound waves travel from speaker to listener"
             ],
-            correctAnswer: 2,
-            explanation: "Self-commentary = the character is BOTH the subject AND the object. The figure explicitly describes how it sees itself — like a monologue of self-reflection.",
-            topic: "Self-Commentary"
+            correctAnswer: 1,
+            explanation: "Phonology is the classification of sounds within the system of a particular language and the patterns that speech sounds form. It belongs to theoretical linguistics, while phonetics belongs to descriptive linguistics.",
+            topic: "Phonetics vs Phonology — Definitions"
         },
         {
             id: 3,
-            category: "Characterization",
-            question: "Outside commentary in explicit characterization occurs when:",
+            category: "Phonetics vs Phonology",
+            question: "Phonetics belongs to descriptive linguistics, while phonology belongs to:",
             options: [
-                "The character reflects on their own identity and choices",
-                "One figure is characterized explicitly by another figure",
-                "The audience interprets a character's behavior silently",
-                "The playwright describes a character in the stage directions"
+                "applied linguistics, which focuses on practical language teaching methods",
+                "theoretical linguistics, which examines abstract language systems and rules",
+                "historical linguistics, which traces how languages change over centuries",
+                "computational linguistics, which models language through computer algorithms"
             ],
             correctAnswer: 1,
-            explanation: "Outside commentary = subject ≠ object. One figure (A) speaks about another figure (B). Note: these views need not match — different perspectives give different readings of the same character.",
-            topic: "Outside Commentary"
+            explanation: "Phonetics is descriptive (describes physical sounds), while phonology is theoretical (examines the abstract sound system of a language). This is a key distinction from Session 1.",
+            topic: "Phonetics vs Phonology — Branches"
         },
         {
             id: 4,
-            category: "Characterization",
-            question: "Implicit-figural characterization is described as only partially verbal because:",
+            category: "Phonetics vs Phonology",
+            question: "Which statement about phonetics and phonology is correct?",
             options: [
-                "It only occurs in the final act of a play",
-                "It relies on the critic's interpretation rather than the playwright's intent",
-                "A character is also presented through appearance, behavior, and context",
-                "It depends entirely on what other characters say about them"
+                "Phonetics can study one specific language, but phonology cannot focus on one",
+                "Phonology can study one specific language, but phonetics is not limited to one",
+                "Both phonetics and phonology must always focus on a single specific language",
+                "Neither phonetics nor phonology is able to focus on any one specific language"
             ],
-            correctAnswer: 2,
-            explanation: "Implicit = not only WHAT is said and HOW it's said, but also appearance, behavior, clothing, properties, and the context the character operates in. It goes beyond words.",
-            topic: "Implicit Characterization"
+            correctAnswer: 1,
+            explanation: "Phonetics is universal — it studies speech sounds across all languages. Phonology can focus on one specific language's sound patterns (e.g., English phonology).",
+            topic: "Phonetics vs Phonology — Scope"
         },
         {
             id: 5,
-            category: "Characterization",
-            question: "Which of the following is a non-verbal implicit characterization technique?",
+            category: "Accent & Dialect",
+            question: "The difference between the words 'cookies/biscuits' and 'trunk/boot' is an example of:",
             options: [
-                "A character delivering a long soliloquy on stage",
-                "Stature, gesture, and facial expression of the actor",
-                "Dialogue spoken about a character by another figure",
-                "A character's verbal behavior and idiolect"
+                "accent variation, because the same words are pronounced differently",
+                "dialect variation, because entirely different vocabulary is being used",
+                "phonological variation, because the sound patterns differ systematically",
+                "register variation, because the formality of the language has changed"
             ],
             correctAnswer: 1,
-            explanation: "Non-verbal implicit techniques include physiognomy, facial expression, stature, gesture, masks, costume, props, locale, and behavior. These communicate without words.",
-            topic: "Non-Verbal Implicit Techniques"
+            explanation: "Using different words for the same thing (cookies vs biscuits, trunk vs boot) is a dialect difference. Accent refers only to pronunciation differences — how the same word sounds different.",
+            topic: "Accent vs Dialect"
         },
         {
             id: 6,
-            category: "Types of Speech",
-            question: "What distinguishes a monologue from a soliloquy?",
+            category: "Accent & Dialect",
+            question: "Pronouncing the word 'water' differently in British and American English is an example of:",
             options: [
-                "A monologue is longer; a soliloquy is a short aside",
-                "A monologue is addressed to someone; a soliloquy is spoken alone as if to oneself",
-                "A monologue is non-verbal; a soliloquy is fully verbal",
-                "A monologue reveals inner thoughts; a soliloquy reveals plot events"
+                "a dialect difference, because different vocabulary items are being used",
+                "an accent difference, because the same word is pronounced differently",
+                "a phonological error, because one of the two pronunciations is incorrect",
+                "a register shift, because the speakers are in different social contexts"
             ],
             correctAnswer: 1,
-            explanation: "Key distinction: Monologue = addressed to SOMEONE (other characters or audience). Soliloquy = spoken by one person ALONE on stage, as if talking to themselves — not intended to affect others.",
-            topic: "Monologue vs Soliloquy"
+            explanation: "When the same word is pronounced differently by speakers of different varieties, this is an accent difference. Dialect involves vocabulary and grammar differences, not just pronunciation.",
+            topic: "Accent vs Dialect"
         },
         {
             id: 7,
-            category: "Types of Speech",
-            question: "A soliloquy is best described as:",
+            category: "RP & English Varieties",
+            question: "RP stands for Received Pronunciation, which refers to:",
             options: [
-                "A speech exchange between two or more characters",
-                "A brief comment spoken quietly to one other character",
-                "A long report delivered when the character is alone, addressing the audience",
-                "A formal speech directed at a crowd within the play's world"
+                "the standard American pronunciation taught in international language schools",
+                "the English pronunciation associated with south-east England and accepted speech",
+                "the oldest recorded form of English pronunciation found in historical archives",
+                "the pronunciation system used exclusively by linguists in academic research"
             ],
-            correctAnswer: 2,
-            explanation: "Soliloquy = a longish report the character delivers when ALONE on stage, addressing the audience. It is a kind of talking to oneself — no other characters hear it.",
-            topic: "Soliloquy"
+            correctAnswer: 1,
+            explanation: "RP (Received Pronunciation) is the accent associated with south-east England. It is also called 'accepted pronunciation' and is the standard used in this phonetics course.",
+            topic: "Received Pronunciation"
         },
         {
             id: 8,
-            category: "Types of Speech",
-            question: "In an aside, who hears the character's speech?",
+            category: "IPA & Transcription",
+            question: "What does IPA stand for in the context of phonetics?",
             options: [
-                "All other characters on stage hear it clearly",
-                "Only one specific character is meant to hear it",
-                "The audience hears it; other characters pretend not to",
-                "Nobody hears it — it is purely internal thought"
+                "International Pronunciation Assessment, a standard test for language learners",
+                "International Phonetic Alphabet, a system for representing speech sounds",
+                "Internal Phonological Analysis, a method for studying language patterns",
+                "Integrated Phonemic Application, a software tool for sound processing"
             ],
-            correctAnswer: 2,
-            explanation: "In an aside, ONLY THE AUDIENCE hears the speech. Other characters on stage pretend not to be hearing it. It is a convention that breaks the dramatic illusion briefly.",
-            topic: "Aside"
+            correctAnswer: 1,
+            explanation: "IPA stands for International Phonetic Alphabet — a standardized system of symbols used to represent each distinct speech sound across all languages.",
+            topic: "International Phonetic Alphabet"
         },
         {
             id: 9,
-            category: "Types of Speech",
-            question: "Dialogues in drama are defined as:",
+            category: "IPA & Transcription",
+            question: "The word 'brother' has 7 letters but only 4 phonemes. This shows that:",
             options: [
-                "Self-contained autonomous speeches of a single character",
-                "Speech exchange among two or more characters",
-                "Notes written by the playwright to guide the actors",
-                "A character's inner thoughts spoken when alone on stage"
+                "English spelling always corresponds directly to its pronunciation in speech",
+                "the number of letters in a word does not always match the number of sounds",
+                "phonemes are always more numerous than the letters in any English word",
+                "the IPA system requires more symbols than the English alphabet provides"
             ],
             correctAnswer: 1,
-            explanation: "Dialogue = speech EXCHANGE among two or more characters. It requires interaction. A monologue is self-contained and addressed to someone; a soliloquy requires being alone.",
-            topic: "Dialogue"
+            explanation: "'Brother' = B-r-o-t-h-e-r (7 letters) but /brʌðə/ (4 phonemes). English spelling and pronunciation often don't match — this is why we need IPA transcription.",
+            topic: "Letters vs Sounds"
         },
         {
             id: 10,
-            category: "Dramatic Structure",
-            question: "What distinguishes dramatic action from ordinary plot?",
+            category: "Key Terms",
+            question: "A 'phone' in phonetics refers to:",
             options: [
-                "Dramatic action occurs only at the end of a play",
-                "Dramatic action depicts a tense conflict between two wills, not just events",
-                "Dramatic action refers to the physical fights between characters",
-                "Dramatic action is the chronological sequence of all events in a play"
+                "the smallest unit of speech that can distinguish one word from another",
+                "any sound that a human being is physically capable of producing",
+                "a specific variation of a phoneme that occurs in a particular context",
+                "a written symbol used to represent a particular speech sound"
             ],
             correctAnswer: 1,
-            explanation: "Dramatic action = a TENSE CONFLICT between two characters (conflict of two wills/minds, not physical). It can appear anywhere in a play and says little on the plot level — it's about psychological tension.",
-            topic: "Dramatic Action vs Plot"
+            explanation: "A phone is any human sound — including speech sounds, sneezes, coughs, etc. A phoneme is more specific: the smallest unit that distinguishes meaning between words.",
+            topic: "Phone, Phoneme, Allophone"
         },
         {
             id: 11,
-            category: "Functions of Speech",
-            question: "The expository function of dramatic speech means the speech:",
+            category: "Key Terms",
+            question: "A 'phoneme' is best defined as:",
             options: [
-                "Expresses the emotional state of the character speaking",
-                "Appeals to another character to act or respond",
-                "Provides background information necessary to understand the story",
-                "Refers to events happening in the outside world"
+                "any sound that a human being is physically capable of making",
+                "the smallest unit of speech that can distinguish one word from another",
+                "one of the many physical realizations of the same abstract sound unit",
+                "the written symbol used by linguists to record pronunciation data"
             ],
-            correctAnswer: 2,
-            explanation: "Expository function = the speech EXPOSES/PROVIDES background information, context, or history that the audience needs. It sets up the world of the play.",
-            topic: "Functions of Dramatic Speech"
+            correctAnswer: 1,
+            explanation: "A phoneme is the smallest unit of speech that distinguishes one word from another. For example, /p/ and /b/ are different phonemes because 'pat' and 'bat' have different meanings.",
+            topic: "Phone, Phoneme, Allophone"
         },
         {
             id: 12,
-            category: "Dramatic Structure",
-            question: "The plot is defined in drama as:",
+            category: "Key Terms",
+            question: "The /t/ in 'top', 'stop', and 'button' sounds slightly different each time. These variations are called:",
             options: [
-                "The tense conflict between two stubborn opposing wills",
-                "The chronological sequence of events in the play",
-                "The theme or central message the playwright conveys",
-                "The setting and physical space in which events occur"
+                "phonemes, because each variation creates a new meaningful word unit",
+                "allophones, because they are different realizations of the same phoneme",
+                "phones, because they represent any random sound a human can produce",
+                "diphthongs, because each sound glides from one position into another"
             ],
             correctAnswer: 1,
-            explanation: "Plot = the CHRONOLOGICAL sequence of events. Dramatic action is different — it depicts a tensed conflict. Don't confuse the two: plot = timeline; dramatic action = conflict of wills.",
-            topic: "Plot"
+            explanation: "An allophone is any of the various phonetic realizations of a phoneme. The /t/ sounds differently in different positions, but all are allophones of the phoneme /t/.",
+            topic: "Phone, Phoneme, Allophone"
         },
         {
             id: 13,
-            category: "Dialogue and Action",
-            question: "Not every dialogue in drama is considered 'dramatic dialogue' because:",
+            category: "Speech Production",
+            question: "The correct order of speech production systems from bottom to top is:",
             options: [
-                "Some dialogues are too short to fulfill a dramatic purpose",
-                "Dramatic dialogue must involve a tense conflict, unlike mere conversation",
-                "Only dialogues written in verse qualify as dramatic",
-                "Dialogue must always be accompanied by physical stage action"
+                "articulatory system, then phonatory system, then respiratory system",
+                "respiratory system, then phonatory system, then articulatory system",
+                "phonatory system, then respiratory system, then articulatory system",
+                "respiratory system, then articulatory system, then phonatory system"
             ],
             correctAnswer: 1,
-            explanation: "There is a key distinction between CONVERSATION and DRAMATIC DIALOGUE. Not every speech exchange qualifies — dramatic dialogue must carry dramatic purpose: further events, reveal character, create conflict.",
-            topic: "Conversation vs Dramatic Dialogue"
+            explanation: "Speech production starts with the respiratory system (lungs produce airflow), then the phonatory system (larynx/vocal cords vibrate), then the articulatory system (mouth/nose shape sounds).",
+            topic: "Systems of Speech Production"
+        },
+        {
+            id: 14,
+            category: "Speech Production",
+            question: "The airflow used to produce almost all English speech sounds is called:",
+            options: [
+                "ingressive pulmonic airstream, where air is drawn inward through the lungs",
+                "egressive pulmonic airstream, where air is pushed outward from the lungs",
+                "egressive glottalic airstream, where air is pushed upward from the larynx",
+                "ingressive velaric airstream, where air is drawn inward using the tongue"
+            ],
+            correctAnswer: 1,
+            explanation: "Almost all English speech sounds use egressive pulmonic airstream — air pushed outward from the lungs. 'Egressive' means outgoing; 'pulmonic' means from the lungs.",
+            topic: "Egressive Pulmonic Airstream"
+        },
+        {
+            id: 15,
+            category: "Speech Organs",
+            question: "The vocal tract ends at the mouth and nostrils. The mouth part is called the oral cavity, and the part leading to the nostrils is called:",
+            options: [
+                "the pharynx, which is a tube beginning just above the larynx area",
+                "the nasal cavity, which is the passage connecting the throat to the nose",
+                "the alveolar ridge, which is the bony area behind the upper front teeth",
+                "the larynx, which is the structure containing the vocal cords inside"
+            ],
+            correctAnswer: 1,
+            explanation: "The vocal tract splits into two: the oral cavity (mouth) and the nasal cavity (leading to the nostrils). The pharynx is a separate tube above the larynx.",
+            topic: "Oral Cavity vs Nasal Cavity"
+        },
+        {
+            id: 16,
+            category: "Speech Organs",
+            question: "When the soft palate (velum) is raised, the nasal passage is blocked, producing:",
+            options: [
+                "nasal sounds like /m/ and /n/, where air escapes through the nose",
+                "oral sounds like /k/ and /g/, where air exits only through the mouth",
+                "nasalized sounds, where air passes through both the nose and mouth",
+                "fricative sounds, where air is forced through a narrow gap noisily"
+            ],
+            correctAnswer: 1,
+            explanation: "When the velum is raised → nasal passage blocked → oral sounds (e.g., /k/, /g/). When the velum is lowered → nasal passage open → nasal sounds (e.g., /m/, /n/).",
+            topic: "States of the Soft Palate"
+        },
+        {
+            id: 17,
+            category: "Speech Organs",
+            question: "Which of the following is NOT one of the articulators in the vocal tract?",
+            options: [
+                "the alveolar ridge, which is located behind the upper front teeth",
+                "the diaphragm, which is a muscle located below the lungs in the chest",
+                "the soft palate (velum), which can be raised or lowered during speech",
+                "the pharynx, which is the tube that begins just above the larynx"
+            ],
+            correctAnswer: 1,
+            explanation: "The diaphragm is part of the respiratory system (helps push air from lungs) but is NOT an articulator. Articulators include: lips, teeth, alveolar ridge, hard palate, soft palate, tongue, pharynx, and larynx.",
+            topic: "The Articulators"
+        },
+        {
+            id: 18,
+            category: "Speech Organs",
+            question: "The pharynx is best described as:",
+            options: [
+                "the bony ridge located directly behind the upper row of front teeth",
+                "a tube that begins just above the larynx and is divided into two parts",
+                "the fleshy dangling structure visible at the back of the open mouth",
+                "the hard roof of the mouth located between the alveolar ridge and velum"
+            ],
+            correctAnswer: 1,
+            explanation: "The pharynx is a tube beginning just above the larynx. It is about 7 cm long in women and 8 cm in men. At its top end it divides into two passages (oral and nasal).",
+            topic: "The Pharynx"
+        },
+        {
+            id: 19,
+            category: "Speech Organs",
+            question: "When we produce the sounds /k/ and /g/, the tongue touches the lower side of the soft palate. These sounds are therefore called:",
+            options: [
+                "alveolar consonants, because they are articulated at the alveolar ridge",
+                "velar consonants, because they are articulated against the soft palate",
+                "bilabial consonants, because both lips are pressed together to form them",
+                "dental consonants, because the tongue touches the back of the teeth"
+            ],
+            correctAnswer: 1,
+            explanation: "When the tongue contacts the soft palate (velum) to produce /k/ and /g/, these are called velar consonants. The soft palate is both a valve for nasal sounds and an articulation point.",
+            topic: "Velar Consonants"
+        },
+        {
+            id: 20,
+            category: "Speech Production",
+            question: "The phonatory system is where:",
+            options: [
+                "the lungs push air upward to initiate the breathing process for speech",
+                "vibration or phonation takes place as air passes through the vocal cords",
+                "resonance is modified in the vocal tract to shape different speech sounds",
+                "the brain encodes the semantic and syntactic structure of the message"
+            ],
+            correctAnswer: 1,
+            explanation: "The phonatory system is where vibration (phonation) takes place — the vocal cords in the larynx vibrate as air passes through them. The respiratory system provides airflow, and the articulatory system shapes resonance.",
+            topic: "Systems of Speech Production"
         }
     ]
 },
 
-// ── EXAM 4: Final Essay (MCQ Format on Essay Structure) ──────
+// ── EXAM 2: English Vowels (Sessions 4–6) ───────────────────────
 {
-    title: "Exam 4: Final Essay Exam (Dr. AbdelKarim Format)",
-    icon: "📝",
-    label: "Final Exam",
+    title: "Exam 2: English Vowels",
+    icon: "🔤",
+    label: "Sessions 4–6",
     lang: "en",
-    type: "essay",
-    quote: "If I can catch him once upon the hip, I will feed fat the ancient grudge I bear him. He hates our sacred nation and he rails…",
-    attribution: "— Shylock, The Merchant of Venice, William Shakespeare",
-    context: "This quote is spoken by Shylock, the Jewish moneylender, in Act I Scene III of The Merchant of Venice by William Shakespeare. Shylock speaks this aside to himself upon learning that Antonio — the Christian merchant who has publicly humiliated him — is now asking him for a loan. The occasion is a moment of suppressed anger and dark opportunity: Shylock sees a chance to finally get revenge on the man who has wronged him for years.",
-    paragraphs: [
+    type: "mcq",
+    questions: [
         {
-            label: "Paragraph 1 — Introduction & Quote Analysis",
-            content: "The quote is taken from Act I, Scene III of The Merchant of Venice (c. 1596–1597) by William Shakespeare, one of the most celebrated playwrights of the Renaissance period. It is delivered by Shylock, the Jewish moneylender, as an aside — spoken to himself and heard only by the audience — upon discovering that his long-time enemy Antonio now needs his financial help. The occasion is charged with bitter irony: the man who has publicly scorned and humiliated Shylock is now in a position of dependence before him. The tone is one of restrained fury and cold calculation."
+            id: 1,
+            category: "Vowels vs Consonants",
+            question: "Vowels are sounds that are produced with:",
+            options: [
+                "some obstruction to the airflow as it passes from the larynx to the lips",
+                "no obstruction to the airflow as it passes from the larynx to the lips",
+                "complete blockage of the airflow at a specific point in the vocal tract",
+                "the vocal cords held tightly together so no air can escape outward"
+            ],
+            correctAnswer: 1,
+            explanation: "Vowels are produced with NO obstruction to the airflow. Consonants, by contrast, involve some obstruction (partial or complete) of the airflow.",
+            topic: "Vowels vs Consonants"
         },
         {
-            label: "Paragraph 2 — Reproduction (Simplified Paraphrase)",
-            content: "In simpler terms, Shylock is saying: 'If I ever get the chance to have power over Antonio, I will take full revenge for all the hatred he has shown me for so long. He despises our Jewish people and speaks against us openly.' Shylock is not simply angry — he is patient and strategic, waiting for the right moment to settle a deep, old score against the man who has disrespected him and his community."
+            id: 2,
+            category: "Vowels vs Consonants",
+            question: "How many consonant sounds and vowel sounds are there in English RP?",
+            options: [
+                "20 consonant sounds and 24 vowel sounds in total in English RP",
+                "24 consonant sounds and 20 vowel sounds in total in English RP",
+                "26 consonant sounds and 18 vowel sounds in total in English RP",
+                "22 consonant sounds and 22 vowel sounds in total in English RP"
+            ],
+            correctAnswer: 1,
+            explanation: "English RP has 24 consonant sounds and 20 vowel sounds. The 20 vowels are divided into 12 monophthongs (pure vowels) and 8 diphthongs.",
+            topic: "Number of Sounds in English"
         },
         {
-            label: "Paragraph 3 — Plot, Character & Theme",
-            content: "This quote is central to all three dramatic elements. In terms of plot, it foreshadows the central conflict: Shylock's bond of a pound of flesh — the mechanism of revenge he will try to execute later. In terms of character, it reveals Shylock's complexity: not a simple villain, but a man driven by years of humiliation and genuine grievance. In terms of theme, the quote raises questions of justice, prejudice, and revenge — asking the audience whether Shylock's anger is understandable given Antonio's open antisemitism. Figure of Speech: the line contains 'Disordering' (inverted syntax) — 'the ancient grudge I bear him' departs from standard Subject+Verb+Object order, placing 'the ancient grudge' before the subject-verb relationship for dramatic emphasis."
+            id: 3,
+            category: "Vowel Classification",
+            question: "The 20 English vowel sounds are divided into:",
+            options: [
+                "10 monophthongs and 10 diphthongs that together form the vowel system",
+                "12 monophthongs (pure vowels) and 8 diphthongs in the vowel system",
+                "14 monophthongs (pure vowels) and 6 diphthongs in the vowel system",
+                "7 short vowels and 13 long vowels that together form the vowel system"
+            ],
+            correctAnswer: 1,
+            explanation: "The 20 vowels = 12 monophthongs (pure vowels: 7 short + 5 long) + 8 diphthongs.",
+            topic: "Vowel Classification"
+        },
+        {
+            id: 4,
+            category: "Short Vowels",
+            question: "How many short vowels are there in English RP?",
+            options: [
+                "five short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/ in total in RP English",
+                "seven short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/ in RP English",
+                "six short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/ in total in RP English",
+                "eight short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/, /ɜ/ in RP"
+            ],
+            correctAnswer: 1,
+            explanation: "There are 7 short vowels in RP: /ɪ/ (kit), /e/ (dress), /æ/ (trap), /ɒ/ (lot), /ʌ/ (strut), /ʊ/ (foot), /ə/ (about).",
+            topic: "Short Vowels"
+        },
+        {
+            id: 5,
+            category: "Short Vowels",
+            question: "The vowel sound in the words 'kit', 'bid', and 'fill' is:",
+            options: [
+                "/e/, which is the short vowel found in words like 'dress' and 'bed'",
+                "/ɪ/, which is the short vowel found in words like 'kit' and 'bid'",
+                "/æ/, which is the short vowel found in words like 'trap' and 'bad'",
+                "/ʌ/, which is the short vowel found in words like 'strut' and 'mud'"
+            ],
+            correctAnswer: 1,
+            explanation: "The vowel in 'kit', 'bid', 'fill' is /ɪ/. This is one of the 7 short vowels in RP English.",
+            topic: "Short Vowels — /ɪ/"
+        },
+        {
+            id: 6,
+            category: "Short Vowels",
+            question: "Which short vowel is found in the words 'strut', 'mud', and 'love'?",
+            options: [
+                "/ɒ/, which appears in words like 'lot', 'not', and 'wash' in RP",
+                "/ʌ/, which appears in words like 'strut', 'mud', and 'love' in RP",
+                "/ʊ/, which appears in words like 'foot', 'put', and 'good' in RP",
+                "/æ/, which appears in words like 'trap', 'bad', and 'fat' in RP"
+            ],
+            correctAnswer: 1,
+            explanation: "The vowel /ʌ/ is found in 'strut', 'mud', 'love'. Don't confuse it with /ɒ/ (lot, not, wash) or /ʊ/ (foot, put, good).",
+            topic: "Short Vowels — /ʌ/"
+        },
+        {
+            id: 7,
+            category: "Short Vowels",
+            question: "The schwa /ə/ is the vowel sound found in words like:",
+            options: [
+                "'trap', 'bad', and 'fat', where the mouth is open wide during production",
+                "'about', 'father', and 'the', where the sound is weak and unstressed",
+                "'foot', 'put', and 'good', where the lips are slightly rounded together",
+                "'dress', 'bed', and 'head', where the tongue is at a mid-front position"
+            ],
+            correctAnswer: 1,
+            explanation: "The schwa /ə/ appears in unstressed syllables: 'about', 'father', 'the'. It is the most common vowel sound in English and is always unstressed.",
+            topic: "Short Vowels — /ə/ (Schwa)"
+        },
+        {
+            id: 8,
+            category: "Long Vowels",
+            question: "How many long vowels are there in English RP?",
+            options: [
+                "seven long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /eː/, /oː/ in RP",
+                "five long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/ in total in RP English",
+                "six long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /æː/ in RP English",
+                "four long vowels: /iː/, /uː/, /ɑː/, /ɔː/ in total in RP English"
+            ],
+            correctAnswer: 1,
+            explanation: "There are 5 long vowels in RP: /iː/ (fleece), /uː/ (goose), /ɑː/ (father), /ɔː/ (thought), /ɜː/ (nurse).",
+            topic: "Long Vowels"
+        },
+        {
+            id: 9,
+            category: "Long Vowels",
+            question: "The long vowel /ɜː/ is found in the words:",
+            options: [
+                "'fleece', 'meet', and 'eat', where the tongue is high and at the front",
+                "'nurse', 'stir', and 'learn', where the tongue is central in the mouth",
+                "'father', 'start', and 'hard', where the mouth is open and tongue is low",
+                "'thought', 'law', and 'war', where the lips are rounded during production"
+            ],
+            correctAnswer: 1,
+            explanation: "The long vowel /ɜː/ is found in 'nurse', 'stir', 'learn'. It is a central vowel. Don't confuse with /ɑː/ (father, start) or /ɔː/ (thought, law).",
+            topic: "Long Vowels — /ɜː/"
+        },
+        {
+            id: 10,
+            category: "Long Vowels",
+            question: "Which long vowel appears in the words 'goose', 'boot', and 'blue'?",
+            options: [
+                "/iː/, which is a high front vowel found in words like 'fleece' and 'meet'",
+                "/uː/, which is a high back vowel found in words like 'goose' and 'boot'",
+                "/ɔː/, which is a mid back vowel found in words like 'thought' and 'law'",
+                "/ɑː/, which is a low back vowel found in words like 'father' and 'start'"
+            ],
+            correctAnswer: 1,
+            explanation: "The long vowel /uː/ appears in 'goose', 'boot', 'blue'. It is produced with rounded lips and the tongue in a high back position.",
+            topic: "Long Vowels — /uː/"
+        },
+        {
+            id: 11,
+            category: "Diphthongs",
+            question: "A diphthong is a vowel sound that:",
+            options: [
+                "stays in exactly one position throughout the entire duration of the sound",
+                "glides from one vowel position to another within a single syllable",
+                "is always longer in duration than any of the five long vowel sounds",
+                "requires complete obstruction of airflow at some point during production"
+            ],
+            correctAnswer: 1,
+            explanation: "A diphthong is a vowel sound that glides from one position to another within a single syllable. Compare: /e/ (pure, stays in one position) vs /eɪ/ (diphthong, glides from /e/ toward /ɪ/).",
+            topic: "What is a Diphthong?"
+        },
+        {
+            id: 12,
+            category: "Diphthongs",
+            question: "How many diphthongs are there in English RP?",
+            options: [
+                "six diphthongs, divided into closing and centering types in RP English",
+                "eight diphthongs, divided into closing and centering types in RP English",
+                "ten diphthongs, divided into closing and centering types in RP English",
+                "five diphthongs, all of the closing type only found in RP English"
+            ],
+            correctAnswer: 1,
+            explanation: "There are 8 diphthongs in RP: 5 closing (/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, /aʊ/) and 3 centering (/ɪə/, /eə/, /ʊə/).",
+            topic: "Number of Diphthongs"
+        },
+        {
+            id: 13,
+            category: "Diphthongs",
+            question: "The closing diphthongs in English RP are:",
+            options: [
+                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
+                "/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, and /aʊ/, which glide toward a closer vowel",
+                "/iː/, /uː/, /ɑː/, /ɔː/, and /ɜː/, which are held in one position",
+                "/ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, and /ə/, which are all short sounds"
+            ],
+            correctAnswer: 1,
+            explanation: "The 5 closing diphthongs glide toward a closer (higher) vowel position: /eɪ/ (day), /aɪ/ (sky), /ɔɪ/ (boy), /əʊ/ (go), /aʊ/ (cow).",
+            topic: "Closing Diphthongs"
+        },
+        {
+            id: 14,
+            category: "Diphthongs",
+            question: "The centering diphthongs in English RP are:",
+            options: [
+                "/eɪ/, /aɪ/, and /ɔɪ/, which glide toward a higher vowel position",
+                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
+                "/əʊ/ and /aʊ/, which glide toward a rounded back vowel position",
+                "/iː/, /uː/, and /ɜː/, which are held steady in one single position"
+            ],
+            correctAnswer: 1,
+            explanation: "The 3 centering diphthongs glide toward schwa /ə/: /ɪə/ (near, here), /eə/ (hair, bear), /ʊə/ (tour, poor).",
+            topic: "Centering Diphthongs"
+        },
+        {
+            id: 15,
+            category: "Diphthongs",
+            question: "Which diphthong is found in the words 'day', 'make', and 'wait'?",
+            options: [
+                "/aɪ/, which is a closing diphthong found in 'sky', 'light', and 'eye'",
+                "/eɪ/, which is a closing diphthong found in 'day', 'make', and 'wait'",
+                "/ɔɪ/, which is a closing diphthong found in 'boy', 'voice', and 'toy'",
+                "/əʊ/, which is a closing diphthong found in 'go', 'home', and 'slow'"
+            ],
+            correctAnswer: 1,
+            explanation: "The diphthong /eɪ/ is found in 'day', 'make', 'wait'. It glides from /e/ toward /ɪ/.",
+            topic: "Closing Diphthongs — /eɪ/"
+        },
+        {
+            id: 16,
+            category: "Transcription",
+            question: "The correct IPA transcription of the word 'enough' is:",
+            options: [
+                "/enɒf/, with a short /e/ vowel and an /ɒ/ vowel before the final /f/",
+                "/ɪˈnʌf/, with a short /ɪ/ vowel, stress on the second syllable, and /ʌ/",
+                "/ɪˈnɔːf/, with a short /ɪ/ vowel and a long /ɔː/ before the final /f/",
+                "/ɑːnʌf/, with a long /ɑː/ vowel at the start and /ʌ/ in the second"
+            ],
+            correctAnswer: 1,
+            explanation: "The word 'enough' is transcribed /ɪˈnʌf/. The spelling 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. This shows how English spelling can be misleading.",
+            topic: "IPA Transcription"
+        },
+        {
+            id: 17,
+            category: "Transcription",
+            question: "Which transcription correctly represents the word 'father'?",
+            options: [
+                "/fæðə/, using the short vowel /æ/ as in 'trap' for the first syllable",
+                "/fɑːðə/, using the long vowel /ɑː/ as in 'start' for the first syllable",
+                "/fɒðə/, using the short vowel /ɒ/ as in 'lot' for the first syllable",
+                "/fʌðə/, using the short vowel /ʌ/ as in 'strut' for the first syllable"
+            ],
+            correctAnswer: 1,
+            explanation: "The correct transcription is /fɑːðə/. The 'a' in 'father' is the long vowel /ɑː/, not the short /æ/ as in 'fat'.",
+            topic: "IPA Transcription — Common Mistakes"
+        },
+        {
+            id: 18,
+            category: "Transcription",
+            question: "The word 'thought' is correctly transcribed as:",
+            options: [
+                "/θɒt/, with the short vowel /ɒ/ as found in the word 'lot' or 'not'",
+                "/θɔːt/, with the long vowel /ɔː/ as found in the word 'law' or 'war'",
+                "/θʌt/, with the short vowel /ʌ/ as found in the word 'cut' or 'but'",
+                "/θaʊt/, with the diphthong /aʊ/ as found in the word 'cow' or 'out'"
+            ],
+            correctAnswer: 1,
+            explanation: "The correct transcription is /θɔːt/. The 'ough' in 'thought' represents the long vowel /ɔː/, not the short /ɒ/.",
+            topic: "IPA Transcription — Common Mistakes"
+        },
+        {
+            id: 19,
+            category: "Short vs Long Vowels",
+            question: "The words 'cap' and 'cape' differ because:",
+            options: [
+                "both words contain the same short vowel /æ/ but different final consonants",
+                "'cap' has a short vowel /æ/ while 'cape' has a diphthong /eɪ/ instead",
+                "'cap' has a diphthong /eɪ/ while 'cape' has a short vowel /æ/ instead",
+                "both words contain the same diphthong /eɪ/ but different final consonants"
+            ],
+            correctAnswer: 1,
+            explanation: "'Cap' = /kæp/ (short vowel /æ/), 'cape' = /keɪp/ (diphthong /eɪ/). Adding a silent 'e' often changes the vowel from short to a diphthong or long sound.",
+            topic: "Short Vowel vs Diphthong"
+        },
+        {
+            id: 20,
+            category: "Phonemic Transcription",
+            question: "Phonemic transcription is defined as:",
+            options: [
+                "the process of writing down the grammatical rules of a spoken language",
+                "the process of representing each phoneme by its corresponding IPA symbol",
+                "the process of recording the pitch and intonation patterns of sentences",
+                "the process of translating written text from one language into another"
+            ],
+            correctAnswer: 1,
+            explanation: "Phonemic transcription is the process of representing each phoneme by an IPA symbol. It shows the distinctive sounds of a word, written between forward slashes /like this/.",
+            topic: "Phonemic Transcription — Definition"
         }
     ]
 },
 
+// ── EXAM 3: Consonants & Comprehensive Review (Sessions 2–3, 7) ─
 {
-    title: "The Merchant of Venice — Key Quote Analysis",
-    icon: "⚖️",
-    label: "Shakespeare",
+    title: "Exam 3: Consonants & Review",
+    icon: "🎯",
+    label: "Sessions 2–3, 7",
     lang: "en",
     type: "mcq",
     questions: [
         {
             id: 1,
-            category: "The Play",
-            question: "What is The Merchant of Venice primarily about?",
+            category: "Consonant Basics",
+            question: "Consonants are sounds that are produced with:",
             options: [
-                "A love triangle between three nobles in Venice",
-                "A bitter rivalry between a Jewish moneylender and a Christian merchant, centered on justice",
-                "A comedy about mistaken identities at a Venetian carnival",
-                "A tale of two merchants competing for the same trade route"
+                "no restriction or obstruction to the airflow between the larynx and lips",
+                "some obstruction to the airflow as it passes from the larynx to the lips",
+                "the soft palate always lowered so that air escapes through the nasal passage",
+                "the vocal cords always vibrating throughout the entire sound production"
             ],
             correctAnswer: 1,
-            explanation: "The Merchant of Venice by Shakespeare is a story about justice and a bitter rivalry between Shylock, a Jewish moneylender, and Antonio, a Christian merchant in Venice.",
-            topic: "The Play — Overview"
+            explanation: "Consonants involve some obstruction (partial or complete) of the airflow as it passes from the larynx to the lips. Vowels, by contrast, have no obstruction.",
+            topic: "Consonants — Definition"
         },
         {
             id: 2,
-            category: "The Quote",
-            question: "When Shylock says he wants to 'catch him upon the hip' and 'feed fat the ancient grudge,' what is he really saying?",
+            category: "Consonant Classification",
+            question: "To describe any English consonant, you need to specify three key dimensions:",
             options: [
-                "He wants to become Antonio's business partner and share the profits equally",
-                "He wants to physically fight Antonio in a public wrestling match",
-                "If he gets the upper hand on Antonio even once, he will finally satisfy his long-held hatred caused by Antonio's public insults",
-                "He plans to forgive Antonio after receiving a sincere apology"
+                "length, pitch, and volume of the sound during its production in speech",
+                "place of articulation, manner of articulation, and voicing of the sound",
+                "spelling, syllable position, and frequency of the sound in English words",
+                "tongue height, tongue advancement, and lip rounding during the sound"
             ],
-            correctAnswer: 2,
-            explanation: "Shylock is saying that if he can get the upper hand on Antonio even once, he will finally satisfy his long-held hatred — a grudge built from Antonio's public insults against his people and religion.",
-            topic: "The Quote — Meaning"
+            correctAnswer: 1,
+            explanation: "Every consonant is described by three dimensions: place of articulation (WHERE), manner of articulation (HOW), and voicing (whether vocal cords vibrate).",
+            topic: "Three Dimensions of Consonants"
         },
         {
             id: 3,
-            category: "Themes",
-            question: "The conflict between Shylock and Antonio is really driven by which deeper themes?",
+            category: "Place of Articulation",
+            question: "Place of articulation refers to:",
             options: [
-                "Friendship and loyalty between business partners",
-                "Revenge and religious conflict — the dispute is about deep cultural pain and identity, not money",
-                "Romantic jealousy over the same woman",
-                "A disagreement over Venetian trade laws and taxation"
+                "how the air flows through the vocal tract during sound production",
+                "where in the mouth or throat the airflow is obstructed during production",
+                "whether the vocal cords vibrate or remain still during the sound",
+                "how long the sound is held before releasing the air from the mouth"
             ],
             correctAnswer: 1,
-            explanation: "This highlights revenge and religious conflict, showing that the dispute is not about money but about deep-seated cultural pain and identity. Shylock's grudge comes from systematic humiliation of his faith and people.",
-            topic: "Themes — Revenge & Religious Conflict"
+            explanation: "Place of articulation = WHERE the obstruction happens — the point where two articulators come together to block or narrow the airflow.",
+            topic: "Place of Articulation — Definition"
         },
         {
             id: 4,
-            category: "Plot",
-            question: "Why is Shylock's speech about 'the ancient grudge' a key plot point?",
+            category: "Plosives",
+            question: "The sounds /p/ and /b/ are called bilabial plosives because:",
             options: [
-                "It shows Shylock is willing to forgive Antonio's debts",
-                "It reveals Shylock's true motive: he doesn't want profit — he wants a legal trap to destroy his enemy",
-                "It proves that Shylock has no real plan and is acting on impulse",
-                "It introduces a new character who will mediate the conflict"
+                "the tongue blade is pressed firmly against the alveolar ridge to block air",
+                "both lips are pressed together to completely block the airflow momentarily",
+                "the back of the tongue is pressed against the soft palate to stop the air",
+                "the tongue tip is placed between the upper and lower teeth to restrict air"
             ],
             correctAnswer: 1,
-            explanation: "This is a key plot point because it reveals Shylock's true motive. He doesn't want money or profit — he wants to use the law itself as a weapon to trap and destroy Antonio.",
-            topic: "Plot — Shylock's True Motive"
+            explanation: "/p/ and /b/ are bilabial — both (bi-) lips (-labial) press together to completely stop the airflow. They are plosives because the air is released with a small burst.",
+            topic: "Bilabial Plosives — /p/ /b/"
         },
         {
             id: 5,
-            category: "Characters",
-            question: "How does Shakespeare present Shylock and Antonio through this quote?",
+            category: "Plosives",
+            question: "The sounds /t/ and /d/ are alveolar plosives because:",
             options: [
-                "Shylock as a generous lender and Antonio as a grateful borrower",
-                "Shylock as a man seeking justice for his 'sacred nation,' and Antonio as someone who publicly 'rails' against others",
-                "Both characters as equally kind men caught in a misunderstanding",
-                "Shylock as a villain with no reason for anger, and Antonio as an innocent victim"
+                "both lips are pressed together to completely stop the flow of air outward",
+                "the tongue blade is pressed against the alveolar ridge to block the airflow",
+                "the back of the tongue presses against the soft palate to stop air escape",
+                "the lower lip makes contact with the upper teeth to restrict the airflow"
             ],
             correctAnswer: 1,
-            explanation: "We see Shylock as a man seeking justice for his 'sacred nation' — his people and faith — while Antonio is presented as someone who publicly 'rails' against and humiliates others for their religion.",
-            topic: "Characters — Shylock vs Antonio"
+            explanation: "/t/ and /d/ are alveolar — the tongue blade presses against the alveolar ridge (the bony area behind the upper front teeth) to block the airflow.",
+            topic: "Alveolar Plosives — /t/ /d/"
         },
         {
             id: 6,
-            category: "Literary Devices",
-            question: "In Shylock's speech, 'catch him upon the hip' is a wrestling metaphor and 'feed fat the ancient grudge' is an animal metaphor. What do they signify?",
+            category: "Plosives",
+            question: "The sounds /k/ and /g/ are velar plosives because:",
             options: [
-                "'Catch him upon the hip' means to befriend him; 'feed fat' means to let go of anger",
-                "'Catch him upon the hip' signifies gaining total control over an opponent; 'feed fat' portrays his hatred as a hungry animal that needs to be satisfied",
-                "Both phrases refer to Venetian cooking traditions as symbols of hospitality",
-                "'Catch him upon the hip' means to follow him; 'feed fat' means to grow wealthy together"
+                "the tongue blade is pressed firmly against the alveolar ridge to block air",
+                "the back of the tongue presses against the soft palate (velum) to stop air",
+                "both lips are firmly pressed together to completely block the air flow",
+                "the tongue tip is placed between the upper and lower front teeth closely"
             ],
             correctAnswer: 1,
-            explanation: "The wrestling metaphor 'catch him upon the hip' signifies gaining total, decisive control over an opponent — like a wrestler pinning someone down. 'Feed fat' portrays Shylock's hatred as a hungry animal that has been starving and now finally needs to be satisfied.",
-            topic: "Literary Devices — Metaphor"
-        }
-    ]
-},
-{
-    title: "Exam 1: Understanding Computers - Set A",
-    icon: "💻",
-    label: "Computer Systems",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Computer Basics",
-            question: "What is the best definition of a computer?",
-            options: [
-                "A device that only performs mathematical calculations",
-                "A programmable machine that can store and process information",
-                "A machine used exclusively for word processing",
-                "An electronic device that only connects to the Internet"
-            ],
-            correctAnswer: 1,
-            explanation: "A computer is a programmable machine that allows the user to store all sorts of information and then process that information or carry out actions with it, such as calculating numbers or organising words.",
-            topic: "Lesson 1 — What is a Computer"
-        },
-        {
-            id: 2,
-            category: "Computer Types",
-            question: "Which type of computer can support hundreds or thousands of users simultaneously?",
-            options: [
-                "Personal computer (PC)",
-                "Workstation",
-                "Mainframe computer",
-                "Laptop computer"
-            ],
-            correctAnswer: 2,
-            explanation: "Mainframe computers are large-sized, powerful multi-user computers that can support concurrent programs and can be used by hundreds or thousands of users at the same time.",
-            topic: "Lesson 1 — Types of Computers"
-        },
-        {
-            id: 3,
-            category: "Computer Types",
-            question: "What distinguishes a workstation from a personal computer?",
-            options: [
-                "Workstations can only be used offline",
-                "Workstations are more powerful and often have higher-quality monitors",
-                "Workstations cannot be connected to networks",
-                "Workstations are designed for multiple simultaneous users"
-            ],
-            correctAnswer: 1,
-            explanation: "A workstation is similar to a personal computer but is more powerful and often comes with a higher-quality monitor. In terms of computing power, workstations lie between personal computers and mini-computers.",
-            topic: "Lesson 1 — Types of Computers"
-        },
-        {
-            id: 4,
-            category: "Hardware",
-            question: "Which of the following is NOT a required hardware component of a computer?",
-            options: [
-                "Central processing unit (CPU)",
-                "Memory",
-                "Scanner",
-                "Storage device"
-            ],
-            correctAnswer: 2,
-            explanation: "All computers require a CPU, memory, storage device, input devices, and output devices. A scanner is a peripheral input device but is not a required component — a keyboard is the standard input device.",
-            topic: "Lesson 1 — Components of a Computer"
-        },
-        {
-            id: 5,
-            category: "Hardware",
-            question: "What is the primary function of the Central Processing Unit (CPU)?",
-            options: [
-                "To store data permanently on the hard drive",
-                "To carry out all instructions given in a program",
-                "To connect the computer to the Internet",
-                "To display output on the monitor screen"
-            ],
-            correctAnswer: 1,
-            explanation: "The CPU is the heart of the computer. It carries out all of the instructions given in a program, such as a word processing or spreadsheet program.",
-            topic: "Lesson 1 — CPU"
-        },
-        {
-            id: 6,
-            category: "Software",
-            question: "What is the difference between systems software and applications software?",
-            options: [
-                "Systems software is free; applications software must be purchased",
-                "Systems software includes the operating system that enables the computer to function; applications software is used to carry out work",
-                "Systems software is only used on mainframes; applications software is for PCs",
-                "There is no real difference between the two types"
-            ],
-            correctAnswer: 1,
-            explanation: "Systems software includes the operating system and utilities that enable the computer to function. Applications software includes programs that users access to carry out work, such as word processing, spreadsheets, and databases.",
-            topic: "Lesson 1 — Software Types"
+            explanation: "/k/ and /g/ are velar — the back of the tongue presses against the soft palate (velum), where the hard palate ends and the soft palate begins.",
+            topic: "Velar Plosives — /k/ /g/"
         },
         {
             id: 7,
-            category: "Data Processing",
-            question: "What number system do computers use to process all information?",
+            category: "Voicing",
+            question: "A voiced consonant is one in which:",
             options: [
-                "Decimal number system using digits 0-9",
-                "Hexadecimal system using digits 0-F",
-                "Binary number system using only 0 and 1",
-                "Octal number system using digits 0-7"
+                "the vocal cords do not vibrate at all during the production of the sound",
+                "the vocal cords vibrate during the production of the consonant sound",
+                "the air escapes through the nose rather than through the oral cavity",
+                "the airflow is completely blocked and then released with a burst of air"
             ],
-            correctAnswer: 2,
-            explanation: "Computers use the binary number system, where each digit stands for a power of two and uses only two symbols: 0 and 1. The computer's electronic circuits have only two states — on or off — so they can only understand 0s and 1s.",
-            topic: "Lesson 1 — Binary System"
+            correctAnswer: 1,
+            explanation: "Voiced = vocal cords vibrate during the sound (e.g., /b/, /d/, /g/). Voiceless = vocal cords do NOT vibrate (e.g., /p/, /t/, /k/).",
+            topic: "Voiced vs Voiceless"
         },
         {
             id: 8,
-            category: "Data Processing",
-            question: "What is a byte?",
+            category: "Voicing",
+            question: "Which of the following groups contains ONLY voiceless consonants?",
             options: [
-                "The smallest unit of information in a computer",
-                "A combination of bits, usually 8, that represent one character",
-                "A unit of processing speed measured in megahertz",
-                "A type of storage device used in mainframe computers"
+                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
+                "/p/, /t/, and /k/, which are all produced without vocal cord vibration",
+                "/m/, /n/, and /ŋ/, which are all produced through the nasal passage",
+                "/f/, /d/, and /k/, which combine both voiced and voiceless consonants"
             ],
             correctAnswer: 1,
-            explanation: "A byte is a combination of bits that represent one character and is usually composed of 8 bits. A bit (binary digit) is the smallest unit of information, while a byte combines bits into meaningful characters.",
-            topic: "Lesson 1 — Bits and Bytes"
+            explanation: "/p/, /t/, /k/ are all voiceless plosives — produced without vocal cord vibration. Their voiced counterparts are /b/, /d/, /g/.",
+            topic: "Voiceless Plosives"
         },
         {
             id: 9,
-            category: "Memory",
-            question: "What happens to data stored in RAM when the computer is turned off?",
+            category: "Voicing",
+            question: "Which of the following groups contains ONLY voiced consonants?",
             options: [
-                "It is automatically saved to the hard drive",
-                "It remains intact until the computer is turned on again",
-                "It disappears because RAM is volatile memory",
-                "It is transferred to ROM for safekeeping"
+                "/p/, /t/, and /k/, which are produced without any vocal cord vibration",
+                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
+                "/p/, /b/, and /t/, which include both voiced and voiceless consonants",
+                "/f/, /s/, and /θ/, which are all produced without vocal cord vibration"
             ],
-            correctAnswer: 2,
-            explanation: "Most RAM is volatile, which means it requires a steady flow of electricity to maintain its contents. As soon as the power is turned off, whatever data was in RAM disappears.",
-            topic: "Lesson 1 — Computer Memory"
+            correctAnswer: 1,
+            explanation: "/b/, /d/, /g/ are all voiced plosives — produced with vocal cord vibration. They are the voiced counterparts of voiceless /p/, /t/, /k/.",
+            topic: "Voiced Plosives"
         },
         {
             id: 10,
-            category: "Storage",
-            question: "What is the main advantage of a hard drive over a diskette?",
+            category: "Aspiration",
+            question: "Voiceless plosives /p/, /t/, /k/ are aspirated (followed by a puff of air) when they appear in:",
             options: [
-                "A hard drive is portable and can be easily removed",
-                "A hard drive provides faster access and far greater storage capacity",
-                "A hard drive uses optical laser technology for reading data",
-                "A hard drive does not require electricity to retain data"
+                "the final position of a word, such as in the words 'flap' and 'meet'",
+                "the initial position of a word, such as in the words 'tea' and 'kitchen'",
+                "any position within a word, regardless of whether it is initial or final",
+                "consonant clusters at the start of words, such as in 'spin' and 'skate'"
             ],
             correctAnswer: 1,
-            explanation: "Hard disk storage provides faster access to files than a diskette, and its storage capacity far exceeds that of a floppy disk. Unlike diskettes, hard disks are continually in motion, so there is no delay as the disk spins up to speed.",
-            topic: "Lesson 1 — Storage Devices"
+            explanation: "Voiceless plosives are aspirated at the beginning of a word (initial position) — e.g., 'tea', 'kitchen', 'paper'. In clusters like 'sp-' or 'sk-', they are NOT aspirated.",
+            topic: "Aspiration of Plosives"
         },
         {
             id: 11,
-            category: "Storage",
-            question: "What does CD-ROM stand for?",
+            category: "Plosive Positions",
+            question: "The three positions a plosive can occur in within a word are:",
             options: [
-                "Computer Data — Read Only Memory",
-                "Compact Disc Read Only Memory",
-                "Central Data Recording Output Module",
-                "Compact Digital Rewritable Optical Media"
+                "stressed, unstressed, and neutral positions within a spoken word or phrase",
+                "initial position (CV), medial position (VCV), and final position (VC)",
+                "aspirated, unaspirated, and unreleased positions within a spoken word",
+                "bilabial, alveolar, and velar positions within the oral cavity of the speaker"
             ],
             correctAnswer: 1,
-            explanation: "CD-ROM stands for Compact Disc Read Only Memory. It is the most popular type of optical storage, containing data stamped on the disk surface as a series of pits that are read by an optical read head.",
-            topic: "Lesson 1 — Optical Storage"
+            explanation: "Plosives can occur in: initial position (beginning of word, e.g., 'tall'), medial position (middle, e.g., 'steam'), and final position (end, e.g., 'meet').",
+            topic: "Positions of Plosives"
         },
         {
             id: 12,
-            category: "Storage",
-            question: "Why is backing up electronic data considered critical?",
+            category: "IPA Consonants",
+            question: "The consonant sounds in the word 'twist' are:",
             options: [
-                "Because it makes the computer run faster",
-                "Because data on magnetic storage can be easily destroyed, erased, or lost",
-                "Because backups are required by international law",
-                "Because computers cannot function without backup copies"
+                "/t/, /r/, /s/, and /t/, totaling four consonant sounds in that word",
+                "/t/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
+                "/θ/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
+                "/t/, /w/, /z/, and /t/, totaling four consonant sounds in that word"
             ],
             correctAnswer: 1,
-            explanation: "Data on magnetic storage can be easily destroyed, erased, or otherwise lost. Protecting the data on the hard disk is of particular concern because it contains so much data, which could be difficult and time consuming to reconstruct.",
-            topic: "Lesson 1 — Backups"
+            explanation: "The consonants in 'twist' are: /t/ + /w/ + /s/ + /t/. The vowel is /ɪ/. So the full transcription would be /twɪst/.",
+            topic: "Identifying Consonant Sounds"
         },
         {
             id: 13,
-            category: "Computing Environments",
-            question: "What is a key advantage of mainframe computing in modern organisations?",
+            category: "IPA Consonants",
+            question: "The word 'church' is correctly transcribed as:",
             options: [
-                "Mainframes are the cheapest computers to purchase",
-                "Mainframes do not require trained staff to operate",
-                "Mainframes provide security, data integrity, and system availability",
-                "Mainframes can only run one application at a time"
+                "/ʃɜːtʃ/, starting with the fricative /ʃ/ and ending with the affricate /tʃ/",
+                "/tʃɜːtʃ/, starting with the affricate /tʃ/ and ending with the affricate /tʃ/",
+                "/sɜːtʃ/, starting with the fricative /s/ and ending with the affricate /tʃ/",
+                "/tʃɜːrtʃ/, starting with /tʃ/ and containing an /r/ before the final /tʃ/"
             ],
-            correctAnswer: 2,
-            explanation: "The current reasons for sharing mainframe computer power include security (protection from unauthorised access), integrity (guarantee that data is not corrupted), system availability (24-hour operation), and data sharing across the organisation.",
-            topic: "Lesson 2 — Mainframe Computing"
+            correctAnswer: 1,
+            explanation: "The correct transcription is /tʃɜːtʃ/. The 'ch' at both the beginning and end represents the affricate /tʃ/, and the middle vowel is /ɜː/.",
+            topic: "IPA Transcription — Affricates"
         },
         {
             id: 14,
-            category: "Networks",
-            question: "What is a Local Area Network (LAN)?",
+            category: "IPA Consonants",
+            question: "The word 'judge' is correctly transcribed as:",
             options: [
-                "A network connecting computers across different countries",
-                "A computer network located within a relatively limited area such as a building",
-                "A network that only connects mainframe computers",
-                "A wireless connection between a computer and the Internet"
+                "/jʌdʒ/, starting with the approximant /j/ and ending with the affricate /dʒ/",
+                "/dʒʌdʒ/, starting with the affricate /dʒ/ and ending with the affricate /dʒ/",
+                "/ɡʌdʒ/, starting with the velar plosive /ɡ/ and ending with the affricate /dʒ/",
+                "/dʒʌɡ/, starting with the affricate /dʒ/ and ending with the velar plosive /ɡ/"
             ],
             correctAnswer: 1,
-            explanation: "A Local Area Network (LAN) is a computer network located within a relatively limited area such as a building, agency or university campus.",
-            topic: "Lesson 2 — Networks"
+            explanation: "The correct transcription is /dʒʌdʒ/. The 'j' at the start and 'dge' at the end both represent the voiced affricate /dʒ/.",
+            topic: "IPA Transcription — Affricates"
         },
         {
             id: 15,
-            category: "Networks",
-            question: "What is the primary role of a file server in a network?",
+            category: "Speech Organs Review",
+            question: "The alveolar ridge is located:",
             options: [
-                "To provide Internet access to all users",
-                "To serve or distribute application programs and data files to workstations",
-                "To protect the network from viruses",
-                "To print documents for all network users"
+                "at the very back of the oral cavity, just above the larynx area",
+                "directly behind the upper front teeth, forming a bony ridge in the mouth",
+                "at the soft fleshy area at the back of the roof of the mouth cavity",
+                "between the two lips, forming the opening of the oral cavity itself"
             ],
             correctAnswer: 1,
-            explanation: "A file server is a computer that serves or distributes application programs and data files to workstations within a computer network. The hard drive of the file server is shared by the workstations on the network.",
-            topic: "Lesson 2 — Network Servers"
+            explanation: "The alveolar ridge is the bony ridge directly behind the upper front teeth. It is the place of articulation for alveolar sounds like /t/, /d/, /n/, /l/, /s/, /z/.",
+            topic: "The Alveolar Ridge"
         },
         {
             id: 16,
-            category: "Internet",
-            question: "What is a URL?",
+            category: "Speech Organs Review",
+            question: "The hard palate is located:",
             options: [
-                "A type of computer virus that spreads through email",
-                "The global address of documents and resources on the World Wide Web",
-                "A programming language used to create websites",
-                "A security protocol for protecting online data"
+                "directly behind the upper front teeth, forming the alveolar ridge area",
+                "between the alveolar ridge and the soft palate, forming the roof of mouth",
+                "at the back of the mouth where it can be raised or lowered for sound",
+                "inside the larynx where the vocal cords are positioned for vibration"
             ],
             correctAnswer: 1,
-            explanation: "URL stands for Uniform Resource Locator — the global address of documents and other resources on the World Wide Web. URLs can point to files or Web pages that can be retrieved using protocols like HTTP.",
-            topic: "Lesson 2 — Internet"
+            explanation: "The hard palate is the hard, bony roof of the mouth located between the alveolar ridge (front) and the soft palate/velum (back).",
+            topic: "The Hard Palate"
         },
         {
             id: 17,
-            category: "Databases",
-            question: "What is a data field in a database?",
+            category: "Comprehensive Review",
+            question: "How many phonemes are in the word 'listen'?",
             options: [
-                "A complete set of all information in the database",
-                "A space allocated for a particular item of information — the smallest unit you can access",
-                "A collection of related database tables",
-                "The software used to manage the database"
+                "six phonemes: /l/ + /ɪ/ + /s/ + /t/ + /e/ + /n/ in the word 'listen'",
+                "five phonemes: /l/ + /ɪ/ + /s/ + /ə/ + /n/ with the 't' being silent",
+                "four phonemes: /l/ + /ɪ/ + /s/ + /n/ with both 't' and 'e' being silent",
+                "seven phonemes, one for each letter that appears in the spelling of it"
             ],
             correctAnswer: 1,
-            explanation: "A data field is a space allocated for a particular item of information. In a database, fields are the smallest units of information you can access. A data field contains a single piece of information such as a first name or employee number.",
-            topic: "Lesson 3 — Databases"
+            explanation: "The word 'listen' = /lɪsən/ = 5 phonemes. The 't' is silent, and the 'e' represents schwa /ə/. Remember: phonemes ≠ letters.",
+            topic: "Counting Phonemes"
         },
         {
             id: 18,
-            category: "Databases",
-            question: "What is the main advantage of a relational database over other database models?",
+            category: "Comprehensive Review",
+            question: "The word 'shape' is correctly transcribed as:",
             options: [
-                "It can only store numerical data, making it faster",
-                "It allows new links between tables to be created as needs arise",
-                "It requires all data to be stored in a single table",
-                "It does not require any software to manage it"
+                "/ʃæp/, using the short vowel /æ/ and no diphthong in the transcription",
+                "/ʃeɪp/, using the diphthong /eɪ/ which glides from /e/ toward /ɪ/ sound",
+                "/seɪp/, using the fricative /s/ at the start instead of the fricative /ʃ/",
+                "/tʃeɪp/, using the affricate /tʃ/ at the start instead of the fricative /ʃ/"
             ],
             correctAnswer: 1,
-            explanation: "Relational databases are powerful because they require few assumptions about how data is related or how it will be extracted. They allow new links to be forged as needs arise, and the same database can be viewed in many different ways.",
-            topic: "Lesson 3 — Relational Databases"
+            explanation: "The correct transcription is /ʃeɪp/. The 'sh' = /ʃ/, the 'a' + silent 'e' = diphthong /eɪ/, and the 'p' = /p/.",
+            topic: "IPA Transcription Practice"
         },
         {
             id: 19,
-            category: "Email",
-            question: "Which of the following best describes how electronic mail works?",
+            category: "Comprehensive Review",
+            question: "Which statement about the respiratory system in speech is correct?",
             options: [
-                "Messages are printed and physically delivered to the recipient",
-                "The originator creates a message which is posted to a transport system that delivers it to the recipient's mailbox",
-                "Email can only be sent between users with the same software program",
-                "Email requires a direct phone call between sender and receiver"
+                "it modifies resonance in the vocal tract to create different speech sounds",
+                "it provides the airflow from the lungs that is needed for speech production",
+                "it produces vibration as air passes through the vocal cords in the larynx",
+                "it shapes the air into specific sounds using the tongue, lips, and palate"
             ],
             correctAnswer: 1,
-            explanation: "The message originator creates a message file in the e-mail software editor. When complete, the message is posted to a message transport system that delivers it to the recipient's mailbox. Users do not need the same email software.",
-            topic: "Lesson 3 — Electronic Mail"
+            explanation: "The respiratory system provides the airflow (egressive pulmonic airstream) from the lungs. The phonatory system creates vibration, and the articulatory system shapes the sounds.",
+            topic: "Respiratory System"
         },
         {
             id: 20,
-            category: "Viruses & Documentation",
-            question: "Why should computer documentation always be retained?",
+            category: "Comprehensive Review",
+            question: "Adults often struggle more than babies with acquiring a new language's pronunciation because of:",
             options: [
-                "Because documentation has no monetary value and takes up no space",
-                "Because it may be needed to reload software and may contain licences for legitimate use",
-                "Because documentation automatically updates the software",
-                "Because it is required only for mainframe computers"
+                "physical changes in the vocal tract that prevent adults from making sounds",
+                "negative transfer, where the native language interferes with new sounds",
+                "a complete inability to hear the differences between unfamiliar sounds",
+                "the lack of any formal instruction or classroom exposure to the language"
             ],
             correctAnswer: 1,
-            explanation: "Disposing of documentation can cause problems in the future, particularly if you have to reload software from the beginning. Documentation can also contain licences for the legitimate use of the software.",
-            topic: "Lesson 1 — Documentation"
+            explanation: "Adults are affected by their native language through negative transfer — their first language habits interfere with producing new sounds. Babies are great imitators and don't have this interference.",
+            topic: "Language Acquisition & Pronunciation"
         }
     ]
-},
-{
-    title: "Exam 2: Understanding Computers - Set B",
-    icon: "🖥️",
-    label: "Computer Systems",
+}
+
+// ── EXAM 4: IPA Transcription Practice 1 (Consonants & Short Vowels) ─
+,{
+    title: "Exam 4: IPA Transcription – Part 1",
+    icon: "✍️",
+    label: "Consonants & Short Vowels",
     lang: "en",
     type: "mcq",
     questions: [
         {
             id: 1,
-            category: "Computer Types",
-            question: "Which type of computer is described as a mid-sized multi-processing computer that can support 4 to 200 users?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'twist'?",
             options: [
-                "Mainframe computer",
-                "Personal computer",
-                "Mini-computer",
-                "Workstation"
+                "/t/ + /w/ + /s/ + /t/",
+                "/θ/ + /w/ + /s/ + /t/",
+                "/t/ + /r/ + /s/ + /t/",
+                "/d/ + /w/ + /z/ + /t/"
             ],
-            correctAnswer: 2,
-            explanation: "Mini-computers are mid-sized multi-processing computers that can perform several actions at the same time and can support from 4 to 200 users simultaneously.",
-            topic: "Lesson 1 — Types of Computers"
+            correctAnswer: 0,
+            explanation: "'Twist' = /twɪst/. The consonants are /t/, /w/, /s/, /t/. The 'tw' is not /θ/ or /r/.",
+            topic: "Consonant Symbols — twist"
         },
         {
             id: 2,
-            category: "Computer Types",
-            question: "The world of personal computers is basically divided between which two types of machines?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'shrimp'?",
             options: [
-                "Dell-compatible and HP-compatible",
-                "IBM-compatible and Macintosh-compatible",
-                "Intel-compatible and AMD-compatible",
-                "Linux-based and Unix-based"
+                "/s/ + /r/ + /m/ + /p/",
+                "/ʃ/ + /r/ + /m/ + /p/",
+                "/tʃ/ + /r/ + /m/ + /p/",
+                "/ʃ/ + /r/ + /n/ + /p/"
             ],
             correctAnswer: 1,
-            explanation: "The world of PCs is basically divided between IBM-compatible and Macintosh-compatible machines, named after the two computer manufacturers.",
-            topic: "Lesson 1 — Personal Computers"
+            explanation: "'Shrimp' = /ʃrɪmp/. The 'sh' = /ʃ/ (not /s/ or /tʃ/), then /r/, /m/, /p/.",
+            topic: "Consonant Symbols — shrimp"
         },
         {
             id: 3,
-            category: "Hardware",
-            question: "What is a peripheral device?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'thumb'?",
             options: [
-                "The main chip inside the CPU",
-                "Any piece of equipment in a computer system that is not inside the computer itself",
-                "The operating system software that runs the computer",
-                "The binary code used to process information"
+                "/t/ + /m/ + /b/",
+                "/θ/ + /m/ + /b/",
+                "/θ/ + /m/ only",
+                "/t/ + /m/ only"
             ],
-            correctAnswer: 1,
-            explanation: "A peripheral device is any piece of equipment in a computer system that is not actually inside the computer itself, such as printers, scanners, and external disk drives.",
-            topic: "Lesson 1 — Hardware Components"
+            correctAnswer: 2,
+            explanation: "'Thumb' = /θʌm/. The 'th' = /θ/, the 'b' is silent, so consonants are /θ/ + /m/ only.",
+            topic: "Consonant Symbols — thumb"
         },
         {
             id: 4,
-            category: "Hardware",
-            question: "What does the system clock in a computer determine?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'yacht'?",
             options: [
-                "The current time and date displayed on screen",
-                "The speed at which the computer can execute instructions",
-                "How long the computer can run before shutting down",
-                "The schedule for automatic software updates"
+                "/j/ + /tʃ/ + /t/",
+                "/j/ + /k/ + /t/",
+                "/j/ + /t/ only",
+                "/dʒ/ + /t/ only"
             ],
-            correctAnswer: 1,
-            explanation: "The system clock determines the speed at which the computer can execute an instruction, measured in megahertz (MHz) or millions of cycles per second. Higher MHz ratings mean faster processing.",
-            topic: "Lesson 1 — Processing Speed"
+            correctAnswer: 2,
+            explanation: "'Yacht' = /jɒt/. The 'y' = /j/, the 'ch' is silent, so consonants are /j/ + /t/ only.",
+            topic: "Consonant Symbols — yacht"
         },
         {
             id: 5,
-            category: "Hardware",
-            question: "What are the three main parts of the CPU?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'sing'?",
             options: [
-                "Monitor, keyboard, and mouse",
-                "Hard drive, floppy drive, and CD-ROM drive",
-                "Arithmetic and logic unit (ALU), control unit, and registers",
-                "RAM, ROM, and PROM"
+                "/s/ + /n/ + /g/",
+                "/s/ + /ŋ/ + /g/",
+                "/s/ + /ŋ/ only",
+                "/z/ + /ŋ/ only"
             ],
             correctAnswer: 2,
-            explanation: "The CPU consists of an arithmetic and logic unit (ALU) which performs calculations, a control unit which supervises general operations, and registers which hold data inside memory long enough to execute a function.",
-            topic: "Lesson 1 — CPU Components"
+            explanation: "'Sing' = /sɪŋ/. The 'ng' = /ŋ/ (a single nasal sound), and /g/ is not pronounced separately. So: /s/ + /ŋ/.",
+            topic: "Consonant Symbols — sing"
         },
         {
             id: 6,
-            category: "Data Processing",
-            question: "What is the correct sequence of how a computer functions?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'bomb'?",
             options: [
-                "Output → Processing → Storage → Input",
-                "Storage → Input → Output → Processing",
-                "Input → Processing → Storage → Output",
-                "Processing → Input → Output → Storage"
+                "/b/ + /m/ + /b/",
+                "/b/ + /m/ only",
+                "/p/ + /m/ + /b/",
+                "/b/ + /n/ only"
             ],
-            correctAnswer: 2,
-            explanation: "A computer functions by first accepting input, then processing the data, storing it, and finally producing output. This is the fundamental cycle of computer operation.",
-            topic: "Lesson 1 — How Computers Work"
+            correctAnswer: 1,
+            explanation: "'Bomb' = /bɒm/. The final 'b' is silent, so the consonants are /b/ + /m/ only.",
+            topic: "Consonant Symbols — bomb"
         },
         {
             id: 7,
-            category: "Data Processing",
-            question: "What is a bus in a computer?",
+            category: "Consonant Identification",
+            question: "What are the consonant IPA symbols in the word 'jump'?",
             options: [
-                "A type of external storage device",
-                "The channel or path that lets the parts of a computer communicate with each other",
-                "A program that detects and removes viruses",
-                "The protective casing around the CPU chip"
+                "/j/ + /m/ + /p/",
+                "/dʒ/ + /m/ + /p/",
+                "/tʃ/ + /m/ + /p/",
+                "/dʒ/ + /n/ + /p/"
             ],
             correctAnswer: 1,
-            explanation: "A bus is the channel or path that lets the parts of a computer communicate with each other. It picks up data from one component on the main board and transfers it to another component.",
-            topic: "Lesson 1 — Data Bus"
+            explanation: "'Jump' = /dʒʌmp/. The 'j' = /dʒ/ (not /j/ or /tʃ/), then /m/ + /p/.",
+            topic: "Consonant Symbols — jump"
         },
         {
             id: 8,
-            category: "Software",
-            question: "What is the main role of an operating system?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'sad':",
             options: [
-                "To create documents and spreadsheets for the user",
-                "To enable the computer to function by controlling hardware, software, and storage",
-                "To connect the computer to the Internet",
-                "To protect the computer from viruses and malware"
+                "/sʌd/",
+                "/sæd/",
+                "/sed/",
+                "/sɒd/"
             ],
             correctAnswer: 1,
-            explanation: "The operating system controls functions such as coordinating hardware and applications software, allocating storage facilities, controlling input and output devices, and managing time sharing. Every computer must have one to run other programs.",
-            topic: "Lesson 1 — Operating Systems"
+            explanation: "'Sad' = /sæd/. The vowel is /æ/ as in 'trap', not /ʌ/ as in 'strut' or /e/ as in 'dress'.",
+            topic: "Short Vowel Transcription — /æ/"
         },
         {
             id: 9,
-            category: "Software",
-            question: "What is the difference between proprietary (closed) and open software?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'luck':",
             options: [
-                "Proprietary software is free; open software requires payment",
-                "Proprietary software is privately owned with hidden specs; open software uses publicly accessible specifications",
-                "Proprietary software runs faster than open software",
-                "Open software can only run on mainframe computers"
+                "/læk/",
+                "/lɒk/",
+                "/lʌk/",
+                "/lʊk/"
             ],
-            correctAnswer: 1,
-            explanation: "Proprietary software is privately owned and controlled, with undisclosed specifications. Open software is designed using publicly accessible specifications, allowing anyone to create add-on products and mix and match products from different manufacturers.",
-            topic: "Lesson 1 — Software Types"
+            correctAnswer: 2,
+            explanation: "'Luck' = /lʌk/. The vowel is /ʌ/ as in 'strut'. Don't confuse with 'lack' /læk/ or 'look' /lʊk/ or 'lock' /lɒk/.",
+            topic: "Short Vowel Transcription — /ʌ/"
         },
         {
             id: 10,
-            category: "Storage",
-            question: "What is the key difference between sequential access and random access storage?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'ship':",
             options: [
-                "Sequential access is faster than random access",
-                "Sequential access reads data in order along the tape; random access can go directly to any location",
-                "Random access can only read data; sequential access can read and write",
-                "There is no practical difference between the two"
+                "/ʃiːp/",
+                "/ʃɪp/",
+                "/sɪp/",
+                "/ʃep/"
             ],
             correctAnswer: 1,
-            explanation: "Sequential access means data is stored and read as a sequence of bytes along the length of the tape — you must go through the tape in order. Random access allows positioning the read-write head directly over the sector containing the requested data.",
-            topic: "Lesson 1 — Storage Access Methods"
+            explanation: "'Ship' = /ʃɪp/. The vowel is short /ɪ/, not long /iː/ (that would be 'sheep'). The 'sh' = /ʃ/ not /s/.",
+            topic: "Short Vowel Transcription — /ɪ/"
         },
         {
             id: 11,
-            category: "Storage",
-            question: "What does WORM stand for in optical storage?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'often':",
             options: [
-                "Wide Output Reading Module",
-                "Write Once Read Many",
-                "Web Oriented Resource Management",
-                "Wireless Optical Recording Media"
+                "/ɒftən/",
+                "/ʌften/",
+                "/ɒfən/",
+                "/æfən/"
             ],
-            correctAnswer: 1,
-            explanation: "WORM stands for Write Once Read Many. These optical disks allow computer users to write data to an optical disk once, and then the data can be read many times but cannot be changed.",
-            topic: "Lesson 1 — Optical Storage"
+            correctAnswer: 2,
+            explanation: "'Often' = /ɒfən/. The 't' is silent, the first vowel is /ɒ/, and the second is schwa /ə/.",
+            topic: "Short Vowel Transcription — /ɒ/ + /ə/"
         },
         {
             id: 12,
-            category: "Storage",
-            question: "What is ASCII and why is it important?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'sister':",
             options: [
-                "A type of virus that corrupts computer files",
-                "A standard character code that allows data to be read by different computers and software",
-                "A programming language used to build databases",
-                "A hardware component inside the CPU"
+                "/sɪstər/",
+                "/sɪstɜː/",
+                "/sɪstə/",
+                "/sestə/"
             ],
-            correctAnswer: 1,
-            explanation: "ASCII (American Standard Code for Information Interchange) assigns a specific pattern of bits to each character. Its main value is storing information so it is readable by other computers, allowing people to retrieve and use data across different hardware or software.",
-            topic: "Lesson 1 — Data Encoding"
+            correctAnswer: 2,
+            explanation: "'Sister' = /sɪstə/. In RP, the final 'er' = schwa /ə/ (not /ər/ as in American English). The first vowel is /ɪ/.",
+            topic: "Short Vowel Transcription — /ɪ/ + /ə/"
         },
         {
             id: 13,
-            category: "Computing Environments",
-            question: "What is an information system?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'jam':",
             options: [
-                "Any computer connected to the Internet",
-                "The combination of information, technology, processes and people brought together to support a business objective",
-                "A database that stores employee records",
-                "The physical building where computers are kept"
+                "/jæm/",
+                "/dʒæm/",
+                "/tʃæm/",
+                "/dʒɑːm/"
             ],
             correctAnswer: 1,
-            explanation: "An information system is the combination of information, technology, processes and people brought together to support a given business objective, such as processing government payroll.",
-            topic: "Lesson 2 — Mainframe Computing"
+            explanation: "'Jam' = /dʒæm/. The 'j' in English = /dʒ/ (not /j/ which is the 'y' sound). The vowel is /æ/.",
+            topic: "Short Vowel Transcription — /dʒ/ + /æ/"
         },
         {
             id: 14,
-            category: "Networks",
-            question: "What is an Intranet?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'foot':",
             options: [
-                "The global network connecting millions of computers worldwide",
-                "An internal computer network accessible only by an organisation's members",
-                "A type of virus that spreads through local networks",
-                "A wireless connection between two personal computers"
+                "/fuːt/",
+                "/fʊt/",
+                "/fɒt/",
+                "/fʌt/"
             ],
             correctAnswer: 1,
-            explanation: "An Intranet is an internal computer network that belongs to an organisation and is accessible only by that organisation's members.",
-            topic: "Lesson 2 — Networks"
+            explanation: "'Foot' = /fʊt/. The vowel is short /ʊ/ (not long /uː/ — that would be 'food'). Don't confuse with /ɒ/ or /ʌ/.",
+            topic: "Short Vowel Transcription — /ʊ/"
         },
         {
             id: 15,
-            category: "Networks",
-            question: "What is the difference between groupware and workflow software?",
+            category: "Short Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'accent':",
             options: [
-                "Groupware is for mainframes; workflow software is for PCs",
-                "Groupware manages shared documents (information-centred); workflow automates a series of steps (process-centred)",
-                "Groupware is open-source; workflow software is proprietary",
-                "There is no meaningful difference between the two"
-            ],
-            correctAnswer: 1,
-            explanation: "Groupware manages a pool of documents and allows simultaneous access (information-centred model). Workflow software automates the process of electronically routing documents from one person to another in a specified sequence (process-centred model).",
-            topic: "Lesson 2 — Network Software"
-        },
-        {
-            id: 16,
-            category: "Internet",
-            question: "What is HTML?",
-            options: [
-                "A type of computer hardware used in web servers",
-                "A markup language that controls how Web pages are formatted and displayed",
-                "A database management system for online data",
-                "An Internet Service Provider for academic institutions"
-            ],
-            correctAnswer: 1,
-            explanation: "HyperText Markup Language (HTML) is one of the main standards that controls how the World Wide Web works. It determines how Web pages are formatted and displayed, enabling information exchange on the Web.",
-            topic: "Lesson 2 — World Wide Web"
-        },
-        {
-            id: 17,
-            category: "Databases",
-            question: "Which database model stores information across different tables while maintaining links between them?",
-            options: [
-                "Hierarchical database",
-                "Network database",
-                "Relational database",
-                "Object-oriented database"
+                "/æksənt/",
+                "/ɑːksent/",
+                "/æksent/",
+                "/eksənt/"
             ],
             correctAnswer: 2,
-            explanation: "A relational database stores facts in tables called relations and spreads information across different tables while maintaining links between them. It allows new links to be forged as needs arise.",
-            topic: "Lesson 3 — Database Models"
-        },
-        {
-            id: 18,
-            category: "Databases",
-            question: "What is SQL?",
-            options: [
-                "A type of computer virus",
-                "A structured query language used to direct a computer to locate and manage database information",
-                "A file format for storing images",
-                "A network protocol for email communication"
-            ],
-            correctAnswer: 1,
-            explanation: "SQL (Structured Query Language) is a query language — a set of command words used to direct a computer to create databases, locate information, sort records and change data in those records.",
-            topic: "Lesson 3 — Query Languages"
-        },
-        {
-            id: 19,
-            category: "Databases",
-            question: "In a relational database, what is a 'common key'?",
-            options: [
-                "A password required to access the database",
-                "A deliberately duplicated column in two or more tables that allows them to be linked together",
-                "The first record entered into any database table",
-                "The programming language used to build the database"
-            ],
-            correctAnswer: 1,
-            explanation: "A common key results from deliberate duplication of columns in two or more tables. For example, if two tables each contain a student ID column, this number can be used to find related information across both tables.",
-            topic: "Lesson 3 — Relational Databases"
-        },
-        {
-            id: 20,
-            category: "Viruses",
-            question: "Which of the following is a way computer viruses can spread?",
-            options: [
-                "By reading documentation manuals",
-                "Through exchanging floppy disks, email messages, and downloading from the Web",
-                "By turning the computer on and off too frequently",
-                "Through using licensed and properly purchased software"
-            ],
-            correctAnswer: 1,
-            explanation: "Viruses can be caught by exchanging floppy disks, via electronic mail messages, and through downloading documents from the Web. Networks make it much easier for viruses to spread quickly through an organisation.",
-            topic: "Lesson 1 — Viruses"
+            explanation: "'Accent' = /æksent/. The first vowel is /æ/ and the second is /e/. The 'cc' = /ks/.",
+            topic: "Short Vowel Transcription — /æ/ + /e/"
         }
     ]
+},
+
+// ── EXAM 5: IPA Transcription Practice 2 (Long Vowels, Diphthongs & Full Words) ─
+{
+    title: "Exam 5: IPA Transcription – Part 2",
+    icon: "🎧",
+    label: "Long Vowels, Diphthongs & Mixed",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Long Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'nurse':",
+            options: [
+                "/nʌrs/",
+                "/nɜːs/",
+                "/nɒːs/",
+                "/nɑːs/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Nurse' = /nɜːs/. The vowel is the long central vowel /ɜː/. A common mistake is using /ʌ/ (short) instead of /ɜː/ (long).",
+            topic: "Long Vowel Transcription — /ɜː/"
+        },
+        {
+            id: 2,
+            category: "Long Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'thought':",
+            options: [
+                "/θɒt/",
+                "/θɔːt/",
+                "/θaʊt/",
+                "/θʌt/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Thought' = /θɔːt/. The vowel is the long /ɔː/ (as in 'law', 'war'), not the short /ɒ/ as in 'lot'.",
+            topic: "Long Vowel Transcription — /ɔː/"
+        },
+        {
+            id: 3,
+            category: "Long Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'goose':",
+            options: [
+                "/ɡʊs/",
+                "/ɡuːs/",
+                "/ɡɒːs/",
+                "/ɡʌs/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Goose' = /ɡuːs/. The vowel is the long /uː/. Don't confuse with short /ʊ/ (that would be closer to 'good' /ɡʊd/).",
+            topic: "Long Vowel Transcription — /uː/"
+        },
+        {
+            id: 4,
+            category: "Long Vowel Transcription",
+            question: "Choose the correct IPA transcription of the word 'machine':",
+            options: [
+                "/mæʃɪn/",
+                "/məˈʃiːn/",
+                "/mɑːʃɪn/",
+                "/mætʃɪn/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Machine' = /məˈʃiːn/. The first syllable has schwa /ə/, the 'ch' = /ʃ/, and the final vowel is long /iː/.",
+            topic: "Long Vowel Transcription — /iː/"
+        },
+        {
+            id: 5,
+            category: "Diphthong Transcription",
+            question: "Choose the correct IPA transcription of the word 'note':",
+            options: [
+                "/nɒt/",
+                "/nəʊt/",
+                "/naʊt/",
+                "/nɔːt/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Note' = /nəʊt/. It contains the closing diphthong /əʊ/ (as in 'go', 'home'). Don't confuse with 'not' = /nɒt/.",
+            topic: "Diphthong Transcription — /əʊ/"
+        },
+        {
+            id: 6,
+            category: "Diphthong Transcription",
+            question: "Choose the correct IPA transcription of the word 'tape':",
+            options: [
+                "/tæp/",
+                "/teɪp/",
+                "/tiːp/",
+                "/taɪp/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Tape' = /teɪp/. It contains the closing diphthong /eɪ/ (as in 'day', 'make'). Don't confuse with 'tap' = /tæp/ or 'type' = /taɪp/.",
+            topic: "Diphthong Transcription — /eɪ/"
+        },
+        {
+            id: 7,
+            category: "Diphthong Transcription",
+            question: "Choose the correct IPA transcription of the word 'stove':",
+            options: [
+                "/stɒv/",
+                "/stəʊv/",
+                "/staʊv/",
+                "/stʌv/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Stove' = /stəʊv/. It contains the closing diphthong /əʊ/. Don't confuse with 'stop' = /stɒp/ which has the short /ɒ/.",
+            topic: "Diphthong Transcription — /əʊ/"
+        },
+        {
+            id: 8,
+            category: "Affricate Transcription",
+            question: "Choose the correct IPA transcription of the word 'chip':",
+            options: [
+                "/ʃɪp/",
+                "/tʃɪp/",
+                "/kɪp/",
+                "/tʃiːp/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Chip' = /tʃɪp/. The 'ch' = affricate /tʃ/ (not /ʃ/ — that would be 'ship'). The vowel is short /ɪ/ (not /iː/ — that would be 'cheap').",
+            topic: "Affricate Transcription — /tʃ/"
+        },
+        {
+            id: 9,
+            category: "Affricate Transcription",
+            question: "Choose the correct IPA transcription of the word 'hedge':",
+            options: [
+                "/hedz/",
+                "/hedʒ/",
+                "/hetʃ/",
+                "/hed/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Hedge' = /hedʒ/. The 'dge' = voiced affricate /dʒ/. Don't confuse with /tʃ/ (voiceless) or /z/.",
+            topic: "Affricate Transcription — /dʒ/"
+        },
+        {
+            id: 10,
+            category: "Affricate Transcription",
+            question: "Choose the correct IPA transcription of the word 'bulge':",
+            options: [
+                "/bʊldʒ/",
+                "/bʌldʒ/",
+                "/bʌlɡ/",
+                "/bʌldz/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Bulge' = /bʌldʒ/. The vowel is /ʌ/ (not /ʊ/), and the final sound is the affricate /dʒ/ (not /ɡ/ or /dz/).",
+            topic: "Affricate Transcription — /dʒ/"
+        },
+        {
+            id: 11,
+            category: "Affricate Transcription",
+            question: "Choose the correct IPA transcription of the word 'watched':",
+            options: [
+                "/wɒtʃɪd/",
+                "/wɒtʃt/",
+                "/wætʃt/",
+                "/wɒtʃd/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Watched' = /wɒtʃt/. The vowel is /ɒ/, and the past tense '-ed' is pronounced /t/ after the voiceless /tʃ/. No extra syllable.",
+            topic: "Affricate Transcription — /tʃ/ + past tense"
+        },
+        {
+            id: 12,
+            category: "Full Word Transcription",
+            question: "Choose the correct IPA transcription of the word 'enough':",
+            options: [
+                "/enɒf/",
+                "/ɪˈnʌf/",
+                "/ɪˈnɔːf/",
+                "/ɑːnʌf/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Enough' = /ɪˈnʌf/. The 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. English spelling is very misleading here.",
+            topic: "Full Word Transcription — enough"
+        },
+        {
+            id: 13,
+            category: "Full Word Transcription",
+            question: "Choose the correct IPA transcription of the word 'comb':",
+            options: [
+                "/kɒmb/",
+                "/kəʊm/",
+                "/kʌm/",
+                "/kɒm/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Comb' = /kəʊm/. The vowel is the diphthong /əʊ/ and the final 'b' is silent. Only 3 phonemes: /k/ + /əʊ/ + /m/.",
+            topic: "Full Word Transcription — comb"
+        },
+        {
+            id: 14,
+            category: "Full Word Transcription",
+            question: "Choose the correct IPA transcription of the word 'drama':",
+            options: [
+                "/drɑːmə/",
+                "/dræmə/",
+                "/drɒmə/",
+                "/drʌmə/"
+            ],
+            correctAnswer: 0,
+            explanation: "'Drama' = /drɑːmə/. The first vowel is long /ɑː/ (as in 'father'), and the second is schwa /ə/.",
+            topic: "Full Word Transcription — drama"
+        },
+        {
+            id: 15,
+            category: "Full Word Transcription",
+            question: "Choose the correct IPA transcription of the word 'squelch':",
+            options: [
+                "/skwelk/",
+                "/skweltʃ/",
+                "/skwelʃ/",
+                "/sweltʃ/"
+            ],
+            correctAnswer: 1,
+            explanation: "'Squelch' = /skweltʃ/. The 'squ' = /skw/, the vowel is /e/, and the 'lch' = /ltʃ/.",
+            topic: "Full Word Transcription — squelch"
+        }
+    ]
+}
+
+// ── EXAM 6: Label the Articulators Diagram ───────────────────
+,{
+    title: "Exam 6: Label the Articulators",
+    icon: "🫁",
+    label: "Diagram Practice",
+    lang: "en",
+    type: "diagram"
 }
 
 ]; // end examSets
@@ -1337,6 +1412,7 @@ function selectExam(index) {
     document.documentElement.setAttribute('lang', 'en');
     document.documentElement.setAttribute('dir', 'ltr');
     if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
+    if (exam.type === 'diagram') { state.screen = 'diagram'; render(); return; }
     const questions = exam.questions || [];
     state.initialQuestionCount = questions.length;
     state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
@@ -1433,55 +1509,15 @@ function renderExamSelection() {
     const examCards = examSets.map((examSet, index) => `
         <div class="exam-card" onclick="selectExam(${index})">
             <h3>${examSet.title}</h3>
-            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : 'Multiple Choice Quiz'}</p>
-            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.questions.length + ' Questions'}</p>
+            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : examSet.type === 'diagram' ? 'Diagram Labeling Practice' : 'Multiple Choice Quiz'}</p>
+            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.type === 'diagram' ? '🫁 11 Labels' : examSet.questions.length + ' Questions'}</p>
         </div>
     `).join('');
     return `
         <div class="exam-selection">
-            <h1>Drama Course Exams</h1>
+            <h1>Phonetics EC108 — Midterm Exams</h1>
             <p>Choose the exam you want to start with</p>
             <div class="exam-options">${examCards}</div>
-        </div>`;
-}
-
-function renderEssay() {
-    const exam = examSets[state.selectedExam];
-    const paras = exam.paragraphs.map(p => `
-        <div style="margin-bottom:1.2rem;">
-            <div class="para-label">${p.label}</div>
-            <p>${p.content}</p>
-        </div>`).join('');
-    return `
-        <div class="header">
-            <h1>${exam.title}</h1>
-        </div>
-        <div class="question-container">
-            <h2 class="category">Quote for Analysis</h2>
-            <div class="essay-quote-box">
-                "${exam.quote}"<br>
-                <small style="font-size:0.82rem;opacity:0.7;font-style:normal;">${exam.attribution}</small>
-            </div>
-            <div class="essay-instructions">
-                <p><strong>Write your answer in THREE paragraphs:</strong></p>
-                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
-                    <li><strong>Paragraph 1:</strong> Where is the quote from? (play title + author). What is the occasion it was said, and all relevant context details.</li>
-                    <li><strong>Paragraph 2:</strong> Reproduction — rewrite the meaning in simpler, more beautiful language.</li>
-                    <li><strong>Paragraph 3:</strong> Connect to plot, characters, and/or themes. Include a <strong>Figure of Speech</strong> — especially <em>Disordering</em> (inverted sentence, not standard S+V+O).</li>
-                </ol>
-                <p class="essay-note">💡 One idea per paragraph only. Write thoroughly. Don't forget the Figure of Speech.</p>
-            </div>
-            <button class="show-model-btn" onclick="toggleEssayReveal()">
-                ${state.essayRevealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
-            </button>
-            <div class="essay-reveal-box ${state.essayRevealed ? 'show' : ''}">
-                <h3>✅ Model Answer</h3>
-                ${paras}
-                <p class="essay-disclaimer">⚠️ This is a guide only — your own answer should reflect your understanding and style.</p>
-            </div>
-        </div>
-        <div style="text-align:center;">
-            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
         </div>`;
 }
 
@@ -1576,10 +1612,180 @@ function renderQuestion() {
         </div>`;
 }
 
+function renderDiagram() {
+    const revealed = state.essayRevealed;
+    return `
+        <div class="header">
+            <h1>Exam 6: Label the Articulators</h1>
+        </div>
+        <div class="question-container">
+            <h2 class="category">The Articulators — Diagram Labeling</h2>
+            <div class="essay-instructions">
+                <p><strong>Instructions:</strong></p>
+                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
+                    <li>Look at the blank diagram below carefully.</li>
+                    <li>On a piece of paper, write down the <strong>11 labels</strong> for each numbered position.</li>
+                    <li>Once you've finished writing all your answers, click <strong>"Show Answers"</strong> to reveal the correct labels and check your work.</li>
+                </ol>
+                <p class="essay-note">There are 11 parts to label. Take your time and try from memory first!</p>
+            </div>
+
+            <div style="position:relative;max-width:700px;margin:1.5rem auto;background:white;border-radius:0.75rem;overflow:hidden;border:2px solid var(--border);">
+                <svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                    <!-- Head outline -->
+                    <path d="M280,30 C220,30 180,60 160,100 C140,140 130,170 125,200 C120,230 110,250 90,260 C70,270 55,275 50,290 C45,305 50,315 65,320 C80,325 90,330 95,335 C100,340 100,350 95,360 C90,370 85,375 85,385 C85,395 90,405 100,410 C110,415 125,420 140,420 C155,420 165,420 175,415" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
+                    <path d="M175,415 C185,410 195,400 210,395 C225,390 240,390 260,395 C280,400 300,410 310,425 C320,440 325,455 325,470" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
+                    <!-- Nasal cavity top -->
+                    <path d="M160,100 C180,95 220,90 260,95 C300,100 340,110 380,130 C420,150 450,175 470,200 C490,225 500,250 500,280" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
+                    <!-- Palate area -->
+                    <path d="M200,140 C220,130 260,120 300,125 C340,130 370,145 400,165 C430,185 450,210 460,240" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <!-- Tongue -->
+                    <path d="M170,310 C180,280 200,260 230,250 C260,240 300,235 340,250 C370,260 390,280 400,310 C405,330 400,350 380,370 C360,385 330,395 300,400" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
+                    <!-- Teeth upper -->
+                    <path d="M140,195 L145,215 L155,210" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <!-- Teeth lower -->
+                    <path d="M145,340 L150,325 L160,330" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <!-- Lips -->
+                    <path d="M90,260 C95,250 105,245 115,248" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <path d="M95,335 C100,345 110,348 120,345" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <!-- Uvula hint -->
+                    <path d="M455,235 C458,245 455,255 448,260" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <!-- Pharynx back wall -->
+                    <path d="M500,280 C505,320 505,360 500,400 C495,430 485,455 475,470" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
+                    <!-- Larynx area -->
+                    <path d="M325,470 C340,465 370,460 400,465 C430,470 460,472 475,470" fill="none" stroke="var(--text-color)" stroke-width="2"/>
+                    <path d="M380,450 C385,460 390,465 400,465" fill="none" stroke="var(--text-color)" stroke-width="1.5"/>
+                    <path d="M420,450 C415,460 410,465 400,465" fill="none" stroke="var(--text-color)" stroke-width="1.5"/>
+
+                    <!-- Number labels with lines -->
+                    <!-- 1. Nose -->
+                    <line x1="120" y1="80" x2="155" y2="100" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="110" cy="72" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="110" y="77" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">1</text>
+
+                    <!-- 2. Upper teeth -->
+                    <line x1="105" y1="170" x2="140" y2="200" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="95" cy="162" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="95" y="167" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">2</text>
+
+                    <!-- 3. Upper lip -->
+                    <line x1="55" y1="235" x2="90" y2="255" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="45" cy="227" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="45" y="232" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">3</text>
+
+                    <!-- 4. Lower lip -->
+                    <line x1="55" y1="355" x2="90" y2="340" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="45" cy="363" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="45" y="368" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">4</text>
+
+                    <!-- 5. Alveolar ridge -->
+                    <line x1="220" y1="60" x2="200" y2="130" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="220" cy="48" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="220" y="53" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">5</text>
+
+                    <!-- 6. Hard palate -->
+                    <line x1="320" y1="55" x2="310" y2="125" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="320" cy="43" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="320" y="48" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">6</text>
+
+                    <!-- 7. Soft palate (velum) -->
+                    <line x1="510" y1="55" x2="455" y2="210" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="530" cy="43" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="530" y="48" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">7</text>
+
+                    <!-- 8. Tongue -->
+                    <line x1="310" y1="310" x2="320" y2="290" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="310" cy="325" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="310" y="330" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">8</text>
+
+                    <!-- 9. Lower teeth -->
+                    <line x1="200" y1="395" x2="155" y2="340" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="210" cy="405" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="210" y="410" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">9</text>
+
+                    <!-- 10. Pharynx -->
+                    <line x1="570" y1="320" x2="505" y2="330" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="585" cy="315" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="585" y="320" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">10</text>
+
+                    <!-- 11. Larynx -->
+                    <line x1="420" y1="470" x2="410" y2="460" stroke="var(--accent)" stroke-width="1.5"/>
+                    <circle cx="430" cy="470" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                    <text x="430" y="475" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">11</text>
+                </svg>
+            </div>
+
+            <button class="show-model-btn" onclick="toggleEssayReveal()">
+                ${revealed ? '▲ Hide Answers' : '▼ I\'m done — Show Answers'}
+            </button>
+
+            <div class="essay-reveal-box ${revealed ? 'show' : ''}">
+                <h3>✅ Correct Labels</h3>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin-bottom:1.2rem;">
+                    <div><span style="font-weight:bold;color:var(--accent);">1.</span> <strong>Nose</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">2.</span> <strong>Upper teeth</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">3.</span> <strong>Upper lip</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">4.</span> <strong>Lower lip</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">5.</span> <strong>Alveolar ridge</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">6.</span> <strong>Hard palate</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">7.</span> <strong>Soft palate (velum)</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">8.</span> <strong>Tongue</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">9.</span> <strong>Lower teeth</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">10.</span> <strong>Pharynx</strong></div>
+                    <div><span style="font-weight:bold;color:var(--accent);">11.</span> <strong>Larynx</strong></div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid var(--border);margin:1.2rem 0;">
+                <h3>📖 Brief Definitions</h3>
+
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Nose:</strong> The external opening of the nasal cavity; air exits here for nasal sounds like /m/, /n/, /ŋ/.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Upper teeth:</strong> Used as a passive articulator; the tongue touches them for dental sounds like /θ/ (think) and /ð/ (the).
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Upper lip:</strong> Works with the lower lip for bilabial sounds like /p/, /b/, /m/ where both lips press together.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Lower lip:</strong> An active articulator; moves up to contact upper teeth for labiodental sounds like /f/ and /v/.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Alveolar ridge:</strong> The bony ridge directly behind the upper front teeth; place of articulation for /t/, /d/, /n/, /l/, /s/, /z/.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Hard palate:</strong> The hard, bony roof of the mouth between the alveolar ridge and the soft palate; used for palatal sounds like /j/.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Soft palate (velum):</strong> The fleshy back part of the roof of the mouth. It raises to block nasal airflow (oral sounds: /k/, /g/) and lowers to allow it (nasal sounds: /m/, /n/). Also a place of articulation for velar consonants.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Tongue:</strong> The most flexible and important articulator; different parts (tip, blade, back) contact different places to produce most consonants and shape all vowels.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Lower teeth:</strong> A passive articulator; the tongue tip touches them for certain sounds and they help shape airflow.
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Pharynx:</strong> A tube (~7–8 cm) beginning just above the larynx; at its top it divides into the oral cavity (mouth) and nasal cavity (nose).
+                </p>
+                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
+                    <strong style="color:var(--accent);">Larynx:</strong> The voice box containing the vocal cords (vocal folds). When air passes through, the cords can vibrate to produce voiced sounds (/b/, /d/, /g/) or stay open for voiceless sounds (/p/, /t/, /k/).
+                </p>
+
+                <p class="essay-disclaimer">⚠️ Make sure you can label this diagram from memory — it is very likely to appear on the midterm.</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:1rem;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
+        </div>`;
+}
+
 function render() {
     const app = document.getElementById('app');
     if (state.screen === 'selection') app.innerHTML = renderExamSelection();
     else if (state.screen === 'essay') app.innerHTML = renderEssay();
+    else if (state.screen === 'diagram') app.innerHTML = renderDiagram();
     else if (state.quizCompleted) app.innerHTML = renderResults();
     else app.innerHTML = renderQuestion();
 }

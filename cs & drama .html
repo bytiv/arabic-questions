@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm Exams</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme" onclick="toggleTheme()">🌙</button>
+    <div class="container" id="app"></div>
+
+<script>
+// ── EXAM 1: History of Drama ─────────────────────────────────
+
+const examSets = [ 
+    {
+    title: "Exam 1: History of Drama",
+    icon: "🏛️",
+    label: "Lecture 1",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Greek Theatre",
+            question: "Greek plays were organized primarily in honor of which god?",
+            options: [
+                "Apollo, the god of the sun and music",
+                "Dionysus, the god of the grape-harvest and wine",
+                "Zeus, the king of all the gods",
+                "Hermes, the messenger of the gods"
+            ],
+            correctAnswer: 1,
+            explanation: "Greek theatre was organized in honor of Dionysus — god of fertility, wine, and the grape-harvest. This religious connection is what made theatre a communal, sacred event in ancient Greece.",
+            topic: "Greek Theatre — Event"
+        },
+        {
+            id: 2,
+            category: "Greek Theatre",
+            question: "Where were plays performed in ancient Greek theatre?",
+            options: [
+                "Inside dedicated temple buildings",
+                "In open-air market places",
+                "In private royal courts",
+                "In underground ceremonial halls"
+            ],
+            correctAnswer: 1,
+            explanation: "Greek plays were held in market places (the agora), open spaces that allowed large audiences to gather and participate as a community.",
+            topic: "Greek Theatre — Setting"
+        },
+        {
+            id: 3,
+            category: "Greek Theatre",
+            question: "Which of the following best describes the theme of Greek theatre?",
+            options: [
+                "Audiences came to be entertained through comedy alone",
+                "Plays focused on political debates among citizens",
+                "Audiences sought instruction, delight, and communion with the gods",
+                "Theatre was purely an artistic showcase for playwrights"
+            ],
+            correctAnswer: 2,
+            explanation: "The Greek audience attended to be instructed AND delighted, while also experiencing communion with the gods. The space was believed to be filled with spirits influencing human action.",
+            topic: "Greek Theatre — Theme"
+        },
+        {
+            id: 4,
+            category: "Greek Theatre",
+            question: "Which playwright is associated with ancient Greek theatre?",
+            options: [
+                "Christopher Marlowe",
+                "Henrik Ibsen",
+                "Samuel Beckett",
+                "Sophocles"
+            ],
+            correctAnswer: 3,
+            explanation: "Sophocles is the major playwright of Greek theatre. Marlowe and Jonson are Renaissance; Ibsen and Beckett are Modern.",
+            topic: "Greek Theatre — Playwrights"
+        },
+        {
+            id: 5,
+            category: "Play Types",
+            question: "Which of the original Greek play types involves death, sadness, conflict, and strong emotions?",
+            options: [
+                "Comedy, which uses witty remarks and strange circumstances",
+                "Drama, which involves an innumerous range of plays",
+                "Tragedy, which centers on suffering, conflict, and loss",
+                "Mime, which communicates without the use of words"
+            ],
+            correctAnswer: 2,
+            explanation: "Tragedy involves death, sadness, conflict, and deep emotions. Comedy uses witty remarks and strange characters. Drama is a broader term covering many play types.",
+            topic: "Original Play Types"
+        },
+        {
+            id: 6,
+            category: "Mystery / Miracle Plays",
+            question: "What triggered the emergence of Mystery/Miracle plays in theatre history?",
+            options: [
+                "The construction of large open-air amphitheatres",
+                "The rise of professional acting guilds",
+                "The dawn of Christianity and church influence",
+                "The patronage of wealthy merchant classes"
+            ],
+            correctAnswer: 2,
+            explanation: "With the dawn of Christianity, a new type of theatre emerged — the miracle play. These plays were performed inside churches by clergy and depicted stories from the Bible.",
+            topic: "Mystery/Miracle Plays — Event"
+        },
+        {
+            id: 7,
+            category: "Mystery / Miracle Plays",
+            question: "Who performed in Mystery/Miracle plays?",
+            options: [
+                "Trained actors from the royal court",
+                "Volunteer members of the community",
+                "Clergy men of the church",
+                "Professional playwrights themselves"
+            ],
+            correctAnswer: 2,
+            explanation: "In Mystery/Miracle plays, the performers were clergy men of the church — not professional actors. The plays took place inside the church itself.",
+            topic: "Mystery/Miracle Plays — Actors"
+        },
+        {
+            id: 8,
+            category: "Renaissance Theatre",
+            question: "Which group of playwrights belongs to the Renaissance period?",
+            options: [
+                "Sophocles, Aristophanes, and Euripides",
+                "Henrik Ibsen, Brecht, and Beckett",
+                "Shakespeare, Marlowe, Jonson, and Moliere",
+                "Pirandello, Hare, and Strindberg"
+            ],
+            correctAnswer: 2,
+            explanation: "Renaissance playwrights include Shakespeare, Christopher Marlowe, Ben Jonson, and Moliere. The others belong to Greek theatre or Modern Drama.",
+            topic: "Renaissance Theatre — Playwrights"
+        },
+        {
+            id: 9,
+            category: "Renaissance Theatre",
+            question: "What themes did Renaissance theatre primarily tackle?",
+            options: [
+                "Biblical stories and religious morality",
+                "Abstract philosophical ideas about existence",
+                "Problems of mankind such as greed, love, and family issues",
+                "Political propaganda for ruling monarchs"
+            ],
+            correctAnswer: 2,
+            explanation: "Renaissance theatre turned to humanist themes — greediness, love, family issues — problems of mankind. This was a shift away from purely religious content.",
+            topic: "Renaissance Theatre — Theme"
+        },
+        {
+            id: 10,
+            category: "Modern Drama",
+            question: "What is the setting most associated with Modern Drama performances?",
+            options: [
+                "Open-air market places and public squares",
+                "Church interiors and sacred halls",
+                "Theatre buildings shaped as a proscenium",
+                "Private courtyards of wealthy patrons"
+            ],
+            correctAnswer: 2,
+            explanation: "Modern Drama is performed in theatre buildings shaped like a proscenium — a stage with a framed arch separating the audience from the performers.",
+            topic: "Modern Drama — Setting"
+        },
+        {
+            id: 11,
+            category: "Modern Drama",
+            question: "Which of the following is a theme associated with Modern Drama?",
+            options: [
+                "Communion with gods and religious ritual",
+                "Bible stories performed for the congregation",
+                "Theatre of the absurd and naturalist drama",
+                "Witty comedy centered on strange characters"
+            ],
+            correctAnswer: 2,
+            explanation: "Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre — a rich variety of serious, experimental forms.",
+            topic: "Modern Drama — Theme"
+        },
+        {
+            id: 12,
+            category: "Modern Drama",
+            question: "Which playwright is NOT associated with Modern Drama?",
+            options: [
+                "Henrik Ibsen",
+                "Samuel Beckett",
+                "Bertolt Brecht",
+                "Ben Jonson"
+            ],
+            correctAnswer: 3,
+            explanation: "Ben Jonson is a Renaissance playwright, not Modern. Modern Drama playwrights include Ibsen, Pirandello, Brecht, Beckett, and David Hare.",
+            topic: "Modern Drama — Playwrights"
+        }
+    ]
+},
+
+// ── EXAM 2: Dramatic Techniques ──────────────────────────────
+{
+    title: "Exam 2: Dramatic Techniques",
+    icon: "🎭",
+    label: "Lecture 2",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Dramatic Techniques",
+            question: "What are dramatic techniques?",
+            options: [
+                "Rules for directing actors on stage during performance",
+                "Literary devices used by the playwright to formulate their work",
+                "Methods critics use to evaluate a finished play",
+                "Stage equipment used to create special effects"
+            ],
+            correctAnswer: 1,
+            explanation: "Dramatic techniques are the literary devices used by the PLAYWRIGHT to formulate their work of art. They include stage directions, characters, setting, time, and dialogue.",
+            topic: "Definition of Dramatic Techniques"
+        },
+        {
+            id: 2,
+            category: "Stage Directions",
+            question: "Stage directions are best described as:",
+            options: [
+                "The spoken dialogue exchanged between characters on stage",
+                "Notes left by the playwright to guide the reader, director, or actor",
+                "The audience's written reactions to a performance",
+                "Instructions given verbally by the director during rehearsal"
+            ],
+            correctAnswer: 1,
+            explanation: "Stage directions are notes left by the playwright — they guide the reader, producer, or director. They are part of the secondary text, not the spoken primary text.",
+            topic: "Stage Directions — Definition"
+        },
+        {
+            id: 3,
+            category: "Stage Directions",
+            question: "In the two-text model, the 'primary text' refers to:",
+            options: [
+                "The playwright's notes on costume and setting",
+                "The director's interpretation of the script",
+                "The dialogue exchange among characters",
+                "The summary printed in the programme booklet"
+            ],
+            correctAnswer: 2,
+            explanation: "Primary text = the dialogue characters speak. Secondary text = the playwright's notes (stage directions) that guide the designer or actor. Both appear in the written script.",
+            topic: "Primary vs Secondary Text"
+        },
+        {
+            id: 4,
+            category: "Stage Directions",
+            question: "Which of the following is an example of a secondary text (stage direction)?",
+            options: [
+                "Emmy: Oh thanks Daniel, you look great.",
+                "Daniel: Did you bring the money?",
+                "Emmy: (Wearing a red coat) Oh thanks Daniel.",
+                "Daniel: I totally forgot about it."
+            ],
+            correctAnswer: 2,
+            explanation: "Secondary text = notes in parentheses added by the playwright: '(Wearing a red coat)' tells the actor/designer about Emmy's costume. The spoken words alone are primary text.",
+            topic: "Stage Directions — Example"
+        },
+        {
+            id: 5,
+            category: "Fischer's Sign Systems",
+            question: "Erika Fischer's sign systems model is used to:",
+            options: [
+                "Classify the historical periods of Western drama",
+                "Identify and categorize the types of stage directions in drama",
+                "Rank playwrights by their historical importance",
+                "Analyze the plot structure of a dramatic text"
+            ],
+            correctAnswer: 1,
+            explanation: "Fischer's sign systems model provides a framework to identify and categorize ALL types of signs (directions) in drama — actor's activities, appearance, spatial signs, and acoustic signs.",
+            topic: "Fischer's Sign Systems Model"
+        },
+        {
+            id: 6,
+            category: "Fischer's Sign Systems",
+            question: "According to Fischer's model, which category covers linguistic and kinesic signs?",
+            options: [
+                "Actor's appearance as a sign",
+                "Spatial and acoustic signs",
+                "Actor's activities as a sign",
+                "Decorative and prop signs"
+            ],
+            correctAnswer: 2,
+            explanation: "Actor's activities as a sign covers language — broken into: Linguistic (spoken words) and Paralinguistic/Kinesic (movement: mimic-gestures and proxemic signs).",
+            topic: "Actor's Activities as a Sign"
+        },
+        {
+            id: 7,
+            category: "Fischer's Sign Systems",
+            question: "Proxemic signs in Fischer's model refer to:",
+            options: [
+                "The tone and rhythm of a character's voice",
+                "The physical distance and spatial relationship between characters",
+                "The lighting used to highlight actors on stage",
+                "The written words spoken by characters"
+            ],
+            correctAnswer: 1,
+            explanation: "Proxemics = the study of space between people. Proxemic signs = how close or far characters are from each other — a form of kinesic, body-based communication.",
+            topic: "Proxemic Signs"
+        },
+        {
+            id: 8,
+            category: "Fischer's Sign Systems",
+            question: "Actor's appearance as a sign includes which elements?",
+            options: [
+                "Music and background sounds used in performance",
+                "Lighting and stage decoration",
+                "Hairstyle and costume",
+                "Dialogue and soliloquy"
+            ],
+            correctAnswer: 2,
+            explanation: "Actor's appearance as a sign = how the actor LOOKS: hairstyle and costume. These are visual signs that communicate character before a single word is spoken.",
+            topic: "Actor's Appearance as a Sign"
+        },
+        {
+            id: 9,
+            category: "Fischer's Sign Systems",
+            question: "Which of the following belongs to spatial signs in Fischer's model?",
+            options: [
+                "The actor's vocal tone and speaking style",
+                "Background music and sound effects",
+                "Decoration, props, and lighting",
+                "The character's hairstyle and mask"
+            ],
+            correctAnswer: 2,
+            explanation: "Spatial signs = decoration, props, and lighting. These create the physical environment of the stage. Acoustic signs = sounds and music. Don't confuse the two.",
+            topic: "Spatial Signs"
+        },
+        {
+            id: 10,
+            category: "Fischer's Sign Systems",
+            question: "Acoustic signs in Fischer's model consist of:",
+            options: [
+                "Costume, hairstyle, and masks worn by actors",
+                "Sounds and music used during the performance",
+                "Lighting effects and stage decoration",
+                "The physical gestures and facial expressions of actors"
+            ],
+            correctAnswer: 1,
+            explanation: "Acoustic signs = what you HEAR: sounds and music. These are distinct from spatial signs (what you see in the environment) and kinesic signs (body movement).",
+            topic: "Acoustic Signs"
+        },
+        {
+            id: 11,
+            category: "Dramatic Techniques",
+            question: "Which of the following is NOT listed as a dramatic technique (literary device) in drama?",
+            options: [
+                "Stage directions",
+                "Space/setting",
+                "Publisher's foreword",
+                "Dialogue"
+            ],
+            correctAnswer: 2,
+            explanation: "The key dramatic techniques are: stage directions, characters, space/setting, time, and dialogue. A publisher's foreword is not a literary device created by the playwright.",
+            topic: "List of Dramatic Techniques"
+        },
+        {
+            id: 12,
+            category: "Fischer's Sign Systems",
+            question: "Mimic-gestures in Fischer's model fall under which branch?",
+            options: [
+                "Spatial signs",
+                "Actor's appearance as a sign",
+                "Actor's activities — paralinguistic/kinesic",
+                "Acoustic signs"
+            ],
+            correctAnswer: 2,
+            explanation: "Mimic-gestures are body-based (kinesic) signs under actor's activities. The chain: Actor's activities → Language → Paralinguistic/Kinesic → Mimic-Gestures + Proxemic.",
+            topic: "Kinesic Signs"
+        }
+    ]
+},
+
+// ── EXAM 3: Characterization & Speech ────────────────────────
+{
+    title: "Exam 3: Characterization & Types of Speech",
+    icon: "🗣️",
+    label: "Lectures 3–4",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Characterization",
+            question: "Explicit-figural characterization techniques are described as:",
+            options: [
+                "Entirely non-verbal, relying on gesture and costume",
+                "Entirely verbal, using direct statements about characters",
+                "Dependent on the setting and spatial arrangement",
+                "Based solely on the actor's physical appearance"
+            ],
+            correctAnswer: 1,
+            explanation: "Explicit-figural techniques are ALL verbal — they involve direct statements, either by the character about themselves (self-commentary) or by another character about them (outside commentary).",
+            topic: "Explicit Characterization"
+        },
+        {
+            id: 2,
+            category: "Characterization",
+            question: "A self-commentary in explicit characterization means:",
+            options: [
+                "A critic's written analysis of a character's behavior",
+                "One character describing another character's personality",
+                "A figure explicitly articulating the way it sees itself",
+                "The playwright's notes describing a character's traits"
+            ],
+            correctAnswer: 2,
+            explanation: "Self-commentary = the character is BOTH the subject AND the object. The figure explicitly describes how it sees itself — like a monologue of self-reflection.",
+            topic: "Self-Commentary"
+        },
+        {
+            id: 3,
+            category: "Characterization",
+            question: "Outside commentary in explicit characterization occurs when:",
+            options: [
+                "The character reflects on their own identity and choices",
+                "One figure is characterized explicitly by another figure",
+                "The audience interprets a character's behavior silently",
+                "The playwright describes a character in the stage directions"
+            ],
+            correctAnswer: 1,
+            explanation: "Outside commentary = subject ≠ object. One figure (A) speaks about another figure (B). Note: these views need not match — different perspectives give different readings of the same character.",
+            topic: "Outside Commentary"
+        },
+        {
+            id: 4,
+            category: "Characterization",
+            question: "Implicit-figural characterization is described as only partially verbal because:",
+            options: [
+                "It only occurs in the final act of a play",
+                "It relies on the critic's interpretation rather than the playwright's intent",
+                "A character is also presented through appearance, behavior, and context",
+                "It depends entirely on what other characters say about them"
+            ],
+            correctAnswer: 2,
+            explanation: "Implicit = not only WHAT is said and HOW it's said, but also appearance, behavior, clothing, properties, and the context the character operates in. It goes beyond words.",
+            topic: "Implicit Characterization"
+        },
+        {
+            id: 5,
+            category: "Characterization",
+            question: "Which of the following is a non-verbal implicit characterization technique?",
+            options: [
+                "A character delivering a long soliloquy on stage",
+                "Stature, gesture, and facial expression of the actor",
+                "Dialogue spoken about a character by another figure",
+                "A character's verbal behavior and idiolect"
+            ],
+            correctAnswer: 1,
+            explanation: "Non-verbal implicit techniques include physiognomy, facial expression, stature, gesture, masks, costume, props, locale, and behavior. These communicate without words.",
+            topic: "Non-Verbal Implicit Techniques"
+        },
+        {
+            id: 6,
+            category: "Types of Speech",
+            question: "What distinguishes a monologue from a soliloquy?",
+            options: [
+                "A monologue is longer; a soliloquy is a short aside",
+                "A monologue is addressed to someone; a soliloquy is spoken alone as if to oneself",
+                "A monologue is non-verbal; a soliloquy is fully verbal",
+                "A monologue reveals inner thoughts; a soliloquy reveals plot events"
+            ],
+            correctAnswer: 1,
+            explanation: "Key distinction: Monologue = addressed to SOMEONE (other characters or audience). Soliloquy = spoken by one person ALONE on stage, as if talking to themselves — not intended to affect others.",
+            topic: "Monologue vs Soliloquy"
+        },
+        {
+            id: 7,
+            category: "Types of Speech",
+            question: "A soliloquy is best described as:",
+            options: [
+                "A speech exchange between two or more characters",
+                "A brief comment spoken quietly to one other character",
+                "A long report delivered when the character is alone, addressing the audience",
+                "A formal speech directed at a crowd within the play's world"
+            ],
+            correctAnswer: 2,
+            explanation: "Soliloquy = a longish report the character delivers when ALONE on stage, addressing the audience. It is a kind of talking to oneself — no other characters hear it.",
+            topic: "Soliloquy"
+        },
+        {
+            id: 8,
+            category: "Types of Speech",
+            question: "In an aside, who hears the character's speech?",
+            options: [
+                "All other characters on stage hear it clearly",
+                "Only one specific character is meant to hear it",
+                "The audience hears it; other characters pretend not to",
+                "Nobody hears it — it is purely internal thought"
+            ],
+            correctAnswer: 2,
+            explanation: "In an aside, ONLY THE AUDIENCE hears the speech. Other characters on stage pretend not to be hearing it. It is a convention that breaks the dramatic illusion briefly.",
+            topic: "Aside"
+        },
+        {
+            id: 9,
+            category: "Types of Speech",
+            question: "Dialogues in drama are defined as:",
+            options: [
+                "Self-contained autonomous speeches of a single character",
+                "Speech exchange among two or more characters",
+                "Notes written by the playwright to guide the actors",
+                "A character's inner thoughts spoken when alone on stage"
+            ],
+            correctAnswer: 1,
+            explanation: "Dialogue = speech EXCHANGE among two or more characters. It requires interaction. A monologue is self-contained and addressed to someone; a soliloquy requires being alone.",
+            topic: "Dialogue"
+        },
+        {
+            id: 10,
+            category: "Dramatic Structure",
+            question: "What distinguishes dramatic action from ordinary plot?",
+            options: [
+                "Dramatic action occurs only at the end of a play",
+                "Dramatic action depicts a tense conflict between two wills, not just events",
+                "Dramatic action refers to the physical fights between characters",
+                "Dramatic action is the chronological sequence of all events in a play"
+            ],
+            correctAnswer: 1,
+            explanation: "Dramatic action = a TENSE CONFLICT between two characters (conflict of two wills/minds, not physical). It can appear anywhere in a play and says little on the plot level — it's about psychological tension.",
+            topic: "Dramatic Action vs Plot"
+        },
+        {
+            id: 11,
+            category: "Functions of Speech",
+            question: "The expository function of dramatic speech means the speech:",
+            options: [
+                "Expresses the emotional state of the character speaking",
+                "Appeals to another character to act or respond",
+                "Provides background information necessary to understand the story",
+                "Refers to events happening in the outside world"
+            ],
+            correctAnswer: 2,
+            explanation: "Expository function = the speech EXPOSES/PROVIDES background information, context, or history that the audience needs. It sets up the world of the play.",
+            topic: "Functions of Dramatic Speech"
+        },
+        {
+            id: 12,
+            category: "Dramatic Structure",
+            question: "The plot is defined in drama as:",
+            options: [
+                "The tense conflict between two stubborn opposing wills",
+                "The chronological sequence of events in the play",
+                "The theme or central message the playwright conveys",
+                "The setting and physical space in which events occur"
+            ],
+            correctAnswer: 1,
+            explanation: "Plot = the CHRONOLOGICAL sequence of events. Dramatic action is different — it depicts a tensed conflict. Don't confuse the two: plot = timeline; dramatic action = conflict of wills.",
+            topic: "Plot"
+        },
+        {
+            id: 13,
+            category: "Dialogue and Action",
+            question: "Not every dialogue in drama is considered 'dramatic dialogue' because:",
+            options: [
+                "Some dialogues are too short to fulfill a dramatic purpose",
+                "Dramatic dialogue must involve a tense conflict, unlike mere conversation",
+                "Only dialogues written in verse qualify as dramatic",
+                "Dialogue must always be accompanied by physical stage action"
+            ],
+            correctAnswer: 1,
+            explanation: "There is a key distinction between CONVERSATION and DRAMATIC DIALOGUE. Not every speech exchange qualifies — dramatic dialogue must carry dramatic purpose: further events, reveal character, create conflict.",
+            topic: "Conversation vs Dramatic Dialogue"
+        }
+    ]
+},
+
+// ── EXAM 4: Final Essay (MCQ Format on Essay Structure) ──────
+{
+    title: "Exam 4: Final Essay Exam (Dr. AbdelKarim Format)",
+    icon: "📝",
+    label: "Final Exam",
+    lang: "en",
+    type: "essay",
+    quote: "If I can catch him once upon the hip, I will feed fat the ancient grudge I bear him. He hates our sacred nation and he rails…",
+    attribution: "— Shylock, The Merchant of Venice, William Shakespeare",
+    context: "This quote is spoken by Shylock, the Jewish moneylender, in Act I Scene III of The Merchant of Venice by William Shakespeare. Shylock speaks this aside to himself upon learning that Antonio — the Christian merchant who has publicly humiliated him — is now asking him for a loan. The occasion is a moment of suppressed anger and dark opportunity: Shylock sees a chance to finally get revenge on the man who has wronged him for years.",
+    paragraphs: [
+        {
+            label: "Paragraph 1 — Introduction & Quote Analysis",
+            content: "The quote is taken from Act I, Scene III of The Merchant of Venice (c. 1596–1597) by William Shakespeare, one of the most celebrated playwrights of the Renaissance period. It is delivered by Shylock, the Jewish moneylender, as an aside — spoken to himself and heard only by the audience — upon discovering that his long-time enemy Antonio now needs his financial help. The occasion is charged with bitter irony: the man who has publicly scorned and humiliated Shylock is now in a position of dependence before him. The tone is one of restrained fury and cold calculation."
+        },
+        {
+            label: "Paragraph 2 — Reproduction (Simplified Paraphrase)",
+            content: "In simpler terms, Shylock is saying: 'If I ever get the chance to have power over Antonio, I will take full revenge for all the hatred he has shown me for so long. He despises our Jewish people and speaks against us openly.' Shylock is not simply angry — he is patient and strategic, waiting for the right moment to settle a deep, old score against the man who has disrespected him and his community."
+        },
+        {
+            label: "Paragraph 3 — Plot, Character & Theme",
+            content: "This quote is central to all three dramatic elements. In terms of plot, it foreshadows the central conflict: Shylock's bond of a pound of flesh — the mechanism of revenge he will try to execute later. In terms of character, it reveals Shylock's complexity: not a simple villain, but a man driven by years of humiliation and genuine grievance. In terms of theme, the quote raises questions of justice, prejudice, and revenge — asking the audience whether Shylock's anger is understandable given Antonio's open antisemitism. Figure of Speech: the line contains 'Disordering' (inverted syntax) — 'the ancient grudge I bear him' departs from standard Subject+Verb+Object order, placing 'the ancient grudge' before the subject-verb relationship for dramatic emphasis."
+        }
+    ]
+},
+
+{
+    title: "The Merchant of Venice — Key Quote Analysis",
+    icon: "⚖️",
+    label: "Shakespeare",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "The Play",
+            question: "What is The Merchant of Venice primarily about?",
+            options: [
+                "A love triangle between three nobles in Venice",
+                "A bitter rivalry between a Jewish moneylender and a Christian merchant, centered on justice",
+                "A comedy about mistaken identities at a Venetian carnival",
+                "A tale of two merchants competing for the same trade route"
+            ],
+            correctAnswer: 1,
+            explanation: "The Merchant of Venice by Shakespeare is a story about justice and a bitter rivalry between Shylock, a Jewish moneylender, and Antonio, a Christian merchant in Venice.",
+            topic: "The Play — Overview"
+        },
+        {
+            id: 2,
+            category: "The Quote",
+            question: "When Shylock says he wants to 'catch him upon the hip' and 'feed fat the ancient grudge,' what is he really saying?",
+            options: [
+                "He wants to become Antonio's business partner and share the profits equally",
+                "He wants to physically fight Antonio in a public wrestling match",
+                "If he gets the upper hand on Antonio even once, he will finally satisfy his long-held hatred caused by Antonio's public insults",
+                "He plans to forgive Antonio after receiving a sincere apology"
+            ],
+            correctAnswer: 2,
+            explanation: "Shylock is saying that if he can get the upper hand on Antonio even once, he will finally satisfy his long-held hatred — a grudge built from Antonio's public insults against his people and religion.",
+            topic: "The Quote — Meaning"
+        },
+        {
+            id: 3,
+            category: "Themes",
+            question: "The conflict between Shylock and Antonio is really driven by which deeper themes?",
+            options: [
+                "Friendship and loyalty between business partners",
+                "Revenge and religious conflict — the dispute is about deep cultural pain and identity, not money",
+                "Romantic jealousy over the same woman",
+                "A disagreement over Venetian trade laws and taxation"
+            ],
+            correctAnswer: 1,
+            explanation: "This highlights revenge and religious conflict, showing that the dispute is not about money but about deep-seated cultural pain and identity. Shylock's grudge comes from systematic humiliation of his faith and people.",
+            topic: "Themes — Revenge & Religious Conflict"
+        },
+        {
+            id: 4,
+            category: "Plot",
+            question: "Why is Shylock's speech about 'the ancient grudge' a key plot point?",
+            options: [
+                "It shows Shylock is willing to forgive Antonio's debts",
+                "It reveals Shylock's true motive: he doesn't want profit — he wants a legal trap to destroy his enemy",
+                "It proves that Shylock has no real plan and is acting on impulse",
+                "It introduces a new character who will mediate the conflict"
+            ],
+            correctAnswer: 1,
+            explanation: "This is a key plot point because it reveals Shylock's true motive. He doesn't want money or profit — he wants to use the law itself as a weapon to trap and destroy Antonio.",
+            topic: "Plot — Shylock's True Motive"
+        },
+        {
+            id: 5,
+            category: "Characters",
+            question: "How does Shakespeare present Shylock and Antonio through this quote?",
+            options: [
+                "Shylock as a generous lender and Antonio as a grateful borrower",
+                "Shylock as a man seeking justice for his 'sacred nation,' and Antonio as someone who publicly 'rails' against others",
+                "Both characters as equally kind men caught in a misunderstanding",
+                "Shylock as a villain with no reason for anger, and Antonio as an innocent victim"
+            ],
+            correctAnswer: 1,
+            explanation: "We see Shylock as a man seeking justice for his 'sacred nation' — his people and faith — while Antonio is presented as someone who publicly 'rails' against and humiliates others for their religion.",
+            topic: "Characters — Shylock vs Antonio"
+        },
+        {
+            id: 6,
+            category: "Literary Devices",
+            question: "In Shylock's speech, 'catch him upon the hip' is a wrestling metaphor and 'feed fat the ancient grudge' is an animal metaphor. What do they signify?",
+            options: [
+                "'Catch him upon the hip' means to befriend him; 'feed fat' means to let go of anger",
+                "'Catch him upon the hip' signifies gaining total control over an opponent; 'feed fat' portrays his hatred as a hungry animal that needs to be satisfied",
+                "Both phrases refer to Venetian cooking traditions as symbols of hospitality",
+                "'Catch him upon the hip' means to follow him; 'feed fat' means to grow wealthy together"
+            ],
+            correctAnswer: 1,
+            explanation: "The wrestling metaphor 'catch him upon the hip' signifies gaining total, decisive control over an opponent — like a wrestler pinning someone down. 'Feed fat' portrays Shylock's hatred as a hungry animal that has been starving and now finally needs to be satisfied.",
+            topic: "Literary Devices — Metaphor"
+        }
+    ]
+},
+{
+    title: "Exam 1: Understanding Computers - Set A",
+    icon: "💻",
+    label: "Computer Systems",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Computer Basics",
+            question: "What is the best definition of a computer?",
+            options: [
+                "A device that only performs mathematical calculations",
+                "A programmable machine that can store and process information",
+                "A machine used exclusively for word processing",
+                "An electronic device that only connects to the Internet"
+            ],
+            correctAnswer: 1,
+            explanation: "A computer is a programmable machine that allows the user to store all sorts of information and then process that information or carry out actions with it, such as calculating numbers or organising words.",
+            topic: "Lesson 1 — What is a Computer"
+        },
+        {
+            id: 2,
+            category: "Computer Types",
+            question: "Which type of computer can support hundreds or thousands of users simultaneously?",
+            options: [
+                "Personal computer (PC)",
+                "Workstation",
+                "Mainframe computer",
+                "Laptop computer"
+            ],
+            correctAnswer: 2,
+            explanation: "Mainframe computers are large-sized, powerful multi-user computers that can support concurrent programs and can be used by hundreds or thousands of users at the same time.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 3,
+            category: "Computer Types",
+            question: "What distinguishes a workstation from a personal computer?",
+            options: [
+                "Workstations can only be used offline",
+                "Workstations are more powerful and often have higher-quality monitors",
+                "Workstations cannot be connected to networks",
+                "Workstations are designed for multiple simultaneous users"
+            ],
+            correctAnswer: 1,
+            explanation: "A workstation is similar to a personal computer but is more powerful and often comes with a higher-quality monitor. In terms of computing power, workstations lie between personal computers and mini-computers.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 4,
+            category: "Hardware",
+            question: "Which of the following is NOT a required hardware component of a computer?",
+            options: [
+                "Central processing unit (CPU)",
+                "Memory",
+                "Scanner",
+                "Storage device"
+            ],
+            correctAnswer: 2,
+            explanation: "All computers require a CPU, memory, storage device, input devices, and output devices. A scanner is a peripheral input device but is not a required component — a keyboard is the standard input device.",
+            topic: "Lesson 1 — Components of a Computer"
+        },
+        {
+            id: 5,
+            category: "Hardware",
+            question: "What is the primary function of the Central Processing Unit (CPU)?",
+            options: [
+                "To store data permanently on the hard drive",
+                "To carry out all instructions given in a program",
+                "To connect the computer to the Internet",
+                "To display output on the monitor screen"
+            ],
+            correctAnswer: 1,
+            explanation: "The CPU is the heart of the computer. It carries out all of the instructions given in a program, such as a word processing or spreadsheet program.",
+            topic: "Lesson 1 — CPU"
+        },
+        {
+            id: 6,
+            category: "Software",
+            question: "What is the difference between systems software and applications software?",
+            options: [
+                "Systems software is free; applications software must be purchased",
+                "Systems software includes the operating system that enables the computer to function; applications software is used to carry out work",
+                "Systems software is only used on mainframes; applications software is for PCs",
+                "There is no real difference between the two types"
+            ],
+            correctAnswer: 1,
+            explanation: "Systems software includes the operating system and utilities that enable the computer to function. Applications software includes programs that users access to carry out work, such as word processing, spreadsheets, and databases.",
+            topic: "Lesson 1 — Software Types"
+        },
+        {
+            id: 7,
+            category: "Data Processing",
+            question: "What number system do computers use to process all information?",
+            options: [
+                "Decimal number system using digits 0-9",
+                "Hexadecimal system using digits 0-F",
+                "Binary number system using only 0 and 1",
+                "Octal number system using digits 0-7"
+            ],
+            correctAnswer: 2,
+            explanation: "Computers use the binary number system, where each digit stands for a power of two and uses only two symbols: 0 and 1. The computer's electronic circuits have only two states — on or off — so they can only understand 0s and 1s.",
+            topic: "Lesson 1 — Binary System"
+        },
+        {
+            id: 8,
+            category: "Data Processing",
+            question: "What is a byte?",
+            options: [
+                "The smallest unit of information in a computer",
+                "A combination of bits, usually 8, that represent one character",
+                "A unit of processing speed measured in megahertz",
+                "A type of storage device used in mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "A byte is a combination of bits that represent one character and is usually composed of 8 bits. A bit (binary digit) is the smallest unit of information, while a byte combines bits into meaningful characters.",
+            topic: "Lesson 1 — Bits and Bytes"
+        },
+        {
+            id: 9,
+            category: "Memory",
+            question: "What happens to data stored in RAM when the computer is turned off?",
+            options: [
+                "It is automatically saved to the hard drive",
+                "It remains intact until the computer is turned on again",
+                "It disappears because RAM is volatile memory",
+                "It is transferred to ROM for safekeeping"
+            ],
+            correctAnswer: 2,
+            explanation: "Most RAM is volatile, which means it requires a steady flow of electricity to maintain its contents. As soon as the power is turned off, whatever data was in RAM disappears.",
+            topic: "Lesson 1 — Computer Memory"
+        },
+        {
+            id: 10,
+            category: "Storage",
+            question: "What is the main advantage of a hard drive over a diskette?",
+            options: [
+                "A hard drive is portable and can be easily removed",
+                "A hard drive provides faster access and far greater storage capacity",
+                "A hard drive uses optical laser technology for reading data",
+                "A hard drive does not require electricity to retain data"
+            ],
+            correctAnswer: 1,
+            explanation: "Hard disk storage provides faster access to files than a diskette, and its storage capacity far exceeds that of a floppy disk. Unlike diskettes, hard disks are continually in motion, so there is no delay as the disk spins up to speed.",
+            topic: "Lesson 1 — Storage Devices"
+        },
+        {
+            id: 11,
+            category: "Storage",
+            question: "What does CD-ROM stand for?",
+            options: [
+                "Computer Data — Read Only Memory",
+                "Compact Disc Read Only Memory",
+                "Central Data Recording Output Module",
+                "Compact Digital Rewritable Optical Media"
+            ],
+            correctAnswer: 1,
+            explanation: "CD-ROM stands for Compact Disc Read Only Memory. It is the most popular type of optical storage, containing data stamped on the disk surface as a series of pits that are read by an optical read head.",
+            topic: "Lesson 1 — Optical Storage"
+        },
+        {
+            id: 12,
+            category: "Storage",
+            question: "Why is backing up electronic data considered critical?",
+            options: [
+                "Because it makes the computer run faster",
+                "Because data on magnetic storage can be easily destroyed, erased, or lost",
+                "Because backups are required by international law",
+                "Because computers cannot function without backup copies"
+            ],
+            correctAnswer: 1,
+            explanation: "Data on magnetic storage can be easily destroyed, erased, or otherwise lost. Protecting the data on the hard disk is of particular concern because it contains so much data, which could be difficult and time consuming to reconstruct.",
+            topic: "Lesson 1 — Backups"
+        },
+        {
+            id: 13,
+            category: "Computing Environments",
+            question: "What is a key advantage of mainframe computing in modern organisations?",
+            options: [
+                "Mainframes are the cheapest computers to purchase",
+                "Mainframes do not require trained staff to operate",
+                "Mainframes provide security, data integrity, and system availability",
+                "Mainframes can only run one application at a time"
+            ],
+            correctAnswer: 2,
+            explanation: "The current reasons for sharing mainframe computer power include security (protection from unauthorised access), integrity (guarantee that data is not corrupted), system availability (24-hour operation), and data sharing across the organisation.",
+            topic: "Lesson 2 — Mainframe Computing"
+        },
+        {
+            id: 14,
+            category: "Networks",
+            question: "What is a Local Area Network (LAN)?",
+            options: [
+                "A network connecting computers across different countries",
+                "A computer network located within a relatively limited area such as a building",
+                "A network that only connects mainframe computers",
+                "A wireless connection between a computer and the Internet"
+            ],
+            correctAnswer: 1,
+            explanation: "A Local Area Network (LAN) is a computer network located within a relatively limited area such as a building, agency or university campus.",
+            topic: "Lesson 2 — Networks"
+        },
+        {
+            id: 15,
+            category: "Networks",
+            question: "What is the primary role of a file server in a network?",
+            options: [
+                "To provide Internet access to all users",
+                "To serve or distribute application programs and data files to workstations",
+                "To protect the network from viruses",
+                "To print documents for all network users"
+            ],
+            correctAnswer: 1,
+            explanation: "A file server is a computer that serves or distributes application programs and data files to workstations within a computer network. The hard drive of the file server is shared by the workstations on the network.",
+            topic: "Lesson 2 — Network Servers"
+        },
+        {
+            id: 16,
+            category: "Internet",
+            question: "What is a URL?",
+            options: [
+                "A type of computer virus that spreads through email",
+                "The global address of documents and resources on the World Wide Web",
+                "A programming language used to create websites",
+                "A security protocol for protecting online data"
+            ],
+            correctAnswer: 1,
+            explanation: "URL stands for Uniform Resource Locator — the global address of documents and other resources on the World Wide Web. URLs can point to files or Web pages that can be retrieved using protocols like HTTP.",
+            topic: "Lesson 2 — Internet"
+        },
+        {
+            id: 17,
+            category: "Databases",
+            question: "What is a data field in a database?",
+            options: [
+                "A complete set of all information in the database",
+                "A space allocated for a particular item of information — the smallest unit you can access",
+                "A collection of related database tables",
+                "The software used to manage the database"
+            ],
+            correctAnswer: 1,
+            explanation: "A data field is a space allocated for a particular item of information. In a database, fields are the smallest units of information you can access. A data field contains a single piece of information such as a first name or employee number.",
+            topic: "Lesson 3 — Databases"
+        },
+        {
+            id: 18,
+            category: "Databases",
+            question: "What is the main advantage of a relational database over other database models?",
+            options: [
+                "It can only store numerical data, making it faster",
+                "It allows new links between tables to be created as needs arise",
+                "It requires all data to be stored in a single table",
+                "It does not require any software to manage it"
+            ],
+            correctAnswer: 1,
+            explanation: "Relational databases are powerful because they require few assumptions about how data is related or how it will be extracted. They allow new links to be forged as needs arise, and the same database can be viewed in many different ways.",
+            topic: "Lesson 3 — Relational Databases"
+        },
+        {
+            id: 19,
+            category: "Email",
+            question: "Which of the following best describes how electronic mail works?",
+            options: [
+                "Messages are printed and physically delivered to the recipient",
+                "The originator creates a message which is posted to a transport system that delivers it to the recipient's mailbox",
+                "Email can only be sent between users with the same software program",
+                "Email requires a direct phone call between sender and receiver"
+            ],
+            correctAnswer: 1,
+            explanation: "The message originator creates a message file in the e-mail software editor. When complete, the message is posted to a message transport system that delivers it to the recipient's mailbox. Users do not need the same email software.",
+            topic: "Lesson 3 — Electronic Mail"
+        },
+        {
+            id: 20,
+            category: "Viruses & Documentation",
+            question: "Why should computer documentation always be retained?",
+            options: [
+                "Because documentation has no monetary value and takes up no space",
+                "Because it may be needed to reload software and may contain licences for legitimate use",
+                "Because documentation automatically updates the software",
+                "Because it is required only for mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "Disposing of documentation can cause problems in the future, particularly if you have to reload software from the beginning. Documentation can also contain licences for the legitimate use of the software.",
+            topic: "Lesson 1 — Documentation"
+        }
+    ]
+},
+{
+    title: "Exam 2: Understanding Computers - Set B",
+    icon: "🖥️",
+    label: "Computer Systems",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1,
+            category: "Computer Types",
+            question: "Which type of computer is described as a mid-sized multi-processing computer that can support 4 to 200 users?",
+            options: [
+                "Mainframe computer",
+                "Personal computer",
+                "Mini-computer",
+                "Workstation"
+            ],
+            correctAnswer: 2,
+            explanation: "Mini-computers are mid-sized multi-processing computers that can perform several actions at the same time and can support from 4 to 200 users simultaneously.",
+            topic: "Lesson 1 — Types of Computers"
+        },
+        {
+            id: 2,
+            category: "Computer Types",
+            question: "The world of personal computers is basically divided between which two types of machines?",
+            options: [
+                "Dell-compatible and HP-compatible",
+                "IBM-compatible and Macintosh-compatible",
+                "Intel-compatible and AMD-compatible",
+                "Linux-based and Unix-based"
+            ],
+            correctAnswer: 1,
+            explanation: "The world of PCs is basically divided between IBM-compatible and Macintosh-compatible machines, named after the two computer manufacturers.",
+            topic: "Lesson 1 — Personal Computers"
+        },
+        {
+            id: 3,
+            category: "Hardware",
+            question: "What is a peripheral device?",
+            options: [
+                "The main chip inside the CPU",
+                "Any piece of equipment in a computer system that is not inside the computer itself",
+                "The operating system software that runs the computer",
+                "The binary code used to process information"
+            ],
+            correctAnswer: 1,
+            explanation: "A peripheral device is any piece of equipment in a computer system that is not actually inside the computer itself, such as printers, scanners, and external disk drives.",
+            topic: "Lesson 1 — Hardware Components"
+        },
+        {
+            id: 4,
+            category: "Hardware",
+            question: "What does the system clock in a computer determine?",
+            options: [
+                "The current time and date displayed on screen",
+                "The speed at which the computer can execute instructions",
+                "How long the computer can run before shutting down",
+                "The schedule for automatic software updates"
+            ],
+            correctAnswer: 1,
+            explanation: "The system clock determines the speed at which the computer can execute an instruction, measured in megahertz (MHz) or millions of cycles per second. Higher MHz ratings mean faster processing.",
+            topic: "Lesson 1 — Processing Speed"
+        },
+        {
+            id: 5,
+            category: "Hardware",
+            question: "What are the three main parts of the CPU?",
+            options: [
+                "Monitor, keyboard, and mouse",
+                "Hard drive, floppy drive, and CD-ROM drive",
+                "Arithmetic and logic unit (ALU), control unit, and registers",
+                "RAM, ROM, and PROM"
+            ],
+            correctAnswer: 2,
+            explanation: "The CPU consists of an arithmetic and logic unit (ALU) which performs calculations, a control unit which supervises general operations, and registers which hold data inside memory long enough to execute a function.",
+            topic: "Lesson 1 — CPU Components"
+        },
+        {
+            id: 6,
+            category: "Data Processing",
+            question: "What is the correct sequence of how a computer functions?",
+            options: [
+                "Output → Processing → Storage → Input",
+                "Storage → Input → Output → Processing",
+                "Input → Processing → Storage → Output",
+                "Processing → Input → Output → Storage"
+            ],
+            correctAnswer: 2,
+            explanation: "A computer functions by first accepting input, then processing the data, storing it, and finally producing output. This is the fundamental cycle of computer operation.",
+            topic: "Lesson 1 — How Computers Work"
+        },
+        {
+            id: 7,
+            category: "Data Processing",
+            question: "What is a bus in a computer?",
+            options: [
+                "A type of external storage device",
+                "The channel or path that lets the parts of a computer communicate with each other",
+                "A program that detects and removes viruses",
+                "The protective casing around the CPU chip"
+            ],
+            correctAnswer: 1,
+            explanation: "A bus is the channel or path that lets the parts of a computer communicate with each other. It picks up data from one component on the main board and transfers it to another component.",
+            topic: "Lesson 1 — Data Bus"
+        },
+        {
+            id: 8,
+            category: "Software",
+            question: "What is the main role of an operating system?",
+            options: [
+                "To create documents and spreadsheets for the user",
+                "To enable the computer to function by controlling hardware, software, and storage",
+                "To connect the computer to the Internet",
+                "To protect the computer from viruses and malware"
+            ],
+            correctAnswer: 1,
+            explanation: "The operating system controls functions such as coordinating hardware and applications software, allocating storage facilities, controlling input and output devices, and managing time sharing. Every computer must have one to run other programs.",
+            topic: "Lesson 1 — Operating Systems"
+        },
+        {
+            id: 9,
+            category: "Software",
+            question: "What is the difference between proprietary (closed) and open software?",
+            options: [
+                "Proprietary software is free; open software requires payment",
+                "Proprietary software is privately owned with hidden specs; open software uses publicly accessible specifications",
+                "Proprietary software runs faster than open software",
+                "Open software can only run on mainframe computers"
+            ],
+            correctAnswer: 1,
+            explanation: "Proprietary software is privately owned and controlled, with undisclosed specifications. Open software is designed using publicly accessible specifications, allowing anyone to create add-on products and mix and match products from different manufacturers.",
+            topic: "Lesson 1 — Software Types"
+        },
+        {
+            id: 10,
+            category: "Storage",
+            question: "What is the key difference between sequential access and random access storage?",
+            options: [
+                "Sequential access is faster than random access",
+                "Sequential access reads data in order along the tape; random access can go directly to any location",
+                "Random access can only read data; sequential access can read and write",
+                "There is no practical difference between the two"
+            ],
+            correctAnswer: 1,
+            explanation: "Sequential access means data is stored and read as a sequence of bytes along the length of the tape — you must go through the tape in order. Random access allows positioning the read-write head directly over the sector containing the requested data.",
+            topic: "Lesson 1 — Storage Access Methods"
+        },
+        {
+            id: 11,
+            category: "Storage",
+            question: "What does WORM stand for in optical storage?",
+            options: [
+                "Wide Output Reading Module",
+                "Write Once Read Many",
+                "Web Oriented Resource Management",
+                "Wireless Optical Recording Media"
+            ],
+            correctAnswer: 1,
+            explanation: "WORM stands for Write Once Read Many. These optical disks allow computer users to write data to an optical disk once, and then the data can be read many times but cannot be changed.",
+            topic: "Lesson 1 — Optical Storage"
+        },
+        {
+            id: 12,
+            category: "Storage",
+            question: "What is ASCII and why is it important?",
+            options: [
+                "A type of virus that corrupts computer files",
+                "A standard character code that allows data to be read by different computers and software",
+                "A programming language used to build databases",
+                "A hardware component inside the CPU"
+            ],
+            correctAnswer: 1,
+            explanation: "ASCII (American Standard Code for Information Interchange) assigns a specific pattern of bits to each character. Its main value is storing information so it is readable by other computers, allowing people to retrieve and use data across different hardware or software.",
+            topic: "Lesson 1 — Data Encoding"
+        },
+        {
+            id: 13,
+            category: "Computing Environments",
+            question: "What is an information system?",
+            options: [
+                "Any computer connected to the Internet",
+                "The combination of information, technology, processes and people brought together to support a business objective",
+                "A database that stores employee records",
+                "The physical building where computers are kept"
+            ],
+            correctAnswer: 1,
+            explanation: "An information system is the combination of information, technology, processes and people brought together to support a given business objective, such as processing government payroll.",
+            topic: "Lesson 2 — Mainframe Computing"
+        },
+        {
+            id: 14,
+            category: "Networks",
+            question: "What is an Intranet?",
+            options: [
+                "The global network connecting millions of computers worldwide",
+                "An internal computer network accessible only by an organisation's members",
+                "A type of virus that spreads through local networks",
+                "A wireless connection between two personal computers"
+            ],
+            correctAnswer: 1,
+            explanation: "An Intranet is an internal computer network that belongs to an organisation and is accessible only by that organisation's members.",
+            topic: "Lesson 2 — Networks"
+        },
+        {
+            id: 15,
+            category: "Networks",
+            question: "What is the difference between groupware and workflow software?",
+            options: [
+                "Groupware is for mainframes; workflow software is for PCs",
+                "Groupware manages shared documents (information-centred); workflow automates a series of steps (process-centred)",
+                "Groupware is open-source; workflow software is proprietary",
+                "There is no meaningful difference between the two"
+            ],
+            correctAnswer: 1,
+            explanation: "Groupware manages a pool of documents and allows simultaneous access (information-centred model). Workflow software automates the process of electronically routing documents from one person to another in a specified sequence (process-centred model).",
+            topic: "Lesson 2 — Network Software"
+        },
+        {
+            id: 16,
+            category: "Internet",
+            question: "What is HTML?",
+            options: [
+                "A type of computer hardware used in web servers",
+                "A markup language that controls how Web pages are formatted and displayed",
+                "A database management system for online data",
+                "An Internet Service Provider for academic institutions"
+            ],
+            correctAnswer: 1,
+            explanation: "HyperText Markup Language (HTML) is one of the main standards that controls how the World Wide Web works. It determines how Web pages are formatted and displayed, enabling information exchange on the Web.",
+            topic: "Lesson 2 — World Wide Web"
+        },
+        {
+            id: 17,
+            category: "Databases",
+            question: "Which database model stores information across different tables while maintaining links between them?",
+            options: [
+                "Hierarchical database",
+                "Network database",
+                "Relational database",
+                "Object-oriented database"
+            ],
+            correctAnswer: 2,
+            explanation: "A relational database stores facts in tables called relations and spreads information across different tables while maintaining links between them. It allows new links to be forged as needs arise.",
+            topic: "Lesson 3 — Database Models"
+        },
+        {
+            id: 18,
+            category: "Databases",
+            question: "What is SQL?",
+            options: [
+                "A type of computer virus",
+                "A structured query language used to direct a computer to locate and manage database information",
+                "A file format for storing images",
+                "A network protocol for email communication"
+            ],
+            correctAnswer: 1,
+            explanation: "SQL (Structured Query Language) is a query language — a set of command words used to direct a computer to create databases, locate information, sort records and change data in those records.",
+            topic: "Lesson 3 — Query Languages"
+        },
+        {
+            id: 19,
+            category: "Databases",
+            question: "In a relational database, what is a 'common key'?",
+            options: [
+                "A password required to access the database",
+                "A deliberately duplicated column in two or more tables that allows them to be linked together",
+                "The first record entered into any database table",
+                "The programming language used to build the database"
+            ],
+            correctAnswer: 1,
+            explanation: "A common key results from deliberate duplication of columns in two or more tables. For example, if two tables each contain a student ID column, this number can be used to find related information across both tables.",
+            topic: "Lesson 3 — Relational Databases"
+        },
+        {
+            id: 20,
+            category: "Viruses",
+            question: "Which of the following is a way computer viruses can spread?",
+            options: [
+                "By reading documentation manuals",
+                "Through exchanging floppy disks, email messages, and downloading from the Web",
+                "By turning the computer on and off too frequently",
+                "Through using licensed and properly purchased software"
+            ],
+            correctAnswer: 1,
+            explanation: "Viruses can be caught by exchanging floppy disks, via electronic mail messages, and through downloading documents from the Web. Networks make it much easier for viruses to spread quickly through an organisation.",
+            topic: "Lesson 1 — Viruses"
+        }
+    ]
+}
+
+]; // end examSets
+
+// ═══════════════════════════════════════════════════════════════
+// THEME
+// ═══════════════════════════════════════════════════════════════
+(function() {
+    function applyTheme(t) {
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            const btn = document.getElementById('theme-toggle');
+            if (btn) btn.textContent = '☀️';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            const btn = document.getElementById('theme-toggle');
+            if (btn) btn.textContent = '🌙';
+        }
+    }
+    function initTheme() {
+        const saved = localStorage.getItem('theme');
+        if (saved) { applyTheme(saved); return; }
+        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+    function toggleTheme() {
+        const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    }
+    window.toggleTheme = toggleTheme;
+    window.initTheme = initTheme;
+})();
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let state = {
+    screen: 'selection', selectedExam: null,
+    selectedQuestions: [], initialQuestionCount: 0,
+    currentQuestion: 0, selectedAnswer: null,
+    showExplanation: false, score: 0,
+    quizCompleted: false, answers: [],
+    repeatQueue: [], inRepeatPhase: false,
+    repeatAnswers: [], essayRevealed: false
+};
+
+// ═══════════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════════
+function shuffleArray(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+function shuffleQuestionOptions(question) {
+    const opts = question.options.map((opt, idx) => ({ opt, idx }));
+    const shuffled = shuffleArray(opts);
+    return Object.assign({}, question, {
+        options: shuffled.map(s => s.opt),
+        correctAnswer: shuffled.findIndex(s => s.idx === question.correctAnswer)
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ACTIONS
+// ═══════════════════════════════════════════════════════════════
+function selectExam(index) {
+    state.selectedExam = index;
+    state.essayRevealed = false;
+    const exam = examSets[index];
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('dir', 'ltr');
+    if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
+    const questions = exam.questions || [];
+    state.initialQuestionCount = questions.length;
+    state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
+    state.score = 0; state.quizCompleted = false; state.answers = [];
+    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
+    state.screen = 'quiz';
+    render();
+}
+
+function getCurrentQuestions() {
+    if (state.selectedExam === null) return [];
+    return state.selectedQuestions || examSets[state.selectedExam].questions || [];
+}
+
+function handleAnswerSelect(answerIndex) {
+    if (state.selectedAnswer !== null) return;
+    const questions = getCurrentQuestions();
+    const question = questions[state.currentQuestion];
+    state.selectedAnswer = answerIndex;
+    state.showExplanation = true;
+    const isCorrect = answerIndex === question.correctAnswer;
+    if (!state.inRepeatPhase) {
+        if (isCorrect) state.score++;
+        else if (!state.repeatQueue.some(q => q.id === question.id)) state.repeatQueue.push(question);
+        state.answers.push({ questionId: question.id, correct: isCorrect, category: question.category });
+    } else {
+        state.repeatAnswers.push({ questionId: question.id, correct: isCorrect });
+    }
+    render();
+}
+
+function handleNext() {
+    const questions = getCurrentQuestions();
+    if (state.currentQuestion < questions.length - 1) {
+        state.currentQuestion++; state.selectedAnswer = null; state.showExplanation = false;
+    } else {
+        if (!state.inRepeatPhase && state.repeatQueue.length > 0) {
+            state.selectedQuestions = state.repeatQueue.slice(); state.repeatQueue = [];
+            state.inRepeatPhase = true; state.currentQuestion = 0;
+            state.selectedAnswer = null; state.showExplanation = false;
+        } else { state.quizCompleted = true; }
+    }
+    render();
+}
+
+function handleRestart() {
+    const exam = examSets[state.selectedExam];
+    if (exam.type === 'essay') { state.essayRevealed = false; state.screen = 'essay'; render(); return; }
+    if (state.selectedExam !== null) {
+        const questions = exam.questions || [];
+        state.initialQuestionCount = questions.length;
+        state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
+    }
+    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
+    state.score = 0; state.quizCompleted = false; state.answers = [];
+    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
+    render();
+}
+
+function backToMenu() {
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('dir', 'ltr');
+    state = {
+        screen: 'selection', selectedExam: null,
+        selectedQuestions: [], initialQuestionCount: 0,
+        currentQuestion: 0, selectedAnswer: null,
+        showExplanation: false, score: 0, quizCompleted: false,
+        answers: [], repeatQueue: [], inRepeatPhase: false,
+        repeatAnswers: [], essayRevealed: false
+    };
+    render();
+}
+
+function toggleEssayReveal() {
+    state.essayRevealed = !state.essayRevealed;
+    render();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ICONS
+// ═══════════════════════════════════════════════════════════════
+const icons = {
+    checkCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#10b981;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+    xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#ef4444;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+    award: '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>',
+    bookOpen: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>'
+};
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════
+function renderExamSelection() {
+    const examCards = examSets.map((examSet, index) => `
+        <div class="exam-card" onclick="selectExam(${index})">
+            <h3>${examSet.title}</h3>
+            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : 'Multiple Choice Quiz'}</p>
+            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.questions.length + ' Questions'}</p>
+        </div>
+    `).join('');
+    return `
+        <div class="exam-selection">
+            <h1>Drama Course Exams</h1>
+            <p>Choose the exam you want to start with</p>
+            <div class="exam-options">${examCards}</div>
+        </div>`;
+}
+
+function renderEssay() {
+    const exam = examSets[state.selectedExam];
+    const paras = exam.paragraphs.map(p => `
+        <div style="margin-bottom:1.2rem;">
+            <div class="para-label">${p.label}</div>
+            <p>${p.content}</p>
+        </div>`).join('');
+    return `
+        <div class="header">
+            <h1>${exam.title}</h1>
+        </div>
+        <div class="question-container">
+            <h2 class="category">Quote for Analysis</h2>
+            <div class="essay-quote-box">
+                "${exam.quote}"<br>
+                <small style="font-size:0.82rem;opacity:0.7;font-style:normal;">${exam.attribution}</small>
+            </div>
+            <div class="essay-instructions">
+                <p><strong>Write your answer in THREE paragraphs:</strong></p>
+                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
+                    <li><strong>Paragraph 1:</strong> Where is the quote from? (play title + author). What is the occasion it was said, and all relevant context details.</li>
+                    <li><strong>Paragraph 2:</strong> Reproduction — rewrite the meaning in simpler, more beautiful language.</li>
+                    <li><strong>Paragraph 3:</strong> Connect to plot, characters, and/or themes. Include a <strong>Figure of Speech</strong> — especially <em>Disordering</em> (inverted sentence, not standard S+V+O).</li>
+                </ol>
+                <p class="essay-note">💡 One idea per paragraph only. Write thoroughly. Don't forget the Figure of Speech.</p>
+            </div>
+            <button class="show-model-btn" onclick="toggleEssayReveal()">
+                ${state.essayRevealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
+            </button>
+            <div class="essay-reveal-box ${state.essayRevealed ? 'show' : ''}">
+                <h3>✅ Model Answer</h3>
+                ${paras}
+                <p class="essay-disclaimer">⚠️ This is a guide only — your own answer should reflect your understanding and style.</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
+        </div>`;
+}
+
+function renderResults() {
+    const total = state.initialQuestionCount || (state.selectedExam !== null ? (examSets[state.selectedExam].questions || []).length : 0);
+    const percentage = total > 0 ? Math.round((state.score / total) * 100) : 0;
+    let message = "", colorClass = "";
+    if (percentage >= 90) { message = "Excellent! You are confident and fully prepared for the exam"; colorClass = "color: #16a34a;"; }
+    else if (percentage >= 80) { message = "Great! Your level is very good, review only the errors"; colorClass = "color: #22c55e;"; }
+    else if (percentage >= 70) { message = "Very good! You need to review some points"; colorClass = "color: #2563eb;"; }
+    else if (percentage >= 60) { message = "Good! Focus on the topics you made mistakes in"; colorClass = "color: #ca8a04;"; }
+    else { message = "You need more review and practice"; colorClass = "color: #ea580c;"; }
+    const categoryStats = {};
+    state.answers.forEach(answer => {
+        if (!categoryStats[answer.category]) categoryStats[answer.category] = { correct: 0, total: 0 };
+        categoryStats[answer.category].total++;
+        if (answer.correct) categoryStats[answer.category].correct++;
+    });
+    const statsHTML = Object.entries(categoryStats).map(([cat, stats]) => {
+        const pct = Math.round((stats.correct / stats.total) * 100);
+        return `<div class="stat-item"><div class="stat-row"><div class="stat-category">${cat}</div><div class="stat-score">${stats.correct}/${stats.total} (${pct}%)</div></div></div>`;
+    }).join('');
+    return `
+        <div class="results-container">
+            ${icons.award}
+            <h2 class="results-title">Quiz Completed!</h2>
+            <div class="final-score">${state.score}/${total}</div>
+            <div class="percentage">Percentage: ${percentage}%</div>
+            <p class="results-message" style="${colorClass}">${message}</p>
+            <div class="category-stats">
+                <h3 class="stats-title">${icons.bookOpen} Your Performance by Topics:</h3>
+                ${statsHTML.length > 0 ? statsHTML : '<p style="text-align:center;color:#6b7280;">No answers recorded.</p>'}
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="handleRestart()">Try Again</button>
+                    <button class="btn-secondary" onclick="backToMenu()">Back to Main Menu</button>
+                </div>
+                <div class="final-stats"><p>Final Score: <span class="final-score-value">${state.score}</span></p></div>
+            </div>
+        </div>`;
+}
+
+function renderQuestion() {
+    const questions = getCurrentQuestions();
+    const question = questions[state.currentQuestion];
+    const examTitle = examSets[state.selectedExam].title;
+    const mainTotal = state.initialQuestionCount || questions.length;
+    const questionNumberText = state.inRepeatPhase
+        ? `Review Question ${state.currentQuestion + 1} of ${questions.length}`
+        : `Question ${state.currentQuestion + 1} of ${mainTotal}`;
+    const optionsHTML = question.options.map((option, index) => {
+        let btnClass = "option-btn", iconHTML = "";
+        if (state.selectedAnswer !== null) {
+            if (index === question.correctAnswer) { btnClass += " correct"; iconHTML = icons.checkCircle; }
+            else if (index === state.selectedAnswer) { btnClass += " incorrect"; iconHTML = icons.xCircle; }
+            else btnClass += " neutral";
+        }
+        return `<button class="${btnClass}" onclick="handleAnswerSelect(${index})" ${state.selectedAnswer !== null ? 'disabled' : ''}>
+            <span style="text-align:start;line-height:1.75;">${option}</span>${iconHTML}
+        </button>`;
+    }).join('');
+    const explanationHTML = state.showExplanation ? `
+        <div class="explanation-box ${state.selectedAnswer === question.correctAnswer ? 'correct' : 'incorrect'}">
+            <p class="explanation-title">${state.selectedAnswer === question.correctAnswer ? '✅ Correct Answer! Excellent' : '❌ Incorrect Answer'}</p>
+            <div class="explanation-content">
+                <p class="explanation-text"><strong>Detailed Explanation:</strong><br>${question.explanation}</p>
+            </div>
+            <div class="topic-info">${icons.bookOpen}<p><strong>Review:</strong> ${question.topic}</p></div>
+        </div>
+        <button class="next-btn" onclick="handleNext()">
+            ${state.currentQuestion < questions.length - 1 ? 'Next Question' : 'End Quiz and Show Results 🎉'}
+        </button>` : '';
+    return `
+        <div class="header">
+            <h1>${examTitle}</h1>
+            <div class="score-info">
+                <div class="question-number">${questionNumberText}</div>
+                <div class="score">Score: ${state.score}</div>
+            </div>
+        </div>
+        <div class="question-container">
+            <h2 class="category">${question.category}</h2>
+            <p class="question">${question.question}</p>
+            <div class="options">${optionsHTML}</div>
+            ${explanationHTML}
+            <div class="current-score">
+                <p>Current Score: <span class="score-value">${state.score}</span> From ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="restart-btn" onclick="handleRestart()">Restart</button>
+            <button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button>
+        </div>`;
+}
+
+function render() {
+    const app = document.getElementById('app');
+    if (state.screen === 'selection') app.innerHTML = renderExamSelection();
+    else if (state.screen === 'essay') app.innerHTML = renderEssay();
+    else if (state.quizCompleted) app.innerHTML = renderResults();
+    else app.innerHTML = renderQuestion();
+}
+
+window.selectExam = selectExam;
+window.handleAnswerSelect = handleAnswerSelect;
+window.handleNext = handleNext;
+window.handleRestart = handleRestart;
+window.backToMenu = backToMenu;
+window.toggleEssayReveal = toggleEssayReveal;
+
+initTheme();
+render();
+</script>
+</body>
+</html>
