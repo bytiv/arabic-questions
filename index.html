@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phonetics EC108 – Midterm Exams</title>
+    <title>Midterm Exams</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,1332 +11,1007 @@
     <div class="container" id="app"></div>
 
 <script>
-const examSets = [
+// ── EXAM 1: History of Drama ─────────────────────────────────
 
-// ── EXAM 1: Foundations & Basic Concepts (Sessions 1–3) ──────────
+const examSets = [ 
+,
 {
-    title: "Exam 1: Foundations & Basic Concepts",
-    icon: "🗣️",
-    label: "Sessions 1–3",
-    lang: "en",
+    title: "النحو: الممنوع من الصرف",
+    icon: "📝",
+    label: "نحو ١",
+    lang: "ar",
     type: "mcq",
     questions: [
         {
-            id: 1,
-            category: "Phonetics vs Phonology",
-            question: "Phonetics is best defined as the study of:",
+            id: 101,
+            category: "تعريف الممنوع من الصرف",
+            question: "ما المقصود بالممنوع من الصرف؟",
             options: [
-                "the classification of sounds within the system of a particular language",
-                "the production, transmission, reception, and transcription of speech sounds",
-                "the grammar rules that govern the structure of spoken sentences",
-                "the historical development of pronunciation across different time periods"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics deals with the physical properties of speech sounds — their production, transmission, reception, analysis, classification, and transcription. Phonology, on the other hand, classifies sounds within a particular language system.",
-            topic: "Phonetics vs Phonology — Definitions"
-        },
-        {
-            id: 2,
-            category: "Phonetics vs Phonology",
-            question: "Which of the following correctly describes phonology?",
-            options: [
-                "the study of how speech sounds are physically produced by the vocal organs",
-                "the classification of sounds within a language and the patterns they form",
-                "the transcription of all human sounds using the International Phonetic Alphabet",
-                "the analysis of how sound waves travel from speaker to listener"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonology is the classification of sounds within the system of a particular language and the patterns that speech sounds form. It belongs to theoretical linguistics, while phonetics belongs to descriptive linguistics.",
-            topic: "Phonetics vs Phonology — Definitions"
-        },
-        {
-            id: 3,
-            category: "Phonetics vs Phonology",
-            question: "Phonetics belongs to descriptive linguistics, while phonology belongs to:",
-            options: [
-                "applied linguistics, which focuses on practical language teaching methods",
-                "theoretical linguistics, which examines abstract language systems and rules",
-                "historical linguistics, which traces how languages change over centuries",
-                "computational linguistics, which models language through computer algorithms"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics is descriptive (describes physical sounds), while phonology is theoretical (examines the abstract sound system of a language). This is a key distinction from Session 1.",
-            topic: "Phonetics vs Phonology — Branches"
-        },
-        {
-            id: 4,
-            category: "Phonetics vs Phonology",
-            question: "Which statement about phonetics and phonology is correct?",
-            options: [
-                "Phonetics can study one specific language, but phonology cannot focus on one",
-                "Phonology can study one specific language, but phonetics is not limited to one",
-                "Both phonetics and phonology must always focus on a single specific language",
-                "Neither phonetics nor phonology is able to focus on any one specific language"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics is universal — it studies speech sounds across all languages. Phonology can focus on one specific language's sound patterns (e.g., English phonology).",
-            topic: "Phonetics vs Phonology — Scope"
-        },
-        {
-            id: 5,
-            category: "Accent & Dialect",
-            question: "The difference between the words 'cookies/biscuits' and 'trunk/boot' is an example of:",
-            options: [
-                "accent variation, because the same words are pronounced differently",
-                "dialect variation, because entirely different vocabulary is being used",
-                "phonological variation, because the sound patterns differ systematically",
-                "register variation, because the formality of the language has changed"
-            ],
-            correctAnswer: 1,
-            explanation: "Using different words for the same thing (cookies vs biscuits, trunk vs boot) is a dialect difference. Accent refers only to pronunciation differences — how the same word sounds different.",
-            topic: "Accent vs Dialect"
-        },
-        {
-            id: 6,
-            category: "Accent & Dialect",
-            question: "Pronouncing the word 'water' differently in British and American English is an example of:",
-            options: [
-                "a dialect difference, because different vocabulary items are being used",
-                "an accent difference, because the same word is pronounced differently",
-                "a phonological error, because one of the two pronunciations is incorrect",
-                "a register shift, because the speakers are in different social contexts"
-            ],
-            correctAnswer: 1,
-            explanation: "When the same word is pronounced differently by speakers of different varieties, this is an accent difference. Dialect involves vocabulary and grammar differences, not just pronunciation.",
-            topic: "Accent vs Dialect"
-        },
-        {
-            id: 7,
-            category: "RP & English Varieties",
-            question: "RP stands for Received Pronunciation, which refers to:",
-            options: [
-                "the standard American pronunciation taught in international language schools",
-                "the English pronunciation associated with south-east England and accepted speech",
-                "the oldest recorded form of English pronunciation found in historical archives",
-                "the pronunciation system used exclusively by linguists in academic research"
-            ],
-            correctAnswer: 1,
-            explanation: "RP (Received Pronunciation) is the accent associated with south-east England. It is also called 'accepted pronunciation' and is the standard used in this phonetics course.",
-            topic: "Received Pronunciation"
-        },
-        {
-            id: 8,
-            category: "IPA & Transcription",
-            question: "What does IPA stand for in the context of phonetics?",
-            options: [
-                "International Pronunciation Assessment, a standard test for language learners",
-                "International Phonetic Alphabet, a system for representing speech sounds",
-                "Internal Phonological Analysis, a method for studying language patterns",
-                "Integrated Phonemic Application, a software tool for sound processing"
-            ],
-            correctAnswer: 1,
-            explanation: "IPA stands for International Phonetic Alphabet — a standardized system of symbols used to represent each distinct speech sound across all languages.",
-            topic: "International Phonetic Alphabet"
-        },
-        {
-            id: 9,
-            category: "IPA & Transcription",
-            question: "The word 'brother' has 7 letters but only 4 phonemes. This shows that:",
-            options: [
-                "English spelling always corresponds directly to its pronunciation in speech",
-                "the number of letters in a word does not always match the number of sounds",
-                "phonemes are always more numerous than the letters in any English word",
-                "the IPA system requires more symbols than the English alphabet provides"
-            ],
-            correctAnswer: 1,
-            explanation: "'Brother' = B-r-o-t-h-e-r (7 letters) but /brʌðə/ (4 phonemes). English spelling and pronunciation often don't match — this is why we need IPA transcription.",
-            topic: "Letters vs Sounds"
-        },
-        {
-            id: 10,
-            category: "Key Terms",
-            question: "A 'phone' in phonetics refers to:",
-            options: [
-                "the smallest unit of speech that can distinguish one word from another",
-                "any sound that a human being is physically capable of producing",
-                "a specific variation of a phoneme that occurs in a particular context",
-                "a written symbol used to represent a particular speech sound"
-            ],
-            correctAnswer: 1,
-            explanation: "A phone is any human sound — including speech sounds, sneezes, coughs, etc. A phoneme is more specific: the smallest unit that distinguishes meaning between words.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 11,
-            category: "Key Terms",
-            question: "A 'phoneme' is best defined as:",
-            options: [
-                "any sound that a human being is physically capable of making",
-                "the smallest unit of speech that can distinguish one word from another",
-                "one of the many physical realizations of the same abstract sound unit",
-                "the written symbol used by linguists to record pronunciation data"
-            ],
-            correctAnswer: 1,
-            explanation: "A phoneme is the smallest unit of speech that distinguishes one word from another. For example, /p/ and /b/ are different phonemes because 'pat' and 'bat' have different meanings.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 12,
-            category: "Key Terms",
-            question: "The /t/ in 'top', 'stop', and 'button' sounds slightly different each time. These variations are called:",
-            options: [
-                "phonemes, because each variation creates a new meaningful word unit",
-                "allophones, because they are different realizations of the same phoneme",
-                "phones, because they represent any random sound a human can produce",
-                "diphthongs, because each sound glides from one position into another"
-            ],
-            correctAnswer: 1,
-            explanation: "An allophone is any of the various phonetic realizations of a phoneme. The /t/ sounds differently in different positions, but all are allophones of the phoneme /t/.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 13,
-            category: "Speech Production",
-            question: "The correct order of speech production systems from bottom to top is:",
-            options: [
-                "articulatory system, then phonatory system, then respiratory system",
-                "respiratory system, then phonatory system, then articulatory system",
-                "phonatory system, then respiratory system, then articulatory system",
-                "respiratory system, then articulatory system, then phonatory system"
-            ],
-            correctAnswer: 1,
-            explanation: "Speech production starts with the respiratory system (lungs produce airflow), then the phonatory system (larynx/vocal cords vibrate), then the articulatory system (mouth/nose shape sounds).",
-            topic: "Systems of Speech Production"
-        },
-        {
-            id: 14,
-            category: "Speech Production",
-            question: "The airflow used to produce almost all English speech sounds is called:",
-            options: [
-                "ingressive pulmonic airstream, where air is drawn inward through the lungs",
-                "egressive pulmonic airstream, where air is pushed outward from the lungs",
-                "egressive glottalic airstream, where air is pushed upward from the larynx",
-                "ingressive velaric airstream, where air is drawn inward using the tongue"
-            ],
-            correctAnswer: 1,
-            explanation: "Almost all English speech sounds use egressive pulmonic airstream — air pushed outward from the lungs. 'Egressive' means outgoing; 'pulmonic' means from the lungs.",
-            topic: "Egressive Pulmonic Airstream"
-        },
-        {
-            id: 15,
-            category: "Speech Organs",
-            question: "The vocal tract ends at the mouth and nostrils. The mouth part is called the oral cavity, and the part leading to the nostrils is called:",
-            options: [
-                "the pharynx, which is a tube beginning just above the larynx area",
-                "the nasal cavity, which is the passage connecting the throat to the nose",
-                "the alveolar ridge, which is the bony area behind the upper front teeth",
-                "the larynx, which is the structure containing the vocal cords inside"
-            ],
-            correctAnswer: 1,
-            explanation: "The vocal tract splits into two: the oral cavity (mouth) and the nasal cavity (leading to the nostrils). The pharynx is a separate tube above the larynx.",
-            topic: "Oral Cavity vs Nasal Cavity"
-        },
-        {
-            id: 16,
-            category: "Speech Organs",
-            question: "When the soft palate (velum) is raised, the nasal passage is blocked, producing:",
-            options: [
-                "nasal sounds like /m/ and /n/, where air escapes through the nose",
-                "oral sounds like /k/ and /g/, where air exits only through the mouth",
-                "nasalized sounds, where air passes through both the nose and mouth",
-                "fricative sounds, where air is forced through a narrow gap noisily"
-            ],
-            correctAnswer: 1,
-            explanation: "When the velum is raised → nasal passage blocked → oral sounds (e.g., /k/, /g/). When the velum is lowered → nasal passage open → nasal sounds (e.g., /m/, /n/).",
-            topic: "States of the Soft Palate"
-        },
-        {
-            id: 17,
-            category: "Speech Organs",
-            question: "Which of the following is NOT one of the articulators in the vocal tract?",
-            options: [
-                "the alveolar ridge, which is located behind the upper front teeth",
-                "the diaphragm, which is a muscle located below the lungs in the chest",
-                "the soft palate (velum), which can be raised or lowered during speech",
-                "the pharynx, which is the tube that begins just above the larynx"
-            ],
-            correctAnswer: 1,
-            explanation: "The diaphragm is part of the respiratory system (helps push air from lungs) but is NOT an articulator. Articulators include: lips, teeth, alveolar ridge, hard palate, soft palate, tongue, pharynx, and larynx.",
-            topic: "The Articulators"
-        },
-        {
-            id: 18,
-            category: "Speech Organs",
-            question: "The pharynx is best described as:",
-            options: [
-                "the bony ridge located directly behind the upper row of front teeth",
-                "a tube that begins just above the larynx and is divided into two parts",
-                "the fleshy dangling structure visible at the back of the open mouth",
-                "the hard roof of the mouth located between the alveolar ridge and velum"
-            ],
-            correctAnswer: 1,
-            explanation: "The pharynx is a tube beginning just above the larynx. It is about 7 cm long in women and 8 cm in men. At its top end it divides into two passages (oral and nasal).",
-            topic: "The Pharynx"
-        },
-        {
-            id: 19,
-            category: "Speech Organs",
-            question: "When we produce the sounds /k/ and /g/, the tongue touches the lower side of the soft palate. These sounds are therefore called:",
-            options: [
-                "alveolar consonants, because they are articulated at the alveolar ridge",
-                "velar consonants, because they are articulated against the soft palate",
-                "bilabial consonants, because both lips are pressed together to form them",
-                "dental consonants, because the tongue touches the back of the teeth"
-            ],
-            correctAnswer: 1,
-            explanation: "When the tongue contacts the soft palate (velum) to produce /k/ and /g/, these are called velar consonants. The soft palate is both a valve for nasal sounds and an articulation point.",
-            topic: "Velar Consonants"
-        },
-        {
-            id: 20,
-            category: "Speech Production",
-            question: "The phonatory system is where:",
-            options: [
-                "the lungs push air upward to initiate the breathing process for speech",
-                "vibration or phonation takes place as air passes through the vocal cords",
-                "resonance is modified in the vocal tract to shape different speech sounds",
-                "the brain encodes the semantic and syntactic structure of the message"
-            ],
-            correctAnswer: 1,
-            explanation: "The phonatory system is where vibration (phonation) takes place — the vocal cords in the larynx vibrate as air passes through them. The respiratory system provides airflow, and the articulatory system shapes resonance.",
-            topic: "Systems of Speech Production"
-        }
-    ]
-},
-
-// ── EXAM 2: English Vowels (Sessions 4–6) ───────────────────────
-{
-    title: "Exam 2: English Vowels",
-    icon: "🔤",
-    label: "Sessions 4–6",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Vowels vs Consonants",
-            question: "Vowels are sounds that are produced with:",
-            options: [
-                "some obstruction to the airflow as it passes from the larynx to the lips",
-                "no obstruction to the airflow as it passes from the larynx to the lips",
-                "complete blockage of the airflow at a specific point in the vocal tract",
-                "the vocal cords held tightly together so no air can escape outward"
-            ],
-            correctAnswer: 1,
-            explanation: "Vowels are produced with NO obstruction to the airflow. Consonants, by contrast, involve some obstruction (partial or complete) of the airflow.",
-            topic: "Vowels vs Consonants"
-        },
-        {
-            id: 2,
-            category: "Vowels vs Consonants",
-            question: "How many consonant sounds and vowel sounds are there in English RP?",
-            options: [
-                "20 consonant sounds and 24 vowel sounds in total in English RP",
-                "24 consonant sounds and 20 vowel sounds in total in English RP",
-                "26 consonant sounds and 18 vowel sounds in total in English RP",
-                "22 consonant sounds and 22 vowel sounds in total in English RP"
-            ],
-            correctAnswer: 1,
-            explanation: "English RP has 24 consonant sounds and 20 vowel sounds. The 20 vowels are divided into 12 monophthongs (pure vowels) and 8 diphthongs.",
-            topic: "Number of Sounds in English"
-        },
-        {
-            id: 3,
-            category: "Vowel Classification",
-            question: "The 20 English vowel sounds are divided into:",
-            options: [
-                "10 monophthongs and 10 diphthongs that together form the vowel system",
-                "12 monophthongs (pure vowels) and 8 diphthongs in the vowel system",
-                "14 monophthongs (pure vowels) and 6 diphthongs in the vowel system",
-                "7 short vowels and 13 long vowels that together form the vowel system"
-            ],
-            correctAnswer: 1,
-            explanation: "The 20 vowels = 12 monophthongs (pure vowels: 7 short + 5 long) + 8 diphthongs.",
-            topic: "Vowel Classification"
-        },
-        {
-            id: 4,
-            category: "Short Vowels",
-            question: "How many short vowels are there in English RP?",
-            options: [
-                "five short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/ in total in RP English",
-                "seven short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/ in RP English",
-                "six short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/ in total in RP English",
-                "eight short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/, /ɜ/ in RP"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 7 short vowels in RP: /ɪ/ (kit), /e/ (dress), /æ/ (trap), /ɒ/ (lot), /ʌ/ (strut), /ʊ/ (foot), /ə/ (about).",
-            topic: "Short Vowels"
-        },
-        {
-            id: 5,
-            category: "Short Vowels",
-            question: "The vowel sound in the words 'kit', 'bid', and 'fill' is:",
-            options: [
-                "/e/, which is the short vowel found in words like 'dress' and 'bed'",
-                "/ɪ/, which is the short vowel found in words like 'kit' and 'bid'",
-                "/æ/, which is the short vowel found in words like 'trap' and 'bad'",
-                "/ʌ/, which is the short vowel found in words like 'strut' and 'mud'"
-            ],
-            correctAnswer: 1,
-            explanation: "The vowel in 'kit', 'bid', 'fill' is /ɪ/. This is one of the 7 short vowels in RP English.",
-            topic: "Short Vowels — /ɪ/"
-        },
-        {
-            id: 6,
-            category: "Short Vowels",
-            question: "Which short vowel is found in the words 'strut', 'mud', and 'love'?",
-            options: [
-                "/ɒ/, which appears in words like 'lot', 'not', and 'wash' in RP",
-                "/ʌ/, which appears in words like 'strut', 'mud', and 'love' in RP",
-                "/ʊ/, which appears in words like 'foot', 'put', and 'good' in RP",
-                "/æ/, which appears in words like 'trap', 'bad', and 'fat' in RP"
-            ],
-            correctAnswer: 1,
-            explanation: "The vowel /ʌ/ is found in 'strut', 'mud', 'love'. Don't confuse it with /ɒ/ (lot, not, wash) or /ʊ/ (foot, put, good).",
-            topic: "Short Vowels — /ʌ/"
-        },
-        {
-            id: 7,
-            category: "Short Vowels",
-            question: "The schwa /ə/ is the vowel sound found in words like:",
-            options: [
-                "'trap', 'bad', and 'fat', where the mouth is open wide during production",
-                "'about', 'father', and 'the', where the sound is weak and unstressed",
-                "'foot', 'put', and 'good', where the lips are slightly rounded together",
-                "'dress', 'bed', and 'head', where the tongue is at a mid-front position"
-            ],
-            correctAnswer: 1,
-            explanation: "The schwa /ə/ appears in unstressed syllables: 'about', 'father', 'the'. It is the most common vowel sound in English and is always unstressed.",
-            topic: "Short Vowels — /ə/ (Schwa)"
-        },
-        {
-            id: 8,
-            category: "Long Vowels",
-            question: "How many long vowels are there in English RP?",
-            options: [
-                "seven long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /eː/, /oː/ in RP",
-                "five long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/ in total in RP English",
-                "six long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /æː/ in RP English",
-                "four long vowels: /iː/, /uː/, /ɑː/, /ɔː/ in total in RP English"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 5 long vowels in RP: /iː/ (fleece), /uː/ (goose), /ɑː/ (father), /ɔː/ (thought), /ɜː/ (nurse).",
-            topic: "Long Vowels"
-        },
-        {
-            id: 9,
-            category: "Long Vowels",
-            question: "The long vowel /ɜː/ is found in the words:",
-            options: [
-                "'fleece', 'meet', and 'eat', where the tongue is high and at the front",
-                "'nurse', 'stir', and 'learn', where the tongue is central in the mouth",
-                "'father', 'start', and 'hard', where the mouth is open and tongue is low",
-                "'thought', 'law', and 'war', where the lips are rounded during production"
-            ],
-            correctAnswer: 1,
-            explanation: "The long vowel /ɜː/ is found in 'nurse', 'stir', 'learn'. It is a central vowel. Don't confuse with /ɑː/ (father, start) or /ɔː/ (thought, law).",
-            topic: "Long Vowels — /ɜː/"
-        },
-        {
-            id: 10,
-            category: "Long Vowels",
-            question: "Which long vowel appears in the words 'goose', 'boot', and 'blue'?",
-            options: [
-                "/iː/, which is a high front vowel found in words like 'fleece' and 'meet'",
-                "/uː/, which is a high back vowel found in words like 'goose' and 'boot'",
-                "/ɔː/, which is a mid back vowel found in words like 'thought' and 'law'",
-                "/ɑː/, which is a low back vowel found in words like 'father' and 'start'"
-            ],
-            correctAnswer: 1,
-            explanation: "The long vowel /uː/ appears in 'goose', 'boot', 'blue'. It is produced with rounded lips and the tongue in a high back position.",
-            topic: "Long Vowels — /uː/"
-        },
-        {
-            id: 11,
-            category: "Diphthongs",
-            question: "A diphthong is a vowel sound that:",
-            options: [
-                "stays in exactly one position throughout the entire duration of the sound",
-                "glides from one vowel position to another within a single syllable",
-                "is always longer in duration than any of the five long vowel sounds",
-                "requires complete obstruction of airflow at some point during production"
-            ],
-            correctAnswer: 1,
-            explanation: "A diphthong is a vowel sound that glides from one position to another within a single syllable. Compare: /e/ (pure, stays in one position) vs /eɪ/ (diphthong, glides from /e/ toward /ɪ/).",
-            topic: "What is a Diphthong?"
-        },
-        {
-            id: 12,
-            category: "Diphthongs",
-            question: "How many diphthongs are there in English RP?",
-            options: [
-                "six diphthongs, divided into closing and centering types in RP English",
-                "eight diphthongs, divided into closing and centering types in RP English",
-                "ten diphthongs, divided into closing and centering types in RP English",
-                "five diphthongs, all of the closing type only found in RP English"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 8 diphthongs in RP: 5 closing (/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, /aʊ/) and 3 centering (/ɪə/, /eə/, /ʊə/).",
-            topic: "Number of Diphthongs"
-        },
-        {
-            id: 13,
-            category: "Diphthongs",
-            question: "The closing diphthongs in English RP are:",
-            options: [
-                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
-                "/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, and /aʊ/, which glide toward a closer vowel",
-                "/iː/, /uː/, /ɑː/, /ɔː/, and /ɜː/, which are held in one position",
-                "/ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, and /ə/, which are all short sounds"
-            ],
-            correctAnswer: 1,
-            explanation: "The 5 closing diphthongs glide toward a closer (higher) vowel position: /eɪ/ (day), /aɪ/ (sky), /ɔɪ/ (boy), /əʊ/ (go), /aʊ/ (cow).",
-            topic: "Closing Diphthongs"
-        },
-        {
-            id: 14,
-            category: "Diphthongs",
-            question: "The centering diphthongs in English RP are:",
-            options: [
-                "/eɪ/, /aɪ/, and /ɔɪ/, which glide toward a higher vowel position",
-                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
-                "/əʊ/ and /aʊ/, which glide toward a rounded back vowel position",
-                "/iː/, /uː/, and /ɜː/, which are held steady in one single position"
-            ],
-            correctAnswer: 1,
-            explanation: "The 3 centering diphthongs glide toward schwa /ə/: /ɪə/ (near, here), /eə/ (hair, bear), /ʊə/ (tour, poor).",
-            topic: "Centering Diphthongs"
-        },
-        {
-            id: 15,
-            category: "Diphthongs",
-            question: "Which diphthong is found in the words 'day', 'make', and 'wait'?",
-            options: [
-                "/aɪ/, which is a closing diphthong found in 'sky', 'light', and 'eye'",
-                "/eɪ/, which is a closing diphthong found in 'day', 'make', and 'wait'",
-                "/ɔɪ/, which is a closing diphthong found in 'boy', 'voice', and 'toy'",
-                "/əʊ/, which is a closing diphthong found in 'go', 'home', and 'slow'"
-            ],
-            correctAnswer: 1,
-            explanation: "The diphthong /eɪ/ is found in 'day', 'make', 'wait'. It glides from /e/ toward /ɪ/.",
-            topic: "Closing Diphthongs — /eɪ/"
-        },
-        {
-            id: 16,
-            category: "Transcription",
-            question: "The correct IPA transcription of the word 'enough' is:",
-            options: [
-                "/enɒf/, with a short /e/ vowel and an /ɒ/ vowel before the final /f/",
-                "/ɪˈnʌf/, with a short /ɪ/ vowel, stress on the second syllable, and /ʌ/",
-                "/ɪˈnɔːf/, with a short /ɪ/ vowel and a long /ɔː/ before the final /f/",
-                "/ɑːnʌf/, with a long /ɑː/ vowel at the start and /ʌ/ in the second"
-            ],
-            correctAnswer: 1,
-            explanation: "The word 'enough' is transcribed /ɪˈnʌf/. The spelling 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. This shows how English spelling can be misleading.",
-            topic: "IPA Transcription"
-        },
-        {
-            id: 17,
-            category: "Transcription",
-            question: "Which transcription correctly represents the word 'father'?",
-            options: [
-                "/fæðə/, using the short vowel /æ/ as in 'trap' for the first syllable",
-                "/fɑːðə/, using the long vowel /ɑː/ as in 'start' for the first syllable",
-                "/fɒðə/, using the short vowel /ɒ/ as in 'lot' for the first syllable",
-                "/fʌðə/, using the short vowel /ʌ/ as in 'strut' for the first syllable"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /fɑːðə/. The 'a' in 'father' is the long vowel /ɑː/, not the short /æ/ as in 'fat'.",
-            topic: "IPA Transcription — Common Mistakes"
-        },
-        {
-            id: 18,
-            category: "Transcription",
-            question: "The word 'thought' is correctly transcribed as:",
-            options: [
-                "/θɒt/, with the short vowel /ɒ/ as found in the word 'lot' or 'not'",
-                "/θɔːt/, with the long vowel /ɔː/ as found in the word 'law' or 'war'",
-                "/θʌt/, with the short vowel /ʌ/ as found in the word 'cut' or 'but'",
-                "/θaʊt/, with the diphthong /aʊ/ as found in the word 'cow' or 'out'"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /θɔːt/. The 'ough' in 'thought' represents the long vowel /ɔː/, not the short /ɒ/.",
-            topic: "IPA Transcription — Common Mistakes"
-        },
-        {
-            id: 19,
-            category: "Short vs Long Vowels",
-            question: "The words 'cap' and 'cape' differ because:",
-            options: [
-                "both words contain the same short vowel /æ/ but different final consonants",
-                "'cap' has a short vowel /æ/ while 'cape' has a diphthong /eɪ/ instead",
-                "'cap' has a diphthong /eɪ/ while 'cape' has a short vowel /æ/ instead",
-                "both words contain the same diphthong /eɪ/ but different final consonants"
-            ],
-            correctAnswer: 1,
-            explanation: "'Cap' = /kæp/ (short vowel /æ/), 'cape' = /keɪp/ (diphthong /eɪ/). Adding a silent 'e' often changes the vowel from short to a diphthong or long sound.",
-            topic: "Short Vowel vs Diphthong"
-        },
-        {
-            id: 20,
-            category: "Phonemic Transcription",
-            question: "Phonemic transcription is defined as:",
-            options: [
-                "the process of writing down the grammatical rules of a spoken language",
-                "the process of representing each phoneme by its corresponding IPA symbol",
-                "the process of recording the pitch and intonation patterns of sentences",
-                "the process of translating written text from one language into another"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonemic transcription is the process of representing each phoneme by an IPA symbol. It shows the distinctive sounds of a word, written between forward slashes /like this/.",
-            topic: "Phonemic Transcription — Definition"
-        }
-    ]
-},
-
-// ── EXAM 3: Consonants & Comprehensive Review (Sessions 2–3, 7) ─
-{
-    title: "Exam 3: Consonants & Review",
-    icon: "🎯",
-    label: "Sessions 2–3, 7",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Consonant Basics",
-            question: "Consonants are sounds that are produced with:",
-            options: [
-                "no restriction or obstruction to the airflow between the larynx and lips",
-                "some obstruction to the airflow as it passes from the larynx to the lips",
-                "the soft palate always lowered so that air escapes through the nasal passage",
-                "the vocal cords always vibrating throughout the entire sound production"
-            ],
-            correctAnswer: 1,
-            explanation: "Consonants involve some obstruction (partial or complete) of the airflow as it passes from the larynx to the lips. Vowels, by contrast, have no obstruction.",
-            topic: "Consonants — Definition"
-        },
-        {
-            id: 2,
-            category: "Consonant Classification",
-            question: "To describe any English consonant, you need to specify three key dimensions:",
-            options: [
-                "length, pitch, and volume of the sound during its production in speech",
-                "place of articulation, manner of articulation, and voicing of the sound",
-                "spelling, syllable position, and frequency of the sound in English words",
-                "tongue height, tongue advancement, and lip rounding during the sound"
-            ],
-            correctAnswer: 1,
-            explanation: "Every consonant is described by three dimensions: place of articulation (WHERE), manner of articulation (HOW), and voicing (whether vocal cords vibrate).",
-            topic: "Three Dimensions of Consonants"
-        },
-        {
-            id: 3,
-            category: "Place of Articulation",
-            question: "Place of articulation refers to:",
-            options: [
-                "how the air flows through the vocal tract during sound production",
-                "where in the mouth or throat the airflow is obstructed during production",
-                "whether the vocal cords vibrate or remain still during the sound",
-                "how long the sound is held before releasing the air from the mouth"
-            ],
-            correctAnswer: 1,
-            explanation: "Place of articulation = WHERE the obstruction happens — the point where two articulators come together to block or narrow the airflow.",
-            topic: "Place of Articulation — Definition"
-        },
-        {
-            id: 4,
-            category: "Plosives",
-            question: "The sounds /p/ and /b/ are called bilabial plosives because:",
-            options: [
-                "the tongue blade is pressed firmly against the alveolar ridge to block air",
-                "both lips are pressed together to completely block the airflow momentarily",
-                "the back of the tongue is pressed against the soft palate to stop the air",
-                "the tongue tip is placed between the upper and lower teeth to restrict air"
-            ],
-            correctAnswer: 1,
-            explanation: "/p/ and /b/ are bilabial — both (bi-) lips (-labial) press together to completely stop the airflow. They are plosives because the air is released with a small burst.",
-            topic: "Bilabial Plosives — /p/ /b/"
-        },
-        {
-            id: 5,
-            category: "Plosives",
-            question: "The sounds /t/ and /d/ are alveolar plosives because:",
-            options: [
-                "both lips are pressed together to completely stop the flow of air outward",
-                "the tongue blade is pressed against the alveolar ridge to block the airflow",
-                "the back of the tongue presses against the soft palate to stop air escape",
-                "the lower lip makes contact with the upper teeth to restrict the airflow"
-            ],
-            correctAnswer: 1,
-            explanation: "/t/ and /d/ are alveolar — the tongue blade presses against the alveolar ridge (the bony area behind the upper front teeth) to block the airflow.",
-            topic: "Alveolar Plosives — /t/ /d/"
-        },
-        {
-            id: 6,
-            category: "Plosives",
-            question: "The sounds /k/ and /g/ are velar plosives because:",
-            options: [
-                "the tongue blade is pressed firmly against the alveolar ridge to block air",
-                "the back of the tongue presses against the soft palate (velum) to stop air",
-                "both lips are firmly pressed together to completely block the air flow",
-                "the tongue tip is placed between the upper and lower front teeth closely"
-            ],
-            correctAnswer: 1,
-            explanation: "/k/ and /g/ are velar — the back of the tongue presses against the soft palate (velum), where the hard palate ends and the soft palate begins.",
-            topic: "Velar Plosives — /k/ /g/"
-        },
-        {
-            id: 7,
-            category: "Voicing",
-            question: "A voiced consonant is one in which:",
-            options: [
-                "the vocal cords do not vibrate at all during the production of the sound",
-                "the vocal cords vibrate during the production of the consonant sound",
-                "the air escapes through the nose rather than through the oral cavity",
-                "the airflow is completely blocked and then released with a burst of air"
-            ],
-            correctAnswer: 1,
-            explanation: "Voiced = vocal cords vibrate during the sound (e.g., /b/, /d/, /g/). Voiceless = vocal cords do NOT vibrate (e.g., /p/, /t/, /k/).",
-            topic: "Voiced vs Voiceless"
-        },
-        {
-            id: 8,
-            category: "Voicing",
-            question: "Which of the following groups contains ONLY voiceless consonants?",
-            options: [
-                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
-                "/p/, /t/, and /k/, which are all produced without vocal cord vibration",
-                "/m/, /n/, and /ŋ/, which are all produced through the nasal passage",
-                "/f/, /d/, and /k/, which combine both voiced and voiceless consonants"
-            ],
-            correctAnswer: 1,
-            explanation: "/p/, /t/, /k/ are all voiceless plosives — produced without vocal cord vibration. Their voiced counterparts are /b/, /d/, /g/.",
-            topic: "Voiceless Plosives"
-        },
-        {
-            id: 9,
-            category: "Voicing",
-            question: "Which of the following groups contains ONLY voiced consonants?",
-            options: [
-                "/p/, /t/, and /k/, which are produced without any vocal cord vibration",
-                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
-                "/p/, /b/, and /t/, which include both voiced and voiceless consonants",
-                "/f/, /s/, and /θ/, which are all produced without vocal cord vibration"
-            ],
-            correctAnswer: 1,
-            explanation: "/b/, /d/, /g/ are all voiced plosives — produced with vocal cord vibration. They are the voiced counterparts of voiceless /p/, /t/, /k/.",
-            topic: "Voiced Plosives"
-        },
-        {
-            id: 10,
-            category: "Aspiration",
-            question: "Voiceless plosives /p/, /t/, /k/ are aspirated (followed by a puff of air) when they appear in:",
-            options: [
-                "the final position of a word, such as in the words 'flap' and 'meet'",
-                "the initial position of a word, such as in the words 'tea' and 'kitchen'",
-                "any position within a word, regardless of whether it is initial or final",
-                "consonant clusters at the start of words, such as in 'spin' and 'skate'"
-            ],
-            correctAnswer: 1,
-            explanation: "Voiceless plosives are aspirated at the beginning of a word (initial position) — e.g., 'tea', 'kitchen', 'paper'. In clusters like 'sp-' or 'sk-', they are NOT aspirated.",
-            topic: "Aspiration of Plosives"
-        },
-        {
-            id: 11,
-            category: "Plosive Positions",
-            question: "The three positions a plosive can occur in within a word are:",
-            options: [
-                "stressed, unstressed, and neutral positions within a spoken word or phrase",
-                "initial position (CV), medial position (VCV), and final position (VC)",
-                "aspirated, unaspirated, and unreleased positions within a spoken word",
-                "bilabial, alveolar, and velar positions within the oral cavity of the speaker"
-            ],
-            correctAnswer: 1,
-            explanation: "Plosives can occur in: initial position (beginning of word, e.g., 'tall'), medial position (middle, e.g., 'steam'), and final position (end, e.g., 'meet').",
-            topic: "Positions of Plosives"
-        },
-        {
-            id: 12,
-            category: "IPA Consonants",
-            question: "The consonant sounds in the word 'twist' are:",
-            options: [
-                "/t/, /r/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/t/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/θ/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/t/, /w/, /z/, and /t/, totaling four consonant sounds in that word"
-            ],
-            correctAnswer: 1,
-            explanation: "The consonants in 'twist' are: /t/ + /w/ + /s/ + /t/. The vowel is /ɪ/. So the full transcription would be /twɪst/.",
-            topic: "Identifying Consonant Sounds"
-        },
-        {
-            id: 13,
-            category: "IPA Consonants",
-            question: "The word 'church' is correctly transcribed as:",
-            options: [
-                "/ʃɜːtʃ/, starting with the fricative /ʃ/ and ending with the affricate /tʃ/",
-                "/tʃɜːtʃ/, starting with the affricate /tʃ/ and ending with the affricate /tʃ/",
-                "/sɜːtʃ/, starting with the fricative /s/ and ending with the affricate /tʃ/",
-                "/tʃɜːrtʃ/, starting with /tʃ/ and containing an /r/ before the final /tʃ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /tʃɜːtʃ/. The 'ch' at both the beginning and end represents the affricate /tʃ/, and the middle vowel is /ɜː/.",
-            topic: "IPA Transcription — Affricates"
-        },
-        {
-            id: 14,
-            category: "IPA Consonants",
-            question: "The word 'judge' is correctly transcribed as:",
-            options: [
-                "/jʌdʒ/, starting with the approximant /j/ and ending with the affricate /dʒ/",
-                "/dʒʌdʒ/, starting with the affricate /dʒ/ and ending with the affricate /dʒ/",
-                "/ɡʌdʒ/, starting with the velar plosive /ɡ/ and ending with the affricate /dʒ/",
-                "/dʒʌɡ/, starting with the affricate /dʒ/ and ending with the velar plosive /ɡ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /dʒʌdʒ/. The 'j' at the start and 'dge' at the end both represent the voiced affricate /dʒ/.",
-            topic: "IPA Transcription — Affricates"
-        },
-        {
-            id: 15,
-            category: "Speech Organs Review",
-            question: "The alveolar ridge is located:",
-            options: [
-                "at the very back of the oral cavity, just above the larynx area",
-                "directly behind the upper front teeth, forming a bony ridge in the mouth",
-                "at the soft fleshy area at the back of the roof of the mouth cavity",
-                "between the two lips, forming the opening of the oral cavity itself"
-            ],
-            correctAnswer: 1,
-            explanation: "The alveolar ridge is the bony ridge directly behind the upper front teeth. It is the place of articulation for alveolar sounds like /t/, /d/, /n/, /l/, /s/, /z/.",
-            topic: "The Alveolar Ridge"
-        },
-        {
-            id: 16,
-            category: "Speech Organs Review",
-            question: "The hard palate is located:",
-            options: [
-                "directly behind the upper front teeth, forming the alveolar ridge area",
-                "between the alveolar ridge and the soft palate, forming the roof of mouth",
-                "at the back of the mouth where it can be raised or lowered for sound",
-                "inside the larynx where the vocal cords are positioned for vibration"
-            ],
-            correctAnswer: 1,
-            explanation: "The hard palate is the hard, bony roof of the mouth located between the alveolar ridge (front) and the soft palate/velum (back).",
-            topic: "The Hard Palate"
-        },
-        {
-            id: 17,
-            category: "Comprehensive Review",
-            question: "How many phonemes are in the word 'listen'?",
-            options: [
-                "six phonemes: /l/ + /ɪ/ + /s/ + /t/ + /e/ + /n/ in the word 'listen'",
-                "five phonemes: /l/ + /ɪ/ + /s/ + /ə/ + /n/ with the 't' being silent",
-                "four phonemes: /l/ + /ɪ/ + /s/ + /n/ with both 't' and 'e' being silent",
-                "seven phonemes, one for each letter that appears in the spelling of it"
-            ],
-            correctAnswer: 1,
-            explanation: "The word 'listen' = /lɪsən/ = 5 phonemes. The 't' is silent, and the 'e' represents schwa /ə/. Remember: phonemes ≠ letters.",
-            topic: "Counting Phonemes"
-        },
-        {
-            id: 18,
-            category: "Comprehensive Review",
-            question: "The word 'shape' is correctly transcribed as:",
-            options: [
-                "/ʃæp/, using the short vowel /æ/ and no diphthong in the transcription",
-                "/ʃeɪp/, using the diphthong /eɪ/ which glides from /e/ toward /ɪ/ sound",
-                "/seɪp/, using the fricative /s/ at the start instead of the fricative /ʃ/",
-                "/tʃeɪp/, using the affricate /tʃ/ at the start instead of the fricative /ʃ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /ʃeɪp/. The 'sh' = /ʃ/, the 'a' + silent 'e' = diphthong /eɪ/, and the 'p' = /p/.",
-            topic: "IPA Transcription Practice"
-        },
-        {
-            id: 19,
-            category: "Comprehensive Review",
-            question: "Which statement about the respiratory system in speech is correct?",
-            options: [
-                "it modifies resonance in the vocal tract to create different speech sounds",
-                "it provides the airflow from the lungs that is needed for speech production",
-                "it produces vibration as air passes through the vocal cords in the larynx",
-                "it shapes the air into specific sounds using the tongue, lips, and palate"
-            ],
-            correctAnswer: 1,
-            explanation: "The respiratory system provides the airflow (egressive pulmonic airstream) from the lungs. The phonatory system creates vibration, and the articulatory system shapes the sounds.",
-            topic: "Respiratory System"
-        },
-        {
-            id: 20,
-            category: "Comprehensive Review",
-            question: "Adults often struggle more than babies with acquiring a new language's pronunciation because of:",
-            options: [
-                "physical changes in the vocal tract that prevent adults from making sounds",
-                "negative transfer, where the native language interferes with new sounds",
-                "a complete inability to hear the differences between unfamiliar sounds",
-                "the lack of any formal instruction or classroom exposure to the language"
-            ],
-            correctAnswer: 1,
-            explanation: "Adults are affected by their native language through negative transfer — their first language habits interfere with producing new sounds. Babies are great imitators and don't have this interference.",
-            topic: "Language Acquisition & Pronunciation"
-        }
-    ]
-}
-
-// ── EXAM 4: IPA Transcription Practice 1 (Consonants & Short Vowels) ─
-,{
-    title: "Exam 4: IPA Transcription – Part 1",
-    icon: "✍️",
-    label: "Consonants & Short Vowels",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'twist'?",
-            options: [
-                "/t/ + /w/ + /s/ + /t/",
-                "/θ/ + /w/ + /s/ + /t/",
-                "/t/ + /r/ + /s/ + /t/",
-                "/d/ + /w/ + /z/ + /t/"
+                "الاسم الذي لا يقبل التنوين ويُجر بالفتحة بدلاً من الكسرة",
+                "الاسم الذي لا يقبل الضمة في حالة الرفع",
+                "الاسم الذي لا يدخل عليه حرف جر",
+                "الاسم الذي لا يُعرب بالحركات"
             ],
             correctAnswer: 0,
-            explanation: "'Twist' = /twɪst/. The consonants are /t/, /w/, /s/, /t/. The 'tw' is not /θ/ or /r/.",
-            topic: "Consonant Symbols — twist"
+            explanation: "الممنوع من الصرف هو الاسم الذي لا يُنوَّن ويُجر بالفتحة نيابةً عن الكسرة، ما لم يُضف أو يُعرَّف بـ(أل).",
+            topic: "تعريف الممنوع من الصرف"
         },
         {
-            id: 2,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'shrimp'?",
+            id: 102,
+            category: "علامات إعراب الممنوع من الصرف",
+            question: "ما علامة جر الاسم الممنوع من الصرف؟",
             options: [
-                "/s/ + /r/ + /m/ + /p/",
-                "/ʃ/ + /r/ + /m/ + /p/",
-                "/tʃ/ + /r/ + /m/ + /p/",
-                "/ʃ/ + /r/ + /n/ + /p/"
+                "الكسرة",
+                "الفتحة نيابة عن الكسرة",
+                "السكون",
+                "الياء"
             ],
             correctAnswer: 1,
-            explanation: "'Shrimp' = /ʃrɪmp/. The 'sh' = /ʃ/ (not /s/ or /tʃ/), then /r/, /m/, /p/.",
-            topic: "Consonant Symbols — shrimp"
+            explanation: "الاسم الممنوع من الصرف يُجر بالفتحة نيابة عن الكسرة، وهذه أهم سمة تميزه.",
+            topic: "علامات إعراب الممنوع من الصرف"
         },
         {
-            id: 3,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'thumb'?",
+            id: 103,
+            category: "علامات إعراب الممنوع من الصرف",
+            question: "أي الجمل التالية فيها إعراب صحيح للممنوع من الصرف؟",
             options: [
-                "/t/ + /m/ + /b/",
-                "/θ/ + /m/ + /b/",
-                "/θ/ + /m/ only",
-                "/t/ + /m/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Thumb' = /θʌm/. The 'th' = /θ/, the 'b' is silent, so consonants are /θ/ + /m/ only.",
-            topic: "Consonant Symbols — thumb"
-        },
-        {
-            id: 4,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'yacht'?",
-            options: [
-                "/j/ + /tʃ/ + /t/",
-                "/j/ + /k/ + /t/",
-                "/j/ + /t/ only",
-                "/dʒ/ + /t/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Yacht' = /jɒt/. The 'y' = /j/, the 'ch' is silent, so consonants are /j/ + /t/ only.",
-            topic: "Consonant Symbols — yacht"
-        },
-        {
-            id: 5,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'sing'?",
-            options: [
-                "/s/ + /n/ + /g/",
-                "/s/ + /ŋ/ + /g/",
-                "/s/ + /ŋ/ only",
-                "/z/ + /ŋ/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Sing' = /sɪŋ/. The 'ng' = /ŋ/ (a single nasal sound), and /g/ is not pronounced separately. So: /s/ + /ŋ/.",
-            topic: "Consonant Symbols — sing"
-        },
-        {
-            id: 6,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'bomb'?",
-            options: [
-                "/b/ + /m/ + /b/",
-                "/b/ + /m/ only",
-                "/p/ + /m/ + /b/",
-                "/b/ + /n/ only"
+                "ذهبتُ إلى مساجدٍ كثيرة",
+                "ذهبتُ إلى مساجدَ كثيرةٍ",
+                "ذهبتُ إلى مساجداً كثيرة",
+                "ذهبتُ إلى مساجدُ كثيرة"
             ],
             correctAnswer: 1,
-            explanation: "'Bomb' = /bɒm/. The final 'b' is silent, so the consonants are /b/ + /m/ only.",
-            topic: "Consonant Symbols — bomb"
+            explanation: "\"مساجد\" على وزن مفاعل (صيغة منتهى الجموع) فهي ممنوعة من الصرف وتُجر بالفتحة، فالصواب: إلى مساجدَ.",
+            topic: "إعراب الممنوع من الصرف — صيغة منتهى الجموع"
         },
         {
-            id: 7,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'jump'?",
+            id: 104,
+            category: "صيغة منتهى الجموع",
+            question: "أي الكلمات التالية على وزن صيغة منتهى الجموع (مفاعل / مفاعيل)؟",
             options: [
-                "/j/ + /m/ + /p/",
-                "/dʒ/ + /m/ + /p/",
-                "/tʃ/ + /m/ + /p/",
-                "/dʒ/ + /n/ + /p/"
+                "كُتُب",
+                "مصابيح",
+                "طلاب",
+                "معلمون"
             ],
             correctAnswer: 1,
-            explanation: "'Jump' = /dʒʌmp/. The 'j' = /dʒ/ (not /j/ or /tʃ/), then /m/ + /p/.",
-            topic: "Consonant Symbols — jump"
+            explanation: "\"مصابيح\" على وزن مفاعيل، وهي صيغة منتهى الجموع، فتكون ممنوعة من الصرف. أما كُتُب فجمع تكسير عادي.",
+            topic: "صيغة منتهى الجموع"
         },
         {
-            id: 8,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'sad':",
+            id: 105,
+            category: "صيغة منتهى الجموع",
+            question: "أي الكلمات التالية ممنوعة من الصرف لأنها صيغة منتهى الجموع؟",
             options: [
-                "/sʌd/",
-                "/sæd/",
-                "/sed/",
-                "/sɒd/"
+                "أصدقاء",
+                "مدارس",
+                "كتب",
+                "أبواب"
             ],
             correctAnswer: 1,
-            explanation: "'Sad' = /sæd/. The vowel is /æ/ as in 'trap', not /ʌ/ as in 'strut' or /e/ as in 'dress'.",
-            topic: "Short Vowel Transcription — /æ/"
+            explanation: "\"مدارس\" على وزن مَفاعِل وهي صيغة منتهى الجموع فتُمنع من الصرف. أما أصدقاء فممنوعة لسبب آخر (ألف التأنيث الممدودة).",
+            topic: "صيغة منتهى الجموع"
         },
         {
-            id: 9,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'luck':",
+            id: 106,
+            category: "العلم المؤنث",
+            question: "لماذا تُمنع كلمة \"فاطمة\" من الصرف؟",
             options: [
-                "/læk/",
-                "/lɒk/",
-                "/lʌk/",
-                "/lʊk/"
+                "لأنها صيغة منتهى الجموع",
+                "لأنها علم مؤنث",
+                "لأنها على وزن أفعل",
+                "لأنها علم أعجمي"
+            ],
+            correctAnswer: 1,
+            explanation: "\"فاطمة\" ممنوعة من الصرف لأنها علم مؤنث (العلمية + التأنيث).",
+            topic: "العلم المؤنث"
+        },
+        {
+            id: 107,
+            category: "العلم الأعجمي",
+            question: "أي الأسماء التالية ممنوع من الصرف للعلمية والعجمة؟",
+            options: [
+                "محمد",
+                "إبراهيم",
+                "خالد",
+                "عمر"
+            ],
+            correctAnswer: 1,
+            explanation: "\"إبراهيم\" علم أعجمي زائد على ثلاثة أحرف، فيُمنع من الصرف للعلمية والعجمة.",
+            topic: "العلم الأعجمي"
+        },
+        {
+            id: 108,
+            category: "الصفة على وزن أفعل",
+            question: "لماذا تُمنع كلمة \"أحمر\" من الصرف؟",
+            options: [
+                "لأنها علم مؤنث",
+                "لأنها على وزن أفعل الذي مؤنثه فعلاء (صفة)",
+                "لأنها صيغة منتهى الجموع",
+                "لأنها مختومة بألف التأنيث"
+            ],
+            correctAnswer: 1,
+            explanation: "\"أحمر\" صفة على وزن أفعل ومؤنثها حمراء (فعلاء)، وهذا الوزن يُمنع من الصرف.",
+            topic: "الصفة على وزن أفعل"
+        },
+        {
+            id: 109,
+            category: "ألف التأنيث",
+            question: "أي الكلمات التالية ممنوعة من الصرف بسبب ألف التأنيث الممدودة؟",
+            options: [
+                "صحراء",
+                "فاطمة",
+                "عثمان",
+                "مساجد"
+            ],
+            correctAnswer: 0,
+            explanation: "\"صحراء\" ممنوعة من الصرف لأنها مختومة بألف التأنيث الممدودة.",
+            topic: "ألف التأنيث الممدودة"
+        },
+        {
+            id: 110,
+            category: "ألف التأنيث",
+            question: "أي الكلمات التالية ممنوعة من الصرف بسبب ألف التأنيث المقصورة؟",
+            options: [
+                "كبرى",
+                "حمراء",
+                "عصافير",
+                "يوسف"
+            ],
+            correctAnswer: 0,
+            explanation: "\"كبرى\" ممنوعة من الصرف لأنها مختومة بألف التأنيث المقصورة.",
+            topic: "ألف التأنيث المقصورة"
+        },
+        {
+            id: 111,
+            category: "متى يُصرف الممنوع من الصرف؟",
+            question: "متى يُصرف الاسم الممنوع من الصرف (أي يعود للكسرة والتنوين)؟",
+            options: [
+                "إذا جاء مفعولاً به",
+                "إذا أُضيف أو دخلت عليه (أل) التعريف",
+                "إذا جاء في بداية الجملة",
+                "إذا كان مفرداً"
+            ],
+            correctAnswer: 1,
+            explanation: "الممنوع من الصرف يُصرف (يُجر بالكسرة ويُنوَّن) إذا أُضيف أو عُرِّف بـ(أل). مثال: في المساجدِ (بالكسرة لأنها معرفة بأل).",
+            topic: "حالات صرف الممنوع من الصرف"
+        },
+        {
+            id: 112,
+            category: "متى يُصرف الممنوع من الصرف؟",
+            question: "ما إعراب كلمة \"المدارس\" في: ذهبتُ إلى المدارسِ؟",
+            options: [
+                "مجرورة بالفتحة لأنها ممنوعة من الصرف",
+                "مجرورة بالكسرة لأنها معرفة بأل فعاد لها الصرف",
+                "منصوبة بالفتحة",
+                "مرفوعة بالضمة"
+            ],
+            correctAnswer: 1,
+            explanation: "\"المدارس\" صيغة منتهى الجموع لكنها معرفة بأل، فتُجر بالكسرة (عاد لها الصرف).",
+            topic: "حالات صرف الممنوع من الصرف"
+        },
+        {
+            id: 113,
+            category: "تصحيح الخطأ",
+            question: "صحح الخطأ في الجملة التالية: \"سافرتُ إلى مدنٍ كثيرةٍ\"",
+            options: [
+                "الجملة صحيحة ولا خطأ فيها",
+                "الصواب: إلى مدنَ كثيرةٍ (لأن مدن ممنوعة من الصرف)",
+                "الصواب: إلى مدنُ كثيرةٍ",
+                "الصواب: إلى مدناً كثيرةً"
+            ],
+            correctAnswer: 1,
+            explanation: "\"مُدُن\" على وزن فُعُل وهي صيغة منتهى الجموع، فتُمنع من الصرف وتُجر بالفتحة: إلى مدنَ.",
+            topic: "تصحيح الخطأ — الممنوع من الصرف"
+        },
+        {
+            id: 114,
+            category: "العلم المزيد بألف ونون",
+            question: "لماذا تُمنع كلمة \"عثمان\" من الصرف؟",
+            options: [
+                "لأنها علم أعجمي",
+                "لأنها علم مؤنث",
+                "لأنها علم مزيد بألف ونون زائدتين",
+                "لأنها على وزن أفعل"
             ],
             correctAnswer: 2,
-            explanation: "'Luck' = /lʌk/. The vowel is /ʌ/ as in 'strut'. Don't confuse with 'lack' /læk/ or 'look' /lʊk/ or 'lock' /lɒk/.",
-            topic: "Short Vowel Transcription — /ʌ/"
+            explanation: "\"عثمان\" ممنوعة من الصرف لأنها علم مزيد بألف ونون زائدتين (العلمية + زيادة الألف والنون).",
+            topic: "العلم المزيد بألف ونون"
         },
         {
-            id: 10,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'ship':",
+            id: 115,
+            category: "تطبيق شامل",
+            question: "حدد الاسم الممنوع من الصرف في الجملة: \"زرتُ عمرَ في مساجدَ جميلةٍ\"",
             options: [
-                "/ʃiːp/",
-                "/ʃɪp/",
-                "/sɪp/",
-                "/ʃep/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Ship' = /ʃɪp/. The vowel is short /ɪ/, not long /iː/ (that would be 'sheep'). The 'sh' = /ʃ/ not /s/.",
-            topic: "Short Vowel Transcription — /ɪ/"
-        },
-        {
-            id: 11,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'often':",
-            options: [
-                "/ɒftən/",
-                "/ʌften/",
-                "/ɒfən/",
-                "/æfən/"
+                "عمر فقط",
+                "مساجد فقط",
+                "عمر ومساجد",
+                "جميلة"
             ],
             correctAnswer: 2,
-            explanation: "'Often' = /ɒfən/. The 't' is silent, the first vowel is /ɒ/, and the second is schwa /ə/.",
-            topic: "Short Vowel Transcription — /ɒ/ + /ə/"
-        },
-        {
-            id: 12,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'sister':",
-            options: [
-                "/sɪstər/",
-                "/sɪstɜː/",
-                "/sɪstə/",
-                "/sestə/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Sister' = /sɪstə/. In RP, the final 'er' = schwa /ə/ (not /ər/ as in American English). The first vowel is /ɪ/.",
-            topic: "Short Vowel Transcription — /ɪ/ + /ə/"
-        },
-        {
-            id: 13,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'jam':",
-            options: [
-                "/jæm/",
-                "/dʒæm/",
-                "/tʃæm/",
-                "/dʒɑːm/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Jam' = /dʒæm/. The 'j' in English = /dʒ/ (not /j/ which is the 'y' sound). The vowel is /æ/.",
-            topic: "Short Vowel Transcription — /dʒ/ + /æ/"
-        },
-        {
-            id: 14,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'foot':",
-            options: [
-                "/fuːt/",
-                "/fʊt/",
-                "/fɒt/",
-                "/fʌt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Foot' = /fʊt/. The vowel is short /ʊ/ (not long /uː/ — that would be 'food'). Don't confuse with /ɒ/ or /ʌ/.",
-            topic: "Short Vowel Transcription — /ʊ/"
-        },
-        {
-            id: 15,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'accent':",
-            options: [
-                "/æksənt/",
-                "/ɑːksent/",
-                "/æksent/",
-                "/eksənt/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Accent' = /æksent/. The first vowel is /æ/ and the second is /e/. The 'cc' = /ks/.",
-            topic: "Short Vowel Transcription — /æ/ + /e/"
+            explanation: "\"عمر\" ممنوع من الصرف للعلمية والعدل (معدول عن عامر)، و\"مساجد\" ممنوعة لأنها صيغة منتهى الجموع.",
+            topic: "تطبيق شامل — تحديد الممنوع من الصرف"
         }
     ]
 },
-
-// ── EXAM 5: IPA Transcription Practice 2 (Long Vowels, Diphthongs & Full Words) ─
 {
-    title: "Exam 5: IPA Transcription – Part 2",
-    icon: "🎧",
-    label: "Long Vowels, Diphthongs & Mixed",
+    title: "أساسيات النحو العربي",
+    icon: "📖",
+    label: "نحو ٢",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 201,
+            category: "أقسام الكلمة",
+            question: "ما أقسام الكلمة في اللغة العربية؟",
+            options: [
+                "اسم وفعل فقط",
+                "اسم وفعل وحرف",
+                "اسم وحرف فقط",
+                "فعل وحرف فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "الكلمة في العربية ثلاثة أقسام: اسم وفعل وحرف. هذا التقسيم أساس علم النحو.",
+            topic: "أقسام الكلمة"
+        },
+        {
+            id: 202,
+            category: "علامات الإعراب",
+            question: "ما علامة الرفع الأصلية؟",
+            options: [
+                "الفتحة",
+                "الكسرة",
+                "الضمة",
+                "السكون"
+            ],
+            correctAnswer: 2,
+            explanation: "علامة الرفع الأصلية هي الضمة، وتكون في الاسم المفرد وجمع التكسير وجمع المؤنث السالم والفعل المضارع.",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 203,
+            category: "علامات الإعراب",
+            question: "ما علامة النصب الأصلية؟",
+            options: [
+                "الضمة",
+                "الفتحة",
+                "الكسرة",
+                "الألف"
+            ],
+            correctAnswer: 1,
+            explanation: "علامة النصب الأصلية هي الفتحة.",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 204,
+            category: "علامات الإعراب",
+            question: "ما علامة الجر الأصلية؟",
+            options: [
+                "الفتحة",
+                "الضمة",
+                "السكون",
+                "الكسرة"
+            ],
+            correctAnswer: 3,
+            explanation: "علامة الجر الأصلية هي الكسرة، لكنها تُستبدل بالفتحة في الممنوع من الصرف.",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 205,
+            category: "التنوين",
+            question: "ما هو التنوين؟",
+            options: [
+                "نون ساكنة تلحق آخر الاسم كتابةً ونطقاً",
+                "نون ساكنة تلحق آخر الاسم نطقاً لا كتابةً",
+                "نون متحركة تلحق آخر الفعل",
+                "نون ساكنة تلحق آخر الحرف"
+            ],
+            correctAnswer: 1,
+            explanation: "التنوين نون ساكنة تلحق آخر الاسم نطقاً لا كتابةً، وتُكتب على شكل حركتين (ً  ٍ  ٌ). والممنوع من الصرف لا يقبل التنوين.",
+            topic: "التنوين وعلاقته بالصرف"
+        },
+        {
+            id: 206,
+            category: "الاسم المعرب والمبني",
+            question: "أي الأسماء التالية معرب (يتغير آخره حسب موقعه)؟",
+            options: [
+                "هذا",
+                "الذي",
+                "كتابٌ",
+                "هؤلاء"
+            ],
+            correctAnswer: 2,
+            explanation: "\"كتاب\" اسم معرب يتغير آخره: كتابٌ (رفع)، كتاباً (نصب)، كتابٍ (جر). أما هذا والذي وهؤلاء فأسماء مبنية.",
+            topic: "الاسم المعرب والمبني"
+        },
+        {
+            id: 207,
+            category: "أنواع الجموع",
+            question: "أي الجموع التالية جمع تكسير؟",
+            options: [
+                "معلمون",
+                "طالبات",
+                "كُتُب",
+                "مهندسون"
+            ],
+            correctAnswer: 2,
+            explanation: "\"كُتُب\" جمع تكسير (جمع كتاب)، أما معلمون ومهندسون فجمع مذكر سالم، وطالبات جمع مؤنث سالم.",
+            topic: "أنواع الجموع"
+        },
+        {
+            id: 208,
+            category: "أنواع الجموع",
+            question: "كيف يُجر جمع المؤنث السالم؟",
+            options: [
+                "بالفتحة",
+                "بالكسرة",
+                "بالياء",
+                "بالسكون"
+            ],
+            correctAnswer: 1,
+            explanation: "جمع المؤنث السالم يُجر بالكسرة (العلامة الأصلية). مثال: ذهبتُ إلى الطالباتِ.",
+            topic: "إعراب جمع المؤنث السالم"
+        },
+        {
+            id: 209,
+            category: "أنواع الجموع",
+            question: "كيف يُجر جمع المذكر السالم؟",
+            options: [
+                "بالكسرة",
+                "بالفتحة",
+                "بالياء نيابة عن الكسرة",
+                "بالألف"
+            ],
+            correctAnswer: 2,
+            explanation: "جمع المذكر السالم يُجر بالياء نيابة عن الكسرة. مثال: سلّمتُ على المعلمِينَ.",
+            topic: "إعراب جمع المذكر السالم"
+        },
+        {
+            id: 210,
+            category: "حروف الجر",
+            question: "أي الكلمات التالية حرف جر؟",
+            options: [
+                "إنّ",
+                "لم",
+                "في",
+                "قد"
+            ],
+            correctAnswer: 2,
+            explanation: "\"في\" حرف جر. أما \"إنّ\" فحرف ناسخ، و\"لم\" حرف جزم، و\"قد\" حرف تحقيق.",
+            topic: "حروف الجر"
+        },
+        {
+            id: 211,
+            category: "المعرفة والنكرة",
+            question: "أي الأسماء التالية معرفة؟",
+            options: [
+                "رجلٌ",
+                "كتابٌ",
+                "القاهرةُ",
+                "مدينةٌ"
+            ],
+            correctAnswer: 2,
+            explanation: "\"القاهرة\" معرفة لأنها علم (اسم مكان معروف). أما رجل وكتاب ومدينة فنكرات.",
+            topic: "المعرفة والنكرة"
+        },
+        {
+            id: 212,
+            category: "الإضافة",
+            question: "في جملة \"كتابُ الطالبِ جديدٌ\"، ما إعراب \"الطالب\"؟",
+            options: [
+                "مضاف إليه مجرور بالكسرة",
+                "مفعول به منصوب بالفتحة",
+                "فاعل مرفوع بالضمة",
+                "بدل مجرور بالفتحة"
+            ],
+            correctAnswer: 0,
+            explanation: "\"الطالب\" مضاف إليه مجرور بالكسرة. والإضافة من الحالات التي يُصرف فيها الممنوع من الصرف.",
+            topic: "الإضافة وعلاقتها بالممنوع من الصرف"
+        },
+        {
+            id: 213,
+            category: "تصحيح الخطأ",
+            question: "صحح الخطأ: \"مررتُ بمعلمينَ أكفاءٍ\"",
+            options: [
+                "الجملة صحيحة",
+                "الصواب: بمعلمِينَ أكفاءَ (لأن أكفاء ممنوعة من الصرف)",
+                "الصواب: بمعلمونَ أكفاءٍ",
+                "الصواب: بمعلمينَ أكفائِهم"
+            ],
+            correctAnswer: 1,
+            explanation: "\"أكفاء\" على وزن أفعلاء وهي ممنوعة من الصرف فلا تُنوَّن، والصواب: أكفاءَ (بالفتحة بدون تنوين).",
+            topic: "تصحيح الخطأ — التنوين والممنوع من الصرف"
+        }
+    ]
+},
+{
+    title: "مدرسة المهجر وإيليا أبو ماضي",
+    icon: "🌍",
+    label: "أدب ١",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 301,
+            category: "مدرسة المهجر",
+            question: "ما المقصود بمدرسة المهجر في الأدب العربي؟",
+            options: [
+                "مدرسة أدبية نشأت في مصر في القرن التاسع عشر",
+                "حركة أدبية أسسها شعراء عرب هاجروا إلى الأمريكتين",
+                "مدرسة شعرية نشأت في بغداد في العصر العباسي",
+                "تيار أدبي ظهر في الأندلس"
+            ],
+            correctAnswer: 1,
+            explanation: "مدرسة المهجر هي حركة أدبية أسسها شعراء عرب (غالبيتهم من لبنان وسوريا) هاجروا إلى الأمريكتين الشمالية والجنوبية في أواخر القرن 19 وأوائل القرن 20.",
+            topic: "تعريف مدرسة المهجر"
+        },
+        {
+            id: 302,
+            category: "مدرسة المهجر",
+            question: "ما اسم الرابطة الأدبية التي أسسها أدباء المهجر الشمالي؟",
+            options: [
+                "العصبة الأندلسية",
+                "الرابطة القلمية",
+                "جماعة أبولو",
+                "جماعة الديوان"
+            ],
+            correctAnswer: 1,
+            explanation: "الرابطة القلمية تأسست في نيويورك عام 1920 وكان من أبرز أعضائها جبران خليل جبران وميخائيل نعيمة وإيليا أبو ماضي.",
+            topic: "الرابطة القلمية"
+        },
+        {
+            id: 303,
+            category: "مدرسة المهجر",
+            question: "من رئيس الرابطة القلمية؟",
+            options: [
+                "إيليا أبو ماضي",
+                "ميخائيل نعيمة",
+                "جبران خليل جبران",
+                "رشيد خوري"
+            ],
+            correctAnswer: 2,
+            explanation: "ترأس جبران خليل جبران الرابطة القلمية، بينما كان ميخائيل نعيمة مستشارها.",
+            topic: "الرابطة القلمية — الأعضاء"
+        },
+        {
+            id: 304,
+            category: "مدرسة المهجر",
+            question: "ما اسم الجمعية الأدبية لأدباء المهجر الجنوبي (أمريكا الجنوبية)؟",
+            options: [
+                "الرابطة القلمية",
+                "جماعة أبولو",
+                "العصبة الأندلسية",
+                "جمعية الأدب العربي"
+            ],
+            correctAnswer: 2,
+            explanation: "العصبة الأندلسية تأسست في البرازيل وضمت أدباء المهجر الجنوبي.",
+            topic: "العصبة الأندلسية"
+        },
+        {
+            id: 305,
+            category: "خصائص أدب المهجر",
+            question: "أي مما يلي من خصائص شعر المهجر؟",
+            options: [
+                "التمسك بالأوزان الخليلية الصارمة فقط",
+                "الاهتمام بالزخرف اللفظي والبديع",
+                "النزعة الإنسانية والتأملية والحنين إلى الوطن",
+                "الالتزام بموضوعات المدح والفخر القبلي"
+            ],
+            correctAnswer: 2,
+            explanation: "من أبرز سمات شعر المهجر: النزعة الإنسانية، التأمل في الحياة والموت، الحنين إلى الوطن، والميل إلى التجديد في اللغة والأسلوب.",
+            topic: "خصائص أدب المهجر"
+        },
+        {
+            id: 306,
+            category: "خصائص أدب المهجر",
+            question: "كيف تعامل شعراء المهجر مع اللغة العربية؟",
+            options: [
+                "حافظوا على اللغة التراثية الصعبة",
+                "مالوا إلى البساطة والسهولة في التعبير والبعد عن التكلف",
+                "كتبوا بلغات أجنبية فقط",
+                "استخدموا العامية في أشعارهم"
+            ],
+            correctAnswer: 1,
+            explanation: "شعراء المهجر مالوا إلى سهولة اللغة وبساطة التعبير والبعد عن التكلف اللفظي، مع الحفاظ على جمال الأسلوب.",
+            topic: "خصائص أدب المهجر — اللغة"
+        },
+        {
+            id: 307,
+            category: "إيليا أبو ماضي",
+            question: "أين وُلد الشاعر إيليا أبو ماضي؟",
+            options: [
+                "في مصر",
+                "في لبنان",
+                "في سوريا",
+                "في العراق"
+            ],
+            correctAnswer: 1,
+            explanation: "وُلد إيليا أبو ماضي في قرية المحيدثة في لبنان عام 1889.",
+            topic: "إيليا أبو ماضي — حياته"
+        },
+        {
+            id: 308,
+            category: "إيليا أبو ماضي",
+            question: "إلى أين هاجر إيليا أبو ماضي؟",
+            options: [
+                "إلى فرنسا ثم إنجلترا",
+                "إلى مصر ثم أمريكا",
+                "إلى البرازيل فقط",
+                "إلى كندا مباشرة"
+            ],
+            correctAnswer: 1,
+            explanation: "هاجر إيليا أبو ماضي أولاً إلى مصر حيث نشر ديوانه الأول، ثم هاجر إلى أمريكا واستقر في نيويورك.",
+            topic: "إيليا أبو ماضي — الهجرة"
+        },
+        {
+            id: 309,
+            category: "إيليا أبو ماضي",
+            question: "ما أشهر دواوين إيليا أبو ماضي؟",
+            options: [
+                "الأعمال الكاملة وأغاني الحياة",
+                "تذكار الماضي والجداول والخمائل",
+                "النبي والمواكب والعواصف",
+                "الأجنحة المتكسرة ودمعة وابتسامة"
+            ],
+            correctAnswer: 1,
+            explanation: "من أشهر دواوين إيليا أبو ماضي: تذكار الماضي، والجداول، والخمائل. أما النبي والمواكب فلجبران خليل جبران.",
+            topic: "إيليا أبو ماضي — أعماله"
+        },
+        {
+            id: 310,
+            category: "إيليا أبو ماضي",
+            question: "ما أبرز سمات شعر إيليا أبو ماضي؟",
+            options: [
+                "المدح السياسي والخطابة الحماسية",
+                "التفاؤل والتأمل في الطبيعة والحياة",
+                "الهجاء اللاذع والسخرية",
+                "الشعر الملحمي الطويل"
+            ],
+            correctAnswer: 1,
+            explanation: "يتميز شعر إيليا أبو ماضي بالتفاؤل، وحب الطبيعة، والتأمل في الوجود، والحنين إلى الوطن، وبساطة اللغة.",
+            topic: "إيليا أبو ماضي — سمات شعره"
+        },
+        {
+            id: 311,
+            category: "إيليا أبو ماضي",
+            question: "أي قصيدة من أشهر قصائد إيليا أبو ماضي التي تدعو إلى التفاؤل؟",
+            options: [
+                "المواكب",
+                "كن جميلاً ترَ الوجودَ جميلا",
+                "أعطني الناي وغنِّ",
+                "المساء"
+            ],
+            correctAnswer: 1,
+            explanation: "قصيدة \"كن جميلاً ترَ الوجودَ جميلا\" من أشهر قصائد أبو ماضي وتعكس فلسفته التفاؤلية. أما \"أعطني الناي وغنِّ\" فلجبران.",
+            topic: "إيليا أبو ماضي — قصائده"
+        },
+        {
+            id: 312,
+            category: "إيليا أبو ماضي",
+            question: "ما الصحيفة التي أسسها إيليا أبو ماضي في أمريكا؟",
+            options: [
+                "صحيفة الأهرام",
+                "صحيفة السمير",
+                "صحيفة المهاجر",
+                "صحيفة الفنون"
+            ],
+            correctAnswer: 1,
+            explanation: "أسس إيليا أبو ماضي صحيفة \"السمير\" في نيويورك، وكانت من أبرز الصحف العربية في المهجر.",
+            topic: "إيليا أبو ماضي — نشاطه الصحفي"
+        }
+    ]
+},
+{
+    title: "قصيدة أقبل العيد وكيفية عمل البحث",
+    icon: "🎭",
+    label: "أدب ٢",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 401,
+            category: "قصيدة أقبل العيد",
+            question: "من هو شاعر قصيدة \"أقبل العيد\"؟",
+            options: [
+                "جبران خليل جبران",
+                "إيليا أبو ماضي",
+                "أحمد شوقي",
+                "ميخائيل نعيمة"
+            ],
+            correctAnswer: 1,
+            explanation: "قصيدة \"أقبل العيد\" للشاعر إيليا أبو ماضي، وهي من القصائد التي تجمع بين الفرح بالعيد والتأمل.",
+            topic: "قصيدة أقبل العيد — الشاعر"
+        },
+        {
+            id: 402,
+            category: "قصيدة أقبل العيد",
+            question: "ما الموضوع الرئيسي لقصيدة \"أقبل العيد\"؟",
+            options: [
+                "الفخر بالأمجاد العربية",
+                "وصف الطبيعة في فصل الربيع فقط",
+                "استقبال العيد مع مشاعر الحنين والغربة والتأمل",
+                "رثاء شخص عزيز توفي"
+            ],
+            correctAnswer: 2,
+            explanation: "تتناول القصيدة استقبال العيد وما يثيره من مشاعر مختلطة بين الفرح والحنين إلى الوطن والتأمل في حال الغربة.",
+            topic: "قصيدة أقبل العيد — الموضوع"
+        },
+        {
+            id: 403,
+            category: "قصيدة أقبل العيد",
+            question: "ما العاطفة المسيطرة على الشاعر في القصيدة؟",
+            options: [
+                "الغضب والثورة",
+                "الحنين إلى الوطن والغربة الممزوجة بالأمل",
+                "الفخر والاعتزاز بالنفس",
+                "اليأس التام من الحياة"
+            ],
+            correctAnswer: 1,
+            explanation: "يسيطر على القصيدة عاطفة الحنين إلى الوطن والشعور بالغربة، لكنها ممزوجة بالأمل والتفاؤل كعادة أبو ماضي.",
+            topic: "قصيدة أقبل العيد — العاطفة"
+        },
+        {
+            id: 404,
+            category: "قصيدة أقبل العيد",
+            question: "ما المدرسة الأدبية التي تنتمي إليها قصيدة \"أقبل العيد\"؟",
+            options: [
+                "مدرسة الإحياء والبعث (الكلاسيكية الجديدة)",
+                "مدرسة المهجر",
+                "مدرسة الديوان",
+                "مدرسة أبولو"
+            ],
+            correctAnswer: 1,
+            explanation: "القصيدة تنتمي إلى مدرسة المهجر لأن شاعرها إيليا أبو ماضي من أبرز شعراء هذه المدرسة.",
+            topic: "قصيدة أقبل العيد — المدرسة الأدبية"
+        },
+        {
+            id: 405,
+            category: "قصيدة أقبل العيد",
+            question: "أي سمة من سمات شعر المهجر تظهر بوضوح في قصيدة \"أقبل العيد\"؟",
+            options: [
+                "استخدام الألفاظ القديمة المعقدة",
+                "الحنين إلى الوطن وبساطة التعبير",
+                "المبالغة في المدح والإطراء",
+                "الالتزام الصارم بالبحور الخليلية"
+            ],
+            correctAnswer: 1,
+            explanation: "تظهر في القصيدة سمات المهجر بوضوح: الحنين إلى الوطن، وسهولة اللغة، والتأمل في الحياة.",
+            topic: "قصيدة أقبل العيد — سمات المهجر"
+        },
+        {
+            id: 406,
+            category: "قصيدة أقبل العيد",
+            question: "في القصيدة يربط الشاعر بين العيد وبين أي شعور؟",
+            options: [
+                "الفرح المطلق بلا أي حزن",
+                "الحزن الكامل ورفض الاحتفال",
+                "اختلاط الفرح بالحزن والحنين للوطن والأهل",
+                "الغضب على من يحتفلون بالعيد"
+            ],
+            correctAnswer: 2,
+            explanation: "يربط الشاعر بين فرحة العيد والحنين إلى الوطن والأهل، فالعيد يُذكّر المغترب بما فقده من قرب أحبائه.",
+            topic: "قصيدة أقبل العيد — الدلالة"
+        },
+        {
+            id: 407,
+            category: "قصيدة أقبل العيد",
+            question: "ما الصورة البلاغية البارزة في شعر أبو ماضي بشكل عام وفي هذه القصيدة؟",
+            options: [
+                "الطباق والجناس فقط",
+                "التشخيص (إعطاء صفات إنسانية للجمادات والطبيعة)",
+                "السجع والازدواج",
+                "الاقتباس من القرآن الكريم"
+            ],
+            correctAnswer: 1,
+            explanation: "يكثر أبو ماضي من التشخيص (إعطاء صفات بشرية للأشياء والطبيعة)، وهو أسلوب مميز لشعراء المهجر.",
+            topic: "قصيدة أقبل العيد — البلاغة"
+        },
+        {
+            id: 408,
+            category: "كيفية عمل البحث",
+            question: "ما أول خطوة في إعداد بحث أدبي؟",
+            options: [
+                "كتابة الخاتمة مباشرة",
+                "اختيار الموضوع وتحديده بدقة",
+                "جمع المراجع بدون تحديد موضوع",
+                "كتابة المقدمة قبل تحديد الموضوع"
+            ],
+            correctAnswer: 1,
+            explanation: "أول خطوة في إعداد أي بحث هي اختيار الموضوع وتحديده بدقة ووضوح حتى لا يكون واسعاً أو غامضاً.",
+            topic: "كيفية عمل البحث — الخطوات"
+        },
+        {
+            id: 409,
+            category: "كيفية عمل البحث",
+            question: "ما العناصر الأساسية التي يتكون منها البحث؟",
+            options: [
+                "مقدمة وخاتمة فقط",
+                "صفحة العنوان، المقدمة، المتن (صلب الموضوع)، الخاتمة، والمراجع",
+                "المراجع والفهرس فقط",
+                "العنوان والمتن فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "البحث يتكون من: صفحة العنوان، المقدمة، المتن (صلب الموضوع مقسم إلى فصول أو أقسام)، الخاتمة، وقائمة المراجع.",
+            topic: "كيفية عمل البحث — العناصر"
+        },
+        {
+            id: 410,
+            category: "كيفية عمل البحث",
+            question: "ماذا يجب أن تتضمن مقدمة البحث؟",
+            options: [
+                "نتائج البحث وتوصياته",
+                "تعريف بالموضوع وأهميته وأسباب اختياره والمنهج المتبع",
+                "قائمة المراجع والمصادر",
+                "ملخص كامل لكل فصول البحث"
+            ],
+            correctAnswer: 1,
+            explanation: "المقدمة تتضمن: تعريف بالموضوع، أهمية البحث، سبب اختياره، المنهج المتبع، وخطة البحث (عرض الفصول).",
+            topic: "كيفية عمل البحث — المقدمة"
+        },
+        {
+            id: 411,
+            category: "كيفية عمل البحث",
+            question: "ماذا تتضمن خاتمة البحث؟",
+            options: [
+                "إعادة كتابة المقدمة بحروف مختلفة",
+                "أهم النتائج التي توصل إليها الباحث والتوصيات",
+                "سرد جميع المراجع مرة أخرى",
+                "اقتباسات طويلة من مصادر أخرى"
+            ],
+            correctAnswer: 1,
+            explanation: "الخاتمة تتضمن ملخصاً لأهم النتائج التي توصل إليها الباحث، وقد تتضمن توصيات أو مقترحات لدراسات مستقبلية.",
+            topic: "كيفية عمل البحث — الخاتمة"
+        },
+        {
+            id: 412,
+            category: "كيفية عمل البحث",
+            question: "ما أهمية التوثيق (ذكر المراجع) في البحث؟",
+            options: [
+                "ليس له أهمية ويمكن تجاهله",
+                "للأمانة العلمية وإثبات مصداقية البحث وتمكين القارئ من الرجوع للمصادر",
+                "لزيادة عدد صفحات البحث فقط",
+                "لإظهار أن الباحث قرأ كتباً كثيرة"
+            ],
+            correctAnswer: 1,
+            explanation: "التوثيق ضروري للأمانة العلمية، ولإثبات مصداقية المعلومات، ولتمكين القارئ من الرجوع إلى المصادر الأصلية.",
+            topic: "كيفية عمل البحث — التوثيق"
+        },
+        {
+            id: 413,
+            category: "كيفية عمل البحث",
+            question: "كيف يُرتب الباحث قائمة المراجع عادةً؟",
+            options: [
+                "عشوائياً بدون ترتيب",
+                "حسب تاريخ النشر من الأقدم للأحدث فقط",
+                "أبجدياً حسب اسم المؤلف (اللقب)",
+                "حسب عدد صفحات الكتاب"
+            ],
+            correctAnswer: 2,
+            explanation: "تُرتب المراجع عادةً أبجدياً حسب لقب المؤلف، مع ذكر عنوان الكتاب، دار النشر، سنة النشر.",
+            topic: "كيفية عمل البحث — ترتيب المراجع"
+        },
+        {
+    title: "Coordinators & Compound Sentences",
+    icon: "🔗",
+    label: "English Grammar",
     lang: "en",
     type: "mcq",
     questions: [
         {
-            id: 1,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'nurse':",
+            id: 501,
+            category: "What Are Coordinators?",
+            question: "Coordinators (coordinating conjunctions) can be remembered using which acronym?",
             options: [
-                "/nʌrs/",
-                "/nɜːs/",
-                "/nɒːs/",
-                "/nɑːs/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Nurse' = /nɜːs/. The vowel is the long central vowel /ɜː/. A common mistake is using /ʌ/ (short) instead of /ɜː/ (long).",
-            topic: "Long Vowel Transcription — /ɜː/"
-        },
-        {
-            id: 2,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'thought':",
-            options: [
-                "/θɒt/",
-                "/θɔːt/",
-                "/θaʊt/",
-                "/θʌt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Thought' = /θɔːt/. The vowel is the long /ɔː/ (as in 'law', 'war'), not the short /ɒ/ as in 'lot'.",
-            topic: "Long Vowel Transcription — /ɔː/"
-        },
-        {
-            id: 3,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'goose':",
-            options: [
-                "/ɡʊs/",
-                "/ɡuːs/",
-                "/ɡɒːs/",
-                "/ɡʌs/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Goose' = /ɡuːs/. The vowel is the long /uː/. Don't confuse with short /ʊ/ (that would be closer to 'good' /ɡʊd/).",
-            topic: "Long Vowel Transcription — /uː/"
-        },
-        {
-            id: 4,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'machine':",
-            options: [
-                "/mæʃɪn/",
-                "/məˈʃiːn/",
-                "/mɑːʃɪn/",
-                "/mætʃɪn/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Machine' = /məˈʃiːn/. The first syllable has schwa /ə/, the 'ch' = /ʃ/, and the final vowel is long /iː/.",
-            topic: "Long Vowel Transcription — /iː/"
-        },
-        {
-            id: 5,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'note':",
-            options: [
-                "/nɒt/",
-                "/nəʊt/",
-                "/naʊt/",
-                "/nɔːt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Note' = /nəʊt/. It contains the closing diphthong /əʊ/ (as in 'go', 'home'). Don't confuse with 'not' = /nɒt/.",
-            topic: "Diphthong Transcription — /əʊ/"
-        },
-        {
-            id: 6,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'tape':",
-            options: [
-                "/tæp/",
-                "/teɪp/",
-                "/tiːp/",
-                "/taɪp/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Tape' = /teɪp/. It contains the closing diphthong /eɪ/ (as in 'day', 'make'). Don't confuse with 'tap' = /tæp/ or 'type' = /taɪp/.",
-            topic: "Diphthong Transcription — /eɪ/"
-        },
-        {
-            id: 7,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'stove':",
-            options: [
-                "/stɒv/",
-                "/stəʊv/",
-                "/staʊv/",
-                "/stʌv/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Stove' = /stəʊv/. It contains the closing diphthong /əʊ/. Don't confuse with 'stop' = /stɒp/ which has the short /ɒ/.",
-            topic: "Diphthong Transcription — /əʊ/"
-        },
-        {
-            id: 8,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'chip':",
-            options: [
-                "/ʃɪp/",
-                "/tʃɪp/",
-                "/kɪp/",
-                "/tʃiːp/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Chip' = /tʃɪp/. The 'ch' = affricate /tʃ/ (not /ʃ/ — that would be 'ship'). The vowel is short /ɪ/ (not /iː/ — that would be 'cheap').",
-            topic: "Affricate Transcription — /tʃ/"
-        },
-        {
-            id: 9,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'hedge':",
-            options: [
-                "/hedz/",
-                "/hedʒ/",
-                "/hetʃ/",
-                "/hed/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Hedge' = /hedʒ/. The 'dge' = voiced affricate /dʒ/. Don't confuse with /tʃ/ (voiceless) or /z/.",
-            topic: "Affricate Transcription — /dʒ/"
-        },
-        {
-            id: 10,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'bulge':",
-            options: [
-                "/bʊldʒ/",
-                "/bʌldʒ/",
-                "/bʌlɡ/",
-                "/bʌldz/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Bulge' = /bʌldʒ/. The vowel is /ʌ/ (not /ʊ/), and the final sound is the affricate /dʒ/ (not /ɡ/ or /dz/).",
-            topic: "Affricate Transcription — /dʒ/"
-        },
-        {
-            id: 11,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'watched':",
-            options: [
-                "/wɒtʃɪd/",
-                "/wɒtʃt/",
-                "/wætʃt/",
-                "/wɒtʃd/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Watched' = /wɒtʃt/. The vowel is /ɒ/, and the past tense '-ed' is pronounced /t/ after the voiceless /tʃ/. No extra syllable.",
-            topic: "Affricate Transcription — /tʃ/ + past tense"
-        },
-        {
-            id: 12,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'enough':",
-            options: [
-                "/enɒf/",
-                "/ɪˈnʌf/",
-                "/ɪˈnɔːf/",
-                "/ɑːnʌf/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Enough' = /ɪˈnʌf/. The 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. English spelling is very misleading here.",
-            topic: "Full Word Transcription — enough"
-        },
-        {
-            id: 13,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'comb':",
-            options: [
-                "/kɒmb/",
-                "/kəʊm/",
-                "/kʌm/",
-                "/kɒm/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Comb' = /kəʊm/. The vowel is the diphthong /əʊ/ and the final 'b' is silent. Only 3 phonemes: /k/ + /əʊ/ + /m/.",
-            topic: "Full Word Transcription — comb"
-        },
-        {
-            id: 14,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'drama':",
-            options: [
-                "/drɑːmə/",
-                "/dræmə/",
-                "/drɒmə/",
-                "/drʌmə/"
+                "FANBOYS (For, And, Nor, But, Or, Yet, So)",
+                "SWABI (Since, When, Although, Because, If)",
+                "THAMOS (Therefore, However, Also, Moreover, Otherwise, So)",
+                "AAAWWUBBIS (After, Although, As, When, While, Until, Before, Because, If, Since)"
             ],
             correctAnswer: 0,
-            explanation: "'Drama' = /drɑːmə/. The first vowel is long /ɑː/ (as in 'father'), and the second is schwa /ə/.",
-            topic: "Full Word Transcription — drama"
+            explanation: "FANBOYS stands for the 7 coordinating conjunctions: For, And, Nor, But, Or, Yet, So. These are used to join equal grammatical elements.",
+            topic: "Coordinating Conjunctions — Definition"
         },
         {
-            id: 15,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'squelch':",
+            id: 502,
+            category: "What Are Coordinators?",
+            question: "What is the main function of a coordinating conjunction?",
             options: [
-                "/skwelk/",
-                "/skweltʃ/",
-                "/skwelʃ/",
-                "/sweltʃ/"
+                "To join a dependent clause to a main clause",
+                "To join two equal grammatical units (words, phrases, or independent clauses)",
+                "To introduce a subordinate clause",
+                "To modify a verb or adjective"
             ],
             correctAnswer: 1,
-            explanation: "'Squelch' = /skweltʃ/. The 'squ' = /skw/, the vowel is /e/, and the 'lch' = /ltʃ/.",
-            topic: "Full Word Transcription — squelch"
+            explanation: "Coordinating conjunctions join elements of equal grammatical rank — two words, two phrases, or two independent clauses.",
+            topic: "Coordinating Conjunctions — Function"
+        },
+        {
+            id: 503,
+            category: "What Are Coordinators?",
+            question: "Which of the following is NOT a coordinating conjunction?",
+            options: [
+                "But",
+                "Or",
+                "Because",
+                "Yet"
+            ],
+            correctAnswer: 2,
+            explanation: "\"Because\" is a subordinating conjunction, not a coordinating one. The coordinating conjunctions are: for, and, nor, but, or, yet, so.",
+            topic: "Coordinating vs. Subordinating Conjunctions"
+        },
+        {
+            id: 504,
+            category: "Meaning of Coordinators",
+            question: "Which coordinator expresses contrast or opposition?",
+            options: [
+                "And",
+                "So",
+                "But",
+                "For"
+            ],
+            correctAnswer: 2,
+            explanation: "\"But\" expresses contrast or opposition between two ideas. Example: She studied hard, but she failed the exam.",
+            topic: "Coordinators — Meaning (Contrast)"
+        },
+        {
+            id: 505,
+            category: "Meaning of Coordinators",
+            question: "Which coordinator expresses a cause or reason (similar to 'because')?",
+            options: [
+                "Or",
+                "Nor",
+                "Yet",
+                "For"
+            ],
+            correctAnswer: 3,
+            explanation: "\"For\" can express reason/cause (more formal than 'because'). Example: He stayed home, for he was feeling ill.",
+            topic: "Coordinators — Meaning (Cause)"
+        },
+        {
+            id: 506,
+            category: "Meaning of Coordinators",
+            question: "Which coordinator expresses a result or consequence?",
+            options: [
+                "And",
+                "But",
+                "So",
+                "Nor"
+            ],
+            correctAnswer: 2,
+            explanation: "\"So\" expresses result or consequence. Example: It was raining, so we stayed inside.",
+            topic: "Coordinators — Meaning (Result)"
+        },
+        {
+            id: 507,
+            category: "Meaning of Coordinators",
+            question: "Which coordinator is used to present an alternative or choice?",
+            options: [
+                "And",
+                "Or",
+                "For",
+                "Yet"
+            ],
+            correctAnswer: 1,
+            explanation: "\"Or\" presents an alternative or choice. Example: You can stay here, or you can come with us.",
+            topic: "Coordinators — Meaning (Choice)"
+        },
+        {
+            id: 508,
+            category: "Compound Sentences",
+            question: "What is a compound sentence?",
+            options: [
+                "A sentence with one independent clause and one dependent clause",
+                "A sentence with two or more independent clauses joined by a coordinator (or semicolon)",
+                "A sentence with a single subject and a single verb",
+                "A sentence that contains only a dependent clause"
+            ],
+            correctAnswer: 1,
+            explanation: "A compound sentence consists of two or more independent clauses joined by a coordinating conjunction (with a comma) or a semicolon.",
+            topic: "Compound Sentences — Definition"
+        },
+        {
+            id: 509,
+            category: "Compound Sentences",
+            question: "What punctuation is required before a coordinating conjunction that joins two independent clauses?",
+            options: [
+                "A semicolon",
+                "A colon",
+                "A comma",
+                "No punctuation is needed"
+            ],
+            correctAnswer: 2,
+            explanation: "When a coordinating conjunction joins two independent clauses, a comma is placed BEFORE the conjunction. Example: I was tired, so I went to bed.",
+            topic: "Compound Sentences — Punctuation"
+        },
+        {
+            id: 510,
+            category: "Compound Sentences",
+            question: "Which of the following is a correctly formed compound sentence?",
+            options: [
+                "She likes tea but coffee.",
+                "She likes tea, but she prefers coffee.",
+                "She likes tea, but preferring coffee.",
+                "Although she likes tea, she prefers coffee."
+            ],
+            correctAnswer: 1,
+            explanation: "\"She likes tea, but she prefers coffee\" has two independent clauses joined by a comma + 'but'. Option D is a complex sentence (uses 'although', a subordinator).",
+            topic: "Forming Compound Sentences"
+        },
+        {
+            id: 511,
+            category: "Add the Coordinator",
+            question: "Choose the correct coordinator: \"I wanted to go out, ___ it was raining heavily.\"",
+            options: [
+                "so",
+                "and",
+                "but",
+                "or"
+            ],
+            correctAnswer: 2,
+            explanation: "\"But\" is correct because there is a contrast: wanting to go out vs. the rain preventing it.",
+            topic: "Add the Coordinator — Contrast"
+        },
+        {
+            id: 512,
+            category: "Add the Coordinator",
+            question: "Choose the correct coordinator: \"She studied all night, ___ she passed the exam easily.\"",
+            options: [
+                "but",
+                "or",
+                "so",
+                "nor"
+            ],
+            correctAnswer: 2,
+            explanation: "\"So\" is correct because passing the exam is the result of studying all night.",
+            topic: "Add the Coordinator — Result"
+        },
+        {
+            id: 513,
+            category: "Add the Coordinator",
+            question: "Choose the correct coordinator: \"We can eat at home, ___ we can go to a restaurant.\"",
+            options: [
+                "but",
+                "for",
+                "so",
+                "or"
+            ],
+            correctAnswer: 3,
+            explanation: "\"Or\" is correct because the sentence presents two choices/alternatives.",
+            topic: "Add the Coordinator — Choice"
+        },
+        {
+            id: 514,
+            category: "Form Compound Sentences",
+            question: "Combine into a compound sentence: \"He was hungry. He made a sandwich.\"",
+            options: [
+                "He was hungry, so he made a sandwich.",
+                "He was hungry although he made a sandwich.",
+                "Because he was hungry he made a sandwich.",
+                "He was hungry, or he made a sandwich."
+            ],
+            correctAnswer: 0,
+            explanation: "\"So\" shows the result: being hungry led to making a sandwich. Options B and C use subordinators (complex sentences, not compound).",
+            topic: "Forming Compound Sentences — Practice"
+        },
+        {
+            id: 515,
+            category: "Form Compound Sentences",
+            question: "Combine into a compound sentence: \"The movie was long. It was very entertaining.\"",
+            options: [
+                "The movie was long, for it was very entertaining.",
+                "The movie was long, and it was very entertaining.",
+                "The movie was long, but it was very entertaining.",
+                "The movie was long, nor it was very entertaining."
+            ],
+            correctAnswer: 2,
+            explanation: "\"But\" is the best choice because there is a contrast between the movie being long (usually negative) and being entertaining (positive). 'And' could work if there's no contrast intended, but 'but' better captures the unexpected relationship.",
+            topic: "Forming Compound Sentences — Practice"
         }
     ]
 }
-
-// ── EXAM 6: Label the Articulators Diagram ───────────────────
-,{
-    title: "Exam 6: Label the Articulators",
-    icon: "🫁",
-    label: "Diagram Practice",
-    lang: "en",
-    type: "diagram"
-}
-
+    ]}
+    
 ]; // end examSets
 
 // ═══════════════════════════════════════════════════════════════
@@ -1409,10 +1084,9 @@ function selectExam(index) {
     state.selectedExam = index;
     state.essayRevealed = false;
     const exam = examSets[index];
-    document.documentElement.setAttribute('lang', 'en');
-    document.documentElement.setAttribute('dir', 'ltr');
+document.documentElement.setAttribute('lang', exam.lang || 'en');
+document.documentElement.setAttribute('dir', exam.lang === 'ar' ? 'rtl' : 'ltr');
     if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
-    if (exam.type === 'diagram') { state.screen = 'diagram'; render(); return; }
     const questions = exam.questions || [];
     state.initialQuestionCount = questions.length;
     state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
@@ -1509,15 +1183,55 @@ function renderExamSelection() {
     const examCards = examSets.map((examSet, index) => `
         <div class="exam-card" onclick="selectExam(${index})">
             <h3>${examSet.title}</h3>
-            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : examSet.type === 'diagram' ? 'Diagram Labeling Practice' : 'Multiple Choice Quiz'}</p>
-            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.type === 'diagram' ? '🫁 11 Labels' : examSet.questions.length + ' Questions'}</p>
+            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : 'Multiple Choice Quiz'}</p>
+            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.questions.length + ' Questions'}</p>
         </div>
     `).join('');
     return `
         <div class="exam-selection">
-            <h1>Phonetics EC108 — Midterm Exams</h1>
+            <h1>Drama Course Exams</h1>
             <p>Choose the exam you want to start with</p>
             <div class="exam-options">${examCards}</div>
+        </div>`;
+}
+
+function renderEssay() {
+    const exam = examSets[state.selectedExam];
+    const paras = exam.paragraphs.map(p => `
+        <div style="margin-bottom:1.2rem;">
+            <div class="para-label">${p.label}</div>
+            <p>${p.content}</p>
+        </div>`).join('');
+    return `
+        <div class="header">
+            <h1>${exam.title}</h1>
+        </div>
+        <div class="question-container">
+            <h2 class="category">Quote for Analysis</h2>
+            <div class="essay-quote-box">
+                "${exam.quote}"<br>
+                <small style="font-size:0.82rem;opacity:0.7;font-style:normal;">${exam.attribution}</small>
+            </div>
+            <div class="essay-instructions">
+                <p><strong>Write your answer in THREE paragraphs:</strong></p>
+                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
+                    <li><strong>Paragraph 1:</strong> Where is the quote from? (play title + author). What is the occasion it was said, and all relevant context details.</li>
+                    <li><strong>Paragraph 2:</strong> Reproduction — rewrite the meaning in simpler, more beautiful language.</li>
+                    <li><strong>Paragraph 3:</strong> Connect to plot, characters, and/or themes. Include a <strong>Figure of Speech</strong> — especially <em>Disordering</em> (inverted sentence, not standard S+V+O).</li>
+                </ol>
+                <p class="essay-note">💡 One idea per paragraph only. Write thoroughly. Don't forget the Figure of Speech.</p>
+            </div>
+            <button class="show-model-btn" onclick="toggleEssayReveal()">
+                ${state.essayRevealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
+            </button>
+            <div class="essay-reveal-box ${state.essayRevealed ? 'show' : ''}">
+                <h3>✅ Model Answer</h3>
+                ${paras}
+                <p class="essay-disclaimer">⚠️ This is a guide only — your own answer should reflect your understanding and style.</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
         </div>`;
 }
 
@@ -1612,180 +1326,10 @@ function renderQuestion() {
         </div>`;
 }
 
-function renderDiagram() {
-    const revealed = state.essayRevealed;
-    return `
-        <div class="header">
-            <h1>Exam 6: Label the Articulators</h1>
-        </div>
-        <div class="question-container">
-            <h2 class="category">The Articulators — Diagram Labeling</h2>
-            <div class="essay-instructions">
-                <p><strong>Instructions:</strong></p>
-                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
-                    <li>Look at the blank diagram below carefully.</li>
-                    <li>On a piece of paper, write down the <strong>11 labels</strong> for each numbered position.</li>
-                    <li>Once you've finished writing all your answers, click <strong>"Show Answers"</strong> to reveal the correct labels and check your work.</li>
-                </ol>
-                <p class="essay-note">There are 11 parts to label. Take your time and try from memory first!</p>
-            </div>
-
-            <div style="position:relative;max-width:700px;margin:1.5rem auto;background:white;border-radius:0.75rem;overflow:hidden;border:2px solid var(--border);">
-                <svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-                    <!-- Head outline -->
-                    <path d="M280,30 C220,30 180,60 160,100 C140,140 130,170 125,200 C120,230 110,250 90,260 C70,270 55,275 50,290 C45,305 50,315 65,320 C80,325 90,330 95,335 C100,340 100,350 95,360 C90,370 85,375 85,385 C85,395 90,405 100,410 C110,415 125,420 140,420 C155,420 165,420 175,415" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
-                    <path d="M175,415 C185,410 195,400 210,395 C225,390 240,390 260,395 C280,400 300,410 310,425 C320,440 325,455 325,470" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
-                    <!-- Nasal cavity top -->
-                    <path d="M160,100 C180,95 220,90 260,95 C300,100 340,110 380,130 C420,150 450,175 470,200 C490,225 500,250 500,280" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
-                    <!-- Palate area -->
-                    <path d="M200,140 C220,130 260,120 300,125 C340,130 370,145 400,165 C430,185 450,210 460,240" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <!-- Tongue -->
-                    <path d="M170,310 C180,280 200,260 230,250 C260,240 300,235 340,250 C370,260 390,280 400,310 C405,330 400,350 380,370 C360,385 330,395 300,400" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
-                    <!-- Teeth upper -->
-                    <path d="M140,195 L145,215 L155,210" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <!-- Teeth lower -->
-                    <path d="M145,340 L150,325 L160,330" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <!-- Lips -->
-                    <path d="M90,260 C95,250 105,245 115,248" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <path d="M95,335 C100,345 110,348 120,345" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <!-- Uvula hint -->
-                    <path d="M455,235 C458,245 455,255 448,260" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <!-- Pharynx back wall -->
-                    <path d="M500,280 C505,320 505,360 500,400 C495,430 485,455 475,470" fill="none" stroke="var(--text-color)" stroke-width="2.5"/>
-                    <!-- Larynx area -->
-                    <path d="M325,470 C340,465 370,460 400,465 C430,470 460,472 475,470" fill="none" stroke="var(--text-color)" stroke-width="2"/>
-                    <path d="M380,450 C385,460 390,465 400,465" fill="none" stroke="var(--text-color)" stroke-width="1.5"/>
-                    <path d="M420,450 C415,460 410,465 400,465" fill="none" stroke="var(--text-color)" stroke-width="1.5"/>
-
-                    <!-- Number labels with lines -->
-                    <!-- 1. Nose -->
-                    <line x1="120" y1="80" x2="155" y2="100" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="110" cy="72" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="110" y="77" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">1</text>
-
-                    <!-- 2. Upper teeth -->
-                    <line x1="105" y1="170" x2="140" y2="200" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="95" cy="162" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="95" y="167" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">2</text>
-
-                    <!-- 3. Upper lip -->
-                    <line x1="55" y1="235" x2="90" y2="255" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="45" cy="227" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="45" y="232" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">3</text>
-
-                    <!-- 4. Lower lip -->
-                    <line x1="55" y1="355" x2="90" y2="340" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="45" cy="363" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="45" y="368" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">4</text>
-
-                    <!-- 5. Alveolar ridge -->
-                    <line x1="220" y1="60" x2="200" y2="130" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="220" cy="48" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="220" y="53" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">5</text>
-
-                    <!-- 6. Hard palate -->
-                    <line x1="320" y1="55" x2="310" y2="125" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="320" cy="43" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="320" y="48" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">6</text>
-
-                    <!-- 7. Soft palate (velum) -->
-                    <line x1="510" y1="55" x2="455" y2="210" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="530" cy="43" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="530" y="48" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">7</text>
-
-                    <!-- 8. Tongue -->
-                    <line x1="310" y1="310" x2="320" y2="290" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="310" cy="325" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="310" y="330" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">8</text>
-
-                    <!-- 9. Lower teeth -->
-                    <line x1="200" y1="395" x2="155" y2="340" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="210" cy="405" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="210" y="410" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">9</text>
-
-                    <!-- 10. Pharynx -->
-                    <line x1="570" y1="320" x2="505" y2="330" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="585" cy="315" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="585" y="320" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">10</text>
-
-                    <!-- 11. Larynx -->
-                    <line x1="420" y1="470" x2="410" y2="460" stroke="var(--accent)" stroke-width="1.5"/>
-                    <circle cx="430" cy="470" r="14" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
-                    <text x="430" y="475" text-anchor="middle" fill="var(--accent)" font-weight="bold" font-size="14">11</text>
-                </svg>
-            </div>
-
-            <button class="show-model-btn" onclick="toggleEssayReveal()">
-                ${revealed ? '▲ Hide Answers' : '▼ I\'m done — Show Answers'}
-            </button>
-
-            <div class="essay-reveal-box ${revealed ? 'show' : ''}">
-                <h3>✅ Correct Labels</h3>
-
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin-bottom:1.2rem;">
-                    <div><span style="font-weight:bold;color:var(--accent);">1.</span> <strong>Nose</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">2.</span> <strong>Upper teeth</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">3.</span> <strong>Upper lip</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">4.</span> <strong>Lower lip</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">5.</span> <strong>Alveolar ridge</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">6.</span> <strong>Hard palate</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">7.</span> <strong>Soft palate (velum)</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">8.</span> <strong>Tongue</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">9.</span> <strong>Lower teeth</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">10.</span> <strong>Pharynx</strong></div>
-                    <div><span style="font-weight:bold;color:var(--accent);">11.</span> <strong>Larynx</strong></div>
-                </div>
-
-                <hr style="border:none;border-top:1px solid var(--border);margin:1.2rem 0;">
-                <h3>📖 Brief Definitions</h3>
-
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Nose:</strong> The external opening of the nasal cavity; air exits here for nasal sounds like /m/, /n/, /ŋ/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Upper teeth:</strong> Used as a passive articulator; the tongue touches them for dental sounds like /θ/ (think) and /ð/ (the).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Upper lip:</strong> Works with the lower lip for bilabial sounds like /p/, /b/, /m/ where both lips press together.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Lower lip:</strong> An active articulator; moves up to contact upper teeth for labiodental sounds like /f/ and /v/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Alveolar ridge:</strong> The bony ridge directly behind the upper front teeth; place of articulation for /t/, /d/, /n/, /l/, /s/, /z/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Hard palate:</strong> The hard, bony roof of the mouth between the alveolar ridge and the soft palate; used for palatal sounds like /j/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Soft palate (velum):</strong> The fleshy back part of the roof of the mouth. It raises to block nasal airflow (oral sounds: /k/, /g/) and lowers to allow it (nasal sounds: /m/, /n/). Also a place of articulation for velar consonants.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Tongue:</strong> The most flexible and important articulator; different parts (tip, blade, back) contact different places to produce most consonants and shape all vowels.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Lower teeth:</strong> A passive articulator; the tongue tip touches them for certain sounds and they help shape airflow.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Pharynx:</strong> A tube (~7–8 cm) beginning just above the larynx; at its top it divides into the oral cavity (mouth) and nasal cavity (nose).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Larynx:</strong> The voice box containing the vocal cords (vocal folds). When air passes through, the cords can vibrate to produce voiced sounds (/b/, /d/, /g/) or stay open for voiceless sounds (/p/, /t/, /k/).
-                </p>
-
-                <p class="essay-disclaimer">⚠️ Make sure you can label this diagram from memory — it is very likely to appear on the midterm.</p>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:1rem;">
-            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
-        </div>`;
-}
-
 function render() {
     const app = document.getElementById('app');
     if (state.screen === 'selection') app.innerHTML = renderExamSelection();
     else if (state.screen === 'essay') app.innerHTML = renderEssay();
-    else if (state.screen === 'diagram') app.innerHTML = renderDiagram();
     else if (state.quizCompleted) app.innerHTML = renderResults();
     else app.innerHTML = renderQuestion();
 }

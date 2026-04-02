@@ -214,3 +214,27 @@
         .essay-reveal-box p { font-size: 0.97rem; line-height: 1.75; margin-bottom: 0.8rem; color: var(--text-color); }
         .para-label { font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent-2); margin-bottom: 0.3rem; }
         .essay-disclaimer { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+
+
+        [dir="rtl"] .option-btn {
+    text-align: right;
+    direction: rtl;
+}
+[dir="rtl"] .question {
+    text-align: right;
+    direction: rtl;
+}
+[dir="rtl"] .category {
+    text-align: right;
+}
+[dir="rtl"] .explanation-box {
+    text-align: right;
+    direction: rtl;
+}
+[dir="rtl"] .topic-info {
+    direction: rtl;
+}
+[dir="rtl"] .exam-card h3,
+[dir="rtl"] .exam-card p {
+    direction: rtl;
+}
