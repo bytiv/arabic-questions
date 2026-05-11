@@ -13,261 +13,235 @@
     <script>
 
 const examSets = [
-    {
-        title: "Classic Short Stories: Authors & Nationalities",
-        questions: [
-            {
-                id: 1,
-                category: "Author Identification",
-                question: "Which American author wrote 'The Gift of the Magi'?",
-                options: [
-                    "Edgar Allan Poe",
-                    "Kate Chopin",
-                    "O. Henry",
-                    "Katherine Mansfield"
-                ],
-                correctAnswer: 2,
-                explanation: "'The Gift of the Magi' was written by the American author O. Henry, whose real name was William Sydney Porter.",
-                topic: "American Short Story Writers"
-            },
-            {
-                id: 2,
-                category: "Author Identification",
-                question: "Who is the author of 'The Story of an Hour'?",
-                options: [
-                    "Anton Chekhov",
-                    "Edgar Allan Poe",
-                    "Katherine Mansfield",
-                    "Kate Chopin"
-                ],
-                correctAnswer: 3,
-                explanation: "'The Story of an Hour' was written by the American author Kate Chopin.",
-                topic: "American Literature"
-            },
-            {
-                id: 3,
-                category: "Author Identification",
-                question: "Which famous American writer is known for 'The Tell-Tale Heart'?",
-                options: [
-                    "O. Henry",
-                    "Kate Chopin",
-                    "Edgar Allan Poe",
-                    "Mark Twain"
-                ],
-                correctAnswer: 2,
-                explanation: "'The Tell-Tale Heart' was written by the American author Edgar Allan Poe, a master of Gothic and horror fiction.",
-                topic: "American Gothic Literature"
-            },
-            {
-                id: 4,
-                category: "Author Identification",
-                question: "Who wrote 'The Garden Party'?",
-                options: [
-                    "Katherine Mansfield",
-                    "Anton Chekhov",
-                    "Kate Chopin",
-                    "Virginia Woolf"
-                ],
-                correctAnswer: 0,
-                explanation: "'The Garden Party' was written by the New Zealand-born author Katherine Mansfield.",
-                topic: "Modernist Short Stories"
-            },
-            {
-                id: 5,
-                category: "Author Identification",
-                question: "Which Russian author wrote 'The Bet'?",
-                options: [
-                    "Fyodor Dostoevsky",
-                    "Leo Tolstoy",
-                    "Anton Chekhov",
-                    "Ivan Turgenev"
-                ],
-                correctAnswer: 2,
-                explanation: "'The Bet' was written by the renowned Russian author and playwright Anton Chekhov.",
-                topic: "Russian Literature"
-            },
-            {
-                id: 6,
-                category: "Nationality Identification",
-                question: "What was the nationality of author O. Henry?",
-                options: [
-                    "British",
-                    "Canadian",
-                    "American",
-                    "Australian"
-                ],
-                correctAnswer: 2,
-                explanation: "O. Henry was an American writer, known for his clever twist endings and vivid portrayal of ordinary people in New York City.",
-                topic: "American Authors"
-            },
-            {
-                id: 7,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Kate Chopin?",
-                options: [
-                    "French",
-                    "British",
-                    "American",
-                    "Canadian"
-                ],
-                correctAnswer: 2,
-                explanation: "Kate Chopin was an American author, born in St. Louis, Missouri, and known for her stories about the complexities of women's lives.",
-                topic: "American Women Writers"
-            },
-            {
-                id: 8,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Katherine Mansfield?",
-                options: [
-                    "Australian",
-                    "British",
-                    "New Zealander",
-                    "American"
-                ],
-                correctAnswer: 2,
-                explanation: "Katherine Mansfield was a prominent modernist writer from New Zealand, though she spent much of her adult life in Europe.",
-                topic: "New Zealand Literature"
-            },
-            {
-                id: 9,
-                category: "Nationality Identification",
-                question: "What was the nationality of author Anton Chekhov?",
-                options: [
-                    "Polish",
-                    "Russian",
-                    "Ukrainian",
-                    "German"
-                ],
-                correctAnswer: 1,
-                explanation: "Anton Chekhov was a Russian physician, playwright, and master of the modern short story.",
-                topic: "Russian Authors"
-            },
-            {
-                id: 10,
-                category: "Comprehensive Matching",
-                question: "Which pairing correctly matches an author with their nationality?",
-                options: [
-                    "Katherine Mansfield - American",
-                    "O. Henry - British",
-                    "Anton Chekhov - French",
-                    "Edgar Allan Poe - American"
-                ],
-                correctAnswer: 3,
-                explanation: "Edgar Allan Poe was indeed American. Katherine Mansfield was New Zealander, O. Henry was American, and Anton Chekhov was Russian.",
-                topic: "Author Nationalities"
-            }
-        ]
-    },
-
-    {
-        title: "Short Stories: Setting & Narration",
-        questions: [
-            {
-                id: 1,
-                category: "The Story of an Hour – Kate Chopin",
-                question: "Where and when is 'The Story of an Hour' set?",
-                options: [
-                    "In Mrs. Mallard’s house in the late 19th century over the course of one hour.",
-                    "In a New York apartment at the turn of the 20th century for a single evening.",
-                    "At a rural farm in the American South during a long summer day.",
-                    "In a London boarding house during a brief afternoon in the 1800s."
-                ],
-                correctAnswer: 0,
-                explanation: "The story is set in Mrs. Mallard’s house in the late 19th century over the course of one hour.",
-                topic: "Setting in The Story of an Hour"
-            },
-            {
-                id: 2,
-                category: "The Story of an Hour – Kate Chopin",
-                question: "What is the narrative perspective of 'The Story of an Hour'?",
-                options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
-                ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Story of an Hour"
-            },
-            {
-                id: 3,
-                category: "The Bet – Anton Chekhov",
-                question: "Where is 'The Bet' primarily set?",
-                options: [
-                    "In the banker’s house and the garden lodge in Russia in the late 19th century.",
-                    "In a Moscow prison and a country estate during a single decade.",
-                    "In a St. Petersburg library and a summer cottage over many years.",
-                    "In a remote Siberian cabin and a university town throughout a winter."
-                ],
-                correctAnswer: 0,
-                explanation: "The story is set in Russia in the late 19th century, mainly in the banker’s house and the garden lodge.",
-                topic: "Setting in The Bet"
-            },
-            {
-                id: 4,
-                category: "The Bet – Anton Chekhov",
-                question: "What narrative point of view is used in 'The Bet'?",
-                options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
-                ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Bet"
-            },
-            {
-                id: 5,
-                category: "The Tell-Tale Heart – Edgar Allan Poe",
-                question: "When and where is 'The Tell-Tale Heart' set?",
-                options: [
-                    "In an unspecified place in the 19th century.",
-                    "In a specific unnamed town during a dark autumn.",
-                    "In a remote castle during a stormy night long ago.",
-                    "In a city apartment at the turn of the century."
-                ],
-                correctAnswer: 0,
-                explanation: "The story is set in an unspecified place in the 19th century.",
-                topic: "Setting in The Tell-Tale Heart"
-            },
-            {
-                id: 6,
-                category: "The Tell-Tale Heart – Edgar Allan Poe",
-                question: "Who narrates 'The Tell-Tale Heart'?",
-                options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
-                ],
-                correctAnswer: 1,
-                explanation: "It is told by a first-person narrator.",
-                topic: "Narration in The Tell-Tale Heart"
-            },
-            {
-    id: 7,
-    category: "The Garden Party – Katherine Mansfield",
-    question: "What is the setting of 'The Garden Party'?",
-    options: [
-        "In the Sheridan family’s garden and house in New Zealand on the day of a garden party, and it is suggested to be in the early 20th century.",
-        "In a public city park in England during a festive spring celebration on a warm afternoon in the late 19th century.",
-        "At a remote country estate in rural Australia during a large summer celebration and party in the 1920s decade.",
-        "In a large botanical conservatory in London on the afternoon of a very formal and important high society social event."
-    ],
-    correctAnswer: 0,
-    explanation: "The story is set in the Sheridan family’s garden and house in New Zealand on the day of a garden party, and it is suggested to be in the early 20th century.",
-    topic: "Setting in The Garden Party"
-},
-            {
-                id: 8,
-                category: "The Garden Party – Katherine Mansfield",
-                question: "How is 'The Garden Party' narrated?",
-                options: [
-                    "It is told by a third-person narrator.",
-                    "It is told by a first-person narrator."
-                ],
-                correctAnswer: 0,
-                explanation: "It is told by a third-person narrator.",
-                topic: "Narration in The Garden Party"
-            }
-        ]
-    }
+{
+    "title": "أدب المهجر — الامتحان الأول",
+    "questions": [
+        {
+            "id": 1,
+            "category": "أدب المهجر",
+            "question": "ما المقصود بأدب المهجر؟",
+            "options": [
+                "أدب كتبه العرب في بلادهم عن الغربة والحنين",
+                "أدب أنتجه أدباء عرب هاجروا إلى الأمريكتين وجمع بين الثقافتين العربية والغربية",
+                "أدب ترجمه العرب عن الأدب الغربي",
+                "أدب كتبه الغربيون عن العرب المهاجرين"
+            ],
+            "correctAnswer": 1,
+            "explanation": "أدب المهجر هو أدب عربي البذور غربي التربة، أنتجته مجموعة من الأدباء العرب الذين هاجروا إلى الأمريكتين (الشمالية والجنوبية)، فجمع بين خصائص الثقافة العربية والبيئة الجديدة التي عاشوا فيها.",
+            "topic": "مفهوم أدب المهجر"
+        },
+        {
+            "id": 2,
+            "category": "أدب المهجر",
+            "question": "ما السبب الرئيسي الذي دفع الأدباء العرب إلى الهجرة نحو الأمريكتين؟",
+            "options": [
+                "الرغبة في تعلم الأدب الغربي",
+                "الهروب من اضطهاد الأتراك والبحث عن الرزق واليأس من الظروف الصعبة",
+                "الدعوة إلى نشر الثقافة العربية في الغرب",
+                "الرغبة في الابتعاد عن قيود اللغة العربية الفصحى"
+            ],
+            "correctAnswer": 1,
+            "explanation": "هاجر الأدباء العرب (وخاصة من سوريا ولبنان) إلى الأمريكتين لعدة أسباب: الهروب من اضطهاد الأتراك وظلمهم، والبحث عن الرزق، واليأس من الظروف الصعبة في بلادهم.",
+            "topic": "نشأة أدب المهجر"
+        },
+        {
+            "id": 3,
+            "category": "أدب المهجر",
+            "question": "كيف اختلف أدباء المهجر في أمريكا الشمالية عن أدباء أمريكا الجنوبية؟",
+            "options": [
+                "أدباء الشمال كانوا أكثر محافظة، وأدباء الجنوب كانوا أكثر تجديداً",
+                "أدباء الشمال مالوا إلى التجديد والتخلص من القديم، وأدباء الجنوب سلكوا خطى المحافظين",
+                "لا فرق بينهم، فكلاهما سلك نفس المنهج",
+                "أدباء الشمال كتبوا بالعامية، وأدباء الجنوب كتبوا بالفصحى"
+            ],
+            "correctAnswer": 1,
+            "explanation": "انقسم الأدباء المهجريون إلى مجموعتين: الأولى في أمريكا الشمالية وكانت أكثر تجديداً وتطوراً، مالوا إلى التجديد وتخلصوا من القديم. أما المجموعة الثانية في أمريكا الجنوبية فقد سلك أغلبهم خطى المحافظين، ورأوا وجوب المحافظة على ديباجة العربية والجزالة اللفظية وقواعد اللغة والعروض والبلاغة.",
+            "topic": "مجموعتا أدباء المهجر"
+        },
+        {
+            "id": 4,
+            "category": "أدب المهجر",
+            "question": "ما اسم المدرسة الأدبية التي تأسست في أمريكا الشمالية؟",
+            "options": [
+                "العصبة الأندلسية",
+                "الرابطة القلمية",
+                "مدرسة الديوان",
+                "جماعة أبولو"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الرابطة القلمية هي المدرسة الأدبية التي تأسست في أمريكا الشمالية، وتميزت بالنزعة العضوية والنزعة الإنسانية والنزعة الروحية.",
+            "topic": "مدارس أدب المهجر"
+        },
+        {
+            "id": 5,
+            "category": "أدب المهجر",
+            "question": "أين تأسست العصبة الأندلسية، ومن ترأسها؟",
+            "options": [
+                "تأسست في نيويورك على يد جبران خليل جبران",
+                "تأسست في بوينس آيرس على يد إيليا أبو ماضي",
+                "تأسست في سان باولو بالبرازيل عام 1932، وترأسها الشاعر القروي",
+                "تأسست في شيكاغو على يد ميخائيل نعيمة"
+            ],
+            "correctAnswer": 2,
+            "explanation": "أُسست العصبة الأندلسية في مدينة سان باولو بالبرازيل في عام 1932 على يد الشاعر ميشال المعلوف، وترأسها الشاعر القروي. ومن أعلامها إلياس فرحات والشاعر دياض السطيفي وغيرهم.",
+            "topic": "العصبة الأندلسية"
+        },
+        {
+            "id": 6,
+            "category": "أدب المهجر",
+            "question": "ما الخاصية التي تميز بها الطابع الشخصي لأدباء المهجر؟",
+            "options": [
+                "كانوا يعبرون عن قضايا السياسة فقط",
+                "كانوا يعبرون عما في داخلهم ومشاعرهم أولاً، ثم عما يحيط بهم من العالم الخارجي",
+                "كانوا يقلدون الأدب الغربي تقليداً تاماً",
+                "كانوا يكتبون فقط عن الوطن الذي تركوه"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الطابع الشخصي لأدباء المهجر هو أن أغلبهم كانوا يعبرون عما في داخلهم وما يشعرون به أولاً، ثم يعبرون بعد ذلك عما يحيط بهم من العالم الخارجي، على الرغم من اتفاقهم في الهدف العام.",
+            "topic": "خصائص أدب المهجر"
+        },
+        {
+            "id": 7,
+            "category": "أدب المهجر",
+            "question": "ما النزعة التي جعلت أدباء المهجر ينادون بالوحدة الوطنية والقومية العربية؟",
+            "options": [
+                "النزعة الإنسانية",
+                "النزعة الروحية",
+                "النزعة القومية",
+                "النزوع نحو الطبيعة"
+            ],
+            "correctAnswer": 2,
+            "explanation": "النزعة القومية هي التي جعلت شعراء المهجر ينادون بالوحدة الوطنية والقومية العربية، وضرورة التخلص من الاستعمار والاستبداد والحروب.",
+            "topic": "خصائص أدب المهجر"
+        },
+        {
+            "id": 8,
+            "category": "أدب المهجر",
+            "question": "كيف تجلت النزعة الإنسانية عند أدباء المهجر؟",
+            "options": [
+                "برفضهم التفاعل مع الثقافات الأخرى",
+                "بنظرتهم للآخر نظرة حب ورحمة والرغبة في أن يعم الخير للجميع وتنتشر المبادئ السامية",
+                "بتركيزهم على الهجاء والنقد الاجتماعي فقط",
+                "بكتابتهم الشعر الديني فقط"
+            ],
+            "correctAnswer": 1,
+            "explanation": "تجلت النزعة الإنسانية عند أدباء المهجر في نظرتهم للآخر نظرة حب ورحمة، ورغبتهم في أن يعم الخير للجميع، وأن تنتشر المبادئ السامية، والعيش في مجتمع أفضل تسوده القيم والمثل العليا، والرغبة في تهذيب النفس.",
+            "topic": "خصائص أدب المهجر"
+        },
+        {
+            "id": 9,
+            "category": "أدب المهجر",
+            "question": "ما علاقة أدباء المهجر بالطبيعة؟",
+            "options": [
+                "تجاهلوا الطبيعة تماماً في أشعارهم",
+                "وصفوا الطبيعة وصفاً علمياً بعيداً عن العواطف",
+                "اهتموا بالطبيعة ووصفوها وربطوا مظاهرها بعواطفهم ومشاعرهم وأحاسيسهم",
+                "انتقدوا الطبيعة لأنها ذكّرتهم بوطنهم الذي تركوه"
+            ],
+            "correctAnswer": 2,
+            "explanation": "اهتم أدباء المهجر بالطبيعة ومظاهرها المختلفة، حيث تناولوها ووصفوها وغاصوا فيها، وربطوا مظاهر الطبيعة بعواطفهم ومشاعرهم وأحاسيسهم.",
+            "topic": "خصائص أدب المهجر"
+        },
+        {
+            "id": 10,
+            "category": "أدب المهجر",
+            "question": "ما الذي كان يشغل بال أدباء المهجر رغم حياتهم الأفضل في بلاد الاغتراب؟",
+            "options": [
+                "الثروة والمال",
+                "تعلم اللغات الأجنبية",
+                "الحنين إلى الوطن والاشتياق إليه والتطلع إلى العودة",
+                "التنافس مع الأدباء الغربيين"
+            ],
+            "correctAnswer": 2,
+            "explanation": "رغم أن المهاجرين عاشوا حياة أفضل على مستوى الحريات والمستوى الاقتصادي، إلا أنهم لم ينسوا وطنهم الأم، وكانوا دوماً يشتاقون إليه ويتطلعون إلى العودة إليه والعيش فيه بعد التخلص من الفساد والاستبداد.",
+            "topic": "الحنين إلى الوطن"
+        },
+        {
+            "id": 11,
+            "category": "أدب المهجر",
+            "question": "ما الموضوع الذي تأمل فيه أدباء المهجر بعمق؟",
+            "options": [
+                "السياسة الدولية فقط",
+                "الكون والوجود والفناء والخلود",
+                "الاقتصاد والتجارة",
+                "الأدب الغربي ومقارنته بالعربي"
+            ],
+            "correctAnswer": 1,
+            "explanation": "أكثر أدباء المهجر من التأمل في ذواتهم وفيما حولهم من الكائنات الأخرى، كما تأملوا في الكون والوجود والفناء والخلود.",
+            "topic": "التأمل عند أدباء المهجر"
+        },
+        {
+            "id": 12,
+            "category": "أدب المهجر",
+            "question": "أي من العبارات التالية يصف أدب المهجر بشكل صحيح؟",
+            "options": [
+                "أدب غربي البذور عربي التربة",
+                "أدب عربي البذور غربي التربة",
+                "أدب لا علاقة له بالثقافة العربية",
+                "أدب كتب باللغات الأجنبية فقط"
+            ],
+            "correctAnswer": 1,
+            "explanation": "يُوصف أدب المهجر بأنه 'عربي البذور غربي التربة'، أي أن جذوره وأصوله عربية، لكنه نما وترعرع في بيئة غربية، فتأثر بها وأثّر فيها.",
+            "topic": "تعريف أدب المهجر"
+        },
+        {
+            "id": 13,
+            "category": "تحليل القصيدة",
+            "question": "ما الذي يصفه الشاعر في قصيدة أقبل العيد حين يشبّه عيني المرأة بغابة نخيل؟",
+            "options": [
+                "يصف جمال العيون وضياءها في ظلام الليل وهي ترسل الأضواء في كل مكان",
+                "يصف حجم العيون الكبير",
+                "يصف لون العيون البني الداكن",
+                "يصف دموع المرأة المتساقطة"
+            ],
+            "correctAnswer": 0,
+            "explanation": "في قصيدة أقبل العيد، يصف الشاعر عيني المرأة بأنهما تشبهان غابة نخيل انسحب عنها القمر، فأصبحت العينان في ظلام الليل تلمعان وترسلان الأضواء في كل مكان، لدرجة أن الشجر يكتسب لونه من لون عينيها.",
+            "topic": "تحليل قصيدة أقبل العيد"
+        },
+        {
+            "id": 14,
+            "category": "تحليل القصيدة",
+            "question": "ما الرمز الذي استخدمه الشاعر في قصيدة أقبل العيد للتعبير عن معاناة العراق؟",
+            "options": [
+                "النخيل الجاف",
+                "سقوط المطر الذي لا يحل مشاكل الفقر والقهر رغم جودة الحصاد",
+                "البحر الهائج",
+                "الصحراء القاحلة"
+            ],
+            "correctAnswer": 1,
+            "explanation": "استخدم الشاعر سقوط المطر رمزاً لمعاناة العراق، فرغم سقوط المطر وجودة مواسم الحصاد، يعاني الناس من الجوع والفقر، لأن خيرات المحاصيل لن تعود على المزارعين والحصادين بل سيجنيها الغرباء والمستعمرون.",
+            "topic": "تحليل قصيدة أقبل العيد"
+        },
+        {
+            "id": 15,
+            "category": "تحليل القصيدة",
+            "question": "بماذا شبّه الشاعر سقوط المطر في قصيدة أقبل العيد؟",
+            "options": [
+                "بهدير البحر في العاصفة",
+                "بهذيان طفل فقد أمه ويبحث عنها في كل مكان دون جدوى",
+                "بصرخة المظلوم في وجه الظالم",
+                "بموسيقى حزينة تعزفها الريح"
+            ],
+            "correctAnswer": 1,
+            "explanation": "شبّه الشاعر سقوط المطر بهذيان طفل فقد أمه من عام، ولم يتوقف عن البحث عنها في كل مكان، لكنه لم يجدها. وعندما سأل الناس عنها، قالوا له إنها ستعود قريباً، مع أنها قد ماتت ودفنت.",
+            "topic": "تحليل قصيدة أقبل العيد"
+        },
+        {
+            "id": 16,
+            "category": "تحليل القصيدة",
+            "question": "ما رأي بعض النقاد في قصيدة أقبل العيد من حيث الوحدة العضوية؟",
+            "options": [
+                "أثنوا عليها وقالوا إنها نموذج متكامل للوحدة العضوية",
+                "عابوا عليها عدم الترابط وغياب الوحدة العضوية بسبب الافتقاد إلى وحدة الموضوع ووحدة الجو النفسي",
+                "قالوا إنها أفضل قصائد إيليا أبو ماضي",
+                "لم يتناولوها بالنقد"
+            ],
+            "correctAnswer": 1,
+            "explanation": "عاب بعض النقاد على قصيدة أقبل العيد عدم الترابط وغياب الوحدة العضوية، بسبب الافتقاد إلى وحدة الموضوع ووحدة الجو النفسي. غير أن الرأي المقابل يرى أن الوحدة العضوية تتحقق من خلال وحدة الجو المتمثل في حالة الحزن الشديدة المسيطرة على الشاعر.",
+            "topic": "النقد الأدبي لقصيدة أقبل العيد"
+        }
+    ]
+}
 ];
 
 // Theme toggle: initialize, apply, and persist user preference
