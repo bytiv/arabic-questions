@@ -1838,6 +1838,15 @@ const examSets = [
     ]
 }
 
+,
+{
+    title: "📚 Study Resources (British English)",
+    icon: "📚",
+    label: "Videos, Charts & Practice Tools",
+    lang: "en",
+    type: "resources"
+}
+
 ]; // end examSets
 
 // ═══════════════════════════════════════════════════════════════
@@ -1914,6 +1923,7 @@ function selectExam(index) {
     document.documentElement.setAttribute('dir', 'ltr');
     if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
     if (exam.type === 'diagram') { state.screen = 'diagram'; render(); return; }
+    if (exam.type === 'resources') { state.screen = 'resources'; render(); return; }
     const questions = exam.questions || [];
     state.initialQuestionCount = questions.length;
     state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
@@ -2010,8 +2020,8 @@ function renderExamSelection() {
     const examCards = examSets.map((examSet, index) => `
         <div class="exam-card" onclick="selectExam(${index})">
             <h3>${examSet.title}</h3>
-            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : examSet.type === 'diagram' ? 'Diagram Labeling Practice' : 'Multiple Choice Quiz'}</p>
-            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.type === 'diagram' ? '🫁 11 Labels' : examSet.questions.length + ' Questions'}</p>
+            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : examSet.type === 'diagram' ? 'Diagram Labeling Practice' : examSet.type === 'resources' ? 'Links, Videos & Tools' : 'Multiple Choice Quiz'}</p>
+            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.type === 'diagram' ? '🫁 11 Labels' : examSet.type === 'resources' ? '📚 Curated Links' : examSet.questions.length + ' Questions'}</p>
         </div>
     `).join('');
     return `
@@ -2189,11 +2199,76 @@ function renderDiagram() {
             <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
         </div>`;
 }
+function renderResources() {
+    return `
+        <div class="header">
+            <h1>📚 Study Resources — British English</h1>
+        </div>
+        <div class="question-container" style="line-height:1.9;">
+
+            <h2 class="category" style="margin-bottom:0.5rem;">🔤 IPA & Phonemic Charts (Interactive)</h2>
+            <p style="margin-bottom:0.5rem;">Click the sounds, hear them, see mouth positions — all British RP.</p>
+            <div style="margin-bottom:1.5rem;">
+                <p>• <a href="https://www.englishclub.com/pronunciation/phonemic-chart-ia.php" target="_blank" style="color:var(--accent);font-weight:600;">EnglishClub Interactive Phonemic Chart</a> — Click any of the 44 RP sounds to hear them. Based on Adrian Underhill's layout.</p>
+                <p>• <a href="https://www.britishaccentacademy.com/interactive-ipa-chart/" target="_blank" style="color:var(--accent);font-weight:600;">British Accent Academy — Interactive IPA Chart</a> — Click sounds to see mouth positions and hear RP pronunciation.</p>
+                <p>• <a href="https://folenglish.com/phonemic-chart" target="_blank" style="color:var(--accent);font-weight:600;">FoL English — Interactive Phonemic Chart</a> — Clean themed chart with audio for all 44 British English sounds.</p>
+                <p>• <a href="https://pronunciationstudio.com/english-ipa-chart/" target="_blank" style="color:var(--accent);font-weight:600;">Pronunciation Studio — English IPA Chart</a> — Free chart with recordings by a native British speaker. Also offers free weekly Zoom classes.</p>
+                <p>• <a href="https://www.jdenglishpronunciation.co.uk/british-english-sounds-chart" target="_blank" style="color:var(--accent);font-weight:600;">JD English — British English Sounds Chart</a> — Interactive chart with example words for every sound.</p>
+            </div>
+
+            <h2 class="category" style="margin-bottom:0.5rem;">🎬 YouTube Videos — IPA & Sounds</h2>
+            <p style="margin-bottom:0.5rem;">Short video lessons covering all the sounds in British English.</p>
+            <div style="margin-bottom:1.5rem;">
+                <p>• <a href="https://englishwithlucy.com/phonemic-chart-guide/" target="_blank" style="color:var(--accent);font-weight:600;">English With Lucy — Phonemic Chart Guide</a> — Full walkthrough of all 44 sounds with audio examples. British RP.</p>
+                <p>• <a href="https://englishlikeanative.co.uk/blog/international-phonetic-alphabet-for-correct-pronunciation/" target="_blank" style="color:var(--accent);font-weight:600;">English Like A Native — IPA for Correct Pronunciation</a> — Video + guide covering how to use IPA for British pronunciation.</p>
+                <p>• <a href="https://improveyouraccent.co.uk/consonant-chart/" target="_blank" style="color:var(--accent);font-weight:600;">Improve Your Accent — British Consonant Chart</a> — Detailed consonant chart with minimal pairs, glottal stops, and audio. Native British speaker.</p>
+            </div>
+
+            <h2 class="category" style="margin-bottom:0.5rem;">🔗 Connected Speech (Elision, Assimilation, Linking)</h2>
+            <p style="margin-bottom:0.5rem;">Understand how sounds change in real spoken British English.</p>
+            <div style="margin-bottom:1.5rem;">
+                <p>• <a href="https://www.youtube.com/watch?v=80toax-ly4Q" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Connected Speech Part 2: Elision & Assimilation in British English</a> — Listen and repeat exercises with British accent examples.</p>
+                <p>• <a href="https://www.youtube.com/watch?v=vFU5kqxhD6s" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Connected Speech: Assimilation, Elision & Intrusion</a> — Clear explanation by Billie English with examples.</p>
+                <p>• <a href="https://www.youtube.com/watch?v=VHzCRySecP4" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — 3 Secrets of Connected Speech</a> — Assimilation, catenation, and elision explained simply.</p>
+                <p>• <a href="https://www.eslbase.com/tefl-a-z/connected-speech/" target="_blank" style="color:var(--accent);font-weight:600;">ESLbase — 5 Features of Connected Speech</a> — Written guide with examples of assimilation, elision, delayed plosion, catenation, and intrusion.</p>
+                <p>• <a href="https://www.britishaccentacademy.com/connected-speech/" target="_blank" style="color:var(--accent);font-weight:600;">British Accent Academy — Connected Speech</a> — Detailed article on linking, assimilation, epenthesis, intrusion, and elision in British English.</p>
+            </div>
+
+            <h2 class="category" style="margin-bottom:0.5rem;">🥁 Rhythm & Word Stress</h2>
+            <p style="margin-bottom:0.5rem;">Learn why English sounds the way it does — stress-timing, content vs function words.</p>
+            <div style="margin-bottom:1.5rem;">
+                <p>• <a href="https://www.youtube.com/watch?v=-hXGG9EyR0o" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — British English Sentence Stress & Rhythm</a> — Explains stress-timed vs syllable-timed with British examples.</p>
+                <p>• <a href="https://www.youtube.com/watch?v=SR79TZbKRUU" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Stress-Timed English & Weak Forms</a> — Mini lesson on why we reduce function words in British speech.</p>
+                <p>• <a href="https://www.simpleenglishvideos.com/english-rhythm-stress-in-sentences/" target="_blank" style="color:var(--accent);font-weight:600;">Simple English Videos — English Rhythm with Beatboxers</a> — Fun video explaining stress-timing with beatbox demonstrations.</p>
+            </div>
+
+            <h2 class="category" style="margin-bottom:0.5rem;">📖 Dictionaries for Transcription Practice</h2>
+            <p style="margin-bottom:0.5rem;">Look up any word and see its British IPA transcription.</p>
+            <div style="margin-bottom:1.5rem;">
+                <p>• <a href="https://dictionary.cambridge.org/pronunciation/" target="_blank" style="color:var(--accent);font-weight:600;">Cambridge Dictionary — Pronunciation</a> — Shows both British and American IPA. Listen to British audio. <strong>Recommended by your course.</strong></p>
+                <p>• <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank" style="color:var(--accent);font-weight:600;">Oxford Learner's Dictionary</a> — British IPA transcriptions with audio for every entry.</p>
+                <p>• <a href="https://blog.collinsdictionary.com/ipa-pronunciation-guide-cobuild/" target="_blank" style="color:var(--accent);font-weight:600;">Collins — IPA Pronunciation Guide</a> — Explains how Collins uses IPA for both RP and General American.</p>
+            </div>
+
+            <h2 class="category" style="margin-bottom:0.5rem;">💡 Quick Tips</h2>
+            <div style="margin-bottom:1rem;">
+                <p>• Always check if a resource uses <strong>British RP</strong> — avoid American IPA (e.g., American uses /ɑ/ where British uses /ɒ/, and American pronounces /r/ in all positions).</p>
+                <p>• Practice 10–15 minutes daily with the interactive charts above — click, listen, repeat.</p>
+                <p>• Use Cambridge Dictionary to check the IPA of any word you're unsure about.</p>
+                <p>• For syllable counting, remember: <strong>count the vowel sounds, not the letters</strong>.</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:1rem;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
+        </div>`;
+}
+
 function render() {
     const app = document.getElementById('app');
     if (state.screen === 'selection') app.innerHTML = renderExamSelection();
     else if (state.screen === 'essay') app.innerHTML = renderEssay();
     else if (state.screen === 'diagram') app.innerHTML = renderDiagram();
+    else if (state.screen === 'resources') app.innerHTML = renderResources();
     else if (state.quizCompleted) app.innerHTML = renderResults();
     else app.innerHTML = renderQuestion();
 }
