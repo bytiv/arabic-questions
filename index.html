@@ -1337,6 +1337,507 @@ const examSets = [
     type: "diagram"
 }
 
+,
+{
+    title: "Exam 7: Syllables & Syllable Counting",
+    icon: "📊",
+    label: "Session 8 & 10",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1, category: "Syllable Definition",
+            question: "Which of the following is TRUE about a syllable?",
+            options: [
+                "A syllable must always contain at least one consonant sound in it",
+                "A syllable must always contain at least one vowel sound in it",
+                "A syllable can never form a complete word on its own in English",
+                "A syllable is always made up of exactly two phonemes together"
+            ],
+            correctAnswer: 1,
+            explanation: "A syllable must contain a vowel — that is its core. It may or may not have consonants before or after the vowel. It can be a whole word (e.g., 'cup') or part of one.",
+            topic: "Syllable Definition"
+        },
+        {
+            id: 2, category: "Syllable Definition",
+            question: "How do you determine the number of syllables in a word?",
+            options: [
+                "Count the number of consonant sounds in the IPA transcription of the word",
+                "Count the number of vowel sounds in the IPA transcription of the word",
+                "Count the total number of letters in the standard spelling of the word",
+                "Count the number of phonemes in the IPA transcription of the word"
+            ],
+            correctAnswer: 1,
+            explanation: "The number of vowel sounds = the number of syllables. For example, 'cup' /kʌp/ has 1 vowel = 1 syllable; 'hotel' has 2 vowels = 2 syllables.",
+            topic: "Counting Syllables"
+        },
+        {
+            id: 3, category: "Syllable Types",
+            question: "The three types of words based on syllable count are:",
+            options: [
+                "short words, medium words, and long words based on letter count",
+                "monosyllabic, disyllabic, and multisyllabic based on vowel count",
+                "simple words, compound words, and complex words based on morphemes",
+                "open syllable, closed syllable, and mixed syllable based on endings"
+            ],
+            correctAnswer: 1,
+            explanation: "Monosyllabic = 1 syllable (e.g., 'cup'), disyllabic = 2 syllables (e.g., 'hotel'), multisyllabic = 3 or more syllables (e.g., 'hamburger').",
+            topic: "Monosyllabic / Disyllabic / Multisyllabic"
+        },
+        {
+            id: 4, category: "Syllable Counting",
+            question: "How many syllables does the word 'information' /ɪn.fəˈmeɪ.ʃən/ have?",
+            options: [
+                "3 syllables, because it has three consonant clusters in its transcription",
+                "4 syllables, because it has four vowel sounds in its IPA transcription",
+                "5 syllables, because it has five distinct phonemes in the transcription",
+                "6 syllables, because the word has eleven letters in its written form"
+            ],
+            correctAnswer: 1,
+            explanation: "'Information' = /ɪn.fəˈmeɪ.ʃən/ — 4 vowel sounds (/ɪ/, /ə/, /eɪ/, /ə/) = 4 syllables. It is a multisyllabic word.",
+            topic: "Syllable Counting — information"
+        },
+        {
+            id: 5, category: "Syllable Counting",
+            question: "How many syllables does the word 'restaurant' /ˈres.trɒnt/ have?",
+            options: [
+                "1 syllable, because it is a short monosyllabic word in spoken English",
+                "2 syllables, because it has two vowel sounds in its IPA transcription",
+                "3 syllables, because it has three separate parts when you spell it out",
+                "4 syllables, because the word has ten letters in its written spelling"
+            ],
+            correctAnswer: 1,
+            explanation: "'Restaurant' = /ˈres.trɒnt/ — 2 vowel sounds (/e/, /ɒ/) = 2 syllables. Don't be misled by the spelling.",
+            topic: "Syllable Counting — restaurant"
+        },
+        {
+            id: 6, category: "Syllable Counting",
+            question: "Which of the following words is monosyllabic?",
+            options: [
+                "'garden' /ˈɡɑː.dən/, which contains two separate vowel sounds in it",
+                "'train' /treɪn/, which contains only one single vowel sound in it",
+                "'focus' /ˈfəʊ.kəs/, which contains two separate vowel sounds in it",
+                "'station' /ˈsteɪ.ʃən/, which contains two separate vowel sounds in it"
+            ],
+            correctAnswer: 1,
+            explanation: "'Train' = /treɪn/ — only 1 vowel sound (the diphthong /eɪ/) = 1 syllable = monosyllabic. Remember: a diphthong counts as ONE vowel sound.",
+            topic: "Monosyllabic Words"
+        },
+        {
+            id: 7, category: "Syllable Counting",
+            question: "How many syllables does the word 'graduation' /ɡrædʒ.u.ˈeɪ.ʃən/ have?",
+            options: [
+                "3 syllables, because it has three consonant groups in its transcription",
+                "4 syllables, because it has four vowel sounds in its IPA transcription",
+                "5 syllables, because the word has ten letters in its written spelling",
+                "2 syllables, because it has only two stressed parts when spoken aloud"
+            ],
+            correctAnswer: 1,
+            explanation: "'Graduation' = /ɡrædʒ.u.ˈeɪ.ʃən/ — 4 vowel sounds (/æ/, /u/, /eɪ/, /ə/) = 4 syllables.",
+            topic: "Syllable Counting — graduation"
+        },
+        {
+            id: 8, category: "Syllable Counting",
+            question: "How many syllables does the word 'telephones' /ˈtel.ɪ.fəʊnz/ have?",
+            options: [
+                "2 syllables, because the word has two main stressed parts when spoken",
+                "3 syllables, because it has three vowel sounds in its IPA transcription",
+                "4 syllables, because the word has ten letters in its written spelling",
+                "5 syllables, because each letter group forms its own separate syllable"
+            ],
+            correctAnswer: 1,
+            explanation: "'Telephones' = /ˈtel.ɪ.fəʊnz/ — 3 vowel sounds (/e/, /ɪ/, /əʊ/) = 3 syllables.",
+            topic: "Syllable Counting — telephones"
+        },
+        {
+            id: 9, category: "Syllable Counting",
+            question: "How many syllables does the word 'ticket office' /ˈtɪk.ɪt.ɒf.ɪs/ have?",
+            options: [
+                "2 syllables, because it is a two-word phrase with one syllable each",
+                "4 syllables, because it has four vowel sounds in its IPA transcription",
+                "3 syllables, because it has three consonant clusters in its transcription",
+                "5 syllables, because the phrase has twelve letters in its written form"
+            ],
+            correctAnswer: 1,
+            explanation: "'Ticket office' = /ˈtɪk.ɪt.ɒf.ɪs/ — 4 vowel sounds (/ɪ/, /ɪ/, /ɒ/, /ɪ/) = 4 syllables.",
+            topic: "Syllable Counting — ticket office"
+        },
+        {
+            id: 10, category: "Syllable Counting",
+            question: "How many syllables does the month 'January' /ˈdʒæn.jʊ.ə.ri/ have?",
+            options: [
+                "2 syllables, because it has two stressed parts when spoken out loud",
+                "4 syllables, because it has four vowel sounds in its IPA transcription",
+                "3 syllables, because it has three letter groups in its written spelling",
+                "5 syllables, because the word has seven letters in its written form"
+            ],
+            correctAnswer: 1,
+            explanation: "'January' = /ˈdʒæn.jʊ.ə.ri/ — 4 vowel sounds (/æ/, /ʊ/, /ə/, /i/) = 4 syllables.",
+            topic: "Syllable Counting — January"
+        },
+        {
+            id: 11, category: "Syllable Counting",
+            question: "Which month is monosyllabic (has only 1 syllable)?",
+            options: [
+                "April /ˈeɪ.prəl/, which has two vowel sounds and therefore two syllables",
+                "March /mɑːtʃ/, which has only one vowel sound and therefore one syllable",
+                "August /ˈɔː.ɡəst/, which has two vowel sounds and therefore two syllables",
+                "July /dʒʊˈlaɪ/, which has two vowel sounds and therefore two syllables"
+            ],
+            correctAnswer: 1,
+            explanation: "'March' = /mɑːtʃ/ — 1 vowel sound (/ɑː/) = 1 syllable. May and June are also monosyllabic months.",
+            topic: "Syllable Counting — Months"
+        },
+        {
+            id: 12, category: "Syllabification Rules",
+            question: "A monosyllabic word is never divided into syllables. This means:",
+            options: [
+                "words like 'garden' and 'hotel' cannot be split with a dot in transcription",
+                "words like 'cup' and 'break' have no syllable boundary dot in transcription",
+                "all words with more than four letters must be divided into separate syllables",
+                "only words with three or more vowels need syllable boundary dots in IPA"
+            ],
+            correctAnswer: 1,
+            explanation: "Monosyllabic words (1 syllable) like 'cup' /kʌp/ and 'break' /breɪk/ are never divided — no dot. Only disyllabic and multisyllabic words have syllable boundary dots.",
+            topic: "Syllabification Rules"
+        }
+    ]
+}
+
+,
+{
+    title: "Exam 8: Syllabification, Stress & Connected Speech",
+    icon: "🔗",
+    label: "Sessions 10 – Elision & Assimilation",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1, category: "Syllabification Rules",
+            question: "Syllabification Rule #1 states: when two consonants come between two vowels in a disyllabic word, the syllable boundary goes:",
+            options: [
+                "before both consonants, so they both join the second syllable together",
+                "between the two consonants, splitting them across the two syllables",
+                "after both consonants, so they both stay with the first syllable together",
+                "there is no boundary needed because two consonants cancel each other"
+            ],
+            correctAnswer: 1,
+            explanation: "Rule #1: V-CC-V → split between the two consonants. E.g., 'sister' = /ˈsɪs.tə/, 'hungry' = /ˈhʌŋ.ɡrɪ/, 'window' = /ˈwɪn.dəʊ/.",
+            topic: "Syllabification Rule #1"
+        },
+        {
+            id: 2, category: "Syllabification Rules",
+            question: "According to Rule #1, the correct syllabification of 'symbol' is:",
+            options: [
+                "/ˈsɪ.mbəl/, with the boundary before both consonants /m/ and /b/",
+                "/ˈsɪm.bəl/, with the boundary between the consonants /m/ and /b/",
+                "/ˈsɪmb.əl/, with the boundary after both consonants /m/ and /b/",
+                "/sɪm.ˈbəl/, with the stress on the second syllable instead of the first"
+            ],
+            correctAnswer: 1,
+            explanation: "'Symbol': two consonants /m/ and /b/ between two vowels → split between them: /ˈsɪm.bəl/. Same pattern as 'sister' /ˈsɪs.tə/ and 'answer' /ˈɑːn.sə/.",
+            topic: "Syllabification Rule #1 — symbol"
+        },
+        {
+            id: 3, category: "Syllabification Rules",
+            question: "Syllabification Rule #2 states: a compound word is divided:",
+            options: [
+                "according to how many vowel sounds appear in the entire compound word",
+                "between the two words that make up the compound word at their boundary",
+                "by placing consonants at the start of the second part of the compound word",
+                "only if the compound word has more than three total syllables in it"
+            ],
+            correctAnswer: 1,
+            explanation: "Rule #2: Compound words split at the word boundary. E.g., 'firefly' = /faɪə.flaɪ/, 'softball' = /sɒft.bɔːl/, 'redhead' = /red.hed/, 'makeup' = /meɪk.ʌp/.",
+            topic: "Syllabification Rule #2 — Compounds"
+        },
+        {
+            id: 4, category: "Word Stress",
+            question: "Content words that receive stress in a sentence include:",
+            options: [
+                "articles, prepositions, pronouns, and conjunctions used in the sentence",
+                "nouns, adjectives, main verbs, and adverbs used in the sentence",
+                "only the first and last words that appear in any given English sentence",
+                "only monosyllabic words because they have just one syllable to stress"
+            ],
+            correctAnswer: 1,
+            explanation: "Content words (nouns, adjectives, main verbs, adverbs) carry stress. Function words (articles, prepositions, pronouns, conjunctions) are usually unstressed.",
+            topic: "Content Words vs Function Words"
+        },
+        {
+            id: 5, category: "Word Stress",
+            question: "In the transcription /ðæt ɪz ə ˈbɑː.skɪt/, the stress mark ˈ appears before:",
+            options: [
+                "'that', because it is the first word and most important word in the sentence",
+                "'basket', because it is a noun and nouns are content words that get stress",
+                "'is', because it is the main verb that connects the subject to the predicate",
+                "'a', because articles always receive primary stress in English sentences"
+            ],
+            correctAnswer: 1,
+            explanation: "In 'That is a basket', only 'basket' (a noun = content word) gets primary stress. 'That', 'is', and 'a' are function words and remain unstressed.",
+            topic: "Word Stress in Sentences"
+        },
+        {
+            id: 6, category: "Elision",
+            question: "Elision is best defined as:",
+            options: [
+                "adding extra sounds between words to make speech flow more smoothly",
+                "the omission of certain sounds in certain contexts during connected speech",
+                "changing one sound into a different sound because of a neighbouring word",
+                "placing stress on function words instead of content words in a sentence"
+            ],
+            correctAnswer: 1,
+            explanation: "Elision = omission (dropping) of sounds. Most commonly, /t/ and /d/ are dropped when 'sandwiched' between two consonants (C-t/d-C).",
+            topic: "Elision — Definition"
+        },
+        {
+            id: 7, category: "Elision",
+            question: "In 'the next day' → /ðə neks deɪ/, the elided (dropped) sound is:",
+            options: [
+                "/ð/ from 'the', because it is a weak function word in the sentence",
+                "/t/ from 'next', because it is sandwiched between consonants /s/ and /d/",
+                "/d/ from 'day', because it comes at the start of the following word",
+                "/n/ from 'next', because nasal sounds are always dropped before stops"
+            ],
+            correctAnswer: 1,
+            explanation: "'Next day': the /t/ in 'next' is between /s/ and /d/ (consonant-t-consonant), so it gets elided: /nekst deɪ/ → /neks deɪ/.",
+            topic: "Elision — next day"
+        },
+        {
+            id: 8, category: "Elision",
+            question: "In 'hold the dog' → /həʊl ðə dɒɡ/, which sound is elided?",
+            options: [
+                "/h/ from 'hold', because /h/ is commonly dropped in connected speech",
+                "/d/ from 'hold', because it is sandwiched between consonants /l/ and /ð/",
+                "/ð/ from 'the', because function words always lose their first consonant",
+                "/ɒ/ from 'dog', because short vowels are dropped in fast speech often"
+            ],
+            correctAnswer: 1,
+            explanation: "'Hold the dog': /d/ in 'hold' is between /l/ and /ð/ (C-d-C), so it gets elided: /həʊld/ → /həʊl/.",
+            topic: "Elision — hold the dog"
+        },
+        {
+            id: 9, category: "Assimilation",
+            question: "Assimilation is best defined as:",
+            options: [
+                "the omission of certain sounds when they are sandwiched between consonants",
+                "sounds in one word causing changes in sounds of neighbouring words",
+                "the addition of extra vowel sounds between consonant clusters in speech",
+                "placing the stress mark on the wrong syllable during fast speech delivery"
+            ],
+            correctAnswer: 1,
+            explanation: "Assimilation = a sound changes to become more similar to a neighbouring sound. It happens across word boundaries in connected speech.",
+            topic: "Assimilation — Definition"
+        },
+        {
+            id: 10, category: "Assimilation",
+            question: "Before a velar consonant (/k/ or /g/), the alveolar /n/ changes to:",
+            options: [
+                "/m/, because bilabial sounds always replace alveolar sounds before velars",
+                "/ŋ/, because the nasal moves to the velar position to match the next sound",
+                "/l/, because lateral sounds are easier to produce before velar consonants",
+                "/n/ stays unchanged, because nasal sounds never assimilate in English"
+            ],
+            correctAnswer: 1,
+            explanation: "Before velars: /n/ → /ŋ/ (e.g., 'ten cars' → /teŋ kɑːz/), /t/ → /k/ (e.g., 'that kid'), /d/ → /g/ (e.g., 'good girl').",
+            topic: "Assimilation — Before Velars"
+        },
+        {
+            id: 11, category: "Assimilation",
+            question: "Before a bilabial consonant (/m/, /b/, /p/), the alveolar /n/ changes to:",
+            options: [
+                "/ŋ/, because velar nasals replace alveolar nasals before all consonants",
+                "/m/, because the nasal moves to the bilabial position to match the next sound",
+                "/l/, because lateral sounds replace nasals before bilabial consonants",
+                "/n/ stays the same, because /n/ never changes before bilabial sounds"
+            ],
+            correctAnswer: 1,
+            explanation: "Before bilabials: /n/ → /m/ (e.g., 'ten men' → /tem men/), /t/ → /p/ (e.g., 'hot mushrooms' → /hɒp mʌʃrʊmz/), /d/ → /b/ (e.g., 'bad boys' → /bæb bɔɪz/).",
+            topic: "Assimilation — Before Bilabials"
+        },
+        {
+            id: 12, category: "Assimilation",
+            question: "In the phrase 'Did you swim?', the sounds /d/ + /j/ combine through assimilation to produce:",
+            options: [
+                "/tʃ/, the voiceless affricate, making it sound like 'ditchoo swim'",
+                "/dʒ/, the voiced affricate, making it sound like 'didjoo swim'",
+                "/ʒ/, the voiced fricative, making it sound like 'dizhoo swim'",
+                "/ʃ/, the voiceless fricative, making it sound like 'dishoo swim'"
+            ],
+            correctAnswer: 1,
+            explanation: "/d/ + /j/ → /dʒ/ (voiced affricate). Similarly, /t/ + /j/ → /tʃ/ (e.g., 'Nice to meet you' → 'meetchoo'). These are coalescent assimilations.",
+            topic: "Assimilation — /d/+/j/ and /t/+/j/"
+        }
+    ]
+}
+
+,
+{
+    title: "Exam 9: Rhythm & Stress Patterns",
+    icon: "🥁",
+    label: "Session 11 – Rhythm",
+    lang: "en",
+    type: "mcq",
+    questions: [
+        {
+            id: 1, category: "Rhythm Definition",
+            question: "English rhythm is described as 'stress-timed', which means:",
+            options: [
+                "every syllable in English takes exactly the same amount of time to say",
+                "stressed syllables occur at roughly regular intervals regardless of unstressed ones",
+                "only the last word in every sentence receives any rhythmic stress at all",
+                "the number of letters in a word determines how much time it takes to say"
+            ],
+            correctAnswer: 1,
+            explanation: "English is stress-timed: accented (stressed) syllables tend to occur at regular time intervals. Unstressed syllables between them are 'squashed' to fit, no matter how many there are.",
+            topic: "Stress-Timed Rhythm"
+        },
+        {
+            id: 2, category: "Rhythm Definition",
+            question: "Rhythm in English is created by:",
+            options: [
+                "the number of consonant clusters that appear in each spoken sentence",
+                "the pattern of accented and unaccented syllables as we speak",
+                "the pitch of the speaker's voice going up and down during sentences",
+                "the speed at which individual vowel sounds are produced by the speaker"
+            ],
+            correctAnswer: 1,
+            explanation: "Rhythm = the pattern of accented (stressed) and unaccented (unstressed) syllables. We make unaccented syllables weak and space accented ones at regular intervals.",
+            topic: "Rhythm — Definition"
+        },
+        {
+            id: 3, category: "Content vs Function Words",
+            question: "Which of the following are content words that normally receive stress?",
+            options: [
+                "articles, prepositions, pronouns, and conjunctions in a spoken sentence",
+                "nouns, main verbs, adjectives, and adverbs in a spoken sentence",
+                "only the first word and the last word that appear in any given sentence",
+                "all words receive equal stress because English treats every word the same"
+            ],
+            correctAnswer: 1,
+            explanation: "Content words (nouns, main verbs, adjectives, adverbs) carry meaning and are stressed. Function words (pronouns, conjunctions, articles, prepositions) are usually unstressed/weak.",
+            topic: "Content Words vs Function Words"
+        },
+        {
+            id: 4, category: "Content vs Function Words",
+            question: "Which of the following groups contains ONLY function words?",
+            options: [
+                "'table', 'beautiful', 'quickly', and 'run' which all carry lexical meaning",
+                "'the', 'and', 'for', and 'it' which serve grammatical purposes only",
+                "'never', 'always', 'happy', and 'dog' which describe things and actions",
+                "'went', 'big', 'slowly', and 'house' which are all stressed in sentences"
+            ],
+            correctAnswer: 1,
+            explanation: "Function words: articles (a, an, the), conjunctions (and, but, so, or), prepositions (to, for, at, in, from), pronouns (he, she, it, they). They are weak/unaccented in normal speech.",
+            topic: "Function Words — Examples"
+        },
+        {
+            id: 5, category: "Content vs Function Words",
+            question: "Function words are accented only when:",
+            options: [
+                "they appear at the beginning of a sentence in formal written English",
+                "they are used for contrast or emphasis in a specific context of speech",
+                "they are followed by a content word that is more than two syllables long",
+                "the speaker is talking slowly and carefully in a classroom or lecture"
+            ],
+            correctAnswer: 1,
+            explanation: "Function words are normally unaccented, but they CAN receive stress when used for contrast or emphasis. E.g., 'I said FOR him, not TO him.'",
+            topic: "Function Words — Exception"
+        },
+        {
+            id: 6, category: "Rhythm Patterns",
+            question: "In the phrase 'a piece of cake', which words carry the rhythmic beats (stress)?",
+            options: [
+                "'a' and 'of' carry the beats because they come before the content words",
+                "'piece' and 'cake' carry the beats because they are the content words",
+                "all four words carry equal beats because the phrase has only four words",
+                "only 'cake' carries a beat because it is the last and most important word"
+            ],
+            correctAnswer: 1,
+            explanation: "'Piece' (noun) and 'cake' (noun) are content words → stressed. 'A' (article) and 'of' (preposition) are function words → unstressed. The beats fall on 'piece' and 'cake'.",
+            topic: "Rhythm — Identifying Beats"
+        },
+        {
+            id: 7, category: "Rhythm Patterns",
+            question: "In 'I enjoyed the play', the function words are:",
+            options: [
+                "'enjoyed' and 'play', because they are the main content words here",
+                "'I' and 'the', because they are a pronoun and an article respectively",
+                "'I' and 'enjoyed', because they appear at the beginning of the sentence",
+                "'the' and 'play', because they appear at the end of the sentence"
+            ],
+            correctAnswer: 1,
+            explanation: "'I' = pronoun (function word), 'the' = article (function word). 'Enjoyed' = verb (content word) and 'play' = noun (content word) receive stress.",
+            topic: "Identifying Function Words"
+        },
+        {
+            id: 8, category: "The Squashing Effect",
+            question: "The 'squashing effect' in English rhythm means:",
+            options: [
+                "stressed syllables are made shorter when many of them appear in a row",
+                "unstressed syllables between beats are spoken rapidly to keep regular timing",
+                "all syllables in a long word are pronounced at exactly the same slow speed",
+                "function words are completely silent and never actually pronounced at all"
+            ],
+            correctAnswer: 1,
+            explanation: "When many unaccented syllables fall between rhythmic beats, they are 'squashed' — pronounced rapidly to fit the same time interval. This keeps the beats regular.",
+            topic: "The Squashing Effect"
+        },
+        {
+            id: 9, category: "Rhythm Practice",
+            question: "In 'Salt and pepper', the stressed content words are:",
+            options: [
+                "only 'and', because it connects the two nouns and is therefore important",
+                "'salt' and 'pepper', because they are nouns and carry the main meaning",
+                "all three words receive equal stress because the phrase is very short",
+                "only 'pepper', because it is the longest word and comes at the end"
+            ],
+            correctAnswer: 1,
+            explanation: "'Salt' = noun (stressed), 'pepper' = noun (stressed), 'and' = conjunction (function word, unstressed). The rhythmic beats fall on 'salt' and 'pep-'.",
+            topic: "Rhythm Practice — Salt and pepper"
+        },
+        {
+            id: 10, category: "Rhythm Practice",
+            question: "In 'He'll do his homework before supper', the function words include:",
+            options: [
+                "'homework' and 'supper', because they are the longest words in the sentence",
+                "'he'll', 'his', and 'before', because they are pronoun, possessive, and preposition",
+                "'do' and 'homework', because they describe the action being performed here",
+                "there are no function words in this sentence because every word is stressed"
+            ],
+            correctAnswer: 1,
+            explanation: "'He'll' (pronoun+aux), 'his' (possessive pronoun), 'before' (preposition) = function words (unstressed). 'Do' (verb), 'homework' (noun), 'supper' (noun) = content words (stressed).",
+            topic: "Rhythm Practice — Function words in sentences"
+        },
+        {
+            id: 11, category: "Regularity of Beats",
+            question: "English rhythm can be compared to a metronome because:",
+            options: [
+                "every single syllable in English is pronounced at exactly the same volume",
+                "the beats fall on stressed syllables at roughly regular time intervals",
+                "English speakers always pause for the same duration between all words",
+                "unstressed syllables are always louder than the stressed syllables around them"
+            ],
+            correctAnswer: 1,
+            explanation: "Like a metronome, the 'beats' in English fall on accented syllables at roughly regular intervals. We speed up or slow down unstressed syllables to maintain this regularity.",
+            topic: "Regularity of Beats"
+        },
+        {
+            id: 12, category: "Rhythm Practice",
+            question: "In 'A present for Richard', the unstressed function words are:",
+            options: [
+                "'present' and 'Richard', because they are the nouns in this short phrase",
+                "'a' and 'for', because they are an article and a preposition respectively",
+                "'a' and 'Richard', because they are at the start and end of the phrase",
+                "'for' and 'present', because prepositions and nouns are always unstressed"
+            ],
+            correctAnswer: 1,
+            explanation: "'A' = article (function word, unstressed), 'for' = preposition (function word, unstressed). 'Present' = noun (stressed), 'Richard' = noun (stressed).",
+            topic: "Rhythm Practice — A present for Richard"
+        }
+    ]
+}
+
 ]; // end examSets
 
 // ═══════════════════════════════════════════════════════════════
