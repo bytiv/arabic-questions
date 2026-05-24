@@ -3,377 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drama — Theme of Revenge Essay</title>
+    <title>Drama — Exams</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --bg-gradient: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
-            --container-bg: white;
-            --text-color: #1f2937;
-            --muted: #6b7280;
-            --accent: #9333ea;
-            --accent-2: #3b82f6;
-            --success: #10b981;
-            --danger: #ef4444;
-            --border: #e5e7eb;
-            --card-bg: #f9fafb;
-            --option-border: #d1d5db;
-            --option-bg: white;
-            --correct-bg: #f0fdf4;
-            --incorrect-bg: #fef2f2;
-            --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --exam-card-text: white;
+            --container-bg: white; --text-color: #1f2937; --muted: #6b7280;
+            --accent: #9333ea; --accent-2: #3b82f6; --success: #10b981; --danger: #ef4444;
+            --border: #e5e7eb; --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --exam-card-text: white; --card-bg: #f9fafb; --option-border: #d1d5db;
+            --option-bg: white; --correct-bg: #f0fdf4; --incorrect-bg: #fef2f2;
         }
-
         [data-theme="dark"] {
             --bg-gradient: linear-gradient(180deg, #0f263b, #021526);
-            --container-bg: #071825;
-            --text-color: #dceefb;
-            --muted: #9fb6c8;
-            --accent: #60a5fa;
-            --accent-2: #38bdf8;
-            --success: #2dd4bf;
-            --danger: #fb7185;
-            --border: #123244;
-            --card-bg: #071a25;
-            --option-border: #123244;
-            --option-bg: #071a22;
-            --correct-bg: rgba(45,212,191,0.06);
-            --incorrect-bg: rgba(251,113,133,0.06);
+            --container-bg: #071825; --text-color: #dceefb; --muted: #9fb6c8;
+            --accent: #60a5fa; --accent-2: #38bdf8; --success: #2dd4bf; --danger: #fb7185;
+            --border: #123244; --card-bg: #071a25; --option-border: #123244; --option-bg: #071a22;
+            --correct-bg: rgba(45,212,191,0.06); --incorrect-bg: rgba(251,113,133,0.06);
             --exam-card-bg: linear-gradient(135deg, #082433 0%, #04202b 100%);
-            --exam-card-text: #e6f3ff;
-            color-scheme: dark;
+            --exam-card-text: #e6f3ff; color-scheme: dark;
         }
-
-        #theme-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255,255,255,0.9);
-            border: 1px solid rgba(0,0,0,0.08);
-            padding: 0.45rem 0.6rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-size: 1.125rem;
-            z-index: 60;
-            transition: background .2s, color .2s, border-color .2s;
-        }
-
-        [data-theme="dark"] #theme-toggle {
-            background: rgba(255,255,255,0.04);
-            border-color: rgba(255,255,255,0.06);
-            color: var(--text-color);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 1rem;
-            transition: background .25s ease, color .25s ease;
-        }
-
-        .container {
-            max-width: 48rem;
-            width: 100%;
-            background: var(--container-bg);
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12);
-            padding: 2rem;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-            transition: background .25s ease;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-color);
-        }
-
-        .question-container {
-            background: var(--card-bg);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .category {
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
+        [data-theme="dark"] .exam-card { background: linear-gradient(135deg, #0f1724 0%, #0b1220 100%); color: var(--text-color); border-color: transparent; box-shadow: 0 6px 12px rgba(2,6,23,0.6); }
+        [data-theme="dark"] .exam-card:hover { transform: translateY(-4px); border-color: rgba(14,165,255,0.12); }
+        [data-theme="dark"] .exam-card p { color: var(--muted); }
+        [data-theme="dark"] .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(14,165,255,0.04); }
+        [data-theme="dark"] .option-btn { background: var(--option-bg); border-color: var(--option-border); color: var(--text-color); }
+        [data-theme="dark"] .option-btn.neutral { color: var(--muted); }
+        [data-theme="dark"] .option-btn.correct { border-color: #10b981; background: rgba(16,185,129,0.06); color: #c7f7e6; }
+        [data-theme="dark"] .option-btn.incorrect { border-color: #ef4444; background: rgba(239,68,68,0.06); color: #ffd6d6; }
+        [data-theme="dark"] .explanation-box.correct { background: rgba(6,78,59,0.12); border-color: rgba(16,185,129,0.18); color: var(--text-color); }
+        [data-theme="dark"] .explanation-box.incorrect { background: rgba(76,29,29,0.12); border-color: rgba(239,68,68,0.18); color: var(--text-color); }
+        [data-theme="dark"] .next-btn { background: linear-gradient(to right, #0ea5ff, #2563eb); color: white; }
+        [data-theme="dark"] .results-container .final-score { color: var(--accent); }
+        [data-theme="dark"] .category-stats { background: #0b0f12; border-color: #121721; }
+        [data-theme="dark"] .stat-item { background: #0d1114; border-color: #121720; color: var(--text-color); }
+        #theme-toggle { position: fixed; top: 1rem; right: 1rem; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 0.45rem 0.6rem; border-radius: 0.5rem; cursor: pointer; font-size: 1.125rem; z-index: 60; transition: background .2s, color .2s, border-color .2s; direction: ltr; }
+        [data-theme="dark"] #theme-toggle { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); color: var(--text-color); }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-gradient); color: var(--text-color); transition: background .25s ease, color .25s ease; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .container { max-width: 48rem; width: 100%; background: var(--container-bg); transition: background .25s ease; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12); padding: 2rem; }
+        .exam-selection { text-align: center; }
+        .exam-selection h1 { font-size: 2.5rem; font-weight: bold; color: var(--text-color); margin-bottom: 1rem; }
+        .exam-selection p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
+        .exam-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .exam-card { background: var(--exam-card-bg); color: var(--exam-card-text); padding: 2rem; border-radius: 1rem; cursor: pointer; transition: all 0.3s; border: 3px solid transparent; box-shadow: 0 4px 6px -1px rgba(2,6,23,0.22); }
+        .exam-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); border-color: #fbbf24; }
+        .exam-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .exam-card p { font-size: 1rem; color: var(--exam-card-text); }
+        .exam-card .question-count { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3); font-weight: bold; }
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .header h1 { font-size: 1.5rem; font-weight: bold; color: var(--text-color); }
+        .score-info { text-align: right; }
+        .score-info .question-number { font-size: 0.875rem; color: var(--muted); }
+        .score-info .score { font-weight: bold; color: var(--accent); }
+        .question-container { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .category { text-align: right; font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; }
+        .question { text-align: right; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1rem; }
+        .options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .option-btn { width: 100%; padding: 1.25rem; text-align: right; border-radius: 0.75rem; border: 2px solid var(--option-border); background: var(--option-bg); font-size: 1.125rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
+        .option-btn:not(:disabled):hover { border-color: var(--accent); background: rgba(14,165,255,0.04); }
+        .option-btn:disabled { cursor: not-allowed; }
+        .option-btn.correct { border-color: var(--success); background: var(--correct-bg); color: #065f46; }
+        .option-btn.incorrect { border-color: var(--danger); background: var(--incorrect-bg); color: #991b1b; }
+        .option-btn.neutral { border-color: var(--option-border); background: var(--card-bg); color: var(--muted); }
+        .icon { width: 26px; height: 26px; flex-shrink: 0; }
+        .explanation-box { padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem; border: 2px solid; }
+        .explanation-box.correct { background: var(--correct-bg); border-color: rgba(16,185,129,0.35); }
+        .explanation-box.incorrect { background: var(--incorrect-bg); border-color: rgba(239,68,68,0.28); }
+        .explanation-title { text-align: right; font-weight: bold; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .explanation-content { background: var(--option-bg); padding: 1rem; border-radius: 0.5rem; margin-bottom: 0.75rem; }
+        .explanation-text { text-align: right; color: var(--text-color); line-height: 1.75; font-size: 1.125rem; }
+        .explanation-text strong { color: var(--accent); }
+        .topic-info { display: flex; align-items: center; gap: 0.5rem; color: var(--accent); text-align: right; font-weight: 600; }
+        .next-btn { width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 1rem; border-radius: 0.75rem; font-weight: bold; font-size: 1.25rem; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 10px 15px -3px rgba(2,6,23,0.18); }
+        .next-btn:hover { filter: brightness(0.98); }
+        .current-score { text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 1.125rem; }
+        .current-score .score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
+        .restart-btn { padding: 0.75rem 1.5rem; background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .restart-btn:hover { background: var(--card-bg); }
+        .back-to-menu-btn { padding: 0.75rem 1.5rem; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; border: none; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-left: 0.5rem; }
+        .back-to-menu-btn:hover { filter: brightness(0.98); }
+        .results-container { text-align: center; }
+        .trophy-icon { width: 6rem; height: 6rem; margin: 0 auto 1.5rem; color: #eab308; }
+        .results-title { font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; color: var(--text-color); }
+        .final-score { font-size: 4.5rem; font-weight: bold; color: var(--accent); margin-bottom: 0.75rem; }
+        .percentage { font-size: 1.875rem; color: var(--muted); margin-bottom: 1rem; }
+        .results-message { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
+        .category-stats { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; }
+        .stats-title { font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color); display: flex; align-items: center; gap: 0.5rem; }
+        .stat-item { padding: 1rem; background: var(--option-bg); border-radius: 0.75rem; border: 1px solid var(--border); margin-bottom: 0.75rem; }
+        .stat-row { display: flex; justify-content: space-between; align-items: center; }
+        .stat-category { text-align: right; font-weight: 600; }
+        .stat-score { text-align: left; font-weight: bold; }
+        .action-buttons { display: flex; gap: 0.75rem; margin-top: 1rem; }
+        .btn-primary { flex: 1; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 0.75rem; border-radius: 0.75rem; font-weight: bold; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-primary:hover { filter: brightness(0.98); }
+        .btn-secondary { flex: 1; border: 2px solid var(--option-border); background: var(--option-bg); padding: 0.75rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-secondary:hover { background: var(--card-bg); }
+        .final-stats { margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border); padding-top: 1rem; color: var(--muted); font-size: 1.125rem; }
+        .final-stats .final-score-value { font-weight: bold; color: var(--accent); font-size: 1.25rem; }
 
         /* Essay styles */
-        .essay-instructions {
-            background: var(--option-bg);
-            border: 1px solid var(--option-border);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.75;
-            color: var(--text-color);
-        }
-
-        .essay-instructions p { margin-bottom: 0.5rem; }
-        .essay-note {
-            margin-top: 0.75rem;
-            color: var(--muted);
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-        .essay-disclaimer {
-            margin-top: 1rem;
-            color: var(--danger);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        .show-model-btn {
-            width: 100%;
-            background: linear-gradient(to right, var(--accent), var(--accent-2));
-            color: white;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 1rem;
-        }
-
-        .show-model-btn:hover { filter: brightness(0.95); }
-
-        .essay-reveal-box {
-            display: none;
-            background: var(--option-bg);
-            border: 1px solid var(--option-border);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            line-height: 1.85;
-            color: var(--text-color);
-        }
-
+        .essay-instructions { background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.25rem; line-height: 1.75; }
+        .essay-note { margin-top: 0.5rem; color: var(--muted); font-style: italic; font-size: 0.9rem; }
+        .essay-disclaimer { margin-top: 1rem; color: var(--danger); font-size: 0.9rem; font-style: italic; }
+        .show-model-btn { width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 1rem; border-radius: 0.75rem; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; margin-bottom: 1rem; }
+        .essay-reveal-box { display: none; background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; padding: 1.5rem; line-height: 1.8; }
         .essay-reveal-box.show { display: block; }
-
-        .essay-reveal-box h3 {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            margin-top: 1.25rem;
-        }
-
+        .essay-reveal-box h3 { font-size: 1rem; font-weight: bold; color: var(--accent); margin: 1.1rem 0 0.4rem; }
         .essay-reveal-box h3:first-child { margin-top: 0; }
-
-        .essay-reveal-box p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .essay-reveal-box blockquote {
-            border-left: 3px solid var(--accent);
-            padding-left: 1rem;
-            margin: 0.75rem 0;
-            color: var(--muted);
-            font-style: italic;
-            font-size: 0.97rem;
-        }
-
-        .essay-section-label {
-            display: inline-block;
-            background: linear-gradient(to right, var(--accent), var(--accent-2));
-            color: white;
-            font-size: 0.78rem;
-            font-weight: bold;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .num-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: bold;
-            width: 1.4rem;
-            height: 1.4rem;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 1.4rem;
-            margin-right: 0.4rem;
-            flex-shrink: 0;
-        }
-
-        hr.divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 1.25rem 0;
-        }
-
-        .back-to-menu-btn {
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(to right, var(--accent), var(--accent-2));
-            color: white;
-            border: none;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-left: 0.5rem;
-        }
-
-        .back-to-menu-btn:hover { filter: brightness(0.95); }
-
-        .outline-box {
-            background: var(--card-bg);
-            border: 1px solid var(--option-border);
-            border-radius: 0.5rem;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-        }
-
-        .outline-box ul { padding-left: 1.25rem; }
-        .outline-box li { margin-bottom: 0.3rem; line-height: 1.7; }
-        .outline-box strong { color: var(--accent); }
+        .essay-reveal-box p { margin-bottom: 0.85rem; font-size: 0.97rem; }
+        .essay-reveal-box blockquote { border-left: 3px solid var(--accent); padding-left: 0.9rem; margin: 0.5rem 0 0.85rem; color: var(--muted); font-style: italic; font-size: 0.93rem; }
+        .essay-section-label { display: inline-block; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; font-size: 0.75rem; font-weight: bold; padding: 0.18rem 0.55rem; border-radius: 999px; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        hr.divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
     </style>
 </head>
 <body>
-    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
-    <div class="container">
+    <button id="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">🌙</button>
+    <div class="container" id="app"></div>
 
-        <div class="header">
-            <h1>🎭 Drama — Theme of Revenge</h1>
-        </div>
-
-        <div class="question-container">
-            <p class="category">Essay Question — The Merchant of Venice</p>
-
-            <div class="essay-instructions">
-                <p><strong>Instructions:</strong> Write a full essay on the <strong>Theme of Revenge</strong> in <em>The Merchant of Venice</em>. Your essay must include:</p>
-                <ul style="padding-left:1.25rem; margin-top:0.5rem;">
-                    <li>An <strong>introduction</strong> defining revenge</li>
-                    <li>A <strong>body</strong> covering: What happened? Why? How? — for both Shylock vs Antonio and Portia vs Shylock</li>
-                    <li>A <strong>conclusion</strong></li>
-                </ul>
-                <p class="essay-note">Try to write your answer first, then reveal the model answer below.</p>
-            </div>
-
-            <!-- Outline reference -->
-            <div class="outline-box">
-                <strong>Outline to follow:</strong>
-                <ul style="margin-top:0.5rem;">
-                    <li><strong>Intro:</strong> What is the meaning of revenge?</li>
-                    <li><strong>Shylock vs Antonio:</strong> Reasons (2) · Plan (3) · Achievement (4)</li>
-                    <li><strong>Portia vs Shylock:</strong> Reasons (5) · Plan (6) · Achievement (7)</li>
-                    <li><strong>Conclusion</strong></li>
-                </ul>
-            </div>
-
-            <button class="show-model-btn" onclick="toggleReveal()" id="reveal-btn">▼ I'm done — Show Model Answer</button>
-
-            <div class="essay-reveal-box" id="essay-box">
-
-                <!-- INTRODUCTION -->
-                <span class="essay-section-label">Introduction</span>
-                <h3>What is Revenge?</h3>
-                <p>
-                    Revenge is the act of inflicting harm or punishment on someone in return for a wrong or injury they have caused. It is a deeply human impulse driven by a desire to restore a sense of justice or personal honor after suffering humiliation, loss, or injustice. Rather than seeking official legal redress, a person consumed by revenge acts on their own behalf, using whatever means are available to them to make their enemy suffer as they have suffered. In <em>The Merchant of Venice</em>, Shakespeare presents revenge not as a triumphant force but as a complex, double-edged theme — one that motivates two cycles of conflict, each with its own causes, methods, and outcomes.
-                </p>
-
-                <hr class="divider">
-
-                <!-- SHYLOCK VS ANTONIO -->
-                <span class="essay-section-label">Body — Part 1</span>
-                <h3>"Shylock against Antonio"</h3>
-
-                <p><strong style="color:var(--accent);">① What happened? (The situation)</strong></p>
-                <p>
-                    Shylock, a Jewish moneylender in Venice, finds himself the target of constant humiliation and abuse at the hands of Antonio, a wealthy Christian merchant. Antonio has long despised Shylock for his profession of usury — lending money at interest — and has publicly insulted, mocked, and spat upon him in the marketplace. Beyond this personal contempt, Shylock also suffers the devastating blow of his daughter Jessica eloping with Lorenzo, a Christian, and taking a large portion of his money and jewels with her. These compounded injustices — social, religious, and personal — set the stage for Shylock's desire for revenge.
-                </p>
-
-                <p><strong style="color:var(--accent);">② Why happened? (The reasons)</strong></p>
-                <p>
-                    Shylock's motivation for revenge against Antonio is twofold. First, Antonio has subjected him to years of public degradation, calling him a misbeliever, a cut-throat dog, and spitting on his Jewish gaberdine, all because of religious and racial prejudice. Shylock asks bitterly:
-                </p>
-                <blockquote>"Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?"</blockquote>
-                <p>
-                    This speech reveals that Shylock's desire for revenge is rooted in his assertion of his own humanity — a humanity that Antonio and Venetian society refuse to recognize. Second, Antonio's merchant friends, including Bassanio, are complicit in the world that has stripped Shylock of his daughter and his wealth. Revenge becomes, for Shylock, the only form of power available to a man the law and society otherwise marginalize.
-                </p>
-
-                <p><strong style="color:var(--accent);">③ How happened? (The plan)</strong></p>
-                <p>
-                    When Bassanio approaches Shylock to borrow three thousand ducats on Antonio's behalf, Shylock seizes the opportunity. He proposes an unusual bond: if the loan is not repaid within three months, Shylock will have the legal right to cut a pound of flesh from any part of Antonio's body that he chooses. Antonio agrees, confident his ships will return in time. Shylock frames this bond as a "merry sport," disguising his true intent behind the language of jest — but his real purpose is to hold Antonio's life legally in his hands. The bond is a calculated trap dressed as a harmless wager.
-                </p>
-
-                <p><strong style="color:var(--accent);">④ The achievement — what Shylock tried to achieve</strong></p>
-                <p>
-                    When Antonio's ships are reported lost at sea and the bond falls due, Shylock refuses any offer of repayment — including Bassanio's offer to pay double or triple the amount. He demands his pound of flesh and brings Antonio before the court of Venice. In the courtroom, Shylock appears to hold total power: the law of Venice is clear, the bond is valid, and the Duke himself cannot legally override it. For a brief moment, Shylock's revenge seems complete — he stands on the verge of destroying the man who humiliated him, using the very legal system of Venice as his instrument.
-                </p>
-
-                <hr class="divider">
-
-                <!-- PORTIA VS SHYLOCK -->
-                <span class="essay-section-label">Body — Part 2</span>
-                <h3>"Portia against Shylock"</h3>
-
-                <p><strong style="color:var(--accent);">⑤ What happened &amp; Why? (The reasons)</strong></p>
-                <p>
-                    Portia, the wealthy heiress of Belmont and Bassanio's new wife, learns that her husband's closest friend Antonio faces death at Shylock's hands. Her motivation is not personal hatred of Shylock but love for Bassanio and loyalty to Antonio. She decides to intervene — not through open pleading or bribery, but through legal intelligence. She is driven by the conviction that Shylock's insistence on the literal letter of the law, with no mercy and no compromise, must be defeated by that very same law. Her revenge, if it can be called that, is a counter-move: using Shylock's own weapon — the law — to strip him of everything he thought he had secured.
-                </p>
-
-                <p><strong style="color:var(--accent);">⑥ How happened? (The plan)</strong></p>
-                <p>
-                    Portia disguises herself as a young lawyer named Balthazar and appears in the Venetian court. She first appeals to Shylock's mercy, delivering the famous speech:
-                </p>
-                <blockquote>"The quality of mercy is not strained; it droppeth as the gentle rain from heaven upon the place beneath."</blockquote>
-                <p>
-                    Shylock refuses all mercy. At the precise moment he is about to cut into Antonio's flesh, Portia stops him with a legal argument of devastating precision: the bond grants him a pound of flesh, but it says nothing about blood. He may not shed a single drop of Antonio's blood, and he must cut exactly one pound — not more, not less. Any deviation will mean his lands and goods are confiscated under Venetian law. Furthermore, she invokes another law: an alien who plots against the life of a Venetian citizen forfeits half his wealth to the citizen and half to the state, with his life at the Duke's mercy.
-                </p>
-
-                <p><strong style="color:var(--accent);">⑦ The achievement</strong></p>
-                <p>
-                    Shylock's power collapses entirely. He is left with nothing: he cannot take the flesh, he cannot reclaim the three thousand ducats (having refused repayment), and he is now subject to the very laws he had used against Antonio. The Duke spares his life, but Shylock is forced to convert to Christianity and to sign over his estate — half to Antonio and half to the state, with the half given to Antonio to be passed to Jessica and Lorenzo upon his death. Portia's plan succeeds completely. The man who demanded rigid justice with no mercy receives a harsh justice of his own, though the play leaves audiences to decide whether this outcome is truly just or simply another form of cruelty.
-                </p>
-
-                <hr class="divider">
-
-                <!-- CONCLUSION -->
-                <span class="essay-section-label">Conclusion</span>
-                <h3>Final Thoughts</h3>
-                <p>
-                    The theme of revenge in <em>The Merchant of Venice</em> runs through the play as two interlocking cycles, each one undoing the other. Shylock's revenge against Antonio is fueled by genuine suffering and a search for dignity, yet it is defeated by the very legal instrument he chose as his weapon. Portia's counter-revenge restores Antonio's life but reduces Shylock to humiliation and forced conversion — a resolution the play presents as a legal triumph yet which carries its own moral weight. Shakespeare uses these cycles to suggest that revenge, however justified it may feel to the person seeking it, ultimately destroys the one who pursues it. The play does not offer simple moral conclusions; instead, it forces the audience to examine who truly has the right to claim justice, and at what cost.
-                </p>
-
-                <p class="essay-disclaimer">⚠️ Support every claim with a quote from the play. Make sure your paragraphs follow the What → Why → How structure shown above.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-
-    const examSets = [
+<script>
+const examSets = [
     {
         title: "Exam 1: Introduction to Drama & History",
         icon: "🎭",
@@ -381,289 +130,28 @@
         lang: "en",
         type: "mcq",
         questions: [
-            {
-                id: 1,
-                category: "Definition of Drama",
-                question: "Drama is best described as:",
-                options: [
-                    "a written narrative meant to be read silently by an individual reader",
-                    "a specific mode of fiction that is meant for performance",
-                    "a form of poetry that uses verse to express personal emotion",
-                    "a historical record of events presented in a structured format"
-                ],
-                correctAnswer: 1,
-                explanation: "Drama is defined as a specific mode of fiction that is meant for performance, distinguishing it from other literary forms such as prose fiction or poetry.",
-                topic: "Definition of Drama"
-            },
-            {
-                id: 2,
-                category: "Definition of Drama",
-                question: "Which of the following is NOT listed as a type of drama?",
-                options: [
-                    "opera, a form of drama that combines music and theatrical performance",
-                    "mime, a form of drama that relies on gesture without spoken words",
-                    "novel, a form of fiction written in extended prose narrative form",
-                    "ballet, a form of drama that communicates story through dance"
-                ],
-                correctAnswer: 2,
-                explanation: "The types of drama listed in the course are play, opera, ballet, and mime. A novel is a prose fiction form and is not a type of drama.",
-                topic: "Types of Drama"
-            },
-            {
-                id: 3,
-                category: "Greek Theatre",
-                question: "In ancient Greek theatre, plays were organized primarily in honor of:",
-                options: [
-                    "Zeus, the king of the Olympian gods and ruler of the sky",
-                    "Dionysus, the god associated with wine, fertility, and grape-harvesting",
-                    "Apollo, the god of music, poetry, and the sun in Greek mythology",
-                    "Athena, the goddess of wisdom and patron deity of the city of Athens"
-                ],
-                correctAnswer: 1,
-                explanation: "Greek plays were organized in honor of Dionysus, the god of the grape-harvest, winemaking and wine, and fertility. This religious context shaped the nature and purpose of theatrical performance.",
-                topic: "Greek Theatre — Context"
-            },
-            {
-                id: 4,
-                category: "Greek Theatre",
-                question: "Where were ancient Greek plays performed?",
-                options: [
-                    "inside temples dedicated to the gods of the Greek pantheon",
-                    "in market places, where performers and audiences gathered together",
-                    "in purpose-built indoor theatres with enclosed roofed structures",
-                    "in royal palaces, where nobles and aristocrats were the sole audience"
-                ],
-                correctAnswer: 1,
-                explanation: "Ancient Greek plays were held in market places. This is distinct from later theatrical traditions that used purpose-built buildings such as playhouses or proscenium theatres.",
-                topic: "Greek Theatre — Setting"
-            },
-            {
-                id: 5,
-                category: "Greek Theatre",
-                question: "In ancient Greek theatre, the relationship between performers and audience was:",
-                options: [
-                    "strictly separated, with audiences forbidden from participating in any way",
-                    "cooperative, with both performers and audience participating in the performance",
-                    "competitive, as different audience sections voted for the best performer",
-                    "purely commercial, as audiences paid for seats and expected entertainment"
-                ],
-                correctAnswer: 1,
-                explanation: "In Greek theatre, both performers and audience cooperated in the performance. The theatrical event was a communal, participatory act rather than a passive entertainment.",
-                topic: "Greek Theatre — Actors and Audience"
-            },
-            {
-                id: 6,
-                category: "Greek Theatre",
-                question: "Which playwright is associated with ancient Greek drama in the course material?",
-                options: [
-                    "Shakespeare, the playwright famous for his tragedies and comedies",
-                    "Sophocles, one of the great playwrights of ancient Greek theatre",
-                    "Henrik Ibsen, the Norwegian playwright known as the father of realism",
-                    "Samuel Beckett, the playwright associated with the theatre of the absurd"
-                ],
-                correctAnswer: 1,
-                explanation: "Sophocles is the playwright identified in the course material as associated with ancient Greek drama. He is one of the three great tragedians of classical Athens.",
-                topic: "Greek Theatre — Playwrights"
-            },
-            {
-                id: 7,
-                category: "Play Types",
-                question: "Which of the following best describes tragedy as a dramatic form?",
-                options: [
-                    "plays featuring witty remarks, strange characters, and an innumerable range of plots",
-                    "plays that involve death, sadness, conflict, and intense human emotions",
-                    "plays that rely entirely on music and choreography to convey their narrative",
-                    "plays performed without dialogue, using only gesture and physical movement"
-                ],
-                correctAnswer: 1,
-                explanation: "Tragedy is defined as plays that involve death, sadness, conflict and emotions. Comedy, by contrast, features witty remarks, strange characters and circumstances.",
-                topic: "Comedy vs Tragedy"
-            },
-            {
-                id: 8,
-                category: "Play Types",
-                question: "Comedy as a dramatic form is characterized by:",
-                options: [
-                    "themes of death, intense sadness, and irresolvable conflict between characters",
-                    "witty remarks, strange characters and circumstances, and an innumerable range of plots",
-                    "religious themes drawn exclusively from scripture and performed by clergy",
-                    "realistic depictions of everyday suffering drawn from naturalist observation"
-                ],
-                correctAnswer: 1,
-                explanation: "Comedy is characterized by witty remarks, strange characters and circumstances, and an innumerable range of plots. This distinguishes it clearly from tragedy.",
-                topic: "Comedy vs Tragedy"
-            },
-            {
-                id: 9,
-                category: "Mystery/Miracle Plays",
-                question: "Mystery and Miracle plays emerged with the rise of:",
-                options: [
-                    "Greek philosophy, as thinkers sought to explore ethical questions on stage",
-                    "Christianity, which brought a new type of theatre centered on biblical stories",
-                    "the Renaissance, when secular dramatists began writing for public audiences",
-                    "modernity, when playwrights started focusing on everyday human problems"
-                ],
-                correctAnswer: 1,
-                explanation: "With the dawn of Christianity, a new type of theatre emerged: miracle plays. They arose in the Christian period and were distinct from the pagan-rooted Greek theatrical tradition.",
-                topic: "Mystery/Miracle Plays — Context"
-            },
-            {
-                id: 10,
-                category: "Mystery/Miracle Plays",
-                question: "Who performed in Mystery and Miracle plays?",
-                options: [
-                    "trained professional actors who had mastered the craft of theatrical performance",
-                    "clergy men of the church, who were the performers in this theatrical tradition",
-                    "ordinary citizens chosen by lot from the local community to take part",
-                    "traveling performers who moved between towns and performed for payment"
-                ],
-                correctAnswer: 1,
-                explanation: "In Mystery/Miracle plays, the performers were clergy men of the church. This contrasts with Renaissance theatre, where people who professed the art of acting performed.",
-                topic: "Mystery/Miracle Plays — Actors"
-            },
-            {
-                id: 11,
-                category: "Mystery/Miracle Plays",
-                question: "The thematic content of Mystery and Miracle plays was drawn from:",
-                options: [
-                    "classical Greek mythology, with gods and heroes as central dramatic figures",
-                    "stories from the Bible, such as the narrative of Adam and Eve",
-                    "the problems of ordinary mankind, including love, greed, and family conflict",
-                    "political satire that critiqued the authority of monarchs and nobility"
-                ],
-                correctAnswer: 1,
-                explanation: "Mystery/Miracle plays represented stories from the Bible, such as Adam and Eve. This is distinct from Renaissance drama, which tackled problems of mankind such as greed, love, and family issues.",
-                topic: "Mystery/Miracle Plays — Theme"
-            },
-            {
-                id: 12,
-                category: "Renaissance Theatre",
-                question: "Where were Renaissance plays performed?",
-                options: [
-                    "in market places, following the tradition established by Greek theatrical practice",
-                    "inside churches, as the religious authority still controlled theatrical activity",
-                    "in playhouses and purpose-built theatre buildings for public audiences",
-                    "in private royal courts, exclusively for the enjoyment of the aristocracy"
-                ],
-                correctAnswer: 2,
-                explanation: "Renaissance plays were performed in playhouses and theatre buildings. This marks a shift away from both the market places of Greek theatre and the churches of the Miracle play tradition.",
-                topic: "Renaissance Theatre — Setting"
-            },
-            {
-                id: 13,
-                category: "Renaissance Theatre",
-                question: "Which of the following playwrights is NOT associated with Renaissance theatre in the course material?",
-                options: [
-                    "Ben Jonson, an English playwright who was a contemporary of Shakespeare",
-                    "Christopher Marlowe, the English dramatist known for Doctor Faustus",
-                    "Henrik Ibsen, the Norwegian playwright associated with naturalist drama",
-                    "Moliere, the French playwright whose comedies are classics of the period"
-                ],
-                correctAnswer: 2,
-                explanation: "Henrik Ibsen is listed as a playwright of Modern Drama, not Renaissance theatre. Renaissance playwrights in the course include Shakespeare, Christopher Marlowe, Ben Jonson, and Moliere.",
-                topic: "Renaissance Theatre — Playwrights"
-            },
-            {
-                id: 14,
-                category: "Renaissance Theatre",
-                question: "The thematic focus of Renaissance drama was primarily on:",
-                options: [
-                    "religious stories from scripture, performed to honor the divine",
-                    "communal celebration and rituals in honor of pagan gods",
-                    "problems of mankind such as greediness, love, and family issues",
-                    "abstract philosophical ideas debated by scholars in academic settings"
-                ],
-                correctAnswer: 2,
-                explanation: "Renaissance theatre tackled the problems of mankind such as greediness, love, family issues and other human concerns, making it a much more secular and humanistic tradition than its predecessors.",
-                topic: "Renaissance Theatre — Theme"
-            },
-            {
-                id: 15,
-                category: "Modern Drama",
-                question: "What was the setting used for Modern Drama performances?",
-                options: [
-                    "open-air amphitheatres following the ancient Greek architectural model",
-                    "market places and town squares in the center of urban communities",
-                    "theatre buildings shaped like a proscenium stage arrangement",
-                    "church interiors repurposed to host secular theatrical performances"
-                ],
-                correctAnswer: 2,
-                explanation: "Modern Drama used theatre buildings in the shape of a proscenium. This architectural form, with the stage framed like a picture frame, became the dominant model for modern theatrical spaces.",
-                topic: "Modern Drama — Setting"
-            },
-            {
-                id: 16,
-                category: "Modern Drama",
-                question: "Which of the following thematic modes is associated with Modern Drama?",
-                options: [
-                    "miracle plays, which retold biblical narratives for Christian congregations",
-                    "choral odes, which featured a chorus commenting on mythological events",
-                    "theatre of the absurd, a style exploring the meaninglessness of human existence",
-                    "court masques, elaborate spectacles performed for royal patrons and nobles"
-                ],
-                correctAnswer: 2,
-                explanation: "Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre. The theatre of the absurd, associated with Samuel Beckett, is a key Modern Drama mode.",
-                topic: "Modern Drama — Themes"
-            },
-            {
-                id: 17,
-                category: "Stage Directions",
-                question: "Dramatic techniques are best defined as:",
-                options: [
-                    "the rules of grammar and syntax that govern how dialogue is written",
-                    "the literary devices used by the playwright to formulate the work of art",
-                    "the physical instructions given to actors by directors during rehearsals",
-                    "the marketing strategies used to promote a theatrical production"
-                ],
-                correctAnswer: 1,
-                explanation: "Dramatic techniques are the literary devices used by the playwright in order to formulate their work of art. They include stage directions, characters, setting, time, and dialogue.",
-                topic: "Dramatic Techniques — Definition"
-            },
-            {
-                id: 18,
-                category: "Stage Directions",
-                question: "Stage directions can be divided into primary text and secondary text. The primary text refers to:",
-                options: [
-                    "the notes left by the playwright that guide stage designers and actors in performance",
-                    "the dialogue exchange among characters within the dramatic work",
-                    "the costume descriptions and lighting cues specified for theatrical productions",
-                    "the program notes distributed to the audience before the performance begins"
-                ],
-                correctAnswer: 1,
-                explanation: "The primary text refers to the dialogue exchange among characters. The secondary text consists of the notes left by the playwright to guide the stage designer or actor.",
-                topic: "Stage Directions — Primary vs Secondary Text"
-            },
-            {
-                id: 19,
-                category: "Stage Directions",
-                question: "In Erika Fischer's sign systems model, which of the following is NOT one of the three categories of sign systems in drama?",
-                options: [
-                    "actor's activities as a sign, encompassing both linguistic and kinesic elements",
-                    "actor's appearance as a sign, covering hairstyle and costume as meaningful signals",
-                    "audience reception as a sign, measuring how spectators interpret performance",
-                    "spatial and acoustic signs, covering decoration, props, lighting, sound and music"
-                ],
-                correctAnswer: 2,
-                explanation: "Fischer's model identifies three sign systems: actor's activities as a sign, actor's appearance as a sign, and spatial and acoustic signs. Audience reception is not part of this classification.",
-                topic: "Fischer's Sign Systems Model"
-            },
-            {
-                id: 20,
-                category: "Stage Directions",
-                question: "Under Erika Fischer's model, 'kinesic' elements within actor's activities refer to:",
-                options: [
-                    "the linguistic content of the spoken words and their paralinguistic features",
-                    "mimic expressions, gestures, and proxemic positioning of the actor on stage",
-                    "the acoustic dimension of performance, including music and ambient sound",
-                    "costume choices and hairstyle as visible components of the actor's appearance"
-                ],
-                correctAnswer: 1,
-                explanation: "Kinesic elements refer to mimic expressions, gestures, and proxemics (use of space). The other branch of actor's activities is the linguistic dimension, covering language and paralanguage.",
-                topic: "Fischer's Sign Systems Model — Kinesic"
-            }
+            { id:1, category:"Definition of Drama", question:"Drama is best described as:", options:["a written narrative meant to be read silently by an individual reader","a specific mode of fiction that is meant for performance","a form of poetry that uses verse to express personal emotion","a historical record of events presented in a structured format"], correctAnswer:1, explanation:"Drama is defined as a specific mode of fiction that is meant for performance, distinguishing it from other literary forms such as prose fiction or poetry.", topic:"Definition of Drama" },
+            { id:2, category:"Definition of Drama", question:"Which of the following is NOT listed as a type of drama?", options:["opera, a form of drama that combines music and theatrical performance","mime, a form of drama that relies on gesture without spoken words","novel, a form of fiction written in extended prose narrative form","ballet, a form of drama that communicates story through dance"], correctAnswer:2, explanation:"The types of drama listed in the course are play, opera, ballet, and mime. A novel is a prose fiction form and is not a type of drama.", topic:"Types of Drama" },
+            { id:3, category:"Greek Theatre", question:"In ancient Greek theatre, plays were organized primarily in honor of:", options:["Zeus, the king of the Olympian gods and ruler of the sky","Dionysus, the god associated with wine, fertility, and grape-harvesting","Apollo, the god of music, poetry, and the sun in Greek mythology","Athena, the goddess of wisdom and patron deity of the city of Athens"], correctAnswer:1, explanation:"Greek plays were organized in honor of Dionysus, the god of the grape-harvest, winemaking and wine, and fertility.", topic:"Greek Theatre — Context" },
+            { id:4, category:"Greek Theatre", question:"Where were ancient Greek plays performed?", options:["inside temples dedicated to the gods of the Greek pantheon","in market places, where performers and audiences gathered together","in purpose-built indoor theatres with enclosed roofed structures","in royal palaces, where nobles and aristocrats were the sole audience"], correctAnswer:1, explanation:"Ancient Greek plays were held in market places. This is distinct from later theatrical traditions that used purpose-built buildings.", topic:"Greek Theatre — Setting" },
+            { id:5, category:"Greek Theatre", question:"In ancient Greek theatre, the relationship between performers and audience was:", options:["strictly separated, with audiences forbidden from participating in any way","cooperative, with both performers and audience participating in the performance","competitive, as different audience sections voted for the best performer","purely commercial, as audiences paid for seats and expected entertainment"], correctAnswer:1, explanation:"In Greek theatre, both performers and audience cooperated in the performance. The theatrical event was a communal, participatory act.", topic:"Greek Theatre — Actors and Audience" },
+            { id:6, category:"Greek Theatre", question:"Which playwright is associated with ancient Greek drama in the course material?", options:["Shakespeare, the playwright famous for his tragedies and comedies","Sophocles, one of the great playwrights of ancient Greek theatre","Henrik Ibsen, the Norwegian playwright known as the father of realism","Samuel Beckett, the playwright associated with the theatre of the absurd"], correctAnswer:1, explanation:"Sophocles is the playwright identified in the course material as associated with ancient Greek drama.", topic:"Greek Theatre — Playwrights" },
+            { id:7, category:"Play Types", question:"Which of the following best describes tragedy as a dramatic form?", options:["plays featuring witty remarks, strange characters, and an innumerable range of plots","plays that involve death, sadness, conflict, and intense human emotions","plays that rely entirely on music and choreography to convey their narrative","plays performed without dialogue, using only gesture and physical movement"], correctAnswer:1, explanation:"Tragedy is defined as plays that involve death, sadness, conflict and emotions.", topic:"Comedy vs Tragedy" },
+            { id:8, category:"Play Types", question:"Comedy as a dramatic form is characterized by:", options:["themes of death, intense sadness, and irresolvable conflict between characters","witty remarks, strange characters and circumstances, and an innumerable range of plots","religious themes drawn exclusively from scripture and performed by clergy","realistic depictions of everyday suffering drawn from naturalist observation"], correctAnswer:1, explanation:"Comedy is characterized by witty remarks, strange characters and circumstances, and an innumerable range of plots.", topic:"Comedy vs Tragedy" },
+            { id:9, category:"Mystery/Miracle Plays", question:"Mystery and Miracle plays emerged with the rise of:", options:["Greek philosophy, as thinkers sought to explore ethical questions on stage","Christianity, which brought a new type of theatre centered on biblical stories","the Renaissance, when secular dramatists began writing for public audiences","modernity, when playwrights started focusing on everyday human problems"], correctAnswer:1, explanation:"With the dawn of Christianity, a new type of theatre emerged: miracle plays.", topic:"Mystery/Miracle Plays — Context" },
+            { id:10, category:"Mystery/Miracle Plays", question:"Who performed in Mystery and Miracle plays?", options:["trained professional actors who had mastered the craft of theatrical performance","clergy men of the church, who were the performers in this theatrical tradition","ordinary citizens chosen by lot from the local community to take part","traveling performers who moved between towns and performed for payment"], correctAnswer:1, explanation:"In Mystery/Miracle plays, the performers were clergy men of the church.", topic:"Mystery/Miracle Plays — Actors" },
+            { id:11, category:"Mystery/Miracle Plays", question:"The thematic content of Mystery and Miracle plays was drawn from:", options:["classical Greek mythology, with gods and heroes as central dramatic figures","stories from the Bible, such as the narrative of Adam and Eve","the problems of ordinary mankind, including love, greed, and family conflict","political satire that critiqued the authority of monarchs and nobility"], correctAnswer:1, explanation:"Mystery/Miracle plays represented stories from the Bible, such as Adam and Eve.", topic:"Mystery/Miracle Plays — Theme" },
+            { id:12, category:"Renaissance Theatre", question:"Where were Renaissance plays performed?", options:["in market places, following the tradition established by Greek theatrical practice","inside churches, as the religious authority still controlled theatrical activity","in playhouses and purpose-built theatre buildings for public audiences","in private royal courts, exclusively for the enjoyment of the aristocracy"], correctAnswer:2, explanation:"Renaissance plays were performed in playhouses and theatre buildings.", topic:"Renaissance Theatre — Setting" },
+            { id:13, category:"Renaissance Theatre", question:"Which of the following playwrights is NOT associated with Renaissance theatre?", options:["Ben Jonson, an English playwright who was a contemporary of Shakespeare","Christopher Marlowe, the English dramatist known for Doctor Faustus","Henrik Ibsen, the Norwegian playwright associated with naturalist drama","Moliere, the French playwright whose comedies are classics of the period"], correctAnswer:2, explanation:"Henrik Ibsen is listed as a playwright of Modern Drama, not Renaissance theatre.", topic:"Renaissance Theatre — Playwrights" },
+            { id:14, category:"Renaissance Theatre", question:"The thematic focus of Renaissance drama was primarily on:", options:["religious stories from scripture, performed to honor the divine","communal celebration and rituals in honor of pagan gods","problems of mankind such as greediness, love, and family issues","abstract philosophical ideas debated by scholars in academic settings"], correctAnswer:2, explanation:"Renaissance theatre tackled the problems of mankind such as greediness, love, and family issues.", topic:"Renaissance Theatre — Theme" },
+            { id:15, category:"Modern Drama", question:"What was the setting used for Modern Drama performances?", options:["open-air amphitheatres following the ancient Greek architectural model","market places and town squares in the center of urban communities","theatre buildings shaped like a proscenium stage arrangement","church interiors repurposed to host secular theatrical performances"], correctAnswer:2, explanation:"Modern Drama used theatre buildings in the shape of a proscenium.", topic:"Modern Drama — Setting" },
+            { id:16, category:"Modern Drama", question:"Which of the following thematic modes is associated with Modern Drama?", options:["miracle plays, which retold biblical narratives for Christian congregations","choral odes, which featured a chorus commenting on mythological events","theatre of the absurd, a style exploring the meaninglessness of human existence","court masques, elaborate spectacles performed for royal patrons and nobles"], correctAnswer:2, explanation:"Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre.", topic:"Modern Drama — Themes" },
+            { id:17, category:"Stage Directions", question:"Dramatic techniques are best defined as:", options:["the rules of grammar and syntax that govern how dialogue is written","the literary devices used by the playwright to formulate the work of art","the physical instructions given to actors by directors during rehearsals","the marketing strategies used to promote a theatrical production"], correctAnswer:1, explanation:"Dramatic techniques are the literary devices used by the playwright in order to formulate their work of art.", topic:"Dramatic Techniques — Definition" },
+            { id:18, category:"Stage Directions", question:"The primary text in stage directions refers to:", options:["the notes left by the playwright that guide stage designers and actors","the dialogue exchange among characters within the dramatic work","the costume descriptions and lighting cues specified for productions","the program notes distributed to the audience before the performance"], correctAnswer:1, explanation:"The primary text refers to the dialogue exchange among characters. The secondary text consists of the playwright's notes to guide the stage designer or actor.", topic:"Stage Directions — Primary vs Secondary Text" },
+            { id:19, category:"Stage Directions", question:"In Erika Fischer's sign systems model, which is NOT one of the three sign system categories?", options:["actor's activities as a sign, encompassing both linguistic and kinesic elements","actor's appearance as a sign, covering hairstyle and costume as meaningful signals","audience reception as a sign, measuring how spectators interpret performance","spatial and acoustic signs, covering decoration, props, lighting, sound and music"], correctAnswer:2, explanation:"Fischer's model identifies three sign systems: actor's activities, actor's appearance, and spatial/acoustic signs. Audience reception is not part of this classification.", topic:"Fischer's Sign Systems Model" },
+            { id:20, category:"Stage Directions", question:"Under Erika Fischer's model, 'kinesic' elements refer to:", options:["the linguistic content of the spoken words and their paralinguistic features","mimic expressions, gestures, and proxemic positioning of the actor on stage","the acoustic dimension of performance, including music and ambient sound","costume choices and hairstyle as visible components of the actor's appearance"], correctAnswer:1, explanation:"Kinesic elements refer to mimic expressions, gestures, and proxemics (use of space).", topic:"Fischer's Sign Systems Model — Kinesic" }
         ]
     },
-
     {
         title: "Exam 2: Characterization, Speech & Dramatic Structure",
         icon: "🗣️",
@@ -671,326 +159,234 @@
         lang: "en",
         type: "mcq",
         questions: [
-            {
-                id: 1,
-                category: "Characterization",
-                question: "Explicit-figural characterization techniques are described as:",
-                options: [
-                    "entirely non-verbal, relying on costume, gesture, and physical behavior",
-                    "entirely verbal, communicated through language and spoken commentary",
-                    "partially visual and partially linguistic, combining speech with appearance",
-                    "dependent solely on the spatial arrangement of actors within the stage space"
-                ],
-                correctAnswer: 1,
-                explanation: "All explicit-figural characterization techniques are verbal. They are divided into self-commentary, where a character describes itself, and outside commentary, where one character is characterized by another.",
-                topic: "Explicit-Figural Characterization"
-            },
-            {
-                id: 2,
-                category: "Characterization",
-                question: "In explicit-figural characterization, a 'self-commentary' occurs when:",
-                options: [
-                    "one character describes and evaluates another character's traits and actions",
-                    "a figure explicitly articulates the way it sees and understands itself",
-                    "the playwright inserts descriptive notes about a character in the secondary text",
-                    "the audience draws inferences from a character's appearance and clothing"
-                ],
-                correctAnswer: 1,
-                explanation: "A self-commentary is one in which a figure explicitly articulates the way it sees itself. The figure is simultaneously both the subject and the object of the information it transmits.",
-                topic: "Explicit-Figural — Self-Commentary"
-            },
-            {
-                id: 3,
-                category: "Characterization",
-                question: "An 'outside commentary' in explicit-figural characterization means:",
-                options: [
-                    "a character reflects on and openly describes its own inner thoughts and identity",
-                    "one figure is characterized explicitly by a different figure within the drama",
-                    "a narrator outside the action provides factual information about all characters",
-                    "stage directions visible only to the director describe a character's background"
-                ],
-                correctAnswer: 1,
-                explanation: "An outside commentary is one in which one figure is characterised explicitly by another. Here the subject of the information transmitted is not identical with the object.",
-                topic: "Explicit-Figural — Outside Commentary"
-            },
-            {
-                id: 4,
-                category: "Characterization",
-                question: "When information about a character is provided both by that character and by others, these pieces of information typically:",
-                options: [
-                    "always coincide perfectly, giving the audience a single unified portrait",
-                    "do not coincide, or only partially, as each is tied to a particular figure's perspective",
-                    "contradict each other entirely in order to create dramatic irony at all times",
-                    "are always identical, since all characters have equal access to the same truth"
-                ],
-                correctAnswer: 1,
-                explanation: "The various pieces of information about a character sent by that character or by others need not coincide. In most cases they do not, or only partially, because each is bound up with a particular figure-perspective.",
-                topic: "Explicit-Figural Characterization — Information and Perspective"
-            },
-            {
-                id: 5,
-                category: "Characterization",
-                question: "Implicit-figural characterization techniques are described as only partially verbal because:",
-                options: [
-                    "they rely entirely on music and acoustic signals rather than spoken language",
-                    "a figure is presented through what it says but also through appearance, behavior, and context",
-                    "they depend only on what other characters say about the figure in question",
-                    "they require the playwright to write explicit stage directions for every scene"
-                ],
-                correctAnswer: 1,
-                explanation: "Implicit-figural characterization is only partially verbal because a dramatic figure is presented not only through what it says and how it says it, but also through its appearance, behavior, and context (clothing, properties, interiors, etc.).",
-                topic: "Implicit-Figural Characterization"
-            },
-            {
-                id: 6,
-                category: "Characterization",
-                question: "In the techniques of characterization diagram, the implicit verbal branch includes:",
-                options: [
-                    "physiognomy, facial expression, stature, gesture, masks, and costume",
-                    "voice quality, verbal behavior, idiolect, sociolect, dialect, register, and stylistic texture",
-                    "soliloquy and dialogue, which together constitute self-commentary by the figure",
-                    "props, locale, lighting, and the acoustic environment of the performance space"
-                ],
-                correctAnswer: 1,
-                explanation: "The implicit verbal branch of characterization includes voice quality, verbal behavior, idiolect/sociolect/dialect/register, and stylistic texture — elements that characterize a figure through how language is used rather than through explicit statement.",
-                topic: "Implicit-Figural — Verbal vs Non-Verbal"
-            },
-            {
-                id: 7,
-                category: "Types of Speech",
-                question: "A monologue in drama is best described as:",
-                options: [
-                    "a brief remark spoken secretly so that only the audience can hear the character",
-                    "a self-contained, autonomous speech of a reasonable length delivered by one character",
-                    "a rapid exchange of short lines between two or more characters on the stage",
-                    "a long address delivered while the character is completely alone on stage"
-                ],
-                correctAnswer: 1,
-                explanation: "A monologue is a self-contained, autonomous speech of a reasonable length. It is distinguished from a soliloquy by the fact that it is addressed to someone, and from one side of a dialogue by its length and completeness.",
-                topic: "Types of Speech — Monologue"
-            },
-            {
-                id: 8,
-                category: "Types of Speech",
-                question: "A dialogue in drama refers to:",
-                options: [
-                    "a lengthy speech one character delivers when they are alone on stage",
-                    "speech exchange among two or more characters within the dramatic work",
-                    "a secret remark addressed to the audience that other characters cannot hear",
-                    "a self-contained autonomous address delivered to a specific character"
-                ],
-                correctAnswer: 1,
-                explanation: "Dialogues are speech exchanges among two or more characters. This is the foundational form of dramatic language and contrasts with the monologue, soliloquy, and aside.",
-                topic: "Types of Speech — Dialogue"
-            },
-            {
-                id: 9,
-                category: "Types of Speech",
-                question: "A soliloquy is delivered when:",
-                options: [
-                    "two characters exchange rapid-fire, closely matched lines in tense confrontation",
-                    "the character is alone on stage (or acts as though alone) and addresses the audience",
-                    "a character whispers a private comment to the audience while others are present",
-                    "the playwright inserts a long prose passage describing the character's inner state"
-                ],
-                correctAnswer: 1,
-                explanation: "A soliloquy is a long report the character delivers when alone on stage, addressing the audience directly. It is a kind of talking to oneself, not intended to affect other characters.",
-                topic: "Types of Speech — Soliloquy"
-            },
-            {
-                id: 10,
-                category: "Types of Speech",
-                question: "How does a monologue differ from a soliloquy?",
-                options: [
-                    "a monologue is spoken alone on stage while a soliloquy is addressed to other characters",
-                    "a monologue is addressed to someone whereas a soliloquy is spoken by a character who is alone",
-                    "a monologue features multiple characters while a soliloquy is always delivered by one person",
-                    "a monologue is always comic while a soliloquy is always associated with tragic drama"
-                ],
-                correctAnswer: 1,
-                explanation: "A monologue is distinguished from a soliloquy by the fact that it is addressed to someone. A soliloquy is spoken by a character who is alone or acts as though alone — it is a kind of talking to oneself.",
-                topic: "Monologue vs Soliloquy"
-            },
-            {
-                id: 11,
-                category: "Types of Speech",
-                question: "In an aside, who hears the character's speech?",
-                options: [
-                    "only the other characters on stage, who respond to the remark immediately",
-                    "only the audience, while the other characters on stage pretend not to hear",
-                    "both the other characters and the audience, who all receive the same message",
-                    "only the director and stage crew, who use it to coordinate the performance"
-                ],
-                correctAnswer: 1,
-                explanation: "In an aside, only the audience hears the character's speech. Other characters on stage pretend not to be hearing it. This creates a privileged communication between the character and the spectators.",
-                topic: "Types of Speech — Aside"
-            },
-            {
-                id: 12,
-                category: "Types of Speech",
-                question: "A 'dialogical aside' is listed as a distinct type of speech. Based on the course taxonomy, this suggests:",
-                options: [
-                    "a long self-contained speech that is formally addressed to another character present",
-                    "an aside that is structured in a dialogic or exchange-like form between characters",
-                    "any dialogue that occurs in the absence of the character being discussed",
-                    "a monologue that is delivered before the character makes their first appearance"
-                ],
-                correctAnswer: 1,
-                explanation: "The dialogical aside is listed as a distinct type from the ordinary aside, suggesting it involves a form of exchange or dialogue element embedded within the aside structure, rather than a purely private address to the audience.",
-                topic: "Types of Speech — Dialogical Aside"
-            },
-            {
-                id: 13,
-                category: "Functions of Dramatic Speech",
-                question: "Every utterance on stage must fulfill a dramatic purpose. Which of the following is NOT listed as a function of dramatic speech?",
-                options: [
-                    "further the events of the play through narrative development or conflict",
-                    "reveal a character's thoughts or feelings to the audience",
-                    "entertain the audience through humor and spectacular theatrical display",
-                    "serve an expository function by providing necessary background information"
-                ],
-                correctAnswer: 2,
-                explanation: "The listed functions of dramatic speech are: furthering events, revealing character, expressive function, referential function, appellative function, and expository function. Pure entertainment is not listed as a defined function.",
-                topic: "Functions of Dramatic Speech"
-            },
-            {
-                id: 14,
-                category: "Dramatic Structure",
-                question: "The plot in drama is defined as:",
-                options: [
-                    "the tensed conflict between two characters expressed through their opposing wills",
-                    "the chronological sequence of events that unfolds through the play",
-                    "the underlying thematic statement the playwright wishes the audience to understand",
-                    "the physical movement and spatial arrangement of characters across the stage"
-                ],
-                correctAnswer: 1,
-                explanation: "The plot is the chronological sequence of events. This is distinct from dramatic action, which involves a tense conflict between two characters and does not necessarily follow chronological order.",
-                topic: "Plot vs Dramatic Action"
-            },
-            {
-                id: 15,
-                category: "Dramatic Structure",
-                question: "Dramatic action is distinguished from plot because it:",
-                options: [
-                    "follows the strict chronological order of events as they occur in time",
-                    "depicts a tense conflict between two characters — a conflict of two wills",
-                    "summarizes the storyline of the play for the benefit of the audience",
-                    "describes the physical stage movements choreographed by the director"
-                ],
-                correctAnswer: 1,
-                explanation: "Dramatic action depicts a tensed conflict between two characters — a conflict of two wills, not a physical confrontation. It can appear in any part of a play and does not say too much on the level of the plot.",
-                topic: "Dramatic Action — Definition"
-            },
-            {
-                id: 16,
-                category: "Dramatic Structure",
-                question: "Which statement best describes the relationship between conversation and dramatic dialogue?",
-                options: [
-                    "they are identical, since any speech exchange between characters constitutes dramatic dialogue",
-                    "not every dialogue is considered dramatic; dramatic dialogue must fulfill specific purposes",
-                    "conversation is always more complex than dramatic dialogue in its structure",
-                    "dramatic dialogue always avoids conflict, whereas conversation embraces it openly"
-                ],
-                correctAnswer: 1,
-                explanation: "Not every dialogue is considered dramatic. The course draws a distinction between ordinary conversation and dramatic dialogue, with the latter needing to fulfill specific dramatic functions such as furthering events or revealing character.",
-                topic: "Conversation vs Dramatic Dialogue"
-            },
-            {
-                id: 17,
-                category: "Dramatic Structure",
-                question: "The contrast between two characters in drama is significant because:",
-                options: [
-                    "it allows the audience to decide which character's costume is more visually attractive",
-                    "it can embody a deeper philosophical contrast between two opposing ways of life",
-                    "it ensures that all scenes maintain a consistent level of comedic entertainment",
-                    "it prevents the audience from identifying too closely with a single character"
-                ],
-                correctAnswer: 1,
-                explanation: "The contrast between characters in drama can carry a philosophical dimension — behind the contrast of characters may be a further contrast between two ways of life, giving the drama its deeper significance.",
-                topic: "Character Contrast and Philosophical Meaning"
-            },
-            {
-                id: 18,
-                category: "Characterization — Application",
-                question: "Emmy wearing a red coat and speaking 'in a firm voice' in the secondary text example are examples of which sign type in Fischer's model?",
-                options: [
-                    "acoustic signs, since they relate to the sound and musical environment of the stage",
-                    "actor's appearance and actor's activities as signs, covering costume and vocal delivery",
-                    "spatial signs, since they describe the decoration and physical arrangement of the stage",
-                    "primary text, since they are part of the dialogue exchange between the characters"
-                ],
-                correctAnswer: 1,
-                explanation: "Emmy's red coat belongs to actor's appearance as a sign (costume), while speaking 'in a firm voice' belongs to actor's activities as a sign (paralinguistic). Both are secondary text elements, illustrating Fischer's sign model.",
-                topic: "Fischer's Model — Applied to Secondary Text"
-            },
-            {
-                id: 19,
-                category: "Modern Drama",
-                question: "Which of the following playwrights is correctly matched with Modern Drama in the course material?",
-                options: [
-                    "Sophocles, the playwright of ancient Greek tragedy and theatrical tradition",
-                    "Moliere, the French comic playwright associated with the Renaissance period",
-                    "Samuel Beckett, whose work is associated with the theatre of the absurd",
-                    "Christopher Marlowe, the English Renaissance dramatist and Shakespeare contemporary"
-                ],
-                correctAnswer: 2,
-                explanation: "Samuel Beckett is listed as a Modern Drama playwright, associated with the theatre of the absurd. Sophocles is Greek, Moliere and Marlowe are Renaissance playwrights.",
-                topic: "Modern Drama — Playwrights"
-            },
-            {
-                id: 20,
-                category: "Characterization — Application",
-                question: "When analyzing Fontanges in the Bossuet dialogue excerpt, the reader recognizes her as naive and literal-minded. This characterization is conveyed primarily through:",
-                options: [
-                    "explicit self-commentary, since she directly states she is naive in the conversation",
-                    "implicit verbal techniques, since her character emerges from how and what she speaks",
-                    "spatial signs, since her position and movement on stage reveal her character",
-                    "outside commentary by the playwright, who inserts descriptions in the secondary text"
-                ],
-                correctAnswer: 1,
-                explanation: "Fontanges's naivety and literal-mindedness emerge from what she says and how she says it — this is implicit verbal characterization. The reader infers her character from her verbal behavior rather than from any explicit statement.",
-                topic: "Implicit-Figural — Verbal Characterization Applied"
-            }
+            { id:1, category:"Characterization", question:"Explicit-figural characterization techniques are described as:", options:["entirely non-verbal, relying on costume, gesture, and physical behavior","entirely verbal, communicated through language and spoken commentary","partially visual and partially linguistic, combining speech with appearance","dependent solely on the spatial arrangement of actors within the stage space"], correctAnswer:1, explanation:"All explicit-figural characterization techniques are verbal, divided into self-commentary and outside commentary.", topic:"Explicit-Figural Characterization" },
+            { id:2, category:"Characterization", question:"In explicit-figural characterization, a 'self-commentary' occurs when:", options:["one character describes and evaluates another character's traits and actions","a figure explicitly articulates the way it sees and understands itself","the playwright inserts descriptive notes about a character in the secondary text","the audience draws inferences from a character's appearance and clothing"], correctAnswer:1, explanation:"A self-commentary is one in which a figure explicitly articulates the way it sees itself.", topic:"Explicit-Figural — Self-Commentary" },
+            { id:3, category:"Characterization", question:"An 'outside commentary' in explicit-figural characterization means:", options:["a character reflects on and openly describes its own inner thoughts and identity","one figure is characterized explicitly by a different figure within the drama","a narrator outside the action provides factual information about all characters","stage directions visible only to the director describe a character's background"], correctAnswer:1, explanation:"An outside commentary is one in which one figure is characterised explicitly by another.", topic:"Explicit-Figural — Outside Commentary" },
+            { id:4, category:"Characterization", question:"When information about a character is provided both by that character and by others, these pieces of information typically:", options:["always coincide perfectly, giving the audience a single unified portrait","do not coincide, or only partially, as each is tied to a particular figure's perspective","contradict each other entirely in order to create dramatic irony at all times","are always identical, since all characters have equal access to the same truth"], correctAnswer:1, explanation:"In most cases they do not coincide, or only partially, because each is bound up with a particular figure-perspective.", topic:"Explicit-Figural Characterization — Information and Perspective" },
+            { id:5, category:"Characterization", question:"Implicit-figural characterization techniques are only partially verbal because:", options:["they rely entirely on music and acoustic signals rather than spoken language","a figure is presented through what it says but also through appearance, behavior, and context","they depend only on what other characters say about the figure in question","they require the playwright to write explicit stage directions for every scene"], correctAnswer:1, explanation:"Implicit-figural characterization is only partially verbal because a figure is presented not only through what it says but also through appearance, behavior, and context.", topic:"Implicit-Figural Characterization" },
+            { id:6, category:"Characterization", question:"The implicit verbal branch of the characterization diagram includes:", options:["physiognomy, facial expression, stature, gesture, masks, and costume","voice quality, verbal behavior, idiolect, sociolect, dialect, register, and stylistic texture","soliloquy and dialogue, which together constitute self-commentary by the figure","props, locale, lighting, and the acoustic environment of the performance space"], correctAnswer:1, explanation:"The implicit verbal branch includes voice quality, verbal behavior, idiolect/sociolect/dialect/register, and stylistic texture.", topic:"Implicit-Figural — Verbal vs Non-Verbal" },
+            { id:7, category:"Types of Speech", question:"A monologue in drama is best described as:", options:["a brief remark spoken secretly so that only the audience can hear the character","a self-contained, autonomous speech of a reasonable length delivered by one character","a rapid exchange of short lines between two or more characters on the stage","a long address delivered while the character is completely alone on stage"], correctAnswer:1, explanation:"A monologue is a self-contained, autonomous speech of a reasonable length, addressed to someone.", topic:"Types of Speech — Monologue" },
+            { id:8, category:"Types of Speech", question:"A dialogue in drama refers to:", options:["a lengthy speech one character delivers when they are alone on stage","speech exchange among two or more characters within the dramatic work","a secret remark addressed to the audience that other characters cannot hear","a self-contained autonomous address delivered to a specific character"], correctAnswer:1, explanation:"Dialogues are speech exchanges among two or more characters.", topic:"Types of Speech — Dialogue" },
+            { id:9, category:"Types of Speech", question:"A soliloquy is delivered when:", options:["two characters exchange rapid-fire, closely matched lines in tense confrontation","the character is alone on stage (or acts as though alone) and addresses the audience","a character whispers a private comment to the audience while others are present","the playwright inserts a long prose passage describing the character's inner state"], correctAnswer:1, explanation:"A soliloquy is a long report the character delivers when alone on stage, addressing the audience directly.", topic:"Types of Speech — Soliloquy" },
+            { id:10, category:"Types of Speech", question:"How does a monologue differ from a soliloquy?", options:["a monologue is spoken alone on stage while a soliloquy is addressed to other characters","a monologue is addressed to someone whereas a soliloquy is spoken by a character who is alone","a monologue features multiple characters while a soliloquy is always delivered by one person","a monologue is always comic while a soliloquy is always associated with tragic drama"], correctAnswer:1, explanation:"A monologue is distinguished from a soliloquy by the fact that it is addressed to someone.", topic:"Monologue vs Soliloquy" },
+            { id:11, category:"Types of Speech", question:"In an aside, who hears the character's speech?", options:["only the other characters on stage, who respond to the remark immediately","only the audience, while the other characters on stage pretend not to hear","both the other characters and the audience, who all receive the same message","only the director and stage crew, who use it to coordinate the performance"], correctAnswer:1, explanation:"In an aside, only the audience hears the character's speech. Other characters pretend not to be hearing it.", topic:"Types of Speech — Aside" },
+            { id:12, category:"Types of Speech", question:"A 'dialogical aside' as a distinct speech type suggests:", options:["a long self-contained speech that is formally addressed to another character present","an aside that is structured in a dialogic or exchange-like form between characters","any dialogue that occurs in the absence of the character being discussed","a monologue that is delivered before the character makes their first appearance"], correctAnswer:1, explanation:"The dialogical aside involves a form of exchange or dialogue element embedded within the aside structure.", topic:"Types of Speech — Dialogical Aside" },
+            { id:13, category:"Functions of Dramatic Speech", question:"Which of the following is NOT listed as a function of dramatic speech?", options:["further the events of the play through narrative development or conflict","reveal a character's thoughts or feelings to the audience","entertain the audience through humor and spectacular theatrical display","serve an expository function by providing necessary background information"], correctAnswer:2, explanation:"The listed functions are: furthering events, revealing character, expressive, referential, appellative, and expository. Pure entertainment is not listed.", topic:"Functions of Dramatic Speech" },
+            { id:14, category:"Dramatic Structure", question:"The plot in drama is defined as:", options:["the tensed conflict between two characters expressed through their opposing wills","the chronological sequence of events that unfolds through the play","the underlying thematic statement the playwright wishes the audience to understand","the physical movement and spatial arrangement of characters across the stage"], correctAnswer:1, explanation:"The plot is the chronological sequence of events, distinct from dramatic action.", topic:"Plot vs Dramatic Action" },
+            { id:15, category:"Dramatic Structure", question:"Dramatic action is distinguished from plot because it:", options:["follows the strict chronological order of events as they occur in time","depicts a tense conflict between two characters — a conflict of two wills","summarizes the storyline of the play for the benefit of the audience","describes the physical stage movements choreographed by the director"], correctAnswer:1, explanation:"Dramatic action depicts a tensed conflict of two wills, not a physical confrontation, and can appear in any part of a play.", topic:"Dramatic Action — Definition" },
+            { id:16, category:"Dramatic Structure", question:"Which statement best describes conversation vs dramatic dialogue?", options:["they are identical, since any speech exchange between characters constitutes dramatic dialogue","not every dialogue is considered dramatic; dramatic dialogue must fulfill specific purposes","conversation is always more complex than dramatic dialogue in its structure","dramatic dialogue always avoids conflict, whereas conversation embraces it openly"], correctAnswer:1, explanation:"Not every dialogue is considered dramatic. Dramatic dialogue must fulfill specific functions such as furthering events or revealing character.", topic:"Conversation vs Dramatic Dialogue" },
+            { id:17, category:"Dramatic Structure", question:"The contrast between two characters in drama is significant because:", options:["it allows the audience to decide which character's costume is more visually attractive","it can embody a deeper philosophical contrast between two opposing ways of life","it ensures that all scenes maintain a consistent level of comedic entertainment","it prevents the audience from identifying too closely with a single character"], correctAnswer:1, explanation:"The contrast between characters can carry a philosophical dimension — a further contrast between two ways of life.", topic:"Character Contrast and Philosophical Meaning" },
+            { id:18, category:"Characterization — Application", question:"Emmy wearing a red coat and speaking 'in a firm voice' are examples of which sign type in Fischer's model?", options:["acoustic signs, since they relate to the sound and musical environment of the stage","actor's appearance and actor's activities as signs, covering costume and vocal delivery","spatial signs, since they describe the decoration and physical arrangement of the stage","primary text, since they are part of the dialogue exchange between the characters"], correctAnswer:1, explanation:"Emmy's red coat = actor's appearance (costume); 'firm voice' = actor's activities (paralinguistic). Both are secondary text elements.", topic:"Fischer's Model — Applied to Secondary Text" },
+            { id:19, category:"Modern Drama", question:"Which playwright is correctly matched with Modern Drama?", options:["Sophocles, the playwright of ancient Greek tragedy and theatrical tradition","Moliere, the French comic playwright associated with the Renaissance period","Samuel Beckett, whose work is associated with the theatre of the absurd","Christopher Marlowe, the English Renaissance dramatist and Shakespeare contemporary"], correctAnswer:2, explanation:"Samuel Beckett is listed as a Modern Drama playwright, associated with the theatre of the absurd.", topic:"Modern Drama — Playwrights" },
+            { id:20, category:"Characterization — Application", question:"Fontanges's naivety in the Bossuet dialogue is conveyed primarily through:", options:["explicit self-commentary, since she directly states she is naive in the conversation","implicit verbal techniques, since her character emerges from how and what she speaks","spatial signs, since her position and movement on stage reveal her character","outside commentary by the playwright, who inserts descriptions in the secondary text"], correctAnswer:1, explanation:"Fontanges's naivety emerges from what she says and how she says it — implicit verbal characterization.", topic:"Implicit-Figural — Verbal Characterization Applied" }
         ]
+    },
+    {
+        title: "Exam 3: Theme of Revenge — Essay",
+        icon: "⚔️",
+        label: "Merchant of Venice",
+        lang: "en",
+        type: "essay"
     }
 ];
 
-        (function() {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('theme-toggle').textContent = '☀️';
-            }
-        })();
+// THEME
+(function() {
+    function applyTheme(t) {
+        if (t === 'dark') { document.documentElement.setAttribute('data-theme','dark'); const b=document.getElementById('theme-toggle'); if(b)b.textContent='☀️'; }
+        else { document.documentElement.removeAttribute('data-theme'); const b=document.getElementById('theme-toggle'); if(b)b.textContent='🌙'; }
+    }
+    function initTheme() { const s=localStorage.getItem('theme'); if(s){applyTheme(s);return;} applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); }
+    function toggleTheme() { const c=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; const n=c==='dark'?'light':'dark'; applyTheme(n); localStorage.setItem('theme',n); }
+    window.toggleTheme=toggleTheme; window.initTheme=initTheme;
+})();
 
-        function toggleTheme() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                document.getElementById('theme-toggle').textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('theme-toggle').textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
+// STATE
+let state = { screen:'selection', selectedExam:null, selectedQuestions:[], initialQuestionCount:0, currentQuestion:0, selectedAnswer:null, showExplanation:false, score:0, quizCompleted:false, answers:[], repeatQueue:[], inRepeatPhase:false, repeatAnswers:[], essayRevealed:false };
 
-        function toggleReveal() {
-            const box = document.getElementById('essay-box');
-            const btn = document.getElementById('reveal-btn');
-            const isShown = box.classList.contains('show');
-            if (isShown) {
-                box.classList.remove('show');
-                btn.textContent = '▼ I\'m done — Show Model Answer';
-            } else {
-                box.classList.add('show');
-                btn.textContent = '▲ Hide Model Answer';
-                box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    </script>
+function shuffleArray(arr) { const a=arr.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function shuffleQuestionOptions(question) { const opts=question.options.map((opt,idx)=>({opt,idx})); const shuffled=shuffleArray(opts); return Object.assign({},question,{options:shuffled.map(s=>s.opt),correctAnswer:shuffled.findIndex(s=>s.idx===question.correctAnswer)}); }
+
+function selectExam(index) {
+    state.selectedExam=index; state.essayRevealed=false;
+    const exam=examSets[index];
+    document.documentElement.setAttribute('lang','en'); document.documentElement.setAttribute('dir','ltr');
+    if(exam.type==='essay'){state.screen='essay';render();return;}
+    const questions=exam.questions||[];
+    state.initialQuestionCount=questions.length;
+    state.selectedQuestions=shuffleArray(questions.slice()).map(q=>shuffleQuestionOptions(q));
+    state.currentQuestion=0;state.selectedAnswer=null;state.showExplanation=false;
+    state.score=0;state.quizCompleted=false;state.answers=[];
+    state.repeatQueue=[];state.inRepeatPhase=false;state.repeatAnswers=[];
+    state.screen='quiz'; render();
+}
+
+function getCurrentQuestions() { if(state.selectedExam===null)return[]; return state.selectedQuestions||examSets[state.selectedExam].questions||[]; }
+
+function handleAnswerSelect(answerIndex) {
+    if(state.selectedAnswer!==null)return;
+    const questions=getCurrentQuestions(); const question=questions[state.currentQuestion];
+    state.selectedAnswer=answerIndex; state.showExplanation=true;
+    const isCorrect=answerIndex===question.correctAnswer;
+    if(!state.inRepeatPhase){ if(isCorrect)state.score++; else if(!state.repeatQueue.some(q=>q.id===question.id))state.repeatQueue.push(question); state.answers.push({questionId:question.id,correct:isCorrect,category:question.category}); }
+    else { state.repeatAnswers.push({questionId:question.id,correct:isCorrect}); }
+    render();
+}
+
+function handleNext() {
+    const questions=getCurrentQuestions();
+    if(state.currentQuestion<questions.length-1){ state.currentQuestion++;state.selectedAnswer=null;state.showExplanation=false; }
+    else { if(!state.inRepeatPhase&&state.repeatQueue.length>0){state.selectedQuestions=state.repeatQueue.slice();state.repeatQueue=[];state.inRepeatPhase=true;state.currentQuestion=0;state.selectedAnswer=null;state.showExplanation=false;}else{state.quizCompleted=true;} }
+    render();
+}
+
+function handleRestart() {
+    const exam=examSets[state.selectedExam];
+    if(exam.type==='essay'){state.essayRevealed=false;state.screen='essay';render();return;}
+    const questions=exam.questions||[];
+    state.initialQuestionCount=questions.length;
+    state.selectedQuestions=shuffleArray(questions.slice()).map(q=>shuffleQuestionOptions(q));
+    state.currentQuestion=0;state.selectedAnswer=null;state.showExplanation=false;
+    state.score=0;state.quizCompleted=false;state.answers=[];
+    state.repeatQueue=[];state.inRepeatPhase=false;state.repeatAnswers=[];
+    render();
+}
+
+function backToMenu() {
+    document.documentElement.setAttribute('lang','en'); document.documentElement.setAttribute('dir','ltr');
+    state={screen:'selection',selectedExam:null,selectedQuestions:[],initialQuestionCount:0,currentQuestion:0,selectedAnswer:null,showExplanation:false,score:0,quizCompleted:false,answers:[],repeatQueue:[],inRepeatPhase:false,repeatAnswers:[],essayRevealed:false};
+    render();
+}
+
+function toggleEssayReveal() { state.essayRevealed=!state.essayRevealed; render(); }
+
+const icons = {
+    checkCircle:'<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#10b981;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+    xCircle:'<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#ef4444;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+    award:'<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>',
+    bookOpen:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>'
+};
+
+function renderExamSelection() {
+    const examCards=examSets.map((e,i)=>`<div class="exam-card" onclick="selectExam(${i})"><h3>${e.icon} ${e.title}</h3><p>${e.type==='essay'?'Essay / Model Answer':e.questions.length+' Questions'}</p><p class="question-count">${e.label}</p></div>`).join('');
+    return `<div class="exam-selection"><h1>Drama Exams</h1><p>Choose an exam to begin</p><div class="exam-options">${examCards}</div></div>`;
+}
+
+function renderResults() {
+    const total=state.initialQuestionCount||0; const percentage=total>0?Math.round((state.score/total)*100):0;
+    let message="",colorClass="";
+    if(percentage>=90){message="Excellent! Fully prepared.";colorClass="color:#16a34a;";}
+    else if(percentage>=80){message="Great! Review only the errors.";colorClass="color:#22c55e;";}
+    else if(percentage>=70){message="Very good! Review some points.";colorClass="color:#2563eb;";}
+    else if(percentage>=60){message="Good! Focus on your mistakes.";colorClass="color:#ca8a04;";}
+    else{message="You need more review and practice.";colorClass="color:#ea580c;";}
+    const categoryStats={};
+    state.answers.forEach(a=>{if(!categoryStats[a.category])categoryStats[a.category]={correct:0,total:0};categoryStats[a.category].total++;if(a.correct)categoryStats[a.category].correct++;});
+    const statsHTML=Object.entries(categoryStats).map(([cat,s])=>{const pct=Math.round((s.correct/s.total)*100);return`<div class="stat-item"><div class="stat-row"><div class="stat-category">${cat}</div><div class="stat-score">${s.correct}/${s.total} (${pct}%)</div></div></div>`;}).join('');
+    return`<div class="results-container">${icons.award}<h2 class="results-title">Quiz Completed!</h2><div class="final-score">${state.score}/${total}</div><div class="percentage">Percentage: ${percentage}%</div><p class="results-message" style="${colorClass}">${message}</p><div class="category-stats"><h3 class="stats-title">${icons.bookOpen} Performance by Topic:</h3>${statsHTML}<div class="action-buttons"><button class="btn-primary" onclick="handleRestart()">Try Again</button><button class="btn-secondary" onclick="backToMenu()">Back to Menu</button></div><div class="final-stats"><p>Final Score: <span class="final-score-value">${state.score}</span></p></div></div></div>`;
+}
+
+function renderQuestion() {
+    const questions=getCurrentQuestions(); const question=questions[state.currentQuestion];
+    const examTitle=examSets[state.selectedExam].title;
+    const mainTotal=state.initialQuestionCount||questions.length;
+    const questionNumberText=state.inRepeatPhase?`Review Question ${state.currentQuestion+1} of ${questions.length}`:`Question ${state.currentQuestion+1} of ${mainTotal}`;
+    const optionsHTML=question.options.map((option,index)=>{
+        let btnClass="option-btn",iconHTML="";
+        if(state.selectedAnswer!==null){if(index===question.correctAnswer){btnClass+=" correct";iconHTML=icons.checkCircle;}else if(index===state.selectedAnswer){btnClass+=" incorrect";iconHTML=icons.xCircle;}else btnClass+=" neutral";}
+        return`<button class="${btnClass}" onclick="handleAnswerSelect(${index})" ${state.selectedAnswer!==null?'disabled':''}><span style="text-align:start;line-height:1.75;">${option}</span>${iconHTML}</button>`;
+    }).join('');
+    const explanationHTML=state.showExplanation?`<div class="explanation-box ${state.selectedAnswer===question.correctAnswer?'correct':'incorrect'}"><p class="explanation-title">${state.selectedAnswer===question.correctAnswer?'✅ Correct! Excellent':'❌ Incorrect'}</p><div class="explanation-content"><p class="explanation-text"><strong>Explanation:</strong><br>${question.explanation}</p></div><div class="topic-info">${icons.bookOpen}<p><strong>Topic:</strong> ${question.topic}</p></div></div><button class="next-btn" onclick="handleNext()">${state.currentQuestion<questions.length-1?'Next Question':'End Quiz 🎉'}</button>`:'';
+    return`<div class="header"><h1>${examTitle}</h1><div class="score-info"><div class="question-number">${questionNumberText}</div><div class="score">Score: ${state.score}</div></div></div><div class="question-container"><h2 class="category">${question.category}</h2><p class="question">${question.question}</p><div class="options">${optionsHTML}</div>${explanationHTML}<div class="current-score"><p>Score: <span class="score-value">${state.score}</span> / ${state.currentQuestion+(state.selectedAnswer!==null?1:0)}</p></div></div><div style="text-align:center;"><button class="restart-btn" onclick="handleRestart()">Restart</button><button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button></div>`;
+}
+
+function renderEssay() {
+    const revealed = state.essayRevealed;
+    return `
+        <div class="header">
+            <h1>⚔️ Theme of Revenge — Essay</h1>
+        </div>
+        <div class="question-container">
+            <p class="category">The Merchant of Venice</p>
+            <div class="essay-instructions">
+                <p><strong>Task:</strong> Write a full essay on the Theme of Revenge covering:</p>
+                <ul style="padding-left:1.2rem;margin-top:0.4rem;">
+                    <li>Intro — what is revenge?</li>
+                    <li>Shylock vs Antonio: reasons · plan · achievement</li>
+                    <li>Portia vs Shylock: reasons · plan · achievement</li>
+                    <li>Conclusion</li>
+                </ul>
+                <p class="essay-note">Write your answer first, then reveal the model answer below.</p>
+            </div>
+
+            <button class="show-model-btn" onclick="toggleEssayReveal()">
+                ${revealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
+            </button>
+
+            <div class="essay-reveal-box ${revealed ? 'show' : ''}">
+
+                <span class="essay-section-label">Introduction</span>
+                <h3>What is Revenge?</h3>
+                <p>Revenge is the act of inflicting harm on someone in return for a wrong they have committed. It is driven by a desire to restore justice or personal honor through personal means rather than legal ones. In <em>The Merchant of Venice</em>, Shakespeare presents revenge as a double-edged force — motivating two cycles of conflict, each with its own causes, methods, and outcomes.</p>
+
+                <hr class="divider">
+
+                <span class="essay-section-label">Body — Part 1</span>
+                <h3>Shylock against Antonio</h3>
+
+                <p><strong style="color:var(--accent);">What happened?</strong><br>
+                Shylock, a Jewish moneylender, has suffered years of public insult from Antonio, who spat on him and mocked his religion. When Bassanio borrows money on Antonio's behalf, Shylock proposes a deadly bond: if the loan is unpaid within three months, he may cut a pound of flesh from Antonio's body.</p>
+
+                <p><strong style="color:var(--accent);">Why happened?</strong><br>
+                Shylock's revenge is rooted in humiliation and loss. Antonio has treated him as less than human because of his faith. Shylock asks bitterly:</p>
+                <blockquote>"Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?"</blockquote>
+                <p>His daughter Jessica also elopes with a Christian and takes his money, deepening his rage. The bond becomes the only power available to a man the law otherwise marginalizes.</p>
+
+                <p><strong style="color:var(--accent);">How happened? (The plan &amp; achievement)</strong><br>
+                When Antonio's ships are lost and the bond falls due, Shylock refuses repayment and drags Antonio to court demanding his pound of flesh. For a moment he holds total power — the law of Venice is on his side and even the Duke cannot override it. His revenge appears complete.</p>
+
+                <hr class="divider">
+
+                <span class="essay-section-label">Body — Part 2</span>
+                <h3>Portia against Shylock</h3>
+
+                <p><strong style="color:var(--accent);">Why happened?</strong><br>
+                Portia, Bassanio's wife, acts out of love for her husband and loyalty to Antonio. She decides that Shylock's rigid insistence on the law must be defeated by that very same law.</p>
+
+                <p><strong style="color:var(--accent);">How happened? (The plan)</strong><br>
+                Disguised as a young lawyer named Balthazar, she first appeals to Shylock's mercy:</p>
+                <blockquote>"The quality of mercy is not strained; it droppeth as the gentle rain from heaven."</blockquote>
+                <p>Shylock refuses. At the moment he raises his knife, Portia stops him: the bond grants flesh but not blood — he cannot shed a single drop, and must cut exactly one pound. She then invokes a law against aliens who plot against a Venetian citizen's life.</p>
+
+                <p><strong style="color:var(--accent);">The achievement</strong><br>
+                Shylock's power collapses. He cannot take the flesh, cannot reclaim his money, and now faces forfeiture of his estate. The Duke spares his life but forces him to convert to Christianity and sign over his wealth. Portia's legal trap succeeds completely.</p>
+
+                <hr class="divider">
+
+                <span class="essay-section-label">Conclusion</span>
+                <h3>Final Thoughts</h3>
+                <p>The theme of revenge runs through the play as two interlocking cycles, each undoing the other. Shylock's revenge, rooted in genuine suffering, is defeated by the very legal instrument he chose. Portia's counter-move restores Antonio but reduces Shylock to humiliation — a resolution the play presents as a legal triumph yet which carries its own moral weight. Shakespeare suggests that revenge, however justified it may feel, ultimately destroys the one who pursues it.</p>
+
+                <p class="essay-disclaimer">⚠️ Support every claim with a quote. Follow the What → Why → How structure in your own answer.</p>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
+        </div>`;
+}
+
+function render() {
+    const app=document.getElementById('app');
+    if(state.screen==='selection') app.innerHTML=renderExamSelection();
+    else if(state.screen==='essay') app.innerHTML=renderEssay();
+    else if(state.quizCompleted) app.innerHTML=renderResults();
+    else app.innerHTML=renderQuestion();
+}
+
+window.selectExam=selectExam; window.handleAnswerSelect=handleAnswerSelect; window.handleNext=handleNext;
+window.handleRestart=handleRestart; window.backToMenu=backToMenu; window.toggleEssayReveal=toggleEssayReveal;
+
+initTheme(); render();
+</script>
 </body>
 </html>
