@@ -3,2285 +3,994 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phonetics EC108 – Midterm Exams</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Drama — Theme of Revenge Essay</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-gradient: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+            --container-bg: white;
+            --text-color: #1f2937;
+            --muted: #6b7280;
+            --accent: #9333ea;
+            --accent-2: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --option-border: #d1d5db;
+            --option-bg: white;
+            --correct-bg: #f0fdf4;
+            --incorrect-bg: #fef2f2;
+            --exam-card-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --exam-card-text: white;
+        }
+
+        [data-theme="dark"] {
+            --bg-gradient: linear-gradient(180deg, #0f263b, #021526);
+            --container-bg: #071825;
+            --text-color: #dceefb;
+            --muted: #9fb6c8;
+            --accent: #60a5fa;
+            --accent-2: #38bdf8;
+            --success: #2dd4bf;
+            --danger: #fb7185;
+            --border: #123244;
+            --card-bg: #071a25;
+            --option-border: #123244;
+            --option-bg: #071a22;
+            --correct-bg: rgba(45,212,191,0.06);
+            --incorrect-bg: rgba(251,113,133,0.06);
+            --exam-card-bg: linear-gradient(135deg, #082433 0%, #04202b 100%);
+            --exam-card-text: #e6f3ff;
+            color-scheme: dark;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 0.45rem 0.6rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.125rem;
+            z-index: 60;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+
+        [data-theme="dark"] #theme-toggle {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.06);
+            color: var(--text-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 1rem;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        .container {
+            max-width: 48rem;
+            width: 100%;
+            background: var(--container-bg);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(2,6,23,0.25), 0 10px 10px -5px rgba(2,6,23,0.12);
+            padding: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            transition: background .25s ease;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .question-container {
+            background: var(--card-bg);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category {
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        /* Essay styles */
+        .essay-instructions {
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: var(--text-color);
+        }
+
+        .essay-instructions p { margin-bottom: 0.5rem; }
+        .essay-note {
+            margin-top: 0.75rem;
+            color: var(--muted);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        .essay-disclaimer {
+            margin-top: 1rem;
+            color: var(--danger);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .show-model-btn {
+            width: 100%;
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1rem;
+        }
+
+        .show-model-btn:hover { filter: brightness(0.95); }
+
+        .essay-reveal-box {
+            display: none;
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            line-height: 1.85;
+            color: var(--text-color);
+        }
+
+        .essay-reveal-box.show { display: block; }
+
+        .essay-reveal-box h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .essay-reveal-box h3:first-child { margin-top: 0; }
+
+        .essay-reveal-box p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .essay-reveal-box blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 0.75rem 0;
+            color: var(--muted);
+            font-style: italic;
+            font-size: 0.97rem;
+        }
+
+        .essay-section-label {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
+            color: white;
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .num-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 1.4rem;
+            height: 1.4rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.4rem;
+            margin-right: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        hr.divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.25rem 0;
+        }
+
+        .back-to-menu-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-left: 0.5rem;
+        }
+
+        .back-to-menu-btn:hover { filter: brightness(0.95); }
+
+        .outline-box {
+            background: var(--card-bg);
+            border: 1px solid var(--option-border);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .outline-box ul { padding-left: 1.25rem; }
+        .outline-box li { margin-bottom: 0.3rem; line-height: 1.7; }
+        .outline-box strong { color: var(--accent); }
+    </style>
 </head>
 <body>
-    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme" onclick="toggleTheme()">🌙</button>
-    <div class="container" id="app"></div>
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <div class="container">
 
-<script>
-const examSets = [
-
-// ── EXAM 1: Foundations & Basic Concepts (Sessions 1–3) ──────────
-{
-    title: "Exam 1: Foundations & Basic Concepts",
-    icon: "🗣️",
-    label: "Sessions 1–3",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Phonetics vs Phonology",
-            question: "Phonetics is best defined as the study of:",
-            options: [
-                "the classification of sounds within the system of a particular language",
-                "the production, transmission, reception, and transcription of speech sounds",
-                "the grammar rules that govern the structure of spoken sentences",
-                "the historical development of pronunciation across different time periods"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics deals with the physical properties of speech sounds — their production, transmission, reception, analysis, classification, and transcription. Phonology, on the other hand, classifies sounds within a particular language system.",
-            topic: "Phonetics vs Phonology — Definitions"
-        },
-        {
-            id: 2,
-            category: "Phonetics vs Phonology",
-            question: "Which of the following correctly describes phonology?",
-            options: [
-                "the study of how speech sounds are physically produced by the vocal organs",
-                "the classification of sounds within a language and the patterns they form",
-                "the transcription of all human sounds using the International Phonetic Alphabet",
-                "the analysis of how sound waves travel from speaker to listener"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonology is the classification of sounds within the system of a particular language and the patterns that speech sounds form. It belongs to theoretical linguistics, while phonetics belongs to descriptive linguistics.",
-            topic: "Phonetics vs Phonology — Definitions"
-        },
-        {
-            id: 3,
-            category: "Phonetics vs Phonology",
-            question: "Phonetics belongs to descriptive linguistics, while phonology belongs to:",
-            options: [
-                "applied linguistics, which focuses on practical language teaching methods",
-                "theoretical linguistics, which examines abstract language systems and rules",
-                "historical linguistics, which traces how languages change over centuries",
-                "computational linguistics, which models language through computer algorithms"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics is descriptive (describes physical sounds), while phonology is theoretical (examines the abstract sound system of a language). This is a key distinction from Session 1.",
-            topic: "Phonetics vs Phonology — Branches"
-        },
-        {
-            id: 4,
-            category: "Phonetics vs Phonology",
-            question: "Which statement about phonetics and phonology is correct?",
-            options: [
-                "Phonetics can study one specific language, but phonology cannot focus on one",
-                "Phonology can study one specific language, but phonetics is not limited to one",
-                "Both phonetics and phonology must always focus on a single specific language",
-                "Neither phonetics nor phonology is able to focus on any one specific language"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonetics is universal — it studies speech sounds across all languages. Phonology can focus on one specific language's sound patterns (e.g., English phonology).",
-            topic: "Phonetics vs Phonology — Scope"
-        },
-        {
-            id: 5,
-            category: "Accent & Dialect",
-            question: "The difference between the words 'cookies/biscuits' and 'trunk/boot' is an example of:",
-            options: [
-                "accent variation, because the same words are pronounced differently",
-                "dialect variation, because entirely different vocabulary is being used",
-                "phonological variation, because the sound patterns differ systematically",
-                "register variation, because the formality of the language has changed"
-            ],
-            correctAnswer: 1,
-            explanation: "Using different words for the same thing (cookies vs biscuits, trunk vs boot) is a dialect difference. Accent refers only to pronunciation differences — how the same word sounds different.",
-            topic: "Accent vs Dialect"
-        },
-        {
-            id: 6,
-            category: "Accent & Dialect",
-            question: "Pronouncing the word 'water' differently in British and American English is an example of:",
-            options: [
-                "a dialect difference, because different vocabulary items are being used",
-                "an accent difference, because the same word is pronounced differently",
-                "a phonological error, because one of the two pronunciations is incorrect",
-                "a register shift, because the speakers are in different social contexts"
-            ],
-            correctAnswer: 1,
-            explanation: "When the same word is pronounced differently by speakers of different varieties, this is an accent difference. Dialect involves vocabulary and grammar differences, not just pronunciation.",
-            topic: "Accent vs Dialect"
-        },
-        {
-            id: 7,
-            category: "RP & English Varieties",
-            question: "RP stands for Received Pronunciation, which refers to:",
-            options: [
-                "the standard American pronunciation taught in international language schools",
-                "the English pronunciation associated with south-east England and accepted speech",
-                "the oldest recorded form of English pronunciation found in historical archives",
-                "the pronunciation system used exclusively by linguists in academic research"
-            ],
-            correctAnswer: 1,
-            explanation: "RP (Received Pronunciation) is the accent associated with south-east England. It is also called 'accepted pronunciation' and is the standard used in this phonetics course.",
-            topic: "Received Pronunciation"
-        },
-        {
-            id: 8,
-            category: "IPA & Transcription",
-            question: "What does IPA stand for in the context of phonetics?",
-            options: [
-                "International Pronunciation Assessment, a standard test for language learners",
-                "International Phonetic Alphabet, a system for representing speech sounds",
-                "Internal Phonological Analysis, a method for studying language patterns",
-                "Integrated Phonemic Application, a software tool for sound processing"
-            ],
-            correctAnswer: 1,
-            explanation: "IPA stands for International Phonetic Alphabet — a standardized system of symbols used to represent each distinct speech sound across all languages.",
-            topic: "International Phonetic Alphabet"
-        },
-        {
-            id: 9,
-            category: "IPA & Transcription",
-            question: "The word 'brother' has 7 letters but only 4 phonemes. This shows that:",
-            options: [
-                "English spelling always corresponds directly to its pronunciation in speech",
-                "the number of letters in a word does not always match the number of sounds",
-                "phonemes are always more numerous than the letters in any English word",
-                "the IPA system requires more symbols than the English alphabet provides"
-            ],
-            correctAnswer: 1,
-            explanation: "'Brother' = B-r-o-t-h-e-r (7 letters) but /brʌðə/ (4 phonemes). English spelling and pronunciation often don't match — this is why we need IPA transcription.",
-            topic: "Letters vs Sounds"
-        },
-        {
-            id: 10,
-            category: "Key Terms",
-            question: "A 'phone' in phonetics refers to:",
-            options: [
-                "the smallest unit of speech that can distinguish one word from another",
-                "any sound that a human being is physically capable of producing",
-                "a specific variation of a phoneme that occurs in a particular context",
-                "a written symbol used to represent a particular speech sound"
-            ],
-            correctAnswer: 1,
-            explanation: "A phone is any human sound — including speech sounds, sneezes, coughs, etc. A phoneme is more specific: the smallest unit that distinguishes meaning between words.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 11,
-            category: "Key Terms",
-            question: "A 'phoneme' is best defined as:",
-            options: [
-                "any sound that a human being is physically capable of making",
-                "the smallest unit of speech that can distinguish one word from another",
-                "one of the many physical realizations of the same abstract sound unit",
-                "the written symbol used by linguists to record pronunciation data"
-            ],
-            correctAnswer: 1,
-            explanation: "A phoneme is the smallest unit of speech that distinguishes one word from another. For example, /p/ and /b/ are different phonemes because 'pat' and 'bat' have different meanings.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 12,
-            category: "Key Terms",
-            question: "The /t/ in 'top', 'stop', and 'button' sounds slightly different each time. These variations are called:",
-            options: [
-                "phonemes, because each variation creates a new meaningful word unit",
-                "allophones, because they are different realizations of the same phoneme",
-                "phones, because they represent any random sound a human can produce",
-                "diphthongs, because each sound glides from one position into another"
-            ],
-            correctAnswer: 1,
-            explanation: "An allophone is any of the various phonetic realizations of a phoneme. The /t/ sounds differently in different positions, but all are allophones of the phoneme /t/.",
-            topic: "Phone, Phoneme, Allophone"
-        },
-        {
-            id: 13,
-            category: "Speech Production",
-            question: "The correct order of speech production systems from bottom to top is:",
-            options: [
-                "articulatory system, then phonatory system, then respiratory system",
-                "respiratory system, then phonatory system, then articulatory system",
-                "phonatory system, then respiratory system, then articulatory system",
-                "respiratory system, then articulatory system, then phonatory system"
-            ],
-            correctAnswer: 1,
-            explanation: "Speech production starts with the respiratory system (lungs produce airflow), then the phonatory system (larynx/vocal cords vibrate), then the articulatory system (mouth/nose shape sounds).",
-            topic: "Systems of Speech Production"
-        },
-        {
-            id: 14,
-            category: "Speech Production",
-            question: "The airflow used to produce almost all English speech sounds is called:",
-            options: [
-                "ingressive pulmonic airstream, where air is drawn inward through the lungs",
-                "egressive pulmonic airstream, where air is pushed outward from the lungs",
-                "egressive glottalic airstream, where air is pushed upward from the larynx",
-                "ingressive velaric airstream, where air is drawn inward using the tongue"
-            ],
-            correctAnswer: 1,
-            explanation: "Almost all English speech sounds use egressive pulmonic airstream — air pushed outward from the lungs. 'Egressive' means outgoing; 'pulmonic' means from the lungs.",
-            topic: "Egressive Pulmonic Airstream"
-        },
-        {
-            id: 15,
-            category: "Speech Organs",
-            question: "The vocal tract ends at the mouth and nostrils. The mouth part is called the oral cavity, and the part leading to the nostrils is called:",
-            options: [
-                "the pharynx, which is a tube beginning just above the larynx area",
-                "the nasal cavity, which is the passage connecting the throat to the nose",
-                "the alveolar ridge, which is the bony area behind the upper front teeth",
-                "the larynx, which is the structure containing the vocal cords inside"
-            ],
-            correctAnswer: 1,
-            explanation: "The vocal tract splits into two: the oral cavity (mouth) and the nasal cavity (leading to the nostrils). The pharynx is a separate tube above the larynx.",
-            topic: "Oral Cavity vs Nasal Cavity"
-        },
-        {
-            id: 16,
-            category: "Speech Organs",
-            question: "When the soft palate (velum) is raised, the nasal passage is blocked, producing:",
-            options: [
-                "nasal sounds like /m/ and /n/, where air escapes through the nose",
-                "oral sounds like /k/ and /g/, where air exits only through the mouth",
-                "nasalized sounds, where air passes through both the nose and mouth",
-                "fricative sounds, where air is forced through a narrow gap noisily"
-            ],
-            correctAnswer: 1,
-            explanation: "When the velum is raised → nasal passage blocked → oral sounds (e.g., /k/, /g/). When the velum is lowered → nasal passage open → nasal sounds (e.g., /m/, /n/).",
-            topic: "States of the Soft Palate"
-        },
-        {
-            id: 17,
-            category: "Speech Organs",
-            question: "Which of the following is NOT one of the articulators in the vocal tract?",
-            options: [
-                "the alveolar ridge, which is located behind the upper front teeth",
-                "the diaphragm, which is a muscle located below the lungs in the chest",
-                "the soft palate (velum), which can be raised or lowered during speech",
-                "the pharynx, which is the tube that begins just above the larynx"
-            ],
-            correctAnswer: 1,
-            explanation: "The diaphragm is part of the respiratory system (helps push air from lungs) but is NOT an articulator. Articulators include: lips, teeth, alveolar ridge, hard palate, soft palate, tongue, pharynx, and larynx.",
-            topic: "The Articulators"
-        },
-        {
-            id: 18,
-            category: "Speech Organs",
-            question: "The pharynx is best described as:",
-            options: [
-                "the bony ridge located directly behind the upper row of front teeth",
-                "a tube that begins just above the larynx and is divided into two parts",
-                "the fleshy dangling structure visible at the back of the open mouth",
-                "the hard roof of the mouth located between the alveolar ridge and velum"
-            ],
-            correctAnswer: 1,
-            explanation: "The pharynx is a tube beginning just above the larynx. It is about 7 cm long in women and 8 cm in men. At its top end it divides into two passages (oral and nasal).",
-            topic: "The Pharynx"
-        },
-        {
-            id: 19,
-            category: "Speech Organs",
-            question: "When we produce the sounds /k/ and /g/, the tongue touches the lower side of the soft palate. These sounds are therefore called:",
-            options: [
-                "alveolar consonants, because they are articulated at the alveolar ridge",
-                "velar consonants, because they are articulated against the soft palate",
-                "bilabial consonants, because both lips are pressed together to form them",
-                "dental consonants, because the tongue touches the back of the teeth"
-            ],
-            correctAnswer: 1,
-            explanation: "When the tongue contacts the soft palate (velum) to produce /k/ and /g/, these are called velar consonants. The soft palate is both a valve for nasal sounds and an articulation point.",
-            topic: "Velar Consonants"
-        },
-        {
-            id: 20,
-            category: "Speech Production",
-            question: "The phonatory system is where:",
-            options: [
-                "the lungs push air upward to initiate the breathing process for speech",
-                "vibration or phonation takes place as air passes through the vocal cords",
-                "resonance is modified in the vocal tract to shape different speech sounds",
-                "the brain encodes the semantic and syntactic structure of the message"
-            ],
-            correctAnswer: 1,
-            explanation: "The phonatory system is where vibration (phonation) takes place — the vocal cords in the larynx vibrate as air passes through them. The respiratory system provides airflow, and the articulatory system shapes resonance.",
-            topic: "Systems of Speech Production"
-        }
-    ]
-},
-
-// ── EXAM 2: English Vowels (Sessions 4–6) ───────────────────────
-{
-    title: "Exam 2: English Vowels",
-    icon: "🔤",
-    label: "Sessions 4–6",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Vowels vs Consonants",
-            question: "Vowels are sounds that are produced with:",
-            options: [
-                "some obstruction to the airflow as it passes from the larynx to the lips",
-                "no obstruction to the airflow as it passes from the larynx to the lips",
-                "complete blockage of the airflow at a specific point in the vocal tract",
-                "the vocal cords held tightly together so no air can escape outward"
-            ],
-            correctAnswer: 1,
-            explanation: "Vowels are produced with NO obstruction to the airflow. Consonants, by contrast, involve some obstruction (partial or complete) of the airflow.",
-            topic: "Vowels vs Consonants"
-        },
-        {
-            id: 2,
-            category: "Vowels vs Consonants",
-            question: "How many consonant sounds and vowel sounds are there in English RP?",
-            options: [
-                "20 consonant sounds and 24 vowel sounds in total in English RP",
-                "24 consonant sounds and 20 vowel sounds in total in English RP",
-                "26 consonant sounds and 18 vowel sounds in total in English RP",
-                "22 consonant sounds and 22 vowel sounds in total in English RP"
-            ],
-            correctAnswer: 1,
-            explanation: "English RP has 24 consonant sounds and 20 vowel sounds. The 20 vowels are divided into 12 monophthongs (pure vowels) and 8 diphthongs.",
-            topic: "Number of Sounds in English"
-        },
-        {
-            id: 3,
-            category: "Vowel Classification",
-            question: "The 20 English vowel sounds are divided into:",
-            options: [
-                "10 monophthongs and 10 diphthongs that together form the vowel system",
-                "12 monophthongs (pure vowels) and 8 diphthongs in the vowel system",
-                "14 monophthongs (pure vowels) and 6 diphthongs in the vowel system",
-                "7 short vowels and 13 long vowels that together form the vowel system"
-            ],
-            correctAnswer: 1,
-            explanation: "The 20 vowels = 12 monophthongs (pure vowels: 7 short + 5 long) + 8 diphthongs.",
-            topic: "Vowel Classification"
-        },
-        {
-            id: 4,
-            category: "Short Vowels",
-            question: "How many short vowels are there in English RP?",
-            options: [
-                "five short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/ in total in RP English",
-                "seven short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/ in RP English",
-                "six short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/ in total in RP English",
-                "eight short vowels: /ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, /ə/, /ɜ/ in RP"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 7 short vowels in RP: /ɪ/ (kit), /e/ (dress), /æ/ (trap), /ɒ/ (lot), /ʌ/ (strut), /ʊ/ (foot), /ə/ (about).",
-            topic: "Short Vowels"
-        },
-        {
-            id: 5,
-            category: "Short Vowels",
-            question: "The vowel sound in the words 'kit', 'bid', and 'fill' is:",
-            options: [
-                "/e/, which is the short vowel found in words like 'dress' and 'bed'",
-                "/ɪ/, which is the short vowel found in words like 'kit' and 'bid'",
-                "/æ/, which is the short vowel found in words like 'trap' and 'bad'",
-                "/ʌ/, which is the short vowel found in words like 'strut' and 'mud'"
-            ],
-            correctAnswer: 1,
-            explanation: "The vowel in 'kit', 'bid', 'fill' is /ɪ/. This is one of the 7 short vowels in RP English.",
-            topic: "Short Vowels — /ɪ/"
-        },
-        {
-            id: 6,
-            category: "Short Vowels",
-            question: "Which short vowel is found in the words 'strut', 'mud', and 'love'?",
-            options: [
-                "/ɒ/, which appears in words like 'lot', 'not', and 'wash' in RP",
-                "/ʌ/, which appears in words like 'strut', 'mud', and 'love' in RP",
-                "/ʊ/, which appears in words like 'foot', 'put', and 'good' in RP",
-                "/æ/, which appears in words like 'trap', 'bad', and 'fat' in RP"
-            ],
-            correctAnswer: 1,
-            explanation: "The vowel /ʌ/ is found in 'strut', 'mud', 'love'. Don't confuse it with /ɒ/ (lot, not, wash) or /ʊ/ (foot, put, good).",
-            topic: "Short Vowels — /ʌ/"
-        },
-        {
-            id: 7,
-            category: "Short Vowels",
-            question: "The schwa /ə/ is the vowel sound found in words like:",
-            options: [
-                "'trap', 'bad', and 'fat', where the mouth is open wide during production",
-                "'about', 'father', and 'the', where the sound is weak and unstressed",
-                "'foot', 'put', and 'good', where the lips are slightly rounded together",
-                "'dress', 'bed', and 'head', where the tongue is at a mid-front position"
-            ],
-            correctAnswer: 1,
-            explanation: "The schwa /ə/ appears in unstressed syllables: 'about', 'father', 'the'. It is the most common vowel sound in English and is always unstressed.",
-            topic: "Short Vowels — /ə/ (Schwa)"
-        },
-        {
-            id: 8,
-            category: "Long Vowels",
-            question: "How many long vowels are there in English RP?",
-            options: [
-                "seven long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /eː/, /oː/ in RP",
-                "five long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/ in total in RP English",
-                "six long vowels: /iː/, /uː/, /ɑː/, /ɔː/, /ɜː/, /æː/ in RP English",
-                "four long vowels: /iː/, /uː/, /ɑː/, /ɔː/ in total in RP English"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 5 long vowels in RP: /iː/ (fleece), /uː/ (goose), /ɑː/ (father), /ɔː/ (thought), /ɜː/ (nurse).",
-            topic: "Long Vowels"
-        },
-        {
-            id: 9,
-            category: "Long Vowels",
-            question: "The long vowel /ɜː/ is found in the words:",
-            options: [
-                "'fleece', 'meet', and 'eat', where the tongue is high and at the front",
-                "'nurse', 'stir', and 'learn', where the tongue is central in the mouth",
-                "'father', 'start', and 'hard', where the mouth is open and tongue is low",
-                "'thought', 'law', and 'war', where the lips are rounded during production"
-            ],
-            correctAnswer: 1,
-            explanation: "The long vowel /ɜː/ is found in 'nurse', 'stir', 'learn'. It is a central vowel. Don't confuse with /ɑː/ (father, start) or /ɔː/ (thought, law).",
-            topic: "Long Vowels — /ɜː/"
-        },
-        {
-            id: 10,
-            category: "Long Vowels",
-            question: "Which long vowel appears in the words 'goose', 'boot', and 'blue'?",
-            options: [
-                "/iː/, which is a high front vowel found in words like 'fleece' and 'meet'",
-                "/uː/, which is a high back vowel found in words like 'goose' and 'boot'",
-                "/ɔː/, which is a mid back vowel found in words like 'thought' and 'law'",
-                "/ɑː/, which is a low back vowel found in words like 'father' and 'start'"
-            ],
-            correctAnswer: 1,
-            explanation: "The long vowel /uː/ appears in 'goose', 'boot', 'blue'. It is produced with rounded lips and the tongue in a high back position.",
-            topic: "Long Vowels — /uː/"
-        },
-        {
-            id: 11,
-            category: "Diphthongs",
-            question: "A diphthong is a vowel sound that:",
-            options: [
-                "stays in exactly one position throughout the entire duration of the sound",
-                "glides from one vowel position to another within a single syllable",
-                "is always longer in duration than any of the five long vowel sounds",
-                "requires complete obstruction of airflow at some point during production"
-            ],
-            correctAnswer: 1,
-            explanation: "A diphthong is a vowel sound that glides from one position to another within a single syllable. Compare: /e/ (pure, stays in one position) vs /eɪ/ (diphthong, glides from /e/ toward /ɪ/).",
-            topic: "What is a Diphthong?"
-        },
-        {
-            id: 12,
-            category: "Diphthongs",
-            question: "How many diphthongs are there in English RP?",
-            options: [
-                "six diphthongs, divided into closing and centering types in RP English",
-                "eight diphthongs, divided into closing and centering types in RP English",
-                "ten diphthongs, divided into closing and centering types in RP English",
-                "five diphthongs, all of the closing type only found in RP English"
-            ],
-            correctAnswer: 1,
-            explanation: "There are 8 diphthongs in RP: 5 closing (/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, /aʊ/) and 3 centering (/ɪə/, /eə/, /ʊə/).",
-            topic: "Number of Diphthongs"
-        },
-        {
-            id: 13,
-            category: "Diphthongs",
-            question: "The closing diphthongs in English RP are:",
-            options: [
-                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
-                "/eɪ/, /aɪ/, /ɔɪ/, /əʊ/, and /aʊ/, which glide toward a closer vowel",
-                "/iː/, /uː/, /ɑː/, /ɔː/, and /ɜː/, which are held in one position",
-                "/ɪ/, /e/, /æ/, /ɒ/, /ʌ/, /ʊ/, and /ə/, which are all short sounds"
-            ],
-            correctAnswer: 1,
-            explanation: "The 5 closing diphthongs glide toward a closer (higher) vowel position: /eɪ/ (day), /aɪ/ (sky), /ɔɪ/ (boy), /əʊ/ (go), /aʊ/ (cow).",
-            topic: "Closing Diphthongs"
-        },
-        {
-            id: 14,
-            category: "Diphthongs",
-            question: "The centering diphthongs in English RP are:",
-            options: [
-                "/eɪ/, /aɪ/, and /ɔɪ/, which glide toward a higher vowel position",
-                "/ɪə/, /eə/, and /ʊə/, which glide toward the central vowel schwa /ə/",
-                "/əʊ/ and /aʊ/, which glide toward a rounded back vowel position",
-                "/iː/, /uː/, and /ɜː/, which are held steady in one single position"
-            ],
-            correctAnswer: 1,
-            explanation: "The 3 centering diphthongs glide toward schwa /ə/: /ɪə/ (near, here), /eə/ (hair, bear), /ʊə/ (tour, poor).",
-            topic: "Centering Diphthongs"
-        },
-        {
-            id: 15,
-            category: "Diphthongs",
-            question: "Which diphthong is found in the words 'day', 'make', and 'wait'?",
-            options: [
-                "/aɪ/, which is a closing diphthong found in 'sky', 'light', and 'eye'",
-                "/eɪ/, which is a closing diphthong found in 'day', 'make', and 'wait'",
-                "/ɔɪ/, which is a closing diphthong found in 'boy', 'voice', and 'toy'",
-                "/əʊ/, which is a closing diphthong found in 'go', 'home', and 'slow'"
-            ],
-            correctAnswer: 1,
-            explanation: "The diphthong /eɪ/ is found in 'day', 'make', 'wait'. It glides from /e/ toward /ɪ/.",
-            topic: "Closing Diphthongs — /eɪ/"
-        },
-        {
-            id: 16,
-            category: "Transcription",
-            question: "The correct IPA transcription of the word 'enough' is:",
-            options: [
-                "/enɒf/, with a short /e/ vowel and an /ɒ/ vowel before the final /f/",
-                "/ɪˈnʌf/, with a short /ɪ/ vowel, stress on the second syllable, and /ʌ/",
-                "/ɪˈnɔːf/, with a short /ɪ/ vowel and a long /ɔː/ before the final /f/",
-                "/ɑːnʌf/, with a long /ɑː/ vowel at the start and /ʌ/ in the second"
-            ],
-            correctAnswer: 1,
-            explanation: "The word 'enough' is transcribed /ɪˈnʌf/. The spelling 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. This shows how English spelling can be misleading.",
-            topic: "IPA Transcription"
-        },
-        {
-            id: 17,
-            category: "Transcription",
-            question: "Which transcription correctly represents the word 'father'?",
-            options: [
-                "/fæðə/, using the short vowel /æ/ as in 'trap' for the first syllable",
-                "/fɑːðə/, using the long vowel /ɑː/ as in 'start' for the first syllable",
-                "/fɒðə/, using the short vowel /ɒ/ as in 'lot' for the first syllable",
-                "/fʌðə/, using the short vowel /ʌ/ as in 'strut' for the first syllable"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /fɑːðə/. The 'a' in 'father' is the long vowel /ɑː/, not the short /æ/ as in 'fat'.",
-            topic: "IPA Transcription — Common Mistakes"
-        },
-        {
-            id: 18,
-            category: "Transcription",
-            question: "The word 'thought' is correctly transcribed as:",
-            options: [
-                "/θɒt/, with the short vowel /ɒ/ as found in the word 'lot' or 'not'",
-                "/θɔːt/, with the long vowel /ɔː/ as found in the word 'law' or 'war'",
-                "/θʌt/, with the short vowel /ʌ/ as found in the word 'cut' or 'but'",
-                "/θaʊt/, with the diphthong /aʊ/ as found in the word 'cow' or 'out'"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /θɔːt/. The 'ough' in 'thought' represents the long vowel /ɔː/, not the short /ɒ/.",
-            topic: "IPA Transcription — Common Mistakes"
-        },
-        {
-            id: 19,
-            category: "Short vs Long Vowels",
-            question: "The words 'cap' and 'cape' differ because:",
-            options: [
-                "both words contain the same short vowel /æ/ but different final consonants",
-                "'cap' has a short vowel /æ/ while 'cape' has a diphthong /eɪ/ instead",
-                "'cap' has a diphthong /eɪ/ while 'cape' has a short vowel /æ/ instead",
-                "both words contain the same diphthong /eɪ/ but different final consonants"
-            ],
-            correctAnswer: 1,
-            explanation: "'Cap' = /kæp/ (short vowel /æ/), 'cape' = /keɪp/ (diphthong /eɪ/). Adding a silent 'e' often changes the vowel from short to a diphthong or long sound.",
-            topic: "Short Vowel vs Diphthong"
-        },
-        {
-            id: 20,
-            category: "Phonemic Transcription",
-            question: "Phonemic transcription is defined as:",
-            options: [
-                "the process of writing down the grammatical rules of a spoken language",
-                "the process of representing each phoneme by its corresponding IPA symbol",
-                "the process of recording the pitch and intonation patterns of sentences",
-                "the process of translating written text from one language into another"
-            ],
-            correctAnswer: 1,
-            explanation: "Phonemic transcription is the process of representing each phoneme by an IPA symbol. It shows the distinctive sounds of a word, written between forward slashes /like this/.",
-            topic: "Phonemic Transcription — Definition"
-        }
-    ]
-},
-
-// ── EXAM 3: Consonants & Comprehensive Review (Sessions 2–3, 7) ─
-{
-    title: "Exam 3: Consonants & Review",
-    icon: "🎯",
-    label: "Sessions 2–3, 7",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Consonant Basics",
-            question: "Consonants are sounds that are produced with:",
-            options: [
-                "no restriction or obstruction to the airflow between the larynx and lips",
-                "some obstruction to the airflow as it passes from the larynx to the lips",
-                "the soft palate always lowered so that air escapes through the nasal passage",
-                "the vocal cords always vibrating throughout the entire sound production"
-            ],
-            correctAnswer: 1,
-            explanation: "Consonants involve some obstruction (partial or complete) of the airflow as it passes from the larynx to the lips. Vowels, by contrast, have no obstruction.",
-            topic: "Consonants — Definition"
-        },
-        {
-            id: 2,
-            category: "Consonant Classification",
-            question: "To describe any English consonant, you need to specify three key dimensions:",
-            options: [
-                "length, pitch, and volume of the sound during its production in speech",
-                "place of articulation, manner of articulation, and voicing of the sound",
-                "spelling, syllable position, and frequency of the sound in English words",
-                "tongue height, tongue advancement, and lip rounding during the sound"
-            ],
-            correctAnswer: 1,
-            explanation: "Every consonant is described by three dimensions: place of articulation (WHERE), manner of articulation (HOW), and voicing (whether vocal cords vibrate).",
-            topic: "Three Dimensions of Consonants"
-        },
-        {
-            id: 3,
-            category: "Place of Articulation",
-            question: "Place of articulation refers to:",
-            options: [
-                "how the air flows through the vocal tract during sound production",
-                "where in the mouth or throat the airflow is obstructed during production",
-                "whether the vocal cords vibrate or remain still during the sound",
-                "how long the sound is held before releasing the air from the mouth"
-            ],
-            correctAnswer: 1,
-            explanation: "Place of articulation = WHERE the obstruction happens — the point where two articulators come together to block or narrow the airflow.",
-            topic: "Place of Articulation — Definition"
-        },
-        {
-            id: 4,
-            category: "Plosives",
-            question: "The sounds /p/ and /b/ are called bilabial plosives because:",
-            options: [
-                "the tongue blade is pressed firmly against the alveolar ridge to block air",
-                "both lips are pressed together to completely block the airflow momentarily",
-                "the back of the tongue is pressed against the soft palate to stop the air",
-                "the tongue tip is placed between the upper and lower teeth to restrict air"
-            ],
-            correctAnswer: 1,
-            explanation: "/p/ and /b/ are bilabial — both (bi-) lips (-labial) press together to completely stop the airflow. They are plosives because the air is released with a small burst.",
-            topic: "Bilabial Plosives — /p/ /b/"
-        },
-        {
-            id: 5,
-            category: "Plosives",
-            question: "The sounds /t/ and /d/ are alveolar plosives because:",
-            options: [
-                "both lips are pressed together to completely stop the flow of air outward",
-                "the tongue blade is pressed against the alveolar ridge to block the airflow",
-                "the back of the tongue presses against the soft palate to stop air escape",
-                "the lower lip makes contact with the upper teeth to restrict the airflow"
-            ],
-            correctAnswer: 1,
-            explanation: "/t/ and /d/ are alveolar — the tongue blade presses against the alveolar ridge (the bony area behind the upper front teeth) to block the airflow.",
-            topic: "Alveolar Plosives — /t/ /d/"
-        },
-        {
-            id: 6,
-            category: "Plosives",
-            question: "The sounds /k/ and /g/ are velar plosives because:",
-            options: [
-                "the tongue blade is pressed firmly against the alveolar ridge to block air",
-                "the back of the tongue presses against the soft palate (velum) to stop air",
-                "both lips are firmly pressed together to completely block the air flow",
-                "the tongue tip is placed between the upper and lower front teeth closely"
-            ],
-            correctAnswer: 1,
-            explanation: "/k/ and /g/ are velar — the back of the tongue presses against the soft palate (velum), where the hard palate ends and the soft palate begins.",
-            topic: "Velar Plosives — /k/ /g/"
-        },
-        {
-            id: 7,
-            category: "Voicing",
-            question: "A voiced consonant is one in which:",
-            options: [
-                "the vocal cords do not vibrate at all during the production of the sound",
-                "the vocal cords vibrate during the production of the consonant sound",
-                "the air escapes through the nose rather than through the oral cavity",
-                "the airflow is completely blocked and then released with a burst of air"
-            ],
-            correctAnswer: 1,
-            explanation: "Voiced = vocal cords vibrate during the sound (e.g., /b/, /d/, /g/). Voiceless = vocal cords do NOT vibrate (e.g., /p/, /t/, /k/).",
-            topic: "Voiced vs Voiceless"
-        },
-        {
-            id: 8,
-            category: "Voicing",
-            question: "Which of the following groups contains ONLY voiceless consonants?",
-            options: [
-                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
-                "/p/, /t/, and /k/, which are all produced without vocal cord vibration",
-                "/m/, /n/, and /ŋ/, which are all produced through the nasal passage",
-                "/f/, /d/, and /k/, which combine both voiced and voiceless consonants"
-            ],
-            correctAnswer: 1,
-            explanation: "/p/, /t/, /k/ are all voiceless plosives — produced without vocal cord vibration. Their voiced counterparts are /b/, /d/, /g/.",
-            topic: "Voiceless Plosives"
-        },
-        {
-            id: 9,
-            category: "Voicing",
-            question: "Which of the following groups contains ONLY voiced consonants?",
-            options: [
-                "/p/, /t/, and /k/, which are produced without any vocal cord vibration",
-                "/b/, /d/, and /g/, which are all produced with vocal cord vibration",
-                "/p/, /b/, and /t/, which include both voiced and voiceless consonants",
-                "/f/, /s/, and /θ/, which are all produced without vocal cord vibration"
-            ],
-            correctAnswer: 1,
-            explanation: "/b/, /d/, /g/ are all voiced plosives — produced with vocal cord vibration. They are the voiced counterparts of voiceless /p/, /t/, /k/.",
-            topic: "Voiced Plosives"
-        },
-        {
-            id: 10,
-            category: "Aspiration",
-            question: "Voiceless plosives /p/, /t/, /k/ are aspirated (followed by a puff of air) when they appear in:",
-            options: [
-                "the final position of a word, such as in the words 'flap' and 'meet'",
-                "the initial position of a word, such as in the words 'tea' and 'kitchen'",
-                "any position within a word, regardless of whether it is initial or final",
-                "consonant clusters at the start of words, such as in 'spin' and 'skate'"
-            ],
-            correctAnswer: 1,
-            explanation: "Voiceless plosives are aspirated at the beginning of a word (initial position) — e.g., 'tea', 'kitchen', 'paper'. In clusters like 'sp-' or 'sk-', they are NOT aspirated.",
-            topic: "Aspiration of Plosives"
-        },
-        {
-            id: 11,
-            category: "Plosive Positions",
-            question: "The three positions a plosive can occur in within a word are:",
-            options: [
-                "stressed, unstressed, and neutral positions within a spoken word or phrase",
-                "initial position (CV), medial position (VCV), and final position (VC)",
-                "aspirated, unaspirated, and unreleased positions within a spoken word",
-                "bilabial, alveolar, and velar positions within the oral cavity of the speaker"
-            ],
-            correctAnswer: 1,
-            explanation: "Plosives can occur in: initial position (beginning of word, e.g., 'tall'), medial position (middle, e.g., 'steam'), and final position (end, e.g., 'meet').",
-            topic: "Positions of Plosives"
-        },
-        {
-            id: 12,
-            category: "IPA Consonants",
-            question: "The consonant sounds in the word 'twist' are:",
-            options: [
-                "/t/, /r/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/t/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/θ/, /w/, /s/, and /t/, totaling four consonant sounds in that word",
-                "/t/, /w/, /z/, and /t/, totaling four consonant sounds in that word"
-            ],
-            correctAnswer: 1,
-            explanation: "The consonants in 'twist' are: /t/ + /w/ + /s/ + /t/. The vowel is /ɪ/. So the full transcription would be /twɪst/.",
-            topic: "Identifying Consonant Sounds"
-        },
-        {
-            id: 13,
-            category: "IPA Consonants",
-            question: "The word 'church' is correctly transcribed as:",
-            options: [
-                "/ʃɜːtʃ/, starting with the fricative /ʃ/ and ending with the affricate /tʃ/",
-                "/tʃɜːtʃ/, starting with the affricate /tʃ/ and ending with the affricate /tʃ/",
-                "/sɜːtʃ/, starting with the fricative /s/ and ending with the affricate /tʃ/",
-                "/tʃɜːrtʃ/, starting with /tʃ/ and containing an /r/ before the final /tʃ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /tʃɜːtʃ/. The 'ch' at both the beginning and end represents the affricate /tʃ/, and the middle vowel is /ɜː/.",
-            topic: "IPA Transcription — Affricates"
-        },
-        {
-            id: 14,
-            category: "IPA Consonants",
-            question: "The word 'judge' is correctly transcribed as:",
-            options: [
-                "/jʌdʒ/, starting with the approximant /j/ and ending with the affricate /dʒ/",
-                "/dʒʌdʒ/, starting with the affricate /dʒ/ and ending with the affricate /dʒ/",
-                "/ɡʌdʒ/, starting with the velar plosive /ɡ/ and ending with the affricate /dʒ/",
-                "/dʒʌɡ/, starting with the affricate /dʒ/ and ending with the velar plosive /ɡ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /dʒʌdʒ/. The 'j' at the start and 'dge' at the end both represent the voiced affricate /dʒ/.",
-            topic: "IPA Transcription — Affricates"
-        },
-        {
-            id: 15,
-            category: "Speech Organs Review",
-            question: "The alveolar ridge is located:",
-            options: [
-                "at the very back of the oral cavity, just above the larynx area",
-                "directly behind the upper front teeth, forming a bony ridge in the mouth",
-                "at the soft fleshy area at the back of the roof of the mouth cavity",
-                "between the two lips, forming the opening of the oral cavity itself"
-            ],
-            correctAnswer: 1,
-            explanation: "The alveolar ridge is the bony ridge directly behind the upper front teeth. It is the place of articulation for alveolar sounds like /t/, /d/, /n/, /l/, /s/, /z/.",
-            topic: "The Alveolar Ridge"
-        },
-        {
-            id: 16,
-            category: "Speech Organs Review",
-            question: "The hard palate is located:",
-            options: [
-                "directly behind the upper front teeth, forming the alveolar ridge area",
-                "between the alveolar ridge and the soft palate, forming the roof of mouth",
-                "at the back of the mouth where it can be raised or lowered for sound",
-                "inside the larynx where the vocal cords are positioned for vibration"
-            ],
-            correctAnswer: 1,
-            explanation: "The hard palate is the hard, bony roof of the mouth located between the alveolar ridge (front) and the soft palate/velum (back).",
-            topic: "The Hard Palate"
-        },
-        {
-            id: 17,
-            category: "Comprehensive Review",
-            question: "How many phonemes are in the word 'listen'?",
-            options: [
-                "six phonemes: /l/ + /ɪ/ + /s/ + /t/ + /e/ + /n/ in the word 'listen'",
-                "five phonemes: /l/ + /ɪ/ + /s/ + /ə/ + /n/ with the 't' being silent",
-                "four phonemes: /l/ + /ɪ/ + /s/ + /n/ with both 't' and 'e' being silent",
-                "seven phonemes, one for each letter that appears in the spelling of it"
-            ],
-            correctAnswer: 1,
-            explanation: "The word 'listen' = /lɪsən/ = 5 phonemes. The 't' is silent, and the 'e' represents schwa /ə/. Remember: phonemes ≠ letters.",
-            topic: "Counting Phonemes"
-        },
-        {
-            id: 18,
-            category: "Comprehensive Review",
-            question: "The word 'shape' is correctly transcribed as:",
-            options: [
-                "/ʃæp/, using the short vowel /æ/ and no diphthong in the transcription",
-                "/ʃeɪp/, using the diphthong /eɪ/ which glides from /e/ toward /ɪ/ sound",
-                "/seɪp/, using the fricative /s/ at the start instead of the fricative /ʃ/",
-                "/tʃeɪp/, using the affricate /tʃ/ at the start instead of the fricative /ʃ/"
-            ],
-            correctAnswer: 1,
-            explanation: "The correct transcription is /ʃeɪp/. The 'sh' = /ʃ/, the 'a' + silent 'e' = diphthong /eɪ/, and the 'p' = /p/.",
-            topic: "IPA Transcription Practice"
-        },
-        {
-            id: 19,
-            category: "Comprehensive Review",
-            question: "Which statement about the respiratory system in speech is correct?",
-            options: [
-                "it modifies resonance in the vocal tract to create different speech sounds",
-                "it provides the airflow from the lungs that is needed for speech production",
-                "it produces vibration as air passes through the vocal cords in the larynx",
-                "it shapes the air into specific sounds using the tongue, lips, and palate"
-            ],
-            correctAnswer: 1,
-            explanation: "The respiratory system provides the airflow (egressive pulmonic airstream) from the lungs. The phonatory system creates vibration, and the articulatory system shapes the sounds.",
-            topic: "Respiratory System"
-        },
-        {
-            id: 20,
-            category: "Comprehensive Review",
-            question: "Adults often struggle more than babies with acquiring a new language's pronunciation because of:",
-            options: [
-                "physical changes in the vocal tract that prevent adults from making sounds",
-                "negative transfer, where the native language interferes with new sounds",
-                "a complete inability to hear the differences between unfamiliar sounds",
-                "the lack of any formal instruction or classroom exposure to the language"
-            ],
-            correctAnswer: 1,
-            explanation: "Adults are affected by their native language through negative transfer — their first language habits interfere with producing new sounds. Babies are great imitators and don't have this interference.",
-            topic: "Language Acquisition & Pronunciation"
-        }
-    ]
-}
-
-// ── EXAM 4: IPA Transcription Practice 1 (Consonants & Short Vowels) ─
-,{
-    title: "Exam 4: IPA Transcription – Part 1",
-    icon: "✍️",
-    label: "Consonants & Short Vowels",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'twist'?",
-            options: [
-                "/t/ + /w/ + /s/ + /t/",
-                "/θ/ + /w/ + /s/ + /t/",
-                "/t/ + /r/ + /s/ + /t/",
-                "/d/ + /w/ + /z/ + /t/"
-            ],
-            correctAnswer: 0,
-            explanation: "'Twist' = /twɪst/. The consonants are /t/, /w/, /s/, /t/. The 'tw' is not /θ/ or /r/.",
-            topic: "Consonant Symbols — twist"
-        },
-        {
-            id: 2,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'shrimp'?",
-            options: [
-                "/s/ + /r/ + /m/ + /p/",
-                "/ʃ/ + /r/ + /m/ + /p/",
-                "/tʃ/ + /r/ + /m/ + /p/",
-                "/ʃ/ + /r/ + /n/ + /p/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Shrimp' = /ʃrɪmp/. The 'sh' = /ʃ/ (not /s/ or /tʃ/), then /r/, /m/, /p/.",
-            topic: "Consonant Symbols — shrimp"
-        },
-        {
-            id: 3,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'thumb'?",
-            options: [
-                "/t/ + /m/ + /b/",
-                "/θ/ + /m/ + /b/",
-                "/θ/ + /m/ only",
-                "/t/ + /m/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Thumb' = /θʌm/. The 'th' = /θ/, the 'b' is silent, so consonants are /θ/ + /m/ only.",
-            topic: "Consonant Symbols — thumb"
-        },
-        {
-            id: 4,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'yacht'?",
-            options: [
-                "/j/ + /tʃ/ + /t/",
-                "/j/ + /k/ + /t/",
-                "/j/ + /t/ only",
-                "/dʒ/ + /t/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Yacht' = /jɒt/. The 'y' = /j/, the 'ch' is silent, so consonants are /j/ + /t/ only.",
-            topic: "Consonant Symbols — yacht"
-        },
-        {
-            id: 5,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'sing'?",
-            options: [
-                "/s/ + /n/ + /g/",
-                "/s/ + /ŋ/ + /g/",
-                "/s/ + /ŋ/ only",
-                "/z/ + /ŋ/ only"
-            ],
-            correctAnswer: 2,
-            explanation: "'Sing' = /sɪŋ/. The 'ng' = /ŋ/ (a single nasal sound), and /g/ is not pronounced separately. So: /s/ + /ŋ/.",
-            topic: "Consonant Symbols — sing"
-        },
-        {
-            id: 6,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'bomb'?",
-            options: [
-                "/b/ + /m/ + /b/",
-                "/b/ + /m/ only",
-                "/p/ + /m/ + /b/",
-                "/b/ + /n/ only"
-            ],
-            correctAnswer: 1,
-            explanation: "'Bomb' = /bɒm/. The final 'b' is silent, so the consonants are /b/ + /m/ only.",
-            topic: "Consonant Symbols — bomb"
-        },
-        {
-            id: 7,
-            category: "Consonant Identification",
-            question: "What are the consonant IPA symbols in the word 'jump'?",
-            options: [
-                "/j/ + /m/ + /p/",
-                "/dʒ/ + /m/ + /p/",
-                "/tʃ/ + /m/ + /p/",
-                "/dʒ/ + /n/ + /p/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Jump' = /dʒʌmp/. The 'j' = /dʒ/ (not /j/ or /tʃ/), then /m/ + /p/.",
-            topic: "Consonant Symbols — jump"
-        },
-        {
-            id: 8,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'sad':",
-            options: [
-                "/sʌd/",
-                "/sæd/",
-                "/sed/",
-                "/sɒd/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Sad' = /sæd/. The vowel is /æ/ as in 'trap', not /ʌ/ as in 'strut' or /e/ as in 'dress'.",
-            topic: "Short Vowel Transcription — /æ/"
-        },
-        {
-            id: 9,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'luck':",
-            options: [
-                "/læk/",
-                "/lɒk/",
-                "/lʌk/",
-                "/lʊk/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Luck' = /lʌk/. The vowel is /ʌ/ as in 'strut'. Don't confuse with 'lack' /læk/ or 'look' /lʊk/ or 'lock' /lɒk/.",
-            topic: "Short Vowel Transcription — /ʌ/"
-        },
-        {
-            id: 10,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'ship':",
-            options: [
-                "/ʃiːp/",
-                "/ʃɪp/",
-                "/sɪp/",
-                "/ʃep/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Ship' = /ʃɪp/. The vowel is short /ɪ/, not long /iː/ (that would be 'sheep'). The 'sh' = /ʃ/ not /s/.",
-            topic: "Short Vowel Transcription — /ɪ/"
-        },
-        {
-            id: 11,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'often':",
-            options: [
-                "/ɒftən/",
-                "/ʌften/",
-                "/ɒfən/",
-                "/æfən/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Often' = /ɒfən/. The 't' is silent, the first vowel is /ɒ/, and the second is schwa /ə/.",
-            topic: "Short Vowel Transcription — /ɒ/ + /ə/"
-        },
-        {
-            id: 12,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'sister':",
-            options: [
-                "/sɪstər/",
-                "/sɪstɜː/",
-                "/sɪstə/",
-                "/sestə/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Sister' = /sɪstə/. In RP, the final 'er' = schwa /ə/ (not /ər/ as in American English). The first vowel is /ɪ/.",
-            topic: "Short Vowel Transcription — /ɪ/ + /ə/"
-        },
-        {
-            id: 13,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'jam':",
-            options: [
-                "/jæm/",
-                "/dʒæm/",
-                "/tʃæm/",
-                "/dʒɑːm/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Jam' = /dʒæm/. The 'j' in English = /dʒ/ (not /j/ which is the 'y' sound). The vowel is /æ/.",
-            topic: "Short Vowel Transcription — /dʒ/ + /æ/"
-        },
-        {
-            id: 14,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'foot':",
-            options: [
-                "/fuːt/",
-                "/fʊt/",
-                "/fɒt/",
-                "/fʌt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Foot' = /fʊt/. The vowel is short /ʊ/ (not long /uː/ — that would be 'food'). Don't confuse with /ɒ/ or /ʌ/.",
-            topic: "Short Vowel Transcription — /ʊ/"
-        },
-        {
-            id: 15,
-            category: "Short Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'accent':",
-            options: [
-                "/æksənt/",
-                "/ɑːksent/",
-                "/æksent/",
-                "/eksənt/"
-            ],
-            correctAnswer: 2,
-            explanation: "'Accent' = /æksent/. The first vowel is /æ/ and the second is /e/. The 'cc' = /ks/.",
-            topic: "Short Vowel Transcription — /æ/ + /e/"
-        }
-    ]
-},
-
-// ── EXAM 5: IPA Transcription Practice 2 (Long Vowels, Diphthongs & Full Words) ─
-{
-    title: "Exam 5: IPA Transcription – Part 2",
-    icon: "🎧",
-    label: "Long Vowels, Diphthongs & Mixed",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'nurse':",
-            options: [
-                "/nʌrs/",
-                "/nɜːs/",
-                "/nɒːs/",
-                "/nɑːs/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Nurse' = /nɜːs/. The vowel is the long central vowel /ɜː/. A common mistake is using /ʌ/ (short) instead of /ɜː/ (long).",
-            topic: "Long Vowel Transcription — /ɜː/"
-        },
-        {
-            id: 2,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'thought':",
-            options: [
-                "/θɒt/",
-                "/θɔːt/",
-                "/θaʊt/",
-                "/θʌt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Thought' = /θɔːt/. The vowel is the long /ɔː/ (as in 'law', 'war'), not the short /ɒ/ as in 'lot'.",
-            topic: "Long Vowel Transcription — /ɔː/"
-        },
-        {
-            id: 3,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'goose':",
-            options: [
-                "/ɡʊs/",
-                "/ɡuːs/",
-                "/ɡɒːs/",
-                "/ɡʌs/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Goose' = /ɡuːs/. The vowel is the long /uː/. Don't confuse with short /ʊ/ (that would be closer to 'good' /ɡʊd/).",
-            topic: "Long Vowel Transcription — /uː/"
-        },
-        {
-            id: 4,
-            category: "Long Vowel Transcription",
-            question: "Choose the correct IPA transcription of the word 'machine':",
-            options: [
-                "/mæʃɪn/",
-                "/məˈʃiːn/",
-                "/mɑːʃɪn/",
-                "/mætʃɪn/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Machine' = /məˈʃiːn/. The first syllable has schwa /ə/, the 'ch' = /ʃ/, and the final vowel is long /iː/.",
-            topic: "Long Vowel Transcription — /iː/"
-        },
-        {
-            id: 5,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'note':",
-            options: [
-                "/nɒt/",
-                "/nəʊt/",
-                "/naʊt/",
-                "/nɔːt/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Note' = /nəʊt/. It contains the closing diphthong /əʊ/ (as in 'go', 'home'). Don't confuse with 'not' = /nɒt/.",
-            topic: "Diphthong Transcription — /əʊ/"
-        },
-        {
-            id: 6,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'tape':",
-            options: [
-                "/tæp/",
-                "/teɪp/",
-                "/tiːp/",
-                "/taɪp/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Tape' = /teɪp/. It contains the closing diphthong /eɪ/ (as in 'day', 'make'). Don't confuse with 'tap' = /tæp/ or 'type' = /taɪp/.",
-            topic: "Diphthong Transcription — /eɪ/"
-        },
-        {
-            id: 7,
-            category: "Diphthong Transcription",
-            question: "Choose the correct IPA transcription of the word 'stove':",
-            options: [
-                "/stɒv/",
-                "/stəʊv/",
-                "/staʊv/",
-                "/stʌv/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Stove' = /stəʊv/. It contains the closing diphthong /əʊ/. Don't confuse with 'stop' = /stɒp/ which has the short /ɒ/.",
-            topic: "Diphthong Transcription — /əʊ/"
-        },
-        {
-            id: 8,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'chip':",
-            options: [
-                "/ʃɪp/",
-                "/tʃɪp/",
-                "/kɪp/",
-                "/tʃiːp/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Chip' = /tʃɪp/. The 'ch' = affricate /tʃ/ (not /ʃ/ — that would be 'ship'). The vowel is short /ɪ/ (not /iː/ — that would be 'cheap').",
-            topic: "Affricate Transcription — /tʃ/"
-        },
-        {
-            id: 9,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'hedge':",
-            options: [
-                "/hedz/",
-                "/hedʒ/",
-                "/hetʃ/",
-                "/hed/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Hedge' = /hedʒ/. The 'dge' = voiced affricate /dʒ/. Don't confuse with /tʃ/ (voiceless) or /z/.",
-            topic: "Affricate Transcription — /dʒ/"
-        },
-        {
-            id: 10,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'bulge':",
-            options: [
-                "/bʊldʒ/",
-                "/bʌldʒ/",
-                "/bʌlɡ/",
-                "/bʌldz/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Bulge' = /bʌldʒ/. The vowel is /ʌ/ (not /ʊ/), and the final sound is the affricate /dʒ/ (not /ɡ/ or /dz/).",
-            topic: "Affricate Transcription — /dʒ/"
-        },
-        {
-            id: 11,
-            category: "Affricate Transcription",
-            question: "Choose the correct IPA transcription of the word 'watched':",
-            options: [
-                "/wɒtʃɪd/",
-                "/wɒtʃt/",
-                "/wætʃt/",
-                "/wɒtʃd/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Watched' = /wɒtʃt/. The vowel is /ɒ/, and the past tense '-ed' is pronounced /t/ after the voiceless /tʃ/. No extra syllable.",
-            topic: "Affricate Transcription — /tʃ/ + past tense"
-        },
-        {
-            id: 12,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'enough':",
-            options: [
-                "/enɒf/",
-                "/ɪˈnʌf/",
-                "/ɪˈnɔːf/",
-                "/ɑːnʌf/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Enough' = /ɪˈnʌf/. The 'e' = /ɪ/, 'ou' = /ʌ/, and 'gh' = /f/. English spelling is very misleading here.",
-            topic: "Full Word Transcription — enough"
-        },
-        {
-            id: 13,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'comb':",
-            options: [
-                "/kɒmb/",
-                "/kəʊm/",
-                "/kʌm/",
-                "/kɒm/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Comb' = /kəʊm/. The vowel is the diphthong /əʊ/ and the final 'b' is silent. Only 3 phonemes: /k/ + /əʊ/ + /m/.",
-            topic: "Full Word Transcription — comb"
-        },
-        {
-            id: 14,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'drama':",
-            options: [
-                "/drɑːmə/",
-                "/dræmə/",
-                "/drɒmə/",
-                "/drʌmə/"
-            ],
-            correctAnswer: 0,
-            explanation: "'Drama' = /drɑːmə/. The first vowel is long /ɑː/ (as in 'father'), and the second is schwa /ə/.",
-            topic: "Full Word Transcription — drama"
-        },
-        {
-            id: 15,
-            category: "Full Word Transcription",
-            question: "Choose the correct IPA transcription of the word 'squelch':",
-            options: [
-                "/skwelk/",
-                "/skweltʃ/",
-                "/skwelʃ/",
-                "/sweltʃ/"
-            ],
-            correctAnswer: 1,
-            explanation: "'Squelch' = /skweltʃ/. The 'squ' = /skw/, the vowel is /e/, and the 'lch' = /ltʃ/.",
-            topic: "Full Word Transcription — squelch"
-        }
-    ]
-}
-
-// ── EXAM 6: Label the Articulators Diagram ───────────────────
-,{
-    title: "Exam 6: Label the Articulators",
-    icon: "🫁",
-    label: "Diagram Practice",
-    lang: "en",
-    type: "diagram"
-}
-
-,
-{
-    title: "Exam 7: Syllables & Syllable Counting",
-    icon: "📊",
-    label: "Session 8 & 10",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1, category: "Syllable Definition",
-            question: "Which of the following is TRUE about a syllable?",
-            options: [
-                "A syllable must always contain at least one consonant sound in it",
-                "A syllable must always contain at least one vowel sound in it",
-                "A syllable can never form a complete word on its own in English",
-                "A syllable is always made up of exactly two phonemes together"
-            ],
-            correctAnswer: 1,
-            explanation: "A syllable must contain a vowel — that is its core. It may or may not have consonants before or after the vowel. It can be a whole word (e.g., 'cup') or part of one.",
-            topic: "Syllable Definition"
-        },
-        {
-            id: 2, category: "Syllable Definition",
-            question: "How do you determine the number of syllables in a word?",
-            options: [
-                "Count the number of consonant sounds in the IPA transcription of the word",
-                "Count the number of vowel sounds in the IPA transcription of the word",
-                "Count the total number of letters in the standard spelling of the word",
-                "Count the number of phonemes in the IPA transcription of the word"
-            ],
-            correctAnswer: 1,
-            explanation: "The number of vowel sounds = the number of syllables. For example, 'cup' /kʌp/ has 1 vowel = 1 syllable; 'hotel' has 2 vowels = 2 syllables.",
-            topic: "Counting Syllables"
-        },
-        {
-            id: 3, category: "Syllable Types",
-            question: "The three types of words based on syllable count are:",
-            options: [
-                "short words, medium words, and long words based on letter count",
-                "monosyllabic, disyllabic, and multisyllabic based on vowel count",
-                "simple words, compound words, and complex words based on morphemes",
-                "open syllable, closed syllable, and mixed syllable based on endings"
-            ],
-            correctAnswer: 1,
-            explanation: "Monosyllabic = 1 syllable (e.g., 'cup'), disyllabic = 2 syllables (e.g., 'hotel'), multisyllabic = 3 or more syllables (e.g., 'hamburger').",
-            topic: "Monosyllabic / Disyllabic / Multisyllabic"
-        },
-        {
-            id: 4, category: "Syllable Counting",
-            question: "How many syllables does the word 'information' /ɪn.fəˈmeɪ.ʃən/ have?",
-            options: [
-                "3 syllables, because it has three consonant clusters in its transcription",
-                "4 syllables, because it has four vowel sounds in its IPA transcription",
-                "5 syllables, because it has five distinct phonemes in the transcription",
-                "6 syllables, because the word has eleven letters in its written form"
-            ],
-            correctAnswer: 1,
-            explanation: "'Information' = /ɪn.fəˈmeɪ.ʃən/ — 4 vowel sounds (/ɪ/, /ə/, /eɪ/, /ə/) = 4 syllables. It is a multisyllabic word.",
-            topic: "Syllable Counting — information"
-        },
-        {
-            id: 5, category: "Syllable Counting",
-            question: "How many syllables does the word 'restaurant' /ˈres.trɒnt/ have?",
-            options: [
-                "1 syllable, because it is a short monosyllabic word in spoken English",
-                "2 syllables, because it has two vowel sounds in its IPA transcription",
-                "3 syllables, because it has three separate parts when you spell it out",
-                "4 syllables, because the word has ten letters in its written spelling"
-            ],
-            correctAnswer: 1,
-            explanation: "'Restaurant' = /ˈres.trɒnt/ — 2 vowel sounds (/e/, /ɒ/) = 2 syllables. Don't be misled by the spelling.",
-            topic: "Syllable Counting — restaurant"
-        },
-        {
-            id: 6, category: "Syllable Counting",
-            question: "Which of the following words is monosyllabic?",
-            options: [
-                "'garden' /ˈɡɑː.dən/, which contains two separate vowel sounds in it",
-                "'train' /treɪn/, which contains only one single vowel sound in it",
-                "'focus' /ˈfəʊ.kəs/, which contains two separate vowel sounds in it",
-                "'station' /ˈsteɪ.ʃən/, which contains two separate vowel sounds in it"
-            ],
-            correctAnswer: 1,
-            explanation: "'Train' = /treɪn/ — only 1 vowel sound (the diphthong /eɪ/) = 1 syllable = monosyllabic. Remember: a diphthong counts as ONE vowel sound.",
-            topic: "Monosyllabic Words"
-        },
-        {
-            id: 7, category: "Syllable Counting",
-            question: "How many syllables does the word 'graduation' /ɡrædʒ.u.ˈeɪ.ʃən/ have?",
-            options: [
-                "3 syllables, because it has three consonant groups in its transcription",
-                "4 syllables, because it has four vowel sounds in its IPA transcription",
-                "5 syllables, because the word has ten letters in its written spelling",
-                "2 syllables, because it has only two stressed parts when spoken aloud"
-            ],
-            correctAnswer: 1,
-            explanation: "'Graduation' = /ɡrædʒ.u.ˈeɪ.ʃən/ — 4 vowel sounds (/æ/, /u/, /eɪ/, /ə/) = 4 syllables.",
-            topic: "Syllable Counting — graduation"
-        },
-        {
-            id: 8, category: "Syllable Counting",
-            question: "How many syllables does the word 'telephones' /ˈtel.ɪ.fəʊnz/ have?",
-            options: [
-                "2 syllables, because the word has two main stressed parts when spoken",
-                "3 syllables, because it has three vowel sounds in its IPA transcription",
-                "4 syllables, because the word has ten letters in its written spelling",
-                "5 syllables, because each letter group forms its own separate syllable"
-            ],
-            correctAnswer: 1,
-            explanation: "'Telephones' = /ˈtel.ɪ.fəʊnz/ — 3 vowel sounds (/e/, /ɪ/, /əʊ/) = 3 syllables.",
-            topic: "Syllable Counting — telephones"
-        },
-        {
-            id: 9, category: "Syllable Counting",
-            question: "How many syllables does the word 'ticket office' /ˈtɪk.ɪt.ɒf.ɪs/ have?",
-            options: [
-                "2 syllables, because it is a two-word phrase with one syllable each",
-                "4 syllables, because it has four vowel sounds in its IPA transcription",
-                "3 syllables, because it has three consonant clusters in its transcription",
-                "5 syllables, because the phrase has twelve letters in its written form"
-            ],
-            correctAnswer: 1,
-            explanation: "'Ticket office' = /ˈtɪk.ɪt.ɒf.ɪs/ — 4 vowel sounds (/ɪ/, /ɪ/, /ɒ/, /ɪ/) = 4 syllables.",
-            topic: "Syllable Counting — ticket office"
-        },
-        {
-            id: 10, category: "Syllable Counting",
-            question: "How many syllables does the month 'January' /ˈdʒæn.jʊ.ə.ri/ have?",
-            options: [
-                "2 syllables, because it has two stressed parts when spoken out loud",
-                "4 syllables, because it has four vowel sounds in its IPA transcription",
-                "3 syllables, because it has three letter groups in its written spelling",
-                "5 syllables, because the word has seven letters in its written form"
-            ],
-            correctAnswer: 1,
-            explanation: "'January' = /ˈdʒæn.jʊ.ə.ri/ — 4 vowel sounds (/æ/, /ʊ/, /ə/, /i/) = 4 syllables.",
-            topic: "Syllable Counting — January"
-        },
-        {
-            id: 11, category: "Syllable Counting",
-            question: "Which month is monosyllabic (has only 1 syllable)?",
-            options: [
-                "April /ˈeɪ.prəl/, which has two vowel sounds and therefore two syllables",
-                "March /mɑːtʃ/, which has only one vowel sound and therefore one syllable",
-                "August /ˈɔː.ɡəst/, which has two vowel sounds and therefore two syllables",
-                "July /dʒʊˈlaɪ/, which has two vowel sounds and therefore two syllables"
-            ],
-            correctAnswer: 1,
-            explanation: "'March' = /mɑːtʃ/ — 1 vowel sound (/ɑː/) = 1 syllable. May and June are also monosyllabic months.",
-            topic: "Syllable Counting — Months"
-        },
-        {
-            id: 12, category: "Syllabification Rules",
-            question: "A monosyllabic word is never divided into syllables. This means:",
-            options: [
-                "words like 'garden' and 'hotel' cannot be split with a dot in transcription",
-                "words like 'cup' and 'break' have no syllable boundary dot in transcription",
-                "all words with more than four letters must be divided into separate syllables",
-                "only words with three or more vowels need syllable boundary dots in IPA"
-            ],
-            correctAnswer: 1,
-            explanation: "Monosyllabic words (1 syllable) like 'cup' /kʌp/ and 'break' /breɪk/ are never divided — no dot. Only disyllabic and multisyllabic words have syllable boundary dots.",
-            topic: "Syllabification Rules"
-        }
-    ]
-}
-
-,
-{
-    title: "Exam 8: Syllabification, Stress & Connected Speech",
-    icon: "🔗",
-    label: "Sessions 10 – Elision & Assimilation",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1, category: "Syllabification Rules",
-            question: "Syllabification Rule #1 states: when two consonants come between two vowels in a disyllabic word, the syllable boundary goes:",
-            options: [
-                "before both consonants, so they both join the second syllable together",
-                "between the two consonants, splitting them across the two syllables",
-                "after both consonants, so they both stay with the first syllable together",
-                "there is no boundary needed because two consonants cancel each other"
-            ],
-            correctAnswer: 1,
-            explanation: "Rule #1: V-CC-V → split between the two consonants. E.g., 'sister' = /ˈsɪs.tə/, 'hungry' = /ˈhʌŋ.ɡrɪ/, 'window' = /ˈwɪn.dəʊ/.",
-            topic: "Syllabification Rule #1"
-        },
-        {
-            id: 2, category: "Syllabification Rules",
-            question: "According to Rule #1, the correct syllabification of 'symbol' is:",
-            options: [
-                "/ˈsɪ.mbəl/, with the boundary before both consonants /m/ and /b/",
-                "/ˈsɪm.bəl/, with the boundary between the consonants /m/ and /b/",
-                "/ˈsɪmb.əl/, with the boundary after both consonants /m/ and /b/",
-                "/sɪm.ˈbəl/, with the stress on the second syllable instead of the first"
-            ],
-            correctAnswer: 1,
-            explanation: "'Symbol': two consonants /m/ and /b/ between two vowels → split between them: /ˈsɪm.bəl/. Same pattern as 'sister' /ˈsɪs.tə/ and 'answer' /ˈɑːn.sə/.",
-            topic: "Syllabification Rule #1 — symbol"
-        },
-        {
-            id: 3, category: "Syllabification Rules",
-            question: "Syllabification Rule #2 states: a compound word is divided:",
-            options: [
-                "according to how many vowel sounds appear in the entire compound word",
-                "between the two words that make up the compound word at their boundary",
-                "by placing consonants at the start of the second part of the compound word",
-                "only if the compound word has more than three total syllables in it"
-            ],
-            correctAnswer: 1,
-            explanation: "Rule #2: Compound words split at the word boundary. E.g., 'firefly' = /faɪə.flaɪ/, 'softball' = /sɒft.bɔːl/, 'redhead' = /red.hed/, 'makeup' = /meɪk.ʌp/.",
-            topic: "Syllabification Rule #2 — Compounds"
-        },
-        {
-            id: 4, category: "Word Stress",
-            question: "Content words that receive stress in a sentence include:",
-            options: [
-                "articles, prepositions, pronouns, and conjunctions used in the sentence",
-                "nouns, adjectives, main verbs, and adverbs used in the sentence",
-                "only the first and last words that appear in any given English sentence",
-                "only monosyllabic words because they have just one syllable to stress"
-            ],
-            correctAnswer: 1,
-            explanation: "Content words (nouns, adjectives, main verbs, adverbs) carry stress. Function words (articles, prepositions, pronouns, conjunctions) are usually unstressed.",
-            topic: "Content Words vs Function Words"
-        },
-        {
-            id: 5, category: "Word Stress",
-            question: "In the transcription /ðæt ɪz ə ˈbɑː.skɪt/, the stress mark ˈ appears before:",
-            options: [
-                "'that', because it is the first word and most important word in the sentence",
-                "'basket', because it is a noun and nouns are content words that get stress",
-                "'is', because it is the main verb that connects the subject to the predicate",
-                "'a', because articles always receive primary stress in English sentences"
-            ],
-            correctAnswer: 1,
-            explanation: "In 'That is a basket', only 'basket' (a noun = content word) gets primary stress. 'That', 'is', and 'a' are function words and remain unstressed.",
-            topic: "Word Stress in Sentences"
-        },
-        {
-            id: 6, category: "Elision",
-            question: "Elision is best defined as:",
-            options: [
-                "adding extra sounds between words to make speech flow more smoothly",
-                "the omission of certain sounds in certain contexts during connected speech",
-                "changing one sound into a different sound because of a neighbouring word",
-                "placing stress on function words instead of content words in a sentence"
-            ],
-            correctAnswer: 1,
-            explanation: "Elision = omission (dropping) of sounds. Most commonly, /t/ and /d/ are dropped when 'sandwiched' between two consonants (C-t/d-C).",
-            topic: "Elision — Definition"
-        },
-        {
-            id: 7, category: "Elision",
-            question: "In 'the next day' → /ðə neks deɪ/, the elided (dropped) sound is:",
-            options: [
-                "/ð/ from 'the', because it is a weak function word in the sentence",
-                "/t/ from 'next', because it is sandwiched between consonants /s/ and /d/",
-                "/d/ from 'day', because it comes at the start of the following word",
-                "/n/ from 'next', because nasal sounds are always dropped before stops"
-            ],
-            correctAnswer: 1,
-            explanation: "'Next day': the /t/ in 'next' is between /s/ and /d/ (consonant-t-consonant), so it gets elided: /nekst deɪ/ → /neks deɪ/.",
-            topic: "Elision — next day"
-        },
-        {
-            id: 8, category: "Elision",
-            question: "In 'hold the dog' → /həʊl ðə dɒɡ/, which sound is elided?",
-            options: [
-                "/h/ from 'hold', because /h/ is commonly dropped in connected speech",
-                "/d/ from 'hold', because it is sandwiched between consonants /l/ and /ð/",
-                "/ð/ from 'the', because function words always lose their first consonant",
-                "/ɒ/ from 'dog', because short vowels are dropped in fast speech often"
-            ],
-            correctAnswer: 1,
-            explanation: "'Hold the dog': /d/ in 'hold' is between /l/ and /ð/ (C-d-C), so it gets elided: /həʊld/ → /həʊl/.",
-            topic: "Elision — hold the dog"
-        },
-        {
-            id: 9, category: "Assimilation",
-            question: "Assimilation is best defined as:",
-            options: [
-                "the omission of certain sounds when they are sandwiched between consonants",
-                "sounds in one word causing changes in sounds of neighbouring words",
-                "the addition of extra vowel sounds between consonant clusters in speech",
-                "placing the stress mark on the wrong syllable during fast speech delivery"
-            ],
-            correctAnswer: 1,
-            explanation: "Assimilation = a sound changes to become more similar to a neighbouring sound. It happens across word boundaries in connected speech.",
-            topic: "Assimilation — Definition"
-        },
-        {
-            id: 10, category: "Assimilation",
-            question: "Before a velar consonant (/k/ or /g/), the alveolar /n/ changes to:",
-            options: [
-                "/m/, because bilabial sounds always replace alveolar sounds before velars",
-                "/ŋ/, because the nasal moves to the velar position to match the next sound",
-                "/l/, because lateral sounds are easier to produce before velar consonants",
-                "/n/ stays unchanged, because nasal sounds never assimilate in English"
-            ],
-            correctAnswer: 1,
-            explanation: "Before velars: /n/ → /ŋ/ (e.g., 'ten cars' → /teŋ kɑːz/), /t/ → /k/ (e.g., 'that kid'), /d/ → /g/ (e.g., 'good girl').",
-            topic: "Assimilation — Before Velars"
-        },
-        {
-            id: 11, category: "Assimilation",
-            question: "Before a bilabial consonant (/m/, /b/, /p/), the alveolar /n/ changes to:",
-            options: [
-                "/ŋ/, because velar nasals replace alveolar nasals before all consonants",
-                "/m/, because the nasal moves to the bilabial position to match the next sound",
-                "/l/, because lateral sounds replace nasals before bilabial consonants",
-                "/n/ stays the same, because /n/ never changes before bilabial sounds"
-            ],
-            correctAnswer: 1,
-            explanation: "Before bilabials: /n/ → /m/ (e.g., 'ten men' → /tem men/), /t/ → /p/ (e.g., 'hot mushrooms' → /hɒp mʌʃrʊmz/), /d/ → /b/ (e.g., 'bad boys' → /bæb bɔɪz/).",
-            topic: "Assimilation — Before Bilabials"
-        },
-        {
-            id: 12, category: "Assimilation",
-            question: "In the phrase 'Did you swim?', the sounds /d/ + /j/ combine through assimilation to produce:",
-            options: [
-                "/tʃ/, the voiceless affricate, making it sound like 'ditchoo swim'",
-                "/dʒ/, the voiced affricate, making it sound like 'didjoo swim'",
-                "/ʒ/, the voiced fricative, making it sound like 'dizhoo swim'",
-                "/ʃ/, the voiceless fricative, making it sound like 'dishoo swim'"
-            ],
-            correctAnswer: 1,
-            explanation: "/d/ + /j/ → /dʒ/ (voiced affricate). Similarly, /t/ + /j/ → /tʃ/ (e.g., 'Nice to meet you' → 'meetchoo'). These are coalescent assimilations.",
-            topic: "Assimilation — /d/+/j/ and /t/+/j/"
-        }
-    ]
-}
-
-,
-{
-    title: "Exam 9: Rhythm & Stress Patterns",
-    icon: "🥁",
-    label: "Session 11 – Rhythm",
-    lang: "en",
-    type: "mcq",
-    questions: [
-        {
-            id: 1, category: "Rhythm Definition",
-            question: "English rhythm is described as 'stress-timed', which means:",
-            options: [
-                "every syllable in English takes exactly the same amount of time to say",
-                "stressed syllables occur at roughly regular intervals regardless of unstressed ones",
-                "only the last word in every sentence receives any rhythmic stress at all",
-                "the number of letters in a word determines how much time it takes to say"
-            ],
-            correctAnswer: 1,
-            explanation: "English is stress-timed: accented (stressed) syllables tend to occur at regular time intervals. Unstressed syllables between them are 'squashed' to fit, no matter how many there are.",
-            topic: "Stress-Timed Rhythm"
-        },
-        {
-            id: 2, category: "Rhythm Definition",
-            question: "Rhythm in English is created by:",
-            options: [
-                "the number of consonant clusters that appear in each spoken sentence",
-                "the pattern of accented and unaccented syllables as we speak",
-                "the pitch of the speaker's voice going up and down during sentences",
-                "the speed at which individual vowel sounds are produced by the speaker"
-            ],
-            correctAnswer: 1,
-            explanation: "Rhythm = the pattern of accented (stressed) and unaccented (unstressed) syllables. We make unaccented syllables weak and space accented ones at regular intervals.",
-            topic: "Rhythm — Definition"
-        },
-        {
-            id: 3, category: "Content vs Function Words",
-            question: "Which of the following are content words that normally receive stress?",
-            options: [
-                "articles, prepositions, pronouns, and conjunctions in a spoken sentence",
-                "nouns, main verbs, adjectives, and adverbs in a spoken sentence",
-                "only the first word and the last word that appear in any given sentence",
-                "all words receive equal stress because English treats every word the same"
-            ],
-            correctAnswer: 1,
-            explanation: "Content words (nouns, main verbs, adjectives, adverbs) carry meaning and are stressed. Function words (pronouns, conjunctions, articles, prepositions) are usually unstressed/weak.",
-            topic: "Content Words vs Function Words"
-        },
-        {
-            id: 4, category: "Content vs Function Words",
-            question: "Which of the following groups contains ONLY function words?",
-            options: [
-                "'table', 'beautiful', 'quickly', and 'run' which all carry lexical meaning",
-                "'the', 'and', 'for', and 'it' which serve grammatical purposes only",
-                "'never', 'always', 'happy', and 'dog' which describe things and actions",
-                "'went', 'big', 'slowly', and 'house' which are all stressed in sentences"
-            ],
-            correctAnswer: 1,
-            explanation: "Function words: articles (a, an, the), conjunctions (and, but, so, or), prepositions (to, for, at, in, from), pronouns (he, she, it, they). They are weak/unaccented in normal speech.",
-            topic: "Function Words — Examples"
-        },
-        {
-            id: 5, category: "Content vs Function Words",
-            question: "Function words are accented only when:",
-            options: [
-                "they appear at the beginning of a sentence in formal written English",
-                "they are used for contrast or emphasis in a specific context of speech",
-                "they are followed by a content word that is more than two syllables long",
-                "the speaker is talking slowly and carefully in a classroom or lecture"
-            ],
-            correctAnswer: 1,
-            explanation: "Function words are normally unaccented, but they CAN receive stress when used for contrast or emphasis. E.g., 'I said FOR him, not TO him.'",
-            topic: "Function Words — Exception"
-        },
-        {
-            id: 6, category: "Rhythm Patterns",
-            question: "In the phrase 'a piece of cake', which words carry the rhythmic beats (stress)?",
-            options: [
-                "'a' and 'of' carry the beats because they come before the content words",
-                "'piece' and 'cake' carry the beats because they are the content words",
-                "all four words carry equal beats because the phrase has only four words",
-                "only 'cake' carries a beat because it is the last and most important word"
-            ],
-            correctAnswer: 1,
-            explanation: "'Piece' (noun) and 'cake' (noun) are content words → stressed. 'A' (article) and 'of' (preposition) are function words → unstressed. The beats fall on 'piece' and 'cake'.",
-            topic: "Rhythm — Identifying Beats"
-        },
-        {
-            id: 7, category: "Rhythm Patterns",
-            question: "In 'I enjoyed the play', the function words are:",
-            options: [
-                "'enjoyed' and 'play', because they are the main content words here",
-                "'I' and 'the', because they are a pronoun and an article respectively",
-                "'I' and 'enjoyed', because they appear at the beginning of the sentence",
-                "'the' and 'play', because they appear at the end of the sentence"
-            ],
-            correctAnswer: 1,
-            explanation: "'I' = pronoun (function word), 'the' = article (function word). 'Enjoyed' = verb (content word) and 'play' = noun (content word) receive stress.",
-            topic: "Identifying Function Words"
-        },
-        {
-            id: 8, category: "The Squashing Effect",
-            question: "The 'squashing effect' in English rhythm means:",
-            options: [
-                "stressed syllables are made shorter when many of them appear in a row",
-                "unstressed syllables between beats are spoken rapidly to keep regular timing",
-                "all syllables in a long word are pronounced at exactly the same slow speed",
-                "function words are completely silent and never actually pronounced at all"
-            ],
-            correctAnswer: 1,
-            explanation: "When many unaccented syllables fall between rhythmic beats, they are 'squashed' — pronounced rapidly to fit the same time interval. This keeps the beats regular.",
-            topic: "The Squashing Effect"
-        },
-        {
-            id: 9, category: "Rhythm Practice",
-            question: "In 'Salt and pepper', the stressed content words are:",
-            options: [
-                "only 'and', because it connects the two nouns and is therefore important",
-                "'salt' and 'pepper', because they are nouns and carry the main meaning",
-                "all three words receive equal stress because the phrase is very short",
-                "only 'pepper', because it is the longest word and comes at the end"
-            ],
-            correctAnswer: 1,
-            explanation: "'Salt' = noun (stressed), 'pepper' = noun (stressed), 'and' = conjunction (function word, unstressed). The rhythmic beats fall on 'salt' and 'pep-'.",
-            topic: "Rhythm Practice — Salt and pepper"
-        },
-        {
-            id: 10, category: "Rhythm Practice",
-            question: "In 'He'll do his homework before supper', the function words include:",
-            options: [
-                "'homework' and 'supper', because they are the longest words in the sentence",
-                "'he'll', 'his', and 'before', because they are pronoun, possessive, and preposition",
-                "'do' and 'homework', because they describe the action being performed here",
-                "there are no function words in this sentence because every word is stressed"
-            ],
-            correctAnswer: 1,
-            explanation: "'He'll' (pronoun+aux), 'his' (possessive pronoun), 'before' (preposition) = function words (unstressed). 'Do' (verb), 'homework' (noun), 'supper' (noun) = content words (stressed).",
-            topic: "Rhythm Practice — Function words in sentences"
-        },
-        {
-            id: 11, category: "Regularity of Beats",
-            question: "English rhythm can be compared to a metronome because:",
-            options: [
-                "every single syllable in English is pronounced at exactly the same volume",
-                "the beats fall on stressed syllables at roughly regular time intervals",
-                "English speakers always pause for the same duration between all words",
-                "unstressed syllables are always louder than the stressed syllables around them"
-            ],
-            correctAnswer: 1,
-            explanation: "Like a metronome, the 'beats' in English fall on accented syllables at roughly regular intervals. We speed up or slow down unstressed syllables to maintain this regularity.",
-            topic: "Regularity of Beats"
-        },
-        {
-            id: 12, category: "Rhythm Practice",
-            question: "In 'A present for Richard', the unstressed function words are:",
-            options: [
-                "'present' and 'Richard', because they are the nouns in this short phrase",
-                "'a' and 'for', because they are an article and a preposition respectively",
-                "'a' and 'Richard', because they are at the start and end of the phrase",
-                "'for' and 'present', because prepositions and nouns are always unstressed"
-            ],
-            correctAnswer: 1,
-            explanation: "'A' = article (function word, unstressed), 'for' = preposition (function word, unstressed). 'Present' = noun (stressed), 'Richard' = noun (stressed).",
-            topic: "Rhythm Practice — A present for Richard"
-        }
-    ]
-}
-
-,
-{
-    title: "📚 Study Resources (British English)",
-    icon: "📚",
-    label: "Videos, Charts & Practice Tools",
-    lang: "en",
-    type: "resources"
-}
-
-]; // end examSets
-
-// ═══════════════════════════════════════════════════════════════
-// THEME
-// ═══════════════════════════════════════════════════════════════
-(function() {
-    function applyTheme(t) {
-        if (t === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            const btn = document.getElementById('theme-toggle');
-            if (btn) btn.textContent = '☀️';
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            const btn = document.getElementById('theme-toggle');
-            if (btn) btn.textContent = '🌙';
-        }
-    }
-    function initTheme() {
-        const saved = localStorage.getItem('theme');
-        if (saved) { applyTheme(saved); return; }
-        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    }
-    function toggleTheme() {
-        const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next = cur === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-        localStorage.setItem('theme', next);
-    }
-    window.toggleTheme = toggleTheme;
-    window.initTheme = initTheme;
-})();
-
-// ═══════════════════════════════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════════════════════════════
-let state = {
-    screen: 'selection', selectedExam: null,
-    selectedQuestions: [], initialQuestionCount: 0,
-    currentQuestion: 0, selectedAnswer: null,
-    showExplanation: false, score: 0,
-    quizCompleted: false, answers: [],
-    repeatQueue: [], inRepeatPhase: false,
-    repeatAnswers: [], essayRevealed: false
-};
-
-// ═══════════════════════════════════════════════════════════════
-// HELPERS
-// ═══════════════════════════════════════════════════════════════
-function shuffleArray(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-}
-function shuffleQuestionOptions(question) {
-    const opts = question.options.map((opt, idx) => ({ opt, idx }));
-    const shuffled = shuffleArray(opts);
-    return Object.assign({}, question, {
-        options: shuffled.map(s => s.opt),
-        correctAnswer: shuffled.findIndex(s => s.idx === question.correctAnswer)
-    });
-}
-
-// ═══════════════════════════════════════════════════════════════
-// ACTIONS
-// ═══════════════════════════════════════════════════════════════
-function selectExam(index) {
-    state.selectedExam = index;
-    state.essayRevealed = false;
-    const exam = examSets[index];
-    document.documentElement.setAttribute('lang', 'en');
-    document.documentElement.setAttribute('dir', 'ltr');
-    if (exam.type === 'essay') { state.screen = 'essay'; render(); return; }
-    if (exam.type === 'diagram') { state.screen = 'diagram'; render(); return; }
-    if (exam.type === 'resources') { state.screen = 'resources'; render(); return; }
-    const questions = exam.questions || [];
-    state.initialQuestionCount = questions.length;
-    state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
-    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
-    state.score = 0; state.quizCompleted = false; state.answers = [];
-    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
-    state.screen = 'quiz';
-    render();
-}
-
-function getCurrentQuestions() {
-    if (state.selectedExam === null) return [];
-    return state.selectedQuestions || examSets[state.selectedExam].questions || [];
-}
-
-function handleAnswerSelect(answerIndex) {
-    if (state.selectedAnswer !== null) return;
-    const questions = getCurrentQuestions();
-    const question = questions[state.currentQuestion];
-    state.selectedAnswer = answerIndex;
-    state.showExplanation = true;
-    const isCorrect = answerIndex === question.correctAnswer;
-    if (!state.inRepeatPhase) {
-        if (isCorrect) state.score++;
-        else if (!state.repeatQueue.some(q => q.id === question.id)) state.repeatQueue.push(question);
-        state.answers.push({ questionId: question.id, correct: isCorrect, category: question.category });
-    } else {
-        state.repeatAnswers.push({ questionId: question.id, correct: isCorrect });
-    }
-    render();
-}
-
-function handleNext() {
-    const questions = getCurrentQuestions();
-    if (state.currentQuestion < questions.length - 1) {
-        state.currentQuestion++; state.selectedAnswer = null; state.showExplanation = false;
-    } else {
-        if (!state.inRepeatPhase && state.repeatQueue.length > 0) {
-            state.selectedQuestions = state.repeatQueue.slice(); state.repeatQueue = [];
-            state.inRepeatPhase = true; state.currentQuestion = 0;
-            state.selectedAnswer = null; state.showExplanation = false;
-        } else { state.quizCompleted = true; }
-    }
-    render();
-}
-
-function handleRestart() {
-    const exam = examSets[state.selectedExam];
-    if (exam.type === 'essay') { state.essayRevealed = false; state.screen = 'essay'; render(); return; }
-    if (state.selectedExam !== null) {
-        const questions = exam.questions || [];
-        state.initialQuestionCount = questions.length;
-        state.selectedQuestions = shuffleArray(questions.slice()).map(q => shuffleQuestionOptions(q));
-    }
-    state.currentQuestion = 0; state.selectedAnswer = null; state.showExplanation = false;
-    state.score = 0; state.quizCompleted = false; state.answers = [];
-    state.repeatQueue = []; state.inRepeatPhase = false; state.repeatAnswers = [];
-    render();
-}
-
-function backToMenu() {
-    document.documentElement.setAttribute('lang', 'en');
-    document.documentElement.setAttribute('dir', 'ltr');
-    state = {
-        screen: 'selection', selectedExam: null,
-        selectedQuestions: [], initialQuestionCount: 0,
-        currentQuestion: 0, selectedAnswer: null,
-        showExplanation: false, score: 0, quizCompleted: false,
-        answers: [], repeatQueue: [], inRepeatPhase: false,
-        repeatAnswers: [], essayRevealed: false
-    };
-    render();
-}
-
-function toggleEssayReveal() {
-    state.essayRevealed = !state.essayRevealed;
-    render();
-}
-
-// ═══════════════════════════════════════════════════════════════
-// ICONS
-// ═══════════════════════════════════════════════════════════════
-const icons = {
-    checkCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#10b981;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
-    xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#ef4444;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
-    award: '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>',
-    bookOpen: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>'
-};
-
-// ═══════════════════════════════════════════════════════════════
-// RENDER
-// ═══════════════════════════════════════════════════════════════
-function renderExamSelection() {
-    const examCards = examSets.map((examSet, index) => `
-        <div class="exam-card" onclick="selectExam(${index})">
-            <h3>${examSet.title}</h3>
-            <p>${examSet.type === 'essay' ? 'Essay / Quote Analysis' : examSet.type === 'diagram' ? 'Diagram Labeling Practice' : examSet.type === 'resources' ? 'Links, Videos & Tools' : 'Multiple Choice Quiz'}</p>
-            <p class="question-count">${examSet.type === 'essay' ? '📝 Final Exam' : examSet.type === 'diagram' ? '🫁 11 Labels' : examSet.type === 'resources' ? '📚 Curated Links' : examSet.questions.length + ' Questions'}</p>
-        </div>
-    `).join('');
-    return `
-        <div class="exam-selection">
-            <h1>Phonetics EC108 — Midterm Exams</h1>
-            <p>Choose the exam you want to start with</p>
-            <div class="exam-options">${examCards}</div>
-        </div>`;
-}
-
-function renderResults() {
-    const total = state.initialQuestionCount || (state.selectedExam !== null ? (examSets[state.selectedExam].questions || []).length : 0);
-    const percentage = total > 0 ? Math.round((state.score / total) * 100) : 0;
-    let message = "", colorClass = "";
-    if (percentage >= 90) { message = "Excellent! You are confident and fully prepared for the exam"; colorClass = "color: #16a34a;"; }
-    else if (percentage >= 80) { message = "Great! Your level is very good, review only the errors"; colorClass = "color: #22c55e;"; }
-    else if (percentage >= 70) { message = "Very good! You need to review some points"; colorClass = "color: #2563eb;"; }
-    else if (percentage >= 60) { message = "Good! Focus on the topics you made mistakes in"; colorClass = "color: #ca8a04;"; }
-    else { message = "You need more review and practice"; colorClass = "color: #ea580c;"; }
-    const categoryStats = {};
-    state.answers.forEach(answer => {
-        if (!categoryStats[answer.category]) categoryStats[answer.category] = { correct: 0, total: 0 };
-        categoryStats[answer.category].total++;
-        if (answer.correct) categoryStats[answer.category].correct++;
-    });
-    const statsHTML = Object.entries(categoryStats).map(([cat, stats]) => {
-        const pct = Math.round((stats.correct / stats.total) * 100);
-        return `<div class="stat-item"><div class="stat-row"><div class="stat-category">${cat}</div><div class="stat-score">${stats.correct}/${stats.total} (${pct}%)</div></div></div>`;
-    }).join('');
-    return `
-        <div class="results-container">
-            ${icons.award}
-            <h2 class="results-title">Quiz Completed!</h2>
-            <div class="final-score">${state.score}/${total}</div>
-            <div class="percentage">Percentage: ${percentage}%</div>
-            <p class="results-message" style="${colorClass}">${message}</p>
-            <div class="category-stats">
-                <h3 class="stats-title">${icons.bookOpen} Your Performance by Topics:</h3>
-                ${statsHTML.length > 0 ? statsHTML : '<p style="text-align:center;color:#6b7280;">No answers recorded.</p>'}
-                <div class="action-buttons">
-                    <button class="btn-primary" onclick="handleRestart()">Try Again</button>
-                    <button class="btn-secondary" onclick="backToMenu()">Back to Main Menu</button>
-                </div>
-                <div class="final-stats"><p>Final Score: <span class="final-score-value">${state.score}</span></p></div>
-            </div>
-        </div>`;
-}
-
-function renderQuestion() {
-    const questions = getCurrentQuestions();
-    const question = questions[state.currentQuestion];
-    const examTitle = examSets[state.selectedExam].title;
-    const mainTotal = state.initialQuestionCount || questions.length;
-    const questionNumberText = state.inRepeatPhase
-        ? `Review Question ${state.currentQuestion + 1} of ${questions.length}`
-        : `Question ${state.currentQuestion + 1} of ${mainTotal}`;
-    const optionsHTML = question.options.map((option, index) => {
-        let btnClass = "option-btn", iconHTML = "";
-        if (state.selectedAnswer !== null) {
-            if (index === question.correctAnswer) { btnClass += " correct"; iconHTML = icons.checkCircle; }
-            else if (index === state.selectedAnswer) { btnClass += " incorrect"; iconHTML = icons.xCircle; }
-            else btnClass += " neutral";
-        }
-        return `<button class="${btnClass}" onclick="handleAnswerSelect(${index})" ${state.selectedAnswer !== null ? 'disabled' : ''}>
-            <span style="text-align:start;line-height:1.75;">${option}</span>${iconHTML}
-        </button>`;
-    }).join('');
-    const explanationHTML = state.showExplanation ? `
-        <div class="explanation-box ${state.selectedAnswer === question.correctAnswer ? 'correct' : 'incorrect'}">
-            <p class="explanation-title">${state.selectedAnswer === question.correctAnswer ? '✅ Correct Answer! Excellent' : '❌ Incorrect Answer'}</p>
-            <div class="explanation-content">
-                <p class="explanation-text"><strong>Detailed Explanation:</strong><br>${question.explanation}</p>
-            </div>
-            <div class="topic-info">${icons.bookOpen}<p><strong>Review:</strong> ${question.topic}</p></div>
-        </div>
-        <button class="next-btn" onclick="handleNext()">
-            ${state.currentQuestion < questions.length - 1 ? 'Next Question' : 'End Quiz and Show Results 🎉'}
-        </button>` : '';
-    return `
         <div class="header">
-            <h1>${examTitle}</h1>
-            <div class="score-info">
-                <div class="question-number">${questionNumberText}</div>
-                <div class="score">Score: ${state.score}</div>
-            </div>
+            <h1>🎭 Drama — Theme of Revenge</h1>
         </div>
-        <div class="question-container">
-            <h2 class="category">${question.category}</h2>
-            <p class="question">${question.question}</p>
-            <div class="options">${optionsHTML}</div>
-            ${explanationHTML}
-            <div class="current-score">
-                <p>Current Score: <span class="score-value">${state.score}</span> From ${state.currentQuestion + (state.selectedAnswer !== null ? 1 : 0)}</p>
-            </div>
-        </div>
-        <div style="text-align:center;">
-            <button class="restart-btn" onclick="handleRestart()">Restart</button>
-            <button class="back-to-menu-btn" onclick="backToMenu()">Main Menu</button>
-        </div>`;
-}
 
-function renderDiagram() {
-    const revealed = state.essayRevealed;
-    return `
-        <div class="header">
-            <h1>Exam 6: Label the Articulators</h1>
-        </div>
         <div class="question-container">
-            <h2 class="category">The Articulators — Diagram Labeling</h2>
+            <p class="category">Essay Question — The Merchant of Venice</p>
+
             <div class="essay-instructions">
-                <p><strong>Instructions:</strong></p>
-                <ol style="margin-top:0.7rem;padding-left:1.4rem;">
-                    <li>Look at the blank diagram below carefully.</li>
-                    <li>On a piece of paper, write down the <strong>label for each empty box</strong>.</li>
-                    <li>Once you have finished, click <strong>"Show Answers"</strong> to reveal the labeled diagram.</li>
-                </ol>
-                <p class="essay-note">Try to label all parts from memory first!</p>
+                <p><strong>Instructions:</strong> Write a full essay on the <strong>Theme of Revenge</strong> in <em>The Merchant of Venice</em>. Your essay must include:</p>
+                <ul style="padding-left:1.25rem; margin-top:0.5rem;">
+                    <li>An <strong>introduction</strong> defining revenge</li>
+                    <li>A <strong>body</strong> covering: What happened? Why? How? — for both Shylock vs Antonio and Portia vs Shylock</li>
+                    <li>A <strong>conclusion</strong></li>
+                </ul>
+                <p class="essay-note">Try to write your answer first, then reveal the model answer below.</p>
             </div>
 
-            <div style="max-width:700px;margin:1.5rem auto;">
-                <img src="image1.png" alt="Blank articulators diagram" style="width:100%;border-radius:0.75rem;border:2px solid var(--border);">
+            <!-- Outline reference -->
+            <div class="outline-box">
+                <strong>Outline to follow:</strong>
+                <ul style="margin-top:0.5rem;">
+                    <li><strong>Intro:</strong> What is the meaning of revenge?</li>
+                    <li><strong>Shylock vs Antonio:</strong> Reasons (2) · Plan (3) · Achievement (4)</li>
+                    <li><strong>Portia vs Shylock:</strong> Reasons (5) · Plan (6) · Achievement (7)</li>
+                    <li><strong>Conclusion</strong></li>
+                </ul>
             </div>
 
-            <button class="show-model-btn" onclick="toggleEssayReveal()">
-                $${revealed ? '▲ Hide Answers' : '▼ I\'m done — Show Answers'}
-            </button>
+            <button class="show-model-btn" onclick="toggleReveal()" id="reveal-btn">▼ I'm done — Show Model Answer</button>
 
-            <div class="essay-reveal-box $${revealed ? 'show' : ''}">
-                <h3>✅ Labeled Diagram</h3>
-                <div style="max-width:700px;margin:1rem auto;">
-                    <img src="image2.png" alt="Labeled articulators diagram" style="width:100%;border-radius:0.75rem;border:2px solid var(--border);">
-                </div>
+            <div class="essay-reveal-box" id="essay-box">
 
-                <hr style="border:none;border-top:1px solid var(--border);margin:1.2rem 0;">
-                <h3>📖 Brief Definitions</h3>
-
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Nose:</strong> External opening of the nasal cavity; air exits here for nasal sounds (/m/, /n/, /ŋ/).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Upper teeth:</strong> Passive articulator; the tongue touches them for dental sounds like /θ/ (think) and /ð/ (the).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Upper lip:</strong> Works with the lower lip for bilabial sounds (/p/, /b/, /m/) where both lips press together.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Lower lip:</strong> Active articulator; moves up to contact upper teeth for labiodental sounds (/f/, /v/).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Alveolar ridge:</strong> Bony ridge behind the upper front teeth; place of articulation for /t/, /d/, /n/, /l/, /s/, /z/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Hard palate:</strong> Hard bony roof of the mouth between the alveolar ridge and the soft palate; used for palatal sounds like /j/.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Soft palate (velum):</strong> Fleshy back part of the roof of the mouth. Raises to block nasal airflow (oral sounds: /k/, /g/) and lowers to allow it (nasal sounds: /m/, /n/). Also a place of articulation for velar consonants.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Tongue:</strong> Most flexible articulator; different parts (tip, blade, back) contact different places to produce most consonants and shape all vowels.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Lower teeth:</strong> Passive articulator; helps shape airflow for certain sounds.
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Pharynx:</strong> A tube (~7–8 cm) beginning just above the larynx; at its top it divides into the oral cavity (mouth) and nasal cavity (nose).
-                </p>
-                <p style="margin-bottom:0.7rem;line-height:1.75;font-size:0.97rem;">
-                    <strong style="color:var(--accent);">Larynx:</strong> The voice box containing the vocal cords. Cords vibrate for voiced sounds (/b/, /d/, /g/) and stay open for voiceless sounds (/p/, /t/, /k/).
+                <!-- INTRODUCTION -->
+                <span class="essay-section-label">Introduction</span>
+                <h3>What is Revenge?</h3>
+                <p>
+                    Revenge is the act of inflicting harm or punishment on someone in return for a wrong or injury they have caused. It is a deeply human impulse driven by a desire to restore a sense of justice or personal honor after suffering humiliation, loss, or injustice. Rather than seeking official legal redress, a person consumed by revenge acts on their own behalf, using whatever means are available to them to make their enemy suffer as they have suffered. In <em>The Merchant of Venice</em>, Shakespeare presents revenge not as a triumphant force but as a complex, double-edged theme — one that motivates two cycles of conflict, each with its own causes, methods, and outcomes.
                 </p>
 
-                <p class="essay-disclaimer">⚠️ Make sure you can label this diagram from memory — it is very likely to appear on the midterm.</p>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:1rem;">
-            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
-        </div>`;
-}
-function renderResources() {
-    return `
-        <div class="header">
-            <h1>📚 Study Resources — British English</h1>
-        </div>
-        <div class="question-container" style="line-height:1.9;">
+                <hr class="divider">
 
-            <h2 class="category" style="margin-bottom:0.5rem;">🔤 IPA & Phonemic Charts (Interactive)</h2>
-            <p style="margin-bottom:0.5rem;">Click the sounds, hear them, see mouth positions — all British RP.</p>
-            <div style="margin-bottom:1.5rem;">
-                <p>• <a href="https://www.englishclub.com/pronunciation/phonemic-chart-ia.php" target="_blank" style="color:var(--accent);font-weight:600;">EnglishClub Interactive Phonemic Chart</a> — Click any of the 44 RP sounds to hear them. Based on Adrian Underhill's layout.</p>
-                <p>• <a href="https://www.britishaccentacademy.com/interactive-ipa-chart/" target="_blank" style="color:var(--accent);font-weight:600;">British Accent Academy — Interactive IPA Chart</a> — Click sounds to see mouth positions and hear RP pronunciation.</p>
-                <p>• <a href="https://folenglish.com/phonemic-chart" target="_blank" style="color:var(--accent);font-weight:600;">FoL English — Interactive Phonemic Chart</a> — Clean themed chart with audio for all 44 British English sounds.</p>
-                <p>• <a href="https://pronunciationstudio.com/english-ipa-chart/" target="_blank" style="color:var(--accent);font-weight:600;">Pronunciation Studio — English IPA Chart</a> — Free chart with recordings by a native British speaker. Also offers free weekly Zoom classes.</p>
-                <p>• <a href="https://www.jdenglishpronunciation.co.uk/british-english-sounds-chart" target="_blank" style="color:var(--accent);font-weight:600;">JD English — British English Sounds Chart</a> — Interactive chart with example words for every sound.</p>
-            </div>
+                <!-- SHYLOCK VS ANTONIO -->
+                <span class="essay-section-label">Body — Part 1</span>
+                <h3>"Shylock against Antonio"</h3>
 
-            <h2 class="category" style="margin-bottom:0.5rem;">🎬 YouTube Videos — IPA & Sounds</h2>
-            <p style="margin-bottom:0.5rem;">Short video lessons covering all the sounds in British English.</p>
-            <div style="margin-bottom:1.5rem;">
-                <p>• <a href="https://englishwithlucy.com/phonemic-chart-guide/" target="_blank" style="color:var(--accent);font-weight:600;">English With Lucy — Phonemic Chart Guide</a> — Full walkthrough of all 44 sounds with audio examples. British RP.</p>
-                <p>• <a href="https://englishlikeanative.co.uk/blog/international-phonetic-alphabet-for-correct-pronunciation/" target="_blank" style="color:var(--accent);font-weight:600;">English Like A Native — IPA for Correct Pronunciation</a> — Video + guide covering how to use IPA for British pronunciation.</p>
-                <p>• <a href="https://improveyouraccent.co.uk/consonant-chart/" target="_blank" style="color:var(--accent);font-weight:600;">Improve Your Accent — British Consonant Chart</a> — Detailed consonant chart with minimal pairs, glottal stops, and audio. Native British speaker.</p>
-            </div>
+                <p><strong style="color:var(--accent);">① What happened? (The situation)</strong></p>
+                <p>
+                    Shylock, a Jewish moneylender in Venice, finds himself the target of constant humiliation and abuse at the hands of Antonio, a wealthy Christian merchant. Antonio has long despised Shylock for his profession of usury — lending money at interest — and has publicly insulted, mocked, and spat upon him in the marketplace. Beyond this personal contempt, Shylock also suffers the devastating blow of his daughter Jessica eloping with Lorenzo, a Christian, and taking a large portion of his money and jewels with her. These compounded injustices — social, religious, and personal — set the stage for Shylock's desire for revenge.
+                </p>
 
-            <h2 class="category" style="margin-bottom:0.5rem;">🔗 Connected Speech (Elision, Assimilation, Linking)</h2>
-            <p style="margin-bottom:0.5rem;">Understand how sounds change in real spoken British English.</p>
-            <div style="margin-bottom:1.5rem;">
-                <p>• <a href="https://www.youtube.com/watch?v=80toax-ly4Q" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Connected Speech Part 2: Elision & Assimilation in British English</a> — Listen and repeat exercises with British accent examples.</p>
-                <p>• <a href="https://www.youtube.com/watch?v=vFU5kqxhD6s" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Connected Speech: Assimilation, Elision & Intrusion</a> — Clear explanation by Billie English with examples.</p>
-                <p>• <a href="https://www.youtube.com/watch?v=VHzCRySecP4" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — 3 Secrets of Connected Speech</a> — Assimilation, catenation, and elision explained simply.</p>
-                <p>• <a href="https://www.eslbase.com/tefl-a-z/connected-speech/" target="_blank" style="color:var(--accent);font-weight:600;">ESLbase — 5 Features of Connected Speech</a> — Written guide with examples of assimilation, elision, delayed plosion, catenation, and intrusion.</p>
-                <p>• <a href="https://www.britishaccentacademy.com/connected-speech/" target="_blank" style="color:var(--accent);font-weight:600;">British Accent Academy — Connected Speech</a> — Detailed article on linking, assimilation, epenthesis, intrusion, and elision in British English.</p>
-            </div>
+                <p><strong style="color:var(--accent);">② Why happened? (The reasons)</strong></p>
+                <p>
+                    Shylock's motivation for revenge against Antonio is twofold. First, Antonio has subjected him to years of public degradation, calling him a misbeliever, a cut-throat dog, and spitting on his Jewish gaberdine, all because of religious and racial prejudice. Shylock asks bitterly:
+                </p>
+                <blockquote>"Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?"</blockquote>
+                <p>
+                    This speech reveals that Shylock's desire for revenge is rooted in his assertion of his own humanity — a humanity that Antonio and Venetian society refuse to recognize. Second, Antonio's merchant friends, including Bassanio, are complicit in the world that has stripped Shylock of his daughter and his wealth. Revenge becomes, for Shylock, the only form of power available to a man the law and society otherwise marginalize.
+                </p>
 
-            <h2 class="category" style="margin-bottom:0.5rem;">🥁 Rhythm & Word Stress</h2>
-            <p style="margin-bottom:0.5rem;">Learn why English sounds the way it does — stress-timing, content vs function words.</p>
-            <div style="margin-bottom:1.5rem;">
-                <p>• <a href="https://www.youtube.com/watch?v=-hXGG9EyR0o" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — British English Sentence Stress & Rhythm</a> — Explains stress-timed vs syllable-timed with British examples.</p>
-                <p>• <a href="https://www.youtube.com/watch?v=SR79TZbKRUU" target="_blank" style="color:var(--accent);font-weight:600;">YouTube — Stress-Timed English & Weak Forms</a> — Mini lesson on why we reduce function words in British speech.</p>
-                <p>• <a href="https://www.simpleenglishvideos.com/english-rhythm-stress-in-sentences/" target="_blank" style="color:var(--accent);font-weight:600;">Simple English Videos — English Rhythm with Beatboxers</a> — Fun video explaining stress-timing with beatbox demonstrations.</p>
-            </div>
+                <p><strong style="color:var(--accent);">③ How happened? (The plan)</strong></p>
+                <p>
+                    When Bassanio approaches Shylock to borrow three thousand ducats on Antonio's behalf, Shylock seizes the opportunity. He proposes an unusual bond: if the loan is not repaid within three months, Shylock will have the legal right to cut a pound of flesh from any part of Antonio's body that he chooses. Antonio agrees, confident his ships will return in time. Shylock frames this bond as a "merry sport," disguising his true intent behind the language of jest — but his real purpose is to hold Antonio's life legally in his hands. The bond is a calculated trap dressed as a harmless wager.
+                </p>
 
-            <h2 class="category" style="margin-bottom:0.5rem;">📖 Dictionaries for Transcription Practice</h2>
-            <p style="margin-bottom:0.5rem;">Look up any word and see its British IPA transcription.</p>
-            <div style="margin-bottom:1.5rem;">
-                <p>• <a href="https://dictionary.cambridge.org/pronunciation/" target="_blank" style="color:var(--accent);font-weight:600;">Cambridge Dictionary — Pronunciation</a> — Shows both British and American IPA. Listen to British audio. <strong>Recommended by your course.</strong></p>
-                <p>• <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank" style="color:var(--accent);font-weight:600;">Oxford Learner's Dictionary</a> — British IPA transcriptions with audio for every entry.</p>
-                <p>• <a href="https://blog.collinsdictionary.com/ipa-pronunciation-guide-cobuild/" target="_blank" style="color:var(--accent);font-weight:600;">Collins — IPA Pronunciation Guide</a> — Explains how Collins uses IPA for both RP and General American.</p>
-            </div>
+                <p><strong style="color:var(--accent);">④ The achievement — what Shylock tried to achieve</strong></p>
+                <p>
+                    When Antonio's ships are reported lost at sea and the bond falls due, Shylock refuses any offer of repayment — including Bassanio's offer to pay double or triple the amount. He demands his pound of flesh and brings Antonio before the court of Venice. In the courtroom, Shylock appears to hold total power: the law of Venice is clear, the bond is valid, and the Duke himself cannot legally override it. For a brief moment, Shylock's revenge seems complete — he stands on the verge of destroying the man who humiliated him, using the very legal system of Venice as his instrument.
+                </p>
 
-            <h2 class="category" style="margin-bottom:0.5rem;">💡 Quick Tips</h2>
-            <div style="margin-bottom:1rem;">
-                <p>• Always check if a resource uses <strong>British RP</strong> — avoid American IPA (e.g., American uses /ɑ/ where British uses /ɒ/, and American pronounces /r/ in all positions).</p>
-                <p>• Practice 10–15 minutes daily with the interactive charts above — click, listen, repeat.</p>
-                <p>• Use Cambridge Dictionary to check the IPA of any word you're unsure about.</p>
-                <p>• For syllable counting, remember: <strong>count the vowel sounds, not the letters</strong>.</p>
+                <hr class="divider">
+
+                <!-- PORTIA VS SHYLOCK -->
+                <span class="essay-section-label">Body — Part 2</span>
+                <h3>"Portia against Shylock"</h3>
+
+                <p><strong style="color:var(--accent);">⑤ What happened &amp; Why? (The reasons)</strong></p>
+                <p>
+                    Portia, the wealthy heiress of Belmont and Bassanio's new wife, learns that her husband's closest friend Antonio faces death at Shylock's hands. Her motivation is not personal hatred of Shylock but love for Bassanio and loyalty to Antonio. She decides to intervene — not through open pleading or bribery, but through legal intelligence. She is driven by the conviction that Shylock's insistence on the literal letter of the law, with no mercy and no compromise, must be defeated by that very same law. Her revenge, if it can be called that, is a counter-move: using Shylock's own weapon — the law — to strip him of everything he thought he had secured.
+                </p>
+
+                <p><strong style="color:var(--accent);">⑥ How happened? (The plan)</strong></p>
+                <p>
+                    Portia disguises herself as a young lawyer named Balthazar and appears in the Venetian court. She first appeals to Shylock's mercy, delivering the famous speech:
+                </p>
+                <blockquote>"The quality of mercy is not strained; it droppeth as the gentle rain from heaven upon the place beneath."</blockquote>
+                <p>
+                    Shylock refuses all mercy. At the precise moment he is about to cut into Antonio's flesh, Portia stops him with a legal argument of devastating precision: the bond grants him a pound of flesh, but it says nothing about blood. He may not shed a single drop of Antonio's blood, and he must cut exactly one pound — not more, not less. Any deviation will mean his lands and goods are confiscated under Venetian law. Furthermore, she invokes another law: an alien who plots against the life of a Venetian citizen forfeits half his wealth to the citizen and half to the state, with his life at the Duke's mercy.
+                </p>
+
+                <p><strong style="color:var(--accent);">⑦ The achievement</strong></p>
+                <p>
+                    Shylock's power collapses entirely. He is left with nothing: he cannot take the flesh, he cannot reclaim the three thousand ducats (having refused repayment), and he is now subject to the very laws he had used against Antonio. The Duke spares his life, but Shylock is forced to convert to Christianity and to sign over his estate — half to Antonio and half to the state, with the half given to Antonio to be passed to Jessica and Lorenzo upon his death. Portia's plan succeeds completely. The man who demanded rigid justice with no mercy receives a harsh justice of his own, though the play leaves audiences to decide whether this outcome is truly just or simply another form of cruelty.
+                </p>
+
+                <hr class="divider">
+
+                <!-- CONCLUSION -->
+                <span class="essay-section-label">Conclusion</span>
+                <h3>Final Thoughts</h3>
+                <p>
+                    The theme of revenge in <em>The Merchant of Venice</em> runs through the play as two interlocking cycles, each one undoing the other. Shylock's revenge against Antonio is fueled by genuine suffering and a search for dignity, yet it is defeated by the very legal instrument he chose as his weapon. Portia's counter-revenge restores Antonio's life but reduces Shylock to humiliation and forced conversion — a resolution the play presents as a legal triumph yet which carries its own moral weight. Shakespeare uses these cycles to suggest that revenge, however justified it may feel to the person seeking it, ultimately destroys the one who pursues it. The play does not offer simple moral conclusions; instead, it forces the audience to examine who truly has the right to claim justice, and at what cost.
+                </p>
+
+                <p class="essay-disclaimer">⚠️ Support every claim with a quote from the play. Make sure your paragraphs follow the What → Why → How structure shown above.</p>
             </div>
         </div>
-        <div style="text-align:center;margin-top:1rem;">
-            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
-        </div>`;
-}
 
-function render() {
-    const app = document.getElementById('app');
-    if (state.screen === 'selection') app.innerHTML = renderExamSelection();
-    else if (state.screen === 'essay') app.innerHTML = renderEssay();
-    else if (state.screen === 'diagram') app.innerHTML = renderDiagram();
-    else if (state.screen === 'resources') app.innerHTML = renderResources();
-    else if (state.quizCompleted) app.innerHTML = renderResults();
-    else app.innerHTML = renderQuestion();
-}
+    </div>
 
-window.selectExam = selectExam;
-window.handleAnswerSelect = handleAnswerSelect;
-window.handleNext = handleNext;
-window.handleRestart = handleRestart;
-window.backToMenu = backToMenu;
-window.toggleEssayReveal = toggleEssayReveal;
+    <script>
 
-initTheme();
-render();
-</script>
+    const examSets = [
+    {
+        title: "Exam 1: Introduction to Drama & History",
+        icon: "🎭",
+        label: "Lectures 1–2",
+        lang: "en",
+        type: "mcq",
+        questions: [
+            {
+                id: 1,
+                category: "Definition of Drama",
+                question: "Drama is best described as:",
+                options: [
+                    "a written narrative meant to be read silently by an individual reader",
+                    "a specific mode of fiction that is meant for performance",
+                    "a form of poetry that uses verse to express personal emotion",
+                    "a historical record of events presented in a structured format"
+                ],
+                correctAnswer: 1,
+                explanation: "Drama is defined as a specific mode of fiction that is meant for performance, distinguishing it from other literary forms such as prose fiction or poetry.",
+                topic: "Definition of Drama"
+            },
+            {
+                id: 2,
+                category: "Definition of Drama",
+                question: "Which of the following is NOT listed as a type of drama?",
+                options: [
+                    "opera, a form of drama that combines music and theatrical performance",
+                    "mime, a form of drama that relies on gesture without spoken words",
+                    "novel, a form of fiction written in extended prose narrative form",
+                    "ballet, a form of drama that communicates story through dance"
+                ],
+                correctAnswer: 2,
+                explanation: "The types of drama listed in the course are play, opera, ballet, and mime. A novel is a prose fiction form and is not a type of drama.",
+                topic: "Types of Drama"
+            },
+            {
+                id: 3,
+                category: "Greek Theatre",
+                question: "In ancient Greek theatre, plays were organized primarily in honor of:",
+                options: [
+                    "Zeus, the king of the Olympian gods and ruler of the sky",
+                    "Dionysus, the god associated with wine, fertility, and grape-harvesting",
+                    "Apollo, the god of music, poetry, and the sun in Greek mythology",
+                    "Athena, the goddess of wisdom and patron deity of the city of Athens"
+                ],
+                correctAnswer: 1,
+                explanation: "Greek plays were organized in honor of Dionysus, the god of the grape-harvest, winemaking and wine, and fertility. This religious context shaped the nature and purpose of theatrical performance.",
+                topic: "Greek Theatre — Context"
+            },
+            {
+                id: 4,
+                category: "Greek Theatre",
+                question: "Where were ancient Greek plays performed?",
+                options: [
+                    "inside temples dedicated to the gods of the Greek pantheon",
+                    "in market places, where performers and audiences gathered together",
+                    "in purpose-built indoor theatres with enclosed roofed structures",
+                    "in royal palaces, where nobles and aristocrats were the sole audience"
+                ],
+                correctAnswer: 1,
+                explanation: "Ancient Greek plays were held in market places. This is distinct from later theatrical traditions that used purpose-built buildings such as playhouses or proscenium theatres.",
+                topic: "Greek Theatre — Setting"
+            },
+            {
+                id: 5,
+                category: "Greek Theatre",
+                question: "In ancient Greek theatre, the relationship between performers and audience was:",
+                options: [
+                    "strictly separated, with audiences forbidden from participating in any way",
+                    "cooperative, with both performers and audience participating in the performance",
+                    "competitive, as different audience sections voted for the best performer",
+                    "purely commercial, as audiences paid for seats and expected entertainment"
+                ],
+                correctAnswer: 1,
+                explanation: "In Greek theatre, both performers and audience cooperated in the performance. The theatrical event was a communal, participatory act rather than a passive entertainment.",
+                topic: "Greek Theatre — Actors and Audience"
+            },
+            {
+                id: 6,
+                category: "Greek Theatre",
+                question: "Which playwright is associated with ancient Greek drama in the course material?",
+                options: [
+                    "Shakespeare, the playwright famous for his tragedies and comedies",
+                    "Sophocles, one of the great playwrights of ancient Greek theatre",
+                    "Henrik Ibsen, the Norwegian playwright known as the father of realism",
+                    "Samuel Beckett, the playwright associated with the theatre of the absurd"
+                ],
+                correctAnswer: 1,
+                explanation: "Sophocles is the playwright identified in the course material as associated with ancient Greek drama. He is one of the three great tragedians of classical Athens.",
+                topic: "Greek Theatre — Playwrights"
+            },
+            {
+                id: 7,
+                category: "Play Types",
+                question: "Which of the following best describes tragedy as a dramatic form?",
+                options: [
+                    "plays featuring witty remarks, strange characters, and an innumerable range of plots",
+                    "plays that involve death, sadness, conflict, and intense human emotions",
+                    "plays that rely entirely on music and choreography to convey their narrative",
+                    "plays performed without dialogue, using only gesture and physical movement"
+                ],
+                correctAnswer: 1,
+                explanation: "Tragedy is defined as plays that involve death, sadness, conflict and emotions. Comedy, by contrast, features witty remarks, strange characters and circumstances.",
+                topic: "Comedy vs Tragedy"
+            },
+            {
+                id: 8,
+                category: "Play Types",
+                question: "Comedy as a dramatic form is characterized by:",
+                options: [
+                    "themes of death, intense sadness, and irresolvable conflict between characters",
+                    "witty remarks, strange characters and circumstances, and an innumerable range of plots",
+                    "religious themes drawn exclusively from scripture and performed by clergy",
+                    "realistic depictions of everyday suffering drawn from naturalist observation"
+                ],
+                correctAnswer: 1,
+                explanation: "Comedy is characterized by witty remarks, strange characters and circumstances, and an innumerable range of plots. This distinguishes it clearly from tragedy.",
+                topic: "Comedy vs Tragedy"
+            },
+            {
+                id: 9,
+                category: "Mystery/Miracle Plays",
+                question: "Mystery and Miracle plays emerged with the rise of:",
+                options: [
+                    "Greek philosophy, as thinkers sought to explore ethical questions on stage",
+                    "Christianity, which brought a new type of theatre centered on biblical stories",
+                    "the Renaissance, when secular dramatists began writing for public audiences",
+                    "modernity, when playwrights started focusing on everyday human problems"
+                ],
+                correctAnswer: 1,
+                explanation: "With the dawn of Christianity, a new type of theatre emerged: miracle plays. They arose in the Christian period and were distinct from the pagan-rooted Greek theatrical tradition.",
+                topic: "Mystery/Miracle Plays — Context"
+            },
+            {
+                id: 10,
+                category: "Mystery/Miracle Plays",
+                question: "Who performed in Mystery and Miracle plays?",
+                options: [
+                    "trained professional actors who had mastered the craft of theatrical performance",
+                    "clergy men of the church, who were the performers in this theatrical tradition",
+                    "ordinary citizens chosen by lot from the local community to take part",
+                    "traveling performers who moved between towns and performed for payment"
+                ],
+                correctAnswer: 1,
+                explanation: "In Mystery/Miracle plays, the performers were clergy men of the church. This contrasts with Renaissance theatre, where people who professed the art of acting performed.",
+                topic: "Mystery/Miracle Plays — Actors"
+            },
+            {
+                id: 11,
+                category: "Mystery/Miracle Plays",
+                question: "The thematic content of Mystery and Miracle plays was drawn from:",
+                options: [
+                    "classical Greek mythology, with gods and heroes as central dramatic figures",
+                    "stories from the Bible, such as the narrative of Adam and Eve",
+                    "the problems of ordinary mankind, including love, greed, and family conflict",
+                    "political satire that critiqued the authority of monarchs and nobility"
+                ],
+                correctAnswer: 1,
+                explanation: "Mystery/Miracle plays represented stories from the Bible, such as Adam and Eve. This is distinct from Renaissance drama, which tackled problems of mankind such as greed, love, and family issues.",
+                topic: "Mystery/Miracle Plays — Theme"
+            },
+            {
+                id: 12,
+                category: "Renaissance Theatre",
+                question: "Where were Renaissance plays performed?",
+                options: [
+                    "in market places, following the tradition established by Greek theatrical practice",
+                    "inside churches, as the religious authority still controlled theatrical activity",
+                    "in playhouses and purpose-built theatre buildings for public audiences",
+                    "in private royal courts, exclusively for the enjoyment of the aristocracy"
+                ],
+                correctAnswer: 2,
+                explanation: "Renaissance plays were performed in playhouses and theatre buildings. This marks a shift away from both the market places of Greek theatre and the churches of the Miracle play tradition.",
+                topic: "Renaissance Theatre — Setting"
+            },
+            {
+                id: 13,
+                category: "Renaissance Theatre",
+                question: "Which of the following playwrights is NOT associated with Renaissance theatre in the course material?",
+                options: [
+                    "Ben Jonson, an English playwright who was a contemporary of Shakespeare",
+                    "Christopher Marlowe, the English dramatist known for Doctor Faustus",
+                    "Henrik Ibsen, the Norwegian playwright associated with naturalist drama",
+                    "Moliere, the French playwright whose comedies are classics of the period"
+                ],
+                correctAnswer: 2,
+                explanation: "Henrik Ibsen is listed as a playwright of Modern Drama, not Renaissance theatre. Renaissance playwrights in the course include Shakespeare, Christopher Marlowe, Ben Jonson, and Moliere.",
+                topic: "Renaissance Theatre — Playwrights"
+            },
+            {
+                id: 14,
+                category: "Renaissance Theatre",
+                question: "The thematic focus of Renaissance drama was primarily on:",
+                options: [
+                    "religious stories from scripture, performed to honor the divine",
+                    "communal celebration and rituals in honor of pagan gods",
+                    "problems of mankind such as greediness, love, and family issues",
+                    "abstract philosophical ideas debated by scholars in academic settings"
+                ],
+                correctAnswer: 2,
+                explanation: "Renaissance theatre tackled the problems of mankind such as greediness, love, family issues and other human concerns, making it a much more secular and humanistic tradition than its predecessors.",
+                topic: "Renaissance Theatre — Theme"
+            },
+            {
+                id: 15,
+                category: "Modern Drama",
+                question: "What was the setting used for Modern Drama performances?",
+                options: [
+                    "open-air amphitheatres following the ancient Greek architectural model",
+                    "market places and town squares in the center of urban communities",
+                    "theatre buildings shaped like a proscenium stage arrangement",
+                    "church interiors repurposed to host secular theatrical performances"
+                ],
+                correctAnswer: 2,
+                explanation: "Modern Drama used theatre buildings in the shape of a proscenium. This architectural form, with the stage framed like a picture frame, became the dominant model for modern theatrical spaces.",
+                topic: "Modern Drama — Setting"
+            },
+            {
+                id: 16,
+                category: "Modern Drama",
+                question: "Which of the following thematic modes is associated with Modern Drama?",
+                options: [
+                    "miracle plays, which retold biblical narratives for Christian congregations",
+                    "choral odes, which featured a chorus commenting on mythological events",
+                    "theatre of the absurd, a style exploring the meaninglessness of human existence",
+                    "court masques, elaborate spectacles performed for royal patrons and nobles"
+                ],
+                correctAnswer: 2,
+                explanation: "Modern Drama includes realistic drama, naturalist drama, epic theatre, theatre of the absurd, and political theatre. The theatre of the absurd, associated with Samuel Beckett, is a key Modern Drama mode.",
+                topic: "Modern Drama — Themes"
+            },
+            {
+                id: 17,
+                category: "Stage Directions",
+                question: "Dramatic techniques are best defined as:",
+                options: [
+                    "the rules of grammar and syntax that govern how dialogue is written",
+                    "the literary devices used by the playwright to formulate the work of art",
+                    "the physical instructions given to actors by directors during rehearsals",
+                    "the marketing strategies used to promote a theatrical production"
+                ],
+                correctAnswer: 1,
+                explanation: "Dramatic techniques are the literary devices used by the playwright in order to formulate their work of art. They include stage directions, characters, setting, time, and dialogue.",
+                topic: "Dramatic Techniques — Definition"
+            },
+            {
+                id: 18,
+                category: "Stage Directions",
+                question: "Stage directions can be divided into primary text and secondary text. The primary text refers to:",
+                options: [
+                    "the notes left by the playwright that guide stage designers and actors in performance",
+                    "the dialogue exchange among characters within the dramatic work",
+                    "the costume descriptions and lighting cues specified for theatrical productions",
+                    "the program notes distributed to the audience before the performance begins"
+                ],
+                correctAnswer: 1,
+                explanation: "The primary text refers to the dialogue exchange among characters. The secondary text consists of the notes left by the playwright to guide the stage designer or actor.",
+                topic: "Stage Directions — Primary vs Secondary Text"
+            },
+            {
+                id: 19,
+                category: "Stage Directions",
+                question: "In Erika Fischer's sign systems model, which of the following is NOT one of the three categories of sign systems in drama?",
+                options: [
+                    "actor's activities as a sign, encompassing both linguistic and kinesic elements",
+                    "actor's appearance as a sign, covering hairstyle and costume as meaningful signals",
+                    "audience reception as a sign, measuring how spectators interpret performance",
+                    "spatial and acoustic signs, covering decoration, props, lighting, sound and music"
+                ],
+                correctAnswer: 2,
+                explanation: "Fischer's model identifies three sign systems: actor's activities as a sign, actor's appearance as a sign, and spatial and acoustic signs. Audience reception is not part of this classification.",
+                topic: "Fischer's Sign Systems Model"
+            },
+            {
+                id: 20,
+                category: "Stage Directions",
+                question: "Under Erika Fischer's model, 'kinesic' elements within actor's activities refer to:",
+                options: [
+                    "the linguistic content of the spoken words and their paralinguistic features",
+                    "mimic expressions, gestures, and proxemic positioning of the actor on stage",
+                    "the acoustic dimension of performance, including music and ambient sound",
+                    "costume choices and hairstyle as visible components of the actor's appearance"
+                ],
+                correctAnswer: 1,
+                explanation: "Kinesic elements refer to mimic expressions, gestures, and proxemics (use of space). The other branch of actor's activities is the linguistic dimension, covering language and paralanguage.",
+                topic: "Fischer's Sign Systems Model — Kinesic"
+            }
+        ]
+    },
+
+    {
+        title: "Exam 2: Characterization, Speech & Dramatic Structure",
+        icon: "🗣️",
+        label: "Lectures 3–4",
+        lang: "en",
+        type: "mcq",
+        questions: [
+            {
+                id: 1,
+                category: "Characterization",
+                question: "Explicit-figural characterization techniques are described as:",
+                options: [
+                    "entirely non-verbal, relying on costume, gesture, and physical behavior",
+                    "entirely verbal, communicated through language and spoken commentary",
+                    "partially visual and partially linguistic, combining speech with appearance",
+                    "dependent solely on the spatial arrangement of actors within the stage space"
+                ],
+                correctAnswer: 1,
+                explanation: "All explicit-figural characterization techniques are verbal. They are divided into self-commentary, where a character describes itself, and outside commentary, where one character is characterized by another.",
+                topic: "Explicit-Figural Characterization"
+            },
+            {
+                id: 2,
+                category: "Characterization",
+                question: "In explicit-figural characterization, a 'self-commentary' occurs when:",
+                options: [
+                    "one character describes and evaluates another character's traits and actions",
+                    "a figure explicitly articulates the way it sees and understands itself",
+                    "the playwright inserts descriptive notes about a character in the secondary text",
+                    "the audience draws inferences from a character's appearance and clothing"
+                ],
+                correctAnswer: 1,
+                explanation: "A self-commentary is one in which a figure explicitly articulates the way it sees itself. The figure is simultaneously both the subject and the object of the information it transmits.",
+                topic: "Explicit-Figural — Self-Commentary"
+            },
+            {
+                id: 3,
+                category: "Characterization",
+                question: "An 'outside commentary' in explicit-figural characterization means:",
+                options: [
+                    "a character reflects on and openly describes its own inner thoughts and identity",
+                    "one figure is characterized explicitly by a different figure within the drama",
+                    "a narrator outside the action provides factual information about all characters",
+                    "stage directions visible only to the director describe a character's background"
+                ],
+                correctAnswer: 1,
+                explanation: "An outside commentary is one in which one figure is characterised explicitly by another. Here the subject of the information transmitted is not identical with the object.",
+                topic: "Explicit-Figural — Outside Commentary"
+            },
+            {
+                id: 4,
+                category: "Characterization",
+                question: "When information about a character is provided both by that character and by others, these pieces of information typically:",
+                options: [
+                    "always coincide perfectly, giving the audience a single unified portrait",
+                    "do not coincide, or only partially, as each is tied to a particular figure's perspective",
+                    "contradict each other entirely in order to create dramatic irony at all times",
+                    "are always identical, since all characters have equal access to the same truth"
+                ],
+                correctAnswer: 1,
+                explanation: "The various pieces of information about a character sent by that character or by others need not coincide. In most cases they do not, or only partially, because each is bound up with a particular figure-perspective.",
+                topic: "Explicit-Figural Characterization — Information and Perspective"
+            },
+            {
+                id: 5,
+                category: "Characterization",
+                question: "Implicit-figural characterization techniques are described as only partially verbal because:",
+                options: [
+                    "they rely entirely on music and acoustic signals rather than spoken language",
+                    "a figure is presented through what it says but also through appearance, behavior, and context",
+                    "they depend only on what other characters say about the figure in question",
+                    "they require the playwright to write explicit stage directions for every scene"
+                ],
+                correctAnswer: 1,
+                explanation: "Implicit-figural characterization is only partially verbal because a dramatic figure is presented not only through what it says and how it says it, but also through its appearance, behavior, and context (clothing, properties, interiors, etc.).",
+                topic: "Implicit-Figural Characterization"
+            },
+            {
+                id: 6,
+                category: "Characterization",
+                question: "In the techniques of characterization diagram, the implicit verbal branch includes:",
+                options: [
+                    "physiognomy, facial expression, stature, gesture, masks, and costume",
+                    "voice quality, verbal behavior, idiolect, sociolect, dialect, register, and stylistic texture",
+                    "soliloquy and dialogue, which together constitute self-commentary by the figure",
+                    "props, locale, lighting, and the acoustic environment of the performance space"
+                ],
+                correctAnswer: 1,
+                explanation: "The implicit verbal branch of characterization includes voice quality, verbal behavior, idiolect/sociolect/dialect/register, and stylistic texture — elements that characterize a figure through how language is used rather than through explicit statement.",
+                topic: "Implicit-Figural — Verbal vs Non-Verbal"
+            },
+            {
+                id: 7,
+                category: "Types of Speech",
+                question: "A monologue in drama is best described as:",
+                options: [
+                    "a brief remark spoken secretly so that only the audience can hear the character",
+                    "a self-contained, autonomous speech of a reasonable length delivered by one character",
+                    "a rapid exchange of short lines between two or more characters on the stage",
+                    "a long address delivered while the character is completely alone on stage"
+                ],
+                correctAnswer: 1,
+                explanation: "A monologue is a self-contained, autonomous speech of a reasonable length. It is distinguished from a soliloquy by the fact that it is addressed to someone, and from one side of a dialogue by its length and completeness.",
+                topic: "Types of Speech — Monologue"
+            },
+            {
+                id: 8,
+                category: "Types of Speech",
+                question: "A dialogue in drama refers to:",
+                options: [
+                    "a lengthy speech one character delivers when they are alone on stage",
+                    "speech exchange among two or more characters within the dramatic work",
+                    "a secret remark addressed to the audience that other characters cannot hear",
+                    "a self-contained autonomous address delivered to a specific character"
+                ],
+                correctAnswer: 1,
+                explanation: "Dialogues are speech exchanges among two or more characters. This is the foundational form of dramatic language and contrasts with the monologue, soliloquy, and aside.",
+                topic: "Types of Speech — Dialogue"
+            },
+            {
+                id: 9,
+                category: "Types of Speech",
+                question: "A soliloquy is delivered when:",
+                options: [
+                    "two characters exchange rapid-fire, closely matched lines in tense confrontation",
+                    "the character is alone on stage (or acts as though alone) and addresses the audience",
+                    "a character whispers a private comment to the audience while others are present",
+                    "the playwright inserts a long prose passage describing the character's inner state"
+                ],
+                correctAnswer: 1,
+                explanation: "A soliloquy is a long report the character delivers when alone on stage, addressing the audience directly. It is a kind of talking to oneself, not intended to affect other characters.",
+                topic: "Types of Speech — Soliloquy"
+            },
+            {
+                id: 10,
+                category: "Types of Speech",
+                question: "How does a monologue differ from a soliloquy?",
+                options: [
+                    "a monologue is spoken alone on stage while a soliloquy is addressed to other characters",
+                    "a monologue is addressed to someone whereas a soliloquy is spoken by a character who is alone",
+                    "a monologue features multiple characters while a soliloquy is always delivered by one person",
+                    "a monologue is always comic while a soliloquy is always associated with tragic drama"
+                ],
+                correctAnswer: 1,
+                explanation: "A monologue is distinguished from a soliloquy by the fact that it is addressed to someone. A soliloquy is spoken by a character who is alone or acts as though alone — it is a kind of talking to oneself.",
+                topic: "Monologue vs Soliloquy"
+            },
+            {
+                id: 11,
+                category: "Types of Speech",
+                question: "In an aside, who hears the character's speech?",
+                options: [
+                    "only the other characters on stage, who respond to the remark immediately",
+                    "only the audience, while the other characters on stage pretend not to hear",
+                    "both the other characters and the audience, who all receive the same message",
+                    "only the director and stage crew, who use it to coordinate the performance"
+                ],
+                correctAnswer: 1,
+                explanation: "In an aside, only the audience hears the character's speech. Other characters on stage pretend not to be hearing it. This creates a privileged communication between the character and the spectators.",
+                topic: "Types of Speech — Aside"
+            },
+            {
+                id: 12,
+                category: "Types of Speech",
+                question: "A 'dialogical aside' is listed as a distinct type of speech. Based on the course taxonomy, this suggests:",
+                options: [
+                    "a long self-contained speech that is formally addressed to another character present",
+                    "an aside that is structured in a dialogic or exchange-like form between characters",
+                    "any dialogue that occurs in the absence of the character being discussed",
+                    "a monologue that is delivered before the character makes their first appearance"
+                ],
+                correctAnswer: 1,
+                explanation: "The dialogical aside is listed as a distinct type from the ordinary aside, suggesting it involves a form of exchange or dialogue element embedded within the aside structure, rather than a purely private address to the audience.",
+                topic: "Types of Speech — Dialogical Aside"
+            },
+            {
+                id: 13,
+                category: "Functions of Dramatic Speech",
+                question: "Every utterance on stage must fulfill a dramatic purpose. Which of the following is NOT listed as a function of dramatic speech?",
+                options: [
+                    "further the events of the play through narrative development or conflict",
+                    "reveal a character's thoughts or feelings to the audience",
+                    "entertain the audience through humor and spectacular theatrical display",
+                    "serve an expository function by providing necessary background information"
+                ],
+                correctAnswer: 2,
+                explanation: "The listed functions of dramatic speech are: furthering events, revealing character, expressive function, referential function, appellative function, and expository function. Pure entertainment is not listed as a defined function.",
+                topic: "Functions of Dramatic Speech"
+            },
+            {
+                id: 14,
+                category: "Dramatic Structure",
+                question: "The plot in drama is defined as:",
+                options: [
+                    "the tensed conflict between two characters expressed through their opposing wills",
+                    "the chronological sequence of events that unfolds through the play",
+                    "the underlying thematic statement the playwright wishes the audience to understand",
+                    "the physical movement and spatial arrangement of characters across the stage"
+                ],
+                correctAnswer: 1,
+                explanation: "The plot is the chronological sequence of events. This is distinct from dramatic action, which involves a tense conflict between two characters and does not necessarily follow chronological order.",
+                topic: "Plot vs Dramatic Action"
+            },
+            {
+                id: 15,
+                category: "Dramatic Structure",
+                question: "Dramatic action is distinguished from plot because it:",
+                options: [
+                    "follows the strict chronological order of events as they occur in time",
+                    "depicts a tense conflict between two characters — a conflict of two wills",
+                    "summarizes the storyline of the play for the benefit of the audience",
+                    "describes the physical stage movements choreographed by the director"
+                ],
+                correctAnswer: 1,
+                explanation: "Dramatic action depicts a tensed conflict between two characters — a conflict of two wills, not a physical confrontation. It can appear in any part of a play and does not say too much on the level of the plot.",
+                topic: "Dramatic Action — Definition"
+            },
+            {
+                id: 16,
+                category: "Dramatic Structure",
+                question: "Which statement best describes the relationship between conversation and dramatic dialogue?",
+                options: [
+                    "they are identical, since any speech exchange between characters constitutes dramatic dialogue",
+                    "not every dialogue is considered dramatic; dramatic dialogue must fulfill specific purposes",
+                    "conversation is always more complex than dramatic dialogue in its structure",
+                    "dramatic dialogue always avoids conflict, whereas conversation embraces it openly"
+                ],
+                correctAnswer: 1,
+                explanation: "Not every dialogue is considered dramatic. The course draws a distinction between ordinary conversation and dramatic dialogue, with the latter needing to fulfill specific dramatic functions such as furthering events or revealing character.",
+                topic: "Conversation vs Dramatic Dialogue"
+            },
+            {
+                id: 17,
+                category: "Dramatic Structure",
+                question: "The contrast between two characters in drama is significant because:",
+                options: [
+                    "it allows the audience to decide which character's costume is more visually attractive",
+                    "it can embody a deeper philosophical contrast between two opposing ways of life",
+                    "it ensures that all scenes maintain a consistent level of comedic entertainment",
+                    "it prevents the audience from identifying too closely with a single character"
+                ],
+                correctAnswer: 1,
+                explanation: "The contrast between characters in drama can carry a philosophical dimension — behind the contrast of characters may be a further contrast between two ways of life, giving the drama its deeper significance.",
+                topic: "Character Contrast and Philosophical Meaning"
+            },
+            {
+                id: 18,
+                category: "Characterization — Application",
+                question: "Emmy wearing a red coat and speaking 'in a firm voice' in the secondary text example are examples of which sign type in Fischer's model?",
+                options: [
+                    "acoustic signs, since they relate to the sound and musical environment of the stage",
+                    "actor's appearance and actor's activities as signs, covering costume and vocal delivery",
+                    "spatial signs, since they describe the decoration and physical arrangement of the stage",
+                    "primary text, since they are part of the dialogue exchange between the characters"
+                ],
+                correctAnswer: 1,
+                explanation: "Emmy's red coat belongs to actor's appearance as a sign (costume), while speaking 'in a firm voice' belongs to actor's activities as a sign (paralinguistic). Both are secondary text elements, illustrating Fischer's sign model.",
+                topic: "Fischer's Model — Applied to Secondary Text"
+            },
+            {
+                id: 19,
+                category: "Modern Drama",
+                question: "Which of the following playwrights is correctly matched with Modern Drama in the course material?",
+                options: [
+                    "Sophocles, the playwright of ancient Greek tragedy and theatrical tradition",
+                    "Moliere, the French comic playwright associated with the Renaissance period",
+                    "Samuel Beckett, whose work is associated with the theatre of the absurd",
+                    "Christopher Marlowe, the English Renaissance dramatist and Shakespeare contemporary"
+                ],
+                correctAnswer: 2,
+                explanation: "Samuel Beckett is listed as a Modern Drama playwright, associated with the theatre of the absurd. Sophocles is Greek, Moliere and Marlowe are Renaissance playwrights.",
+                topic: "Modern Drama — Playwrights"
+            },
+            {
+                id: 20,
+                category: "Characterization — Application",
+                question: "When analyzing Fontanges in the Bossuet dialogue excerpt, the reader recognizes her as naive and literal-minded. This characterization is conveyed primarily through:",
+                options: [
+                    "explicit self-commentary, since she directly states she is naive in the conversation",
+                    "implicit verbal techniques, since her character emerges from how and what she speaks",
+                    "spatial signs, since her position and movement on stage reveal her character",
+                    "outside commentary by the playwright, who inserts descriptions in the secondary text"
+                ],
+                correctAnswer: 1,
+                explanation: "Fontanges's naivety and literal-mindedness emerge from what she says and how she says it — this is implicit verbal characterization. The reader infers her character from her verbal behavior rather than from any explicit statement.",
+                topic: "Implicit-Figural — Verbal Characterization Applied"
+            }
+        ]
+    }
+];
+
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-toggle').textContent = '☀️';
+            }
+        })();
+
+        function toggleTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('theme-toggle').textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-toggle').textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function toggleReveal() {
+            const box = document.getElementById('essay-box');
+            const btn = document.getElementById('reveal-btn');
+            const isShown = box.classList.contains('show');
+            if (isShown) {
+                box.classList.remove('show');
+                btn.textContent = '▼ I\'m done — Show Model Answer';
+            } else {
+                box.classList.add('show');
+                btn.textContent = '▲ Hide Model Answer';
+                box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
 </body>
 </html>
