@@ -303,9 +303,7 @@ function renderQuestion() {
 function renderEssay() {
     const revealed = state.essayRevealed;
     return `
-        <div class="header">
-            <h1>⚔️ Theme of Revenge — Essay</h1>
-        </div>
+        <div class="header"><h1>⚔️ Theme of Revenge — Essay</h1></div>
         <div class="question-container">
             <p class="category">The Merchant of Venice</p>
             <div class="essay-instructions">
@@ -318,61 +316,31 @@ function renderEssay() {
                 </ul>
                 <p class="essay-note">Write your answer first, then reveal the model answer below.</p>
             </div>
-
-            <button class="show-model-btn" onclick="toggleEssayReveal()">
-                ${revealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}
-            </button>
-
+            <button class="show-model-btn" onclick="toggleEssayReveal()">${revealed ? '▲ Hide Model Answer' : '▼ Show Model Answer'}</button>
             <div class="essay-reveal-box ${revealed ? 'show' : ''}">
-
                 <span class="essay-section-label">Introduction</span>
                 <h3>What is Revenge?</h3>
                 <p>Revenge is the act of inflicting harm on someone in return for a wrong they have committed. It is driven by a desire to restore justice or personal honor through personal means rather than legal ones. In <em>The Merchant of Venice</em>, Shakespeare presents revenge as a double-edged force — motivating two cycles of conflict, each with its own causes, methods, and outcomes.</p>
-
                 <hr class="divider">
-
                 <span class="essay-section-label">Body — Part 1</span>
                 <h3>Shylock against Antonio</h3>
-
-                <p><strong style="color:var(--accent);">What happened?</strong><br>
-                Shylock, a Jewish moneylender, has suffered years of public insult from Antonio, who spat on him and mocked his religion. When Bassanio borrows money on Antonio's behalf, Shylock proposes a deadly bond: if the loan is unpaid within three months, he may cut a pound of flesh from Antonio's body.</p>
-
-                <p><strong style="color:var(--accent);">Why happened?</strong><br>
-                Shylock's revenge is rooted in humiliation and loss. Antonio has treated him as less than human because of his faith. Shylock asks bitterly:</p>
-                <blockquote>"Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?"</blockquote>
-                <p>His daughter Jessica also elopes with a Christian and takes his money, deepening his rage. The bond becomes the only power available to a man the law otherwise marginalizes.</p>
-
-                <p><strong style="color:var(--accent);">How happened? (The plan &amp; achievement)</strong><br>
-                When Antonio's ships are lost and the bond falls due, Shylock refuses repayment and drags Antonio to court demanding his pound of flesh. For a moment he holds total power — the law of Venice is on his side and even the Duke cannot override it. His revenge appears complete.</p>
-
+                <p><strong style="color:var(--accent);">What happened?</strong><br>Shylock, a Jewish moneylender, has suffered years of public insult from Antonio, who spat on him and mocked his religion. When Bassanio borrows money on Antonio's behalf, Shylock proposes a deadly bond: if the loan is unpaid within three months, he may cut a pound of flesh from Antonio's body.</p>
+                <p><strong style="color:var(--accent);">Why happened?</strong><br>Shylock's revenge is rooted in humiliation and loss. Antonio treated him as less than human because of his faith. Shylock asks: <em>"Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?"</em> His daughter Jessica also elopes with a Christian and takes his money, deepening his rage.</p>
+                <p><strong style="color:var(--accent);">How happened?</strong><br>When Antonio's ships are lost, Shylock refuses repayment and drags Antonio to court demanding his pound of flesh. For a moment he holds total power — the law of Venice is on his side and even the Duke cannot override it.</p>
                 <hr class="divider">
-
                 <span class="essay-section-label">Body — Part 2</span>
                 <h3>Portia against Shylock</h3>
-
-                <p><strong style="color:var(--accent);">Why happened?</strong><br>
-                Portia, Bassanio's wife, acts out of love for her husband and loyalty to Antonio. She decides that Shylock's rigid insistence on the law must be defeated by that very same law.</p>
-
-                <p><strong style="color:var(--accent);">How happened? (The plan)</strong><br>
-                Disguised as a young lawyer named Balthazar, she first appeals to Shylock's mercy:</p>
-                <blockquote>"The quality of mercy is not strained; it droppeth as the gentle rain from heaven."</blockquote>
-                <p>Shylock refuses. At the moment he raises his knife, Portia stops him: the bond grants flesh but not blood — he cannot shed a single drop, and must cut exactly one pound. She then invokes a law against aliens who plot against a Venetian citizen's life.</p>
-
-                <p><strong style="color:var(--accent);">The achievement</strong><br>
-                Shylock's power collapses. He cannot take the flesh, cannot reclaim his money, and now faces forfeiture of his estate. The Duke spares his life but forces him to convert to Christianity and sign over his wealth. Portia's legal trap succeeds completely.</p>
-
+                <p><strong style="color:var(--accent);">Why happened?</strong><br>Portia acts out of love for Bassanio and loyalty to Antonio. She decides Shylock's rigid insistence on the law must be defeated by that very same law.</p>
+                <p><strong style="color:var(--accent);">How happened?</strong><br>Disguised as lawyer Balthazar, she appeals to mercy: <em>"The quality of mercy is not strained; it droppeth as the gentle rain from heaven."</em> Shylock refuses. She then reveals the bond grants flesh but not blood — he cannot shed a single drop, and must cut exactly one pound — then invokes a law against aliens plotting against a Venetian citizen's life.</p>
+                <p><strong style="color:var(--accent);">Achievement</strong><br>Shylock's power collapses. He cannot take the flesh, cannot reclaim his money, and faces forfeiture of his estate. The Duke spares his life but forces conversion to Christianity and signs over his wealth.</p>
                 <hr class="divider">
-
                 <span class="essay-section-label">Conclusion</span>
                 <h3>Final Thoughts</h3>
-                <p>The theme of revenge runs through the play as two interlocking cycles, each undoing the other. Shylock's revenge, rooted in genuine suffering, is defeated by the very legal instrument he chose. Portia's counter-move restores Antonio but reduces Shylock to humiliation — a resolution the play presents as a legal triumph yet which carries its own moral weight. Shakespeare suggests that revenge, however justified it may feel, ultimately destroys the one who pursues it.</p>
-
-                <p class="essay-disclaimer">⚠️ Support every claim with a quote. Follow the What → Why → How structure in your own answer.</p>
+                <p>The theme of revenge runs through the play as two interlocking cycles, each undoing the other. Shakespeare suggests that revenge, however justified it may feel, ultimately destroys the one who pursues it.</p>
+                <p class="essay-disclaimer">⚠️ Support every claim with a quote. Follow the What → Why → How structure.</p>
             </div>
         </div>
-        <div style="text-align:center;">
-            <button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button>
-        </div>`;
+        <div style="text-align:center;"><button class="back-to-menu-btn" onclick="backToMenu()">← Main Menu</button></div>`;
 }
 
 function render() {
