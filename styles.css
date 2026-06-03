@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -273,7 +273,7 @@
         }
 
         .score-info {
-            text-align: right;
+            text-align: end;
         }
 
         .score-info .question-number {
@@ -294,14 +294,14 @@
         }
 
         .category {
-            text-align: right;
+            text-align: start;
             font-weight: bold;
             font-size: 1.25rem;
             margin-bottom: 1rem;
         }
 
         .question {
-            text-align: right;
+            text-align: start;
             font-size: 1.125rem;
             line-height: 1.75;
             margin-bottom: 1rem;
@@ -317,7 +317,7 @@
         .option-btn {
             width: 100%;
             padding: 1.25rem;
-            text-align: right;
+            text-align: start;
             border-radius: 0.75rem;
             border: 2px solid var(--option-border);
             background: var(--option-bg);
@@ -381,7 +381,7 @@
         }
 
         .explanation-title {
-            text-align: right;
+            text-align: start;
             font-weight: bold;
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
@@ -395,7 +395,7 @@
         }
 
         .explanation-text {
-            text-align: right;
+            text-align: start;
             color: var(--text-color);
             line-height: 1.75;
             font-size: 1.125rem;
@@ -410,7 +410,7 @@
             align-items: center;
             gap: 0.5rem;
             color: var(--accent);
-            text-align: right;
+            text-align: start;
             font-weight: 600;
         }
 
@@ -547,7 +547,7 @@
         }
 
         .stat-category {
-            text-align: right;
+            text-align: start;
             font-weight: 600;
         }
 
@@ -607,15 +607,3 @@
             color: var(--accent);
             font-size: 1.25rem;
         }
-
-        .essay-instructions { background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.25rem; line-height: 1.75; }
-.essay-note { margin-top: 0.5rem; color: var(--muted); font-style: italic; font-size: 0.9rem; }
-.essay-disclaimer { margin-top: 1rem; color: var(--danger); font-size: 0.9rem; font-style: italic; }
-.show-model-btn { width: 100%; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; padding: 1rem; border-radius: 0.75rem; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; margin-bottom: 1rem; }
-.essay-reveal-box { display: none; background: var(--option-bg); border: 1px solid var(--option-border); border-radius: 0.75rem; padding: 1.5rem; line-height: 1.8; }
-.essay-reveal-box.show { display: block; }
-.essay-reveal-box h3 { font-size: 1rem; font-weight: bold; color: var(--accent); margin: 1.1rem 0 0.4rem; }
-.essay-reveal-box h3:first-child { margin-top: 0; }
-.essay-reveal-box p { margin-bottom: 0.85rem; font-size: 0.97rem; }
-.essay-section-label { display: inline-block; background: linear-gradient(to right, var(--accent), var(--accent-2)); color: white; font-size: 0.75rem; font-weight: bold; padding: 0.18rem 0.55rem; border-radius: 999px; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; }
-hr.divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
