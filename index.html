@@ -14,959 +14,1179 @@
 
 const examSets = [
     {
-        title: "Critics-1: Introduction to Literary Criticism",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Etymology",
-                question: "The Greek word 'krites' means:",
-                options: [
-                    "A judge — the person who evaluates",
-                    "A judgment — the act of evaluating",
-                    "A writer — the person who creates",
-                    "A method — the process of analysis"
-                ],
-                correctAnswer: 0,
-                explanation: "Pair to memorize: 'krino' = judgment (the act), 'krites' = judge (the person). Together → 'kritikos' = literary judges.",
-                topic: "Origin of the Word Critic"
-            },
-            {
-                id: 2,
-                category: "Definitions",
-                question: "Literary criticism involves five activities. Which list is correct?",
-                options: [
-                    "Defining, classifying, analyzing, interpreting, evaluating",
-                    "Defining, translating, analyzing, interpreting, comparing",
-                    "Describing, classifying, summarizing, interpreting, publishing",
-                    "Defining, classifying, analyzing, rewriting, evaluating"
-                ],
-                correctAnswer: 0,
-                explanation: "The 5-step chain: Define → Classify (genre) → Analyze (structure & style) → Interpret (meaning) → Evaluate (judge worth by comparison).",
-                topic: "Definition of Literary Criticism"
-            },
-            {
-                id: 3,
-                category: "Definitions",
-                question: "A literary theory acts as a 'critical lens.' This means it:",
-                options: [
-                    "Gives a final definitive interpretation of any text",
-                    "Provides assumptions through which a critic analyzes a text",
-                    "Replaces the critic's personal judgment entirely",
-                    "Focuses only on the biography of the author"
-                ],
-                correctAnswer: 1,
-                explanation: "Theory = lens = a WAY TO VIEW a text. Pick a theory (feminist, Marxist, etc.) → use its assumptions to analyze. Different lenses → different readings of the same work.",
-                topic: "Literary Theory as a Critical Lens"
-            },
-            {
-                id: 4,
-                category: "Abrams",
-                question: "M.H. Abrams identifies four features in studying literature. Which is NOT one?",
-                options: [
-                    "The work itself",
-                    "The artist who creates it",
-                    "The critic who evaluates it",
-                    "The audience who receives it"
-                ],
-                correctAnswer: 2,
-                explanation: "Abrams' four: Work, Artist, Universe (nature being imitated), Audience. The CRITIC is NOT one. The tricky one people forget is 'the universe.'",
-                topic: "Abrams' Four Features"
-            },
-            {
-                id: 5,
-                category: "Applied Example",
-                question: "Achebe criticized Conrad's Heart of Darkness for failing to grant full humanity to Africans. This is:",
-                options: [
-                    "Marxist criticism about class struggle",
-                    "Formalist criticism about literary technique",
-                    "Post-colonial criticism about exploitation and racism",
-                    "Biographical criticism about Conrad's personal life"
-                ],
-                correctAnswer: 2,
-                explanation: "Achebe = post-colonial. He's exposing how Conrad dehumanizes Africans — that's about colonialism & racism, not class (Marxist) or form (Formalist).",
-                topic: "Post-Colonial Applied Example"
-            },
-            {
-                id: 6,
-                category: "Critical Approaches",
-                question: "Formalism is 'art for art's sake' because the critic:",
-                options: [
-                    "Focuses only on the text's words, ignoring biography and history",
-                    "Evaluates the moral impact of the art on its readers",
-                    "Studies how the art reflects socio-economic conditions",
-                    "Analyzes how the reader's own experience shapes meaning"
-                ],
-                correctAnswer: 0,
-                explanation: "Formalism = ONLY the text matters. Ignore author's life, ignore history, ignore politics. Just words, structure, style on the page.",
-                topic: "Formalist Criticism"
-            },
-            {
-                id: 7,
-                category: "Critical Approaches",
-                question: "Psychological (Freudian) criticism is based on the belief that:",
-                options: [
-                    "All actions are influenced by the unconscious mind",
-                    "All actions are determined by socio-economic class",
-                    "All actions reflect the reader's personal history",
-                    "All actions mirror the author's stated moral values"
-                ],
-                correctAnswer: 0,
-                explanation: "Psychological = the UNCONSCIOUS drives everything. Freud → unconscious → hidden desires/fears. It analyzes characters' actions and motivations through psychoanalysis.",
-                topic: "Psychological Criticism"
-            },
-            {
-                id: 8,
-                category: "Critical Approaches",
-                question: "Reader-Response criticism says meaning is created by:",
-                options: [
-                    "The author's original conscious intentions alone",
-                    "The text's fixed internal structure and language",
-                    "The interaction between reader's experience and the text",
-                    "The historical context in which the work was written"
-                ],
-                correctAnswer: 2,
-                explanation: "Reader-Response = meaning lives in the READER'S MIND. Even the SAME reader reading TWICE may get different meanings because variables (mood, knowledge, life experience) change.",
-                topic: "Reader-Response Criticism"
-            },
-            {
-                id: 9,
-                category: "Critical Approaches",
-                question: "Deconstructionists believe literary texts have:",
-                options: [
-                    "One true meaning placed by the author",
-                    "No fixed meaning due to cultural assumptions",
-                    "Meaning only through historical context",
-                    "A stable meaning all critics can agree on"
-                ],
-                correctAnswer: 1,
-                explanation: "Deconstruction = NO fixed meaning. Authors are shaped by THEIR cultural assumptions when writing; readers by THEIRS when reading. Language can't accurately represent reality.",
-                topic: "Deconstructionist Criticism"
-            },
-            {
-                id: 10,
-                category: "Critical Approaches",
-                question: "Marxist criticism seeks to uncover how a work reflects:",
-                options: [
-                    "The unconscious desires of characters and creators",
-                    "The socio-economic conditions and class struggle",
-                    "The stereotypical gender roles in patriarchal society",
-                    "The colonized people's resistance against oppressors"
-                ],
-                correctAnswer: 1,
-                explanation: "Marxist = CLASS + ECONOMICS. What socio-economic conditions existed? How does the work reveal the history of class struggle? Think Marx → class → economics.",
-                topic: "Marxist Criticism"
-            },
-            {
-                id: 11,
-                category: "Critical Approaches",
-                question: "Post-colonial criticism analyzes two opposing forces:",
-                options: [
-                    "Artistic innovation vs. literary tradition",
-                    "Colonized accepting colonizer values vs. resisting oppression",
-                    "Religious authority vs. secular philosophy",
-                    "Economic growth vs. cultural preservation"
-                ],
-                correctAnswer: 1,
-                explanation: "Post-colonial = two sides: (1) Pressure to INTERNALIZE colonizer's values, (2) RESISTANCE against oppressors. Also studies literature produced by colonized cultures.",
-                topic: "Post-Colonial Criticism"
-            },
-            {
-                id: 12,
-                category: "Literary Elements",
-                question: "In literary analysis, 'tone' refers to:",
-                options: [
-                    "The category of literature (drama, poetry, fiction)",
-                    "The writer's attitude towards the subject matter",
-                    "The way a writer presents thoughts (subjective/objective)",
-                    "The sequence of events forming the narrative"
-                ],
-                correctAnswer: 1,
-                explanation: "Tone = writer's FEELINGS/ATTITUDE (depressed, hopeful, sarcastic). Remember the trio: Tone = WHAT feeling, Style = HOW presented, Genre = WHAT type.",
-                topic: "Literary Elements"
-            },
-            {
-                id: 13,
-                category: "Literary Elements",
-                question: "Which terms are specifically used for analyzing poetry?",
-                options: [
-                    "Rhyme, imagery, simile, metaphor, symbol",
-                    "Characterization, plot, setting, conflict",
-                    "Narrative technique, 1st person narrator, motifs",
-                    "Point of view, plot structure, setting"
-                ],
-                correctAnswer: 0,
-                explanation: "Poetry = rhyme + imagery (simile, metaphor, symbol). Drama = characterization, plot, setting, motifs, conflict. Fiction = narrative technique (1st/3rd person), setting, plot, motifs.",
-                topic: "Literary Terms by Genre"
-            },
-            {
-                id: 14,
-                category: "Critical Approaches",
-                question: "Moralistic criticism judges a work based on:",
-                options: [
-                    "Its artistic structure and formal qualities",
-                    "Its ethical teachings and effects on readers",
-                    "Its reflection of socio-economic conditions",
-                    "Its representation of colonial power dynamics"
-                ],
-                correctAnswer: 1,
-                explanation: "Moralistic = MORAL judgment. Does this teach good values? Good effect on readers? It's the OPPOSITE of Formalism (which ignores morality, cares only about artistic form).",
-                topic: "Moralist Criticism"
-            },
-            {
-                id: 15,
-                category: "Critical Approaches",
-                question: "Feminist criticism examines how literature is influenced by:",
-                options: [
-                    "Economic class divisions between characters",
-                    "Patriarchal narratives and roles of men and women",
-                    "Unconscious desires in the author's biography",
-                    "The colonizer-colonized power dynamic"
-                ],
-                correctAnswer: 1,
-                explanation: "Feminist = patriarchy + gender. It examines: social relationships of men & women, male-dominated narratives, and stereotypical portrayals of female characters.",
-                topic: "Feminist Criticism"
-            }
-        ]
-    },
-    {
-        title: "Critics-3: Plato's Republic & Allegory of the Cave",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Socrates",
-                question: "Socrates is known for a unique philosophical method. What is it called?",
-                options: [
-                    "The Platonic method based on written dialogues",
-                    "The Socratic method based on questioning and dialogue",
-                    "The Aristotelian method based on logical syllogisms",
-                    "The Rhetorical method based on persuasive speeches"
-                ],
-                correctAnswer: 1,
-                explanation: "The Socratic method = question after question + identifying contradictions in beliefs. Also called Socratic dialogue or dialectic. It emphasizes critical thinking through dialogue, NOT lectures.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 2,
-                category: "Socrates",
-                question: "What do we learn by the END of a Socratic dialogue?",
-                options: [
-                    "A clear and definitive answer to the question being discussed",
-                    "That what we thought we knew, we actually don't know",
-                    "That the student's original belief was correct all along",
-                    "That philosophy cannot answer any meaningful questions"
-                ],
-                correctAnswer: 1,
-                explanation: "Two outcomes of Socratic dialogue: (1) What we thought we knew, we know NOT. (2) By eliminating contradictions, we learn what something is NOT. You never get a final 'yes' answer.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 3,
-                category: "Socrates",
-                question: "Socrates was sentenced to death on charges of:",
-                options: [
-                    "Plotting to overthrow the Athenian government",
-                    "Corrupting the youth and impiety against the gods",
-                    "Writing texts that insulted the Greek philosophers",
-                    "Refusing to serve in the Athenian military forces"
-                ],
-                correctAnswer: 1,
-                explanation: "Two charges: (1) corrupting the youth, (2) impiety (lack of respect) against the gods. He was found guilty and sentenced to death.",
-                topic: "Socrates' Life"
-            },
-            {
-                id: 4,
-                category: "Plato",
-                question: "What did Plato found after Socrates' death?",
-                options: [
-                    "A political party to reform Athenian democracy",
-                    "The Academy — an institute of scientific and philosophical research",
-                    "A religious temple dedicated to the Greek gods",
-                    "A school of rhetoric and public speaking for politicians"
-                ],
-                correctAnswer: 1,
-                explanation: "After Socrates died in 399 BC, Plato founded the ACADEMY — an institute for scientific and philosophical research. Aristotle was one of his students there.",
-                topic: "Plato's Life"
-            },
-            {
-                id: 5,
-                category: "Platonism",
-                question: "Platonism is the belief that:",
-                options: [
-                    "The physical world we see is the only true reality",
-                    "The physical world is just an imperfect reflection of a perfect realm",
-                    "Knowledge comes only through the five physical senses",
-                    "Art and poetry are the highest forms of human knowledge"
-                ],
-                correctAnswer: 1,
-                explanation: "Platonism = the physical world is NOT real reality. It's a blurry, shadowy, imperfect REFLECTION of a perfect realm. This is the foundation for the Allegory of the Cave.",
-                topic: "Platonism"
-            },
-            {
-                id: 6,
-                category: "The Republic",
-                question: "In The Republic, the Allegory of the Cave is a dialogue between:",
-                options: [
-                    "Socrates and Aristotle discussing the ideal state",
-                    "Socrates and Glaucon (Plato's older brother)",
-                    "Plato and his students at the Academy",
-                    "Socrates and the judges at his trial"
-                ],
-                correctAnswer: 1,
-                explanation: "The Allegory is told by Socrates to GLAUCON (Plato's older brother). Plato wrote it, but Socrates is the speaker and Glaucon is the listener.",
-                topic: "Allegory of the Cave"
-            },
-            {
-                id: 7,
-                category: "Allegory Symbols",
-                question: "In the Allegory of the Cave, what do the SHADOWS on the wall represent?",
-                options: [
-                    "True knowledge gained through philosophical reasoning",
-                    "The perfect Forms that exist in the ideal realm",
-                    "Illusions and false beliefs people hold about reality",
-                    "The teachings of the philosopher who escaped the cave"
-                ],
-                correctAnswer: 2,
-                explanation: "Shadows = ILLUSIONS & FALSE BELIEFS. The prisoners think shadows are real because they've never seen anything else. Shadows are temporal objects known through the senses — not true reality.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 8,
-                category: "Allegory Symbols",
-                question: "The FREED PRISONER in the Allegory represents:",
-                options: [
-                    "A politician who governs the ideal city",
-                    "A philosopher seeking true knowledge outside the cave",
-                    "A poet who creates art based on imitation",
-                    "A priest who teaches religious beliefs to the masses"
-                ],
-                correctAnswer: 1,
-                explanation: "Freed prisoner = the PHILOSOPHER. He escapes ignorance (the cave), sees real truth (sunlight), and has a responsibility to go back and educate others — even though they resist.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 9,
-                category: "Allegory Symbols",
-                question: "The CAVE itself represents:",
-                options: [
-                    "The perfect realm of true Forms and ideas",
-                    "The physical world where people cannot obtain true knowledge",
-                    "The Academy where philosophers study and teach",
-                    "The afterlife where souls are judged for their actions"
-                ],
-                correctAnswer: 1,
-                explanation: "Cave = the PHYSICAL WORLD (the visible/sensible world). It is NOT a place where people can obtain knowledge of true reality. People inside are bound to mere imitations of truth.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 10,
-                category: "Allegory Meaning",
-                question: "When the freed prisoner returns to the cave, the other prisoners:",
-                options: [
-                    "Welcome him and eagerly learn about the outside world",
-                    "Ignore him completely and continue watching the shadows",
-                    "Think he is mad and would sooner kill him than be freed",
-                    "Ask him to lead them out of the cave one at a time"
-                ],
-                correctAnswer: 2,
-                explanation: "The prisoners think he's MAD and violently resist his attempts to free them — they'd rather KILL him than leave. This shows: people are comfortable in ignorance and hostile to anyone who tries to free them.",
-                topic: "Allegory Meaning"
-            },
-            {
-                id: 11,
-                category: "Allegory Meaning",
-                question: "The main lesson of the Allegory of the Cave is that philosophers who have seen truth:",
-                options: [
-                    "Should keep their knowledge private and avoid public life",
-                    "Have a responsibility to educate people in society",
-                    "Should force people to accept the truth by any means necessary",
-                    "Must abandon society entirely and live in isolation"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato's key message: philosophers who've seen the ideal world have a RESPONSIBILITY TO EDUCATE society. They must return to the cave and teach, even though people resist.",
-                topic: "Allegory Meaning"
-            },
-            {
-                id: 12,
-                category: "Allegory Symbols",
-                question: "The prisoners see 'shadows of models of animals made of stone' — this means their reality is:",
-                options: [
-                    "A direct and accurate copy of the real world",
-                    "A copy of a copy — twice removed from true reality",
-                    "An artistic creation by the people behind them",
-                    "A divine projection sent by the gods above"
-                ],
-                correctAnswer: 1,
-                explanation: "KEY detail: they see shadows (copy) of MODELS (already a copy) — so it's a COPY OF A COPY. Not even shadows of real animals! This connects directly to Plato's mimesis theory later.",
-                topic: "Allegory Symbols"
-            },
-            {
-                id: 13,
-                category: "Plato's Solution",
-                question: "For Plato, the solution to people's ignorance was:",
-                options: [
-                    "Giving everyone political power through direct democracy",
-                    "Educating society carefully through the Socratic Method",
-                    "Banning all art and poetry from the ideal society",
-                    "Allowing individuals to discover truth on their own"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato's solution = EDUCATE society using the Socratic Method (critical thinking + dialogue + questioning). Philosophy and reason are the path to truth, not senses or emotion.",
-                topic: "Plato's Educational Philosophy"
-            }
-        ]
-    },
-    {
-        title: "Critics-4: Plato's Theory of Forms",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Core Concept",
-                question: "Plato's Theory of Forms states that behind every physical thing there is:",
-                options: [
-                    "A shadow that distorts its true appearance",
-                    "A Form — the true eternal essence of that thing",
-                    "A story created by poets to explain its existence",
-                    "A material cause that science can fully explain"
-                ],
-                correctAnswer: 1,
-                explanation: "Behind EVERY thing = a Form = the TRUE ETERNAL ESSENCE. Forms are perfect, abstract, unchanging, non-physical, and universal. The physical thing is just a shadow/image of the Form.",
-                topic: "Theory of Forms — Core"
-            },
-            {
-                id: 2,
-                category: "Core Concept",
-                question: "According to Plato, the physical world we experience through our senses is:",
-                options: [
-                    "The only reality that truly exists",
-                    "A shadow or image of the true reality of Forms",
-                    "More real than the realm of abstract ideas",
-                    "Equally real alongside the world of Forms"
-                ],
-                correctAnswer: 1,
-                explanation: "Physical world = SHADOW/IMAGE of the real realm of Forms. The senses only show us imperfect copies. True reality is the realm of Forms, which is timeless and perfect.",
-                topic: "Theory of Forms — Core"
-            },
-            {
-                id: 3,
-                category: "Forms Characteristics",
-                question: "Plato's Forms are described as:",
-                options: [
-                    "Perfect, abstract, unchanging, non-physical, universal",
-                    "Imperfect, concrete, changing, physical, particular",
-                    "Beautiful, emotional, temporary, visible, cultural",
-                    "Scientific, measurable, testable, observable, material"
-                ],
-                correctAnswer: 0,
-                explanation: "Five key traits of Forms: PERFECT + ABSTRACT + UNCHANGING + NON-PHYSICAL + UNIVERSAL. Everything in the physical world is the opposite — imperfect, concrete, changing, physical, particular.",
-                topic: "Characteristics of Forms"
-            },
-            {
-                id: 4,
-                category: "Knowledge",
-                question: "According to Plato, the ONLY way to truly understand a Form is through:",
-                options: [
-                    "Our five senses like sight and hearing",
-                    "Artistic representation and poetic imagination",
-                    "Logic and mathematics (reason, not senses)",
-                    "Religious rituals and spiritual meditation"
-                ],
-                correctAnswer: 2,
-                explanation: "You CANNOT perceive Forms through senses (sight, hearing, etc.). The ONLY way = LOGIC and MATHEMATICS. This is why Plato values philosophy and reason above art and poetry.",
-                topic: "How We Know Forms"
-            },
-            {
-                id: 5,
-                category: "Examples",
-                question: "Plato's triangle example shows that:",
-                options: [
-                    "We can draw a perfect triangle on a whiteboard if we use a ruler",
-                    "Even a triangle drawn with a ruler is an imperfect copy of the Ideal triangle",
-                    "Mathematics is useless for understanding geometric forms",
-                    "Physical triangles are more real than the mathematical concept"
-                ],
-                correctAnswer: 1,
-                explanation: "Through math we DISCOVER the Form of a triangle (3 sides). But any triangle you draw — even with a ruler — is IMPERFECT and TEMPORARY. The Ideal triangle exists only as a concept, never as a physical drawing.",
-                topic: "Theory of Forms — Triangle Example"
-            },
-            {
-                id: 6,
-                category: "Examples",
-                question: "In the biscuit example, the 'Form' of a biscuit is:",
-                options: [
-                    "The best biscuit that comes out of the oven",
-                    "The perfect version of biscuits that exists in our head",
-                    "The recipe written down on paper by the cook",
-                    "The flour and ingredients before they are baked"
-                ],
-                correctAnswer: 1,
-                explanation: "The Form = the PERFECT VERSION IN YOUR HEAD (right taste, smell, shape). The baked biscuits are copies — and no two are identical. Some are more toasted, others deflated. All are imperfect copies of the Ideal.",
-                topic: "Theory of Forms — Biscuit Example"
-            },
-            {
-                id: 7,
-                category: "Examples",
-                question: "In the horse example, every physical horse is:",
-                options: [
-                    "A unique creation unrelated to any other horse",
-                    "An imperfect copy of the one true horse Form",
-                    "A perfect representation of what a horse should be",
-                    "A shadow cast by the fire inside Plato's cave"
-                ],
-                correctAnswer: 1,
-                explanation: "Big, small, grey, white, old, young — every horse is an IMPERFECT COPY of the horse Form (the one true horse). All physical horses are imitations of the perfect horse.",
-                topic: "Theory of Forms — Horse Example"
-            },
-            {
-                id: 8,
-                category: "Abstract Forms",
-                question: "The Theory of Forms applies to abstract concepts too. Which is the MOST important Form according to Plato?",
-                options: [
-                    "The Form of Beauty, which inspires all art",
-                    "The Form of Truth, which guides all science",
-                    "The Form of the Good, which lets us understand everything else",
-                    "The Form of Justice, which governs all societies"
-                ],
-                correctAnswer: 2,
-                explanation: "The Form of the GOOD = the most important. It allows us to understand EVERYTHING else, providing knowledge and truth. Other Forms (Justice, Beauty, Truth, Equality) exist but Good is supreme.",
-                topic: "The Form of the Good"
-            },
-            {
-                id: 9,
-                category: "Abstract Forms",
-                question: "According to Plato, the Forms of Justice, Goodness, Beauty and Truth:",
-                options: [
-                    "Exist only as human opinions that vary from culture to culture",
-                    "Are true and real, existing as eternal, unchanging ideas",
-                    "Were invented by poets to make their stories more meaningful",
-                    "Can only be understood through physical sensory experience"
-                ],
-                correctAnswer: 1,
-                explanation: "Abstract Forms are just as REAL as physical Forms. Justice, Goodness, Equality, Truth, Beauty = true and real, existing as IDEAS. They are eternal and unchanging — not cultural opinions.",
-                topic: "Abstract Forms"
-            },
-            {
-                id: 10,
-                category: "Core Concept",
-                question: "A tree casting a shadow is used by Plato to illustrate that:",
-                options: [
-                    "Trees are the most perfect objects in nature",
-                    "The tree itself is an image of the Form (the one true tree)",
-                    "Shadows are more real than the physical objects that cast them",
-                    "Nature proves that Forms don't exist outside the mind"
-                ],
-                correctAnswer: 1,
-                explanation: "Even the TREE ITSELF is just an image/copy of the Form — the one true tree. The tree isn't the ultimate reality; the Form of the tree is. Physical objects are always copies.",
-                topic: "Theory of Forms — Tree Example"
-            },
-            {
-                id: 11,
-                category: "Knowledge",
-                question: "Plato says we CANNOT perceive Forms through our senses. This means:",
-                options: [
-                    "Seeing and hearing can reveal the true nature of things",
-                    "Art and poetry provide the best path to understanding reality",
-                    "Only reason and logic can lead us to true understanding",
-                    "Physical experience is more reliable than abstract thinking"
-                ],
-                correctAnswer: 2,
-                explanation: "Senses = CANNOT reach Forms. Only LOGIC and MATHEMATICS can. This is why Plato values philosophy/reason over art/poetry/emotion — the senses deceive, reason reveals.",
-                topic: "How We Know Forms"
-            }
-        ]
-    },
-    {
-        title: "Critics-5: Plato's Theory of Mimesis & Accusations Against Poetry",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Mimesis",
-                question: "Plato uses the word 'mimesis' to mean:",
-                options: [
-                    "Creation of original and entirely new ideas",
-                    "Imitation or representation in educational contexts",
-                    "Destruction of false beliefs through reasoning",
-                    "Translation of philosophical texts into poetry"
-                ],
-                correctAnswer: 1,
-                explanation: "Mimesis = IMITATION or REPRESENTATION. Plato uses it in educational and ethical contexts. He says young people learn through imitation, so we must carefully select what they imitate.",
-                topic: "Theory of Mimesis"
-            },
-            {
-                id: 2,
-                category: "Mimesis",
-                question: "Plato judges poetry from which three perspectives?",
-                options: [
-                    "Educational, philosophical, and ethical",
-                    "Artistic, historical, and political",
-                    "Economic, social, and psychological",
-                    "Religious, military, and cultural"
-                ],
-                correctAnswer: 0,
-                explanation: "Three perspectives: EDUCATIONAL + PHILOSOPHICAL + ETHICAL. Not artistic! Plato doesn't care if poetry is beautiful — he cares if it teaches truth, wisdom, and good morals.",
-                topic: "How Plato Judges Poetry"
-            },
-            {
-                id: 3,
-                category: "Accusation 1",
-                question: "Plato's FIRST accusation against poetry is that poets:",
-                options: [
-                    "Make heroes appear weak and flawed in their stories",
-                    "Represent gods as unjust, as if gods cause unhappiness",
-                    "Encourage the youth to laugh at comedies irresponsibly",
-                    "Create art that is twice removed from ultimate reality"
-                ],
-                correctAnswer: 1,
-                explanation: "1st accusation = poets show GODS as UNJUST, as if gods are responsible for human unhappiness. Plato says gods CANNOT be evil, and showing their deficiencies harms the community.",
-                topic: "First Accusation — Gods"
-            },
-            {
-                id: 4,
-                category: "Accusation 2",
-                question: "Plato's SECOND accusation is that poetry misrepresents heroes by:",
-                options: [
-                    "Making them too perfect and unrealistically powerful",
-                    "Giving them tragic flaws, which badly impacts youth education",
-                    "Showing them as comedic figures who lack all seriousness",
-                    "Depicting them as philosophers rather than warriors"
-                ],
-                correctAnswer: 1,
-                explanation: "2nd accusation = heroes shown with TRAGIC FLAWS → bad influence on youth. Plato believes real heroes CANNOT be weak. Heroes should be noble with souls in harmony (inner peace/balance).",
-                topic: "Second Accusation — Heroes"
-            },
-            {
-                id: 5,
-                category: "Accusation 3",
-                question: "Plato's THIRD accusation says poetry is a 'dangerous rival to morality' because it:",
-                options: [
-                    "Teaches philosophical truths that challenge religious beliefs",
-                    "Encourages all desires and corrupts even good men",
-                    "Represents gods as responsible for human unhappiness",
-                    "Makes the youth laugh and lose their serious character"
-                ],
-                correctAnswer: 1,
-                explanation: "3rd accusation = poetry ENCOURAGES ALL DESIRES and CORRUPTS even good men. Poetry → dangerous rival to morality. Poetry has the capacity to DEMORALIZE minds, unlike philosophy which gives wisdom.",
-                topic: "Third Accusation — Corruption"
-            },
-            {
-                id: 6,
-                category: "Accusation 4",
-                question: "Plato's FOURTH accusation concerns comedies. He argues they:",
-                options: [
-                    "Cause youth to laugh and lose their serious character",
-                    "Misrepresent the gods as comedic and disrespectful",
-                    "Encourage class struggle between the rich and poor",
-                    "Teach children to imitate immoral adult behavior"
-                ],
-                correctAnswer: 0,
-                explanation: "4th accusation = youth take pleasure in LAUGHING at comedies → new generations won't have SERIOUS CHARACTERS. Comic works badly affect youth attitudes in real life.",
-                topic: "Fourth Accusation — Comedy"
-            },
-            {
-                id: 7,
-                category: "Accusation 5",
-                question: "Plato's FIFTH accusation uses the chair example to show that a painter's art is:",
-                options: [
-                    "A direct and faithful copy of the Form of a chair",
-                    "An imitation of an imitation — twice removed from reality",
-                    "A more perfect version of the carpenter's physical chair",
-                    "Equal in truth to the philosopher's understanding of a chair"
-                ],
-                correctAnswer: 1,
-                explanation: "The chain: Form of chair (ultimate reality) → Carpenter's chair (imitation) → Painter's painting of chair (imitation of imitation). Art = COPY OF A COPY = only a proportion of reality.",
-                topic: "Fifth Accusation — Imitation of Imitation"
-            },
-            {
-                id: 8,
-                category: "Accusation 5",
-                question: "In the chair example, who has MORE knowledge — the painter or the craftsman?",
-                options: [
-                    "The painter, because art captures the essence of beauty",
-                    "They have equal knowledge from different perspectives",
-                    "The craftsman, because he understands the chair's function",
-                    "Neither — only the philosopher knows the true Form"
-                ],
-                correctAnswer: 2,
-                explanation: "The CRAFTSMAN knows more than the painter. But NEITHER knows the true Form — only the PHILOSOPHER does. The path to reality is through philosophy and reason, NOT art and emotion.",
-                topic: "Fifth Accusation — Knowledge Hierarchy"
-            },
-            {
-                id: 9,
-                category: "Key Ideas",
-                question: "Plato believes the path to understanding reality is through:",
-                options: [
-                    "Art, poetry, and emotional expression",
-                    "Philosophy, reason, and rational thinking",
-                    "Imitation of brave and noble characters",
-                    "Religious worship and spiritual meditation"
-                ],
-                correctAnswer: 1,
-                explanation: "PHILOSOPHY + REASON = path to reality. NOT art, poetry, or emotion. This is the core of ALL Plato's accusations — art deals with imitation and emotion, philosophy deals with truth and reason.",
-                topic: "Philosophy vs. Art"
-            },
-            {
-                id: 10,
-                category: "Rhetoric",
-                question: "Plato scorned rhetoric (political speeches) because he believed they:",
-                options: [
-                    "Were too philosophical and abstract for common people",
-                    "Were insincere compliments aimed to deceive ignorant listeners",
-                    "Taught people critical thinking and the Socratic method",
-                    "Represented the highest form of logical argumentation"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato REJECTED rhetoric. Why? Political speeches = INSINCERE COMPLIMENTS to DECEIVE ignorant listeners. Rhetoric provides pleasure without concern for truth, and appeals to EMOTIONS rather than logic/reason.",
-                topic: "Accusations Against Rhetoric"
-            },
-            {
-                id: 11,
-                category: "Mimesis",
-                question: "Plato says 'young people learn through imitation,' so we must:",
-                options: [
-                    "Let them freely imitate any character they choose",
-                    "Ban all forms of literature from their education",
-                    "Carefully select models for them to imitate",
-                    "Teach them only through mathematical exercises"
-                ],
-                correctAnswer: 2,
-                explanation: "Since youth learn through IMITATION, we must SELECT MODELS carefully. Plato wants them to imitate only brave, pious, noble men — to build strength, not infect them with weakness.",
-                topic: "Education and Imitation"
-            },
-            {
-                id: 12,
-                category: "Key Ideas",
-                question: "According to Plato, poetry must be subject to control because:",
-                options: [
-                    "It is an important source of youth experience and must follow ethical principles",
-                    "It generates too much profit and must be regulated economically",
-                    "It competes with philosophy for students at the Academy",
-                    "It is written in a language that common people cannot understand"
-                ],
-                correctAnswer: 0,
-                explanation: "Poetry = important source of youth experience → it MUST be controlled. Contents should be based on ETHICAL PRINCIPLES. Plato doesn't want to eliminate poetry entirely — he wants it controlled ethically.",
-                topic: "Poetry and Ethics"
-            }
-        ]
-    },
-    {
-        title: "🎯 Final Exam Simulation (Midterm Style)",
-        lang: "en",
-        questions: [
-            {
-                id: 1,
-                category: "Exam Q2 Style",
-                question: "What is literary criticism?",
-                options: [
-                    "The study of authors' biographies and their personal correspondence",
-                    "Studies concerned with defining, classifying, analyzing, interpreting, and evaluating literary works",
-                    "The process of translating literary works from one language into another",
-                    "A method of editing and publishing manuscripts for academic audiences"
-                ],
-                correctAnswer: 1,
-                explanation: "Literary criticism = defining + classifying (genre) + analyzing (structure/style) + interpreting (meaning) + evaluating (worth by comparison). Memorize these five verbs.",
-                topic: "Definition of Literary Criticism"
-            },
-            {
-                id: 2,
-                category: "Exam Q2 Style",
-                question: "What do you know about Plato?",
-                options: [
-                    "A Roman emperor who conquered Greece and established democracy in Athens",
-                    "A Greek philosopher who founded the Academy and wrote The Republic in 375 BC",
-                    "A Greek mathematician who developed geometry and the Pythagorean theorem",
-                    "A Greek poet who wrote the Iliad and Odyssey about the Trojan War"
-                ],
-                correctAnswer: 1,
-                explanation: "Plato = Greek philosopher, student of Socrates, teacher of Aristotle. Founded the ACADEMY. Wrote THE REPUBLIC (375 BC). Developed Platonism and the Theory of Forms.",
-                topic: "Plato — Key Facts"
-            },
-            {
-                id: 3,
-                category: "Exam Q2 Style",
-                question: "What do you know about Socrates?",
-                options: [
-                    "He wrote The Republic and founded the Academy in Athens after Plato's death",
-                    "He was a defining figure in Western philosophy known for the Socratic method of questioning",
-                    "He was Plato's student who developed formal logic and the theory of syllogisms",
-                    "He was a Greek poet who represented gods with tragic flaws in his dramas"
-                ],
-                correctAnswer: 1,
-                explanation: "Socrates = defining figure in Western philosophy. Known for the Socratic method (questioning + dialogue). Teacher of Plato. Sentenced to death for corrupting youth and impiety. He wrote NOTHING — we know him through Plato.",
-                topic: "Socrates — Key Facts"
-            },
-            {
-                id: 4,
-                category: "Exam Q2 Style",
-                question: "What is the Allegory of the Cave about?",
-                options: [
-                    "A story about prisoners who see only shadows and mistake them for reality, representing humanity's ignorance",
-                    "A dialogue about the ideal form of government in which poets rule the state",
-                    "An argument for why art and poetry should be the foundation of education",
-                    "A description of the Academy that Plato founded for teaching rhetoric"
-                ],
-                correctAnswer: 0,
-                explanation: "Prisoners chained in a cave see SHADOWS on the wall and think they're real. A freed prisoner (philosopher) escapes, sees truth, returns — but others resist. Message: people are comfortable in ignorance; philosophers must educate them.",
-                topic: "Allegory of the Cave"
-            },
-            {
-                id: 5,
-                category: "Exam Q2 Style",
-                question: "What is Plato's Theory of Forms?",
-                options: [
-                    "The belief that physical objects are the ultimate reality and ideas are merely human inventions",
-                    "The belief that behind every physical thing is a perfect, abstract, unchanging, non-physical Form",
-                    "The belief that art creates perfect representations of objects in the physical world",
-                    "The belief that knowledge comes primarily through our five physical senses"
-                ],
-                correctAnswer: 1,
-                explanation: "Theory of Forms: behind every thing = a FORM (perfect, abstract, unchanging, non-physical, universal). Physical world = shadow/image of true reality. Forms are understood through LOGIC, not senses.",
-                topic: "Theory of Forms"
-            },
-            {
-                id: 6,
-                category: "Exam Q2 Style",
-                question: "What is Plato's theory of mimesis?",
-                options: [
-                    "The idea that art creates original ideas independent of reality",
-                    "The idea that art is imitation, and artists imitate copies of the true Forms",
-                    "The idea that all knowledge comes from imitating great philosophers",
-                    "The idea that the physical world is more real than abstract ideas"
-                ],
-                correctAnswer: 1,
-                explanation: "Mimesis = IMITATION. Artists imitate physical objects, which are ALREADY copies of Forms. So art = copy of a copy. Example: Form of chair → carpenter's chair → painter's painting = imitation of imitation.",
-                topic: "Theory of Mimesis"
-            },
-            {
-                id: 7,
-                category: "Exam Q1 Style",
-                question: "What is Formalist criticism and what does 'art for art's sake' mean?",
-                options: [
-                    "It focuses on a text's words, structure, and style — ignoring biography and history entirely",
-                    "It evaluates how art contributes to moral education and ethical development",
-                    "It examines how socio-economic conditions are reflected in literary works",
-                    "It studies the unconscious motivations behind characters' actions in a text"
-                ],
-                correctAnswer: 0,
-                explanation: "Formalism = art for art's sake. ONLY the text matters — words, structure, style. Ignore the author's life, ignore history, ignore morality. Judge the art ONLY by its artistic qualities.",
-                topic: "Formalist Criticism"
-            },
-            {
-                id: 8,
-                category: "Exam Q1 Style",
-                question: "What is Psychological criticism based on?",
-                options: [
-                    "The belief that socio-economic class determines literary meaning",
-                    "The belief that the unconscious mind influences all human actions",
-                    "The belief that the reader's response is the only source of meaning",
-                    "The belief that patriarchal narratives shape all literary traditions"
-                ],
-                correctAnswer: 1,
-                explanation: "Psychological/Freudian criticism = the UNCONSCIOUS drives all actions. Uses psychoanalysis to analyze characters' motivations and reveal insights about how the human mind works.",
-                topic: "Psychological Criticism"
-            },
-            {
-                id: 9,
-                category: "Exam Q1 Style",
-                question: "What does Marxist criticism focus on?",
-                options: [
-                    "How a work reflects socio-economic conditions and the history of class struggle",
-                    "How a work reflects patriarchal narratives and the roles of men and women",
-                    "How a work reveals the unconscious fears and desires of its characters",
-                    "How a work imitates the perfect Forms through artistic representation"
-                ],
-                correctAnswer: 0,
-                explanation: "Marxist = socio-economic conditions + class struggle. It asks: how does this work reflect (intentionally or NOT) the economic conditions and class dynamics of its time?",
-                topic: "Marxist Criticism"
-            },
-            {
-                id: 10,
-                category: "Exam Q1 Style",
-                question: "What does Feminist criticism examine?",
-                options: [
-                    "The socio-economic class structure reflected in literary works",
-                    "The social roles of men and women and patriarchal narratives in literature",
-                    "The unconscious psychological motivations of female characters only",
-                    "The historical context and changing cultural symbols over time"
-                ],
-                correctAnswer: 1,
-                explanation: "Feminist = gender roles + patriarchy. It explores social relationships of men & women, how literature is influenced by male-dominated (patriarchal) narratives, and stereotypical portrayals of women.",
-                topic: "Feminist Criticism"
-            },
-            {
-                id: 11,
-                category: "Exam Q1 Style",
-                question: "What does Post-colonial criticism analyze?",
-                options: [
-                    "Forces that pushed colonized to internalize colonizer values AND forces of resistance against oppression",
-                    "Forces that shaped the unconscious mind of authors from colonized nations only",
-                    "Forces that determined the artistic form and structural style of colonial literature",
-                    "Forces that made colonial economies dependent on art and literary production"
-                ],
-                correctAnswer: 0,
-                explanation: "Post-colonial = TWO forces: (1) pressure on colonized to INTERNALIZE colonizer values, (2) RESISTANCE against oppression. Also analyzes literature produced by cultures that developed under colonial domination.",
-                topic: "Post-Colonial Criticism"
-            },
-            {
-                id: 12,
-                category: "Exam Q2 Style",
-                question: "What is the Socratic Method?",
-                options: [
-                    "A method of writing philosophical dialogues in dramatic poetic form",
-                    "A method of investigation through asking questions and identifying contradictions",
-                    "A method of memorizing philosophical texts through repeated recitation",
-                    "A method of teaching through lectures delivered to large audiences"
-                ],
-                correctAnswer: 1,
-                explanation: "Socratic Method = asking QUESTION AFTER QUESTION + identifying CONTRADICTIONS in beliefs. Based on two or more sides holding different viewpoints. You don't get a final answer — you learn what you DON'T know.",
-                topic: "Socratic Method"
-            },
-            {
-                id: 13,
-                category: "Exam Q2 Style",
-                question: "What are Plato's main accusations against poetry?",
-                options: [
-                    "Poetry misrepresents gods, gives heroes tragic flaws, corrupts good men, makes youth unserious, and is an imitation of an imitation",
-                    "Poetry is too difficult for common people, too expensive to produce, and too long to memorize",
-                    "Poetry competes with philosophy for students, steals ideas from other poets, and promotes democracy",
-                    "Poetry ignores the physical world, rejects mathematics, and teaches only abstract concepts"
-                ],
-                correctAnswer: 0,
-                explanation: "Five accusations: (1) Poets misrepresent GODS as unjust, (2) Heroes shown with TRAGIC FLAWS, (3) Poetry CORRUPTS even good men, (4) Comedies make youth UNSERIOUS, (5) Art is IMITATION OF IMITATION (copy of copy).",
-                topic: "Plato's Five Accusations"
-            },
-            {
-                id: 14,
-                category: "Exam Q1 Style",
-                question: "What is Reader-Response criticism?",
-                options: [
-                    "Criticism that focuses on the author's biography and life experiences",
-                    "Criticism that focuses on how meaning is created through the reader's interaction with the text",
-                    "Criticism that focuses on the moral teachings and ethical effects of literature",
-                    "Criticism that focuses on the historical environment when the text was produced"
-                ],
-                correctAnswer: 1,
-                explanation: "Reader-Response = meaning is created in the READER'S MIND through interaction with the text. Many variables (mood, experience, background) contribute, so the same reader can get different meanings on different readings.",
-                topic: "Reader-Response Criticism"
-            },
-            {
-                id: 15,
-                category: "Exam Q2 Style",
-                question: "What is the Form of the Good and why is it important?",
-                options: [
-                    "It is the most beautiful Form that inspires all artistic creation and poetry",
-                    "It is the most important Form that allows us to understand everything else",
-                    "It is the Form that governs all political systems and laws in society",
-                    "It is the Form that determines moral behavior in everyday social life"
-                ],
-                correctAnswer: 1,
-                explanation: "The Form of the Good = the MOST IMPORTANT Form. It lets us understand EVERYTHING else. It provides knowledge and truth. It stands above all other Forms (Justice, Beauty, Truth, Equality).",
-                topic: "The Form of the Good"
-            }
-        ]
-    }
+    title: "النحو: الممنوع من الصرف",
+    icon: "📝",
+    label: "نحو ١",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 101,
+            category: "تعريف الممنوع من الصرف",
+            question: "ما المقصود بالممنوع من الصرف؟",
+            options: [
+                "الاسم الذي لا يقبل التنوين ويُجر بالفتحة بدلاً من الكسرة",
+                "الاسم الذي لا يقبل الضمة في حالة الرفع",
+                "الاسم الذي لا يدخل عليه حرف جر",
+                "الاسم الذي لا يُعرب بالحركات"
+            ],
+            correctAnswer: 0,
+            explanation: "الممنوع من الصرف اسمٌ معربٌ لا يقبل التنوين، ويُجَرُّ بالفتحة نيابةً عن الكسرة بدلاً من الكسر والتنوين. وسُمِّي «ممنوعاً من الصرف» لأنه مُنِع من الصرف، أي من التنوين الذي يلحق آخر الاسم. ويعود إليه التنوينُ والجرُّ بالكسرة في حالتين فقط: إذا أُضيف، أو دخلت عليه «أل» التعريف. مثال: مررتُ بأحمدَ (بالفتحة بلا تنوين لأنه ممنوع من الصرف)، لكن نقول: مررتُ بالأحمدِ (بالكسرة عند دخول «أل»).",
+            topic: "تعريف الممنوع من الصرف"
+        },
+        {
+            id: 102,
+            category: "علامات إعراب الممنوع من الصرف",
+            question: "ما علامة جر الاسم الممنوع من الصرف؟",
+            options: [
+                "الكسرة",
+                "الفتحة نيابة عن الكسرة",
+                "السكون",
+                "الياء"
+            ],
+            correctAnswer: 1,
+            explanation: "الاسم الممنوع من الصرف يُجَرُّ بالفتحة نيابةً عن الكسرة، وهذه أبرز علامة تميزه عن غيره من الأسماء. فبينما يُجَرُّ الاسمُ المصروف بالكسرة (مررتُ بمحمدٍ)، يُجَرُّ الممنوعُ من الصرف بالفتحة (مررتُ بأحمدَ). ويبقى الرفعُ بالضمة والنصبُ بالفتحة كالمعتاد، فالتغيير يقع في حالة الجر وحدها. أما إذا أُضيف أو دخلت عليه «أل» فإنه يُجَرُّ بالكسرة كبقية الأسماء.",
+            topic: "علامات إعراب الممنوع من الصرف"
+        },
+        {
+            id: 103,
+            category: "علامات إعراب الممنوع من الصرف",
+            question: "أي الجمل التالية فيها إعراب صحيح للممنوع من الصرف؟",
+            options: [
+                "ذهبتُ إلى مساجدٍ كثيرة",
+                "ذهبتُ إلى مساجدَ كثيرةٍ",
+                "ذهبتُ إلى مساجداً كثيرة",
+                "ذهبتُ إلى مساجدُ كثيرة"
+            ],
+            correctAnswer: 1,
+            explanation: "كلمة «مساجد» جمعُ تكسيرٍ على وزن مَفاعِل، وهو من صيغ منتهى الجموع، فهي ممنوعة من الصرف. ولذلك تُجَرُّ بالفتحة نيابةً عن الكسرة ولا تُنوَّن، والصواب: ذهبتُ إلى مساجدَ كثيرةٍ. أما الخيارات التي جرّتها بالكسرة والتنوين (مساجدٍ) أو نصبتها (مساجداً) أو رفعتها (مساجدُ) فكلها خطأ، لأن حرف الجر «إلى» يقتضي الجرَّ، وعلامة الجر هنا الفتحة.",
+            topic: "إعراب الممنوع من الصرف — صيغة منتهى الجموع"
+        },
+        {
+            id: 104,
+            category: "صيغة منتهى الجموع",
+            question: "أي الكلمات التالية على وزن صيغة منتهى الجموع (مفاعل / مفاعيل)؟",
+            options: [
+                "كُتُب",
+                "مصابيح",
+                "طلاب",
+                "معلمون"
+            ],
+            correctAnswer: 1,
+            explanation: "كلمة «مصابيح» جمعُ تكسيرٍ على وزن مَفاعِيل، وهو من صيغ منتهى الجموع (وهي كلُّ جمعٍ بعد ألف تكسيره حرفان، أو ثلاثةٌ أوسطُها حرف مدٍّ)، فتكون ممنوعة من الصرف. أما «كُتُب» فعلى وزن فُعُل وهو جمعُ تكسيرٍ عاديٌّ مصروفٌ يقبل التنوين (كتبٌ)، و«طلاب» جمعُ تكسيرٍ مصروف، و«معلمون» جمعُ مذكرٍ سالمٌ لا صلة له بصيغة منتهى الجموع.",
+            topic: "صيغة منتهى الجموع"
+        },
+        {
+            id: 105,
+            category: "صيغة منتهى الجموع",
+            question: "أي الكلمات التالية ممنوعة من الصرف لأنها صيغة منتهى الجموع؟",
+            options: [
+                "أصدقاء",
+                "مدارس",
+                "كتب",
+                "أبواب"
+            ],
+            correctAnswer: 1,
+            explanation: "كلمة «مدارس» جمعُ تكسيرٍ على وزن مَفاعِل، وهو من صيغ منتهى الجموع، فتُمنع من الصرف وتُجَرُّ بالفتحة. والسؤال يطلب الممنوعَ بسبب صيغة منتهى الجموع تحديداً، ولذلك فالجواب «مدارس». أما «أصدقاء» فممنوعةٌ من الصرف أيضاً لكن لسببٍ مختلفٍ هو ألف التأنيث الممدودة (وزن أفعِلاء)، و«كتب» و«أبواب» جمعا تكسيرٍ مصروفان يقبلان التنوين.",
+            topic: "صيغة منتهى الجموع"
+        },
+        {
+            id: 106,
+            category: "العلم المؤنث",
+            question: "لماذا تُمنع كلمة \"فاطمة\" من الصرف؟",
+            options: [
+                "لأنها صيغة منتهى الجموع",
+                "لأنها علم مؤنث",
+                "لأنها على وزن أفعل",
+                "لأنها علم أعجمي"
+            ],
+            correctAnswer: 1,
+            explanation: "«فاطمة» ممنوعةٌ من الصرف لأنه اجتمع فيها سببان: العَلَمية (فهي اسمٌ لامرأةٍ بعينها) والتأنيث. وكلُّ عَلَمٍ مؤنثٍ يُمنع من الصرف، سواء أكان تأنيثه لفظياً بالتاء مثل فاطمة وعائشة، أم معنوياً بلا تاءٍ مثل زينب وسعاد ومريم. مثال: سلّمتُ على فاطمةَ (بالفتحة من غير تنوين)، فلو نُوِّنت لقلنا خطأً «فاطمةٍ».",
+            topic: "العلم المؤنث"
+        },
+        {
+            id: 107,
+            category: "العلم الأعجمي",
+            question: "أي الأسماء التالية ممنوع من الصرف للعلمية والعجمة؟",
+            options: [
+                "محمد",
+                "إبراهيم",
+                "خالد",
+                "عمر"
+            ],
+            correctAnswer: 1,
+            explanation: "«إبراهيم» عَلَمٌ أعجميٌّ (غير عربي الأصل) زائدٌ على ثلاثة أحرف، فيُمنع من الصرف لسببين: العَلَمية والعُجمة. أما «محمد» و«خالد» فعربيّان مصروفان، و«عمر» عربيٌّ لكنه ممنوعٌ لسببٍ آخر هو العَلَمية والعَدْل. ويُشترط لمنع العَلَم الأعجمي أن يزيد على ثلاثة أحرف؛ فإن كان ثلاثياً ساكنَ الوسط مثل «نوح» و«لوط» فإنه يُصرف. مثال: آمنتُ بإبراهيمَ (بالفتحة).",
+            topic: "العلم الأعجمي"
+        },
+        {
+            id: 108,
+            category: "الصفة على وزن أفعل",
+            question: "لماذا تُمنع كلمة \"أحمر\" من الصرف؟",
+            options: [
+                "لأنها علم مؤنث",
+                "لأنها على وزن أفعل الذي مؤنثه فعلاء (صفة)",
+                "لأنها صيغة منتهى الجموع",
+                "لأنها مختومة بألف التأنيث"
+            ],
+            correctAnswer: 1,
+            explanation: "«أحمر» صفةٌ على وزن أَفْعَل، ومؤنثها «حمراء» على وزن فَعْلاء، وهذا الوزن يُمنع من الصرف لاجتماع الوصفية (كونه صفة) ومشابهة وزن الفعل. ومثله من الصفات: أخضر وخضراء، وأصفر وصفراء، وأعرج وعرجاء. فتقول: مررتُ بثوبٍ أحمرَ (بالفتحة بلا تنوين)، ولا يُصرف إلا إذا أُضيف أو دخلت عليه «أل»: بالثوبِ الأحمرِ.",
+            topic: "الصفة على وزن أفعل"
+        },
+        {
+            id: 109,
+            category: "ألف التأنيث",
+            question: "أي الكلمات التالية ممنوعة من الصرف بسبب ألف التأنيث الممدودة؟",
+            options: [
+                "صحراء",
+                "فاطمة",
+                "عثمان",
+                "مساجد"
+            ],
+            correctAnswer: 0,
+            explanation: "«صحراء» ممنوعةٌ من الصرف لأنها مختومةٌ بألف التأنيث الممدودة (وهي الألف التي تليها همزة: ـاء). وهذه الألف تجعل الاسمَ ممنوعاً من الصرف مهما كان: عَلَماً أو نكرةً أو صفة، مثل: صحراء وحمراء وعذراء وأسماء وزهراء. فتقول: سِرتُ في صحراءَ واسعةٍ (بالفتحة بلا تنوين). أما «فاطمة» فممنوعةٌ للعلمية والتأنيث، و«عثمان» للعلمية وزيادة الألف والنون، و«مساجد» لصيغة منتهى الجموع.",
+            topic: "ألف التأنيث الممدودة"
+        },
+        {
+            id: 110,
+            category: "ألف التأنيث",
+            question: "أي الكلمات التالية ممنوعة من الصرف بسبب ألف التأنيث المقصورة؟",
+            options: [
+                "كبرى",
+                "حمراء",
+                "عصافير",
+                "يوسف"
+            ],
+            correctAnswer: 0,
+            explanation: "«كبرى» ممنوعةٌ من الصرف لأنها مختومةٌ بألف التأنيث المقصورة (وهي الألف اللينة في آخرها: ـى). وهذه الألف تمنع الاسمَ من الصرف مطلقاً، مثل: كبرى وصغرى وحُبلى وذكرى وسلمى. فتقول: هذه هي الجائزةُ الكبرى، وحصلتُ على جائزةٍ كبرى (بلا تنوين). أما «حمراء» فممنوعةٌ بألف التأنيث الممدودة، و«عصافير» لصيغة منتهى الجموع، و«يوسف» للعلمية والعجمة.",
+            topic: "ألف التأنيث المقصورة"
+        },
+        {
+            id: 111,
+            category: "متى يُصرف الممنوع من الصرف؟",
+            question: "متى يُصرف الاسم الممنوع من الصرف (أي يعود للكسرة والتنوين)؟",
+            options: [
+                "إذا جاء مفعولاً به",
+                "إذا أُضيف أو دخلت عليه (أل) التعريف",
+                "إذا جاء في بداية الجملة",
+                "إذا كان مفرداً"
+            ],
+            correctAnswer: 1,
+            explanation: "يعود الاسمُ الممنوع من الصرف إلى الصرف — أي يُجَرُّ بالكسرة ويقبل التنوين — في حالتين: إذا أُضيف إلى ما بعده، أو دخلت عليه «أل» التعريف. مثالٌ على الإضافة: صلّيتُ في مساجدِ المدينةِ (بالكسرة لأنها مضافة). ومثالٌ على «أل»: صلّيتُ في المساجدِ (بالكسرة لأنها معرفة بأل). فما لم تتحقق إحدى الحالتين يبقى الاسم مجروراً بالفتحة: صلّيتُ في مساجدَ كثيرةٍ.",
+            topic: "حالات صرف الممنوع من الصرف"
+        },
+        {
+            id: 112,
+            category: "متى يُصرف الممنوع من الصرف؟",
+            question: "ما إعراب كلمة \"المدارس\" في: ذهبتُ إلى المدارسِ؟",
+            options: [
+                "مجرورة بالفتحة لأنها ممنوعة من الصرف",
+                "مجرورة بالكسرة لأنها معرفة بأل فعاد لها الصرف",
+                "منصوبة بالفتحة",
+                "مرفوعة بالضمة"
+            ],
+            correctAnswer: 1,
+            explanation: "«المدارس» في أصلها صيغةُ منتهى الجموع (على وزن مَفاعِل) وهي ممنوعةٌ من الصرف، لكنها هنا دخلت عليها «أل» التعريف، فعاد إليها الصرفُ وجُرَّت بالكسرة كبقية الأسماء: ذهبتُ إلى المدارسِ. ولو كانت نكرةً بلا «أل» لجُرَّت بالفتحة: ذهبتُ إلى مدارسَ. فالخطأ أن نبقيها على الفتحة رغم وجود «أل»، والصواب الجرُّ بالكسرة.",
+            topic: "حالات صرف الممنوع من الصرف"
+        },
+        {
+            id: 113,
+            category: "تصحيح الخطأ",
+            question: "صحح الخطأ في الجملة التالية: \"سافرتُ إلى مدائنٍ كثيرةٍ\"",
+            options: [
+                "الجملة صحيحة ولا خطأ فيها",
+                "الصواب: إلى مدائنَ كثيرةٍ (لأن مدائن ممنوعة من الصرف)",
+                "الصواب: إلى مدائنُ كثيرةٍ",
+                "الصواب: إلى مدائناً كثيرةً"
+            ],
+            correctAnswer: 1,
+            explanation: "«مدائن» جمعُ «مدينة» على وزن مَفاعِل، وهو من صيغ منتهى الجموع، فتُمنع من الصرف. ولذلك تُجَرُّ بالفتحة نيابةً عن الكسرة ولا تُنوَّن، والصواب: سافرتُ إلى مدائنَ كثيرةٍ. ولا يعود إليها التنوينُ والكسرُ إلا إذا أُضيفت أو دخلت عليها «أل»: إلى مدائنِ الشامِ، أو إلى المدائنِ. (تنبيه: لا تخلط بينها وبين «مُدُن» على وزن فُعُل، فتلك جمعٌ مصروفٌ يُنوَّن ويُجَرُّ بالكسرة مثل: كُتُب وصُوَر).",
+            topic: "تصحيح الخطأ — الممنوع من الصرف"
+        },
+        {
+            id: 114,
+            category: "العلم المزيد بألف ونون",
+            question: "لماذا تُمنع كلمة \"عثمان\" من الصرف؟",
+            options: [
+                "لأنها علم أعجمي",
+                "لأنها علم مؤنث",
+                "لأنها علم مزيد بألف ونون زائدتين",
+                "لأنها على وزن أفعل"
+            ],
+            correctAnswer: 2,
+            explanation: "«عثمان» ممنوعةٌ من الصرف لأنه اجتمع فيها سببان: العَلَمية، وزيادةُ الألف والنون في آخرها. وكلُّ عَلَمٍ خُتم بألفٍ ونونٍ زائدتين يُمنع من الصرف، مثل: عثمان وعمران ومروان وسلمان وعدنان ورمضان. فتقول: سلّمتُ على عثمانَ (بالفتحة من غير تنوين)، ولا يعود إليها الصرفُ إلا بالإضافة أو دخول «أل».",
+            topic: "العلم المزيد بألف ونون"
+        },
+        {
+            id: 115,
+            category: "تطبيق شامل",
+            question: "حدد الاسم الممنوع من الصرف في الجملة: \"زرتُ عمرَ في مساجدَ جميلةٍ\"",
+            options: [
+                "عمر فقط",
+                "مساجد فقط",
+                "عمر ومساجد",
+                "جميلة"
+            ],
+            correctAnswer: 2,
+            explanation: "في الجملة اسمان ممنوعان من الصرف: «عمرَ» ممنوعٌ للعلمية والعَدْل، لأنه معدولٌ عن «عامر»، وقد جاء مفعولاً به منصوباً بالفتحة. و«مساجدَ» ممنوعةٌ لأنها صيغةُ منتهى الجموع (وزن مَفاعِل)، وقد جاءت مجرورةً بحرف الجر «في» فجُرَّت بالفتحة نيابةً عن الكسرة. أما «جميلةٍ» فصفةٌ مصروفةٌ نُوِّنت وجُرَّت بالكسرة، فليست ممنوعةً من الصرف.",
+            topic: "تطبيق شامل — تحديد الممنوع من الصرف"
+        }
+    ]
+},
+{
+    title: "أساسيات النحو العربي",
+    icon: "📖",
+    label: "نحو ٢",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 201,
+            category: "أقسام الكلمة",
+            question: "ما أقسام الكلمة في اللغة العربية؟",
+            options: [
+                "اسم وفعل فقط",
+                "اسم وفعل وحرف",
+                "اسم وحرف فقط",
+                "فعل وحرف فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "تنقسم الكلمة في اللغة العربية إلى ثلاثة أقسام: الاسمُ (ما دلَّ على معنى في نفسه غير مقترنٍ بزمن، مثل: رجل، كتاب، مكة)، والفعلُ (ما دلَّ على حدثٍ مقترنٍ بزمن، مثل: كتبَ، يكتبُ، اكتُبْ)، والحرفُ (ما دلَّ على معنى في غيره، مثل: مِن، في، هل). وهذا التقسيم هو أساس علم النحو، إذ لكل قسمٍ علاماتُه التي تميّزه وأحكامُه الإعرابية.",
+            topic: "أقسام الكلمة"
+        },
+        {
+            id: 202,
+            category: "علامات الإعراب",
+            question: "ما علامة الرفع الأصلية؟",
+            options: [
+                "الفتحة",
+                "الكسرة",
+                "الضمة",
+                "السكون"
+            ],
+            correctAnswer: 2,
+            explanation: "علامة الرفع الأصلية هي الضمة، وتظهر في الاسم المفرد (الطالبُ)، وجمع التكسير (الرجالُ)، وجمع المؤنث السالم (الطالباتُ)، والفعل المضارع الذي لم يسبقه ناصبٌ ولا جازم (يكتبُ). أما العلامات الفرعية التي تنوب عن الضمة في الرفع فهي: الواو (في جمع المذكر السالم والأسماء الخمسة)، والألف (في المثنى)، وثبوت النون (في الأفعال الخمسة).",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 203,
+            category: "علامات الإعراب",
+            question: "ما علامة النصب الأصلية؟",
+            options: [
+                "الضمة",
+                "الفتحة",
+                "الكسرة",
+                "الألف"
+            ],
+            correctAnswer: 1,
+            explanation: "علامة النصب الأصلية هي الفتحة، وتظهر في الاسم المفرد (رأيتُ الطالبَ)، وجمع التكسير (رأيتُ الرجالَ)، والفعل المضارع المنصوب (لن يكتبَ). ولها علاماتٌ فرعيةٌ تنوب عنها: الألف (في الأسماء الخمسة: رأيتُ أباكَ)، والكسرة (في جمع المؤنث السالم: رأيتُ الطالباتِ)، والياء (في المثنى وجمع المذكر السالم)، وحذف النون (في الأفعال الخمسة).",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 204,
+            category: "علامات الإعراب",
+            question: "ما علامة الجر الأصلية؟",
+            options: [
+                "الفتحة",
+                "الضمة",
+                "السكون",
+                "الكسرة"
+            ],
+            correctAnswer: 3,
+            explanation: "علامة الجر الأصلية هي الكسرة، وتظهر في الاسم المفرد (مررتُ بالطالبِ)، وجمع التكسير (مررتُ بالرجالِ)، وجمع المؤنث السالم (مررتُ بالطالباتِ). ولها علامتان فرعيتان تنوبان عنها: الياء (في المثنى وجمع المذكر السالم والأسماء الخمسة)، والفتحة (في الممنوع من الصرف، فيُجَرُّ بالفتحة نيابةً عن الكسرة: مررتُ بأحمدَ).",
+            topic: "علامات الإعراب الأصلية"
+        },
+        {
+            id: 205,
+            category: "التنوين",
+            question: "ما هو التنوين؟",
+            options: [
+                "نون ساكنة تلحق آخر الاسم كتابةً ونطقاً",
+                "نون ساكنة تلحق آخر الاسم نطقاً لا كتابةً",
+                "نون متحركة تلحق آخر الفعل",
+                "نون ساكنة تلحق آخر الحرف"
+            ],
+            correctAnswer: 1,
+            explanation: "التنوين نونٌ ساكنةٌ زائدةٌ تلحق آخر الاسم نطقاً لا كتابةً، وتُرسم على هيئة حركتين متتاليتين: فتحتين (ـً) أو كسرتين (ـٍ) أو ضمتين (ـٌ). وهو علامةٌ من علامات الاسم تميّزه عن الفعل والحرف. والممنوع من الصرف سُمِّي كذلك لأنه لا يقبل هذا التنوين، فنقول «أحمدُ» بضمة واحدة لا «أحمدٌ» بالتنوين.",
+            topic: "التنوين وعلاقته بالصرف"
+        },
+        {
+            id: 206,
+            category: "الاسم المعرب والمبني",
+            question: "أي الأسماء التالية معرب (يتغير آخره حسب موقعه)؟",
+            options: [
+                "هذا",
+                "الذي",
+                "كتابٌ",
+                "هؤلاء"
+            ],
+            correctAnswer: 2,
+            explanation: "«كتاب» اسمٌ معربٌ، أي يتغير شكل آخره بتغير موقعه في الجملة: كتابٌ (مرفوع)، كتاباً (منصوب)، كتابٍ (مجرور). أما «هذا» و«الذي» و«هؤلاء» فأسماءٌ مبنيةٌ يلزم آخرها حالةً واحدةً لا تتغير مهما تغير موقعها في الجملة. ومن الأسماء المبنية: الضمائر وأسماء الإشارة والأسماء الموصولة وأسماء الاستفهام والشرط.",
+            topic: "الاسم المعرب والمبني"
+        },
+        {
+            id: 207,
+            category: "أنواع الجموع",
+            question: "أي الجموع التالية جمع تكسير؟",
+            options: [
+                "معلمون",
+                "طالبات",
+                "كُتُب",
+                "مهندسون"
+            ],
+            correctAnswer: 2,
+            explanation: "«كُتُب» جمعُ تكسيرٍ (جمع «كتاب»)، وجمعُ التكسير ما تغيّرت فيه صورةُ مفرده عند الجمع. أما «معلمون» و«مهندسون» فجمعا مذكرٍ سالمٌ (سَلِم فيهما بناءُ المفرد وزِيدت الواو والنون)، و«طالبات» جمعُ مؤنثٍ سالمٌ (زِيدت فيه الألف والتاء). ويُعرب جمعُ التكسير بالحركات الأصلية (الضمة والفتحة والكسرة) كالمفرد تماماً.",
+            topic: "أنواع الجموع"
+        },
+        {
+            id: 208,
+            category: "أنواع الجموع",
+            question: "كيف يُجر جمع المؤنث السالم؟",
+            options: [
+                "بالفتحة",
+                "بالكسرة",
+                "بالياء",
+                "بالسكون"
+            ],
+            correctAnswer: 1,
+            explanation: "جمع المؤنث السالم يُجَرُّ بالكسرة، وهي العلامة الأصلية للجر: ذهبتُ إلى الطالباتِ. وهو أيضاً يُنصب بالكسرة نيابةً عن الفتحة: رأيتُ الطالباتِ، ويُرفع بالضمة: جاءت الطالباتُ. وهذا يميّزه عن جمع المذكر السالم الذي يُجَرُّ ويُنصب بالياء، فانتبه إلى الفرق بينهما حتى لا تخلط في الإعراب.",
+            topic: "إعراب جمع المؤنث السالم"
+        },
+        {
+            id: 209,
+            category: "أنواع الجموع",
+            question: "كيف يُجر جمع المذكر السالم؟",
+            options: [
+                "بالكسرة",
+                "بالفتحة",
+                "بالياء نيابة عن الكسرة",
+                "بالألف"
+            ],
+            correctAnswer: 2,
+            explanation: "جمع المذكر السالم يُجَرُّ بالياء نيابةً عن الكسرة: سلّمتُ على المعلمِينَ. وهو كذلك يُنصب بالياء نيابةً عن الفتحة: كرّمتُ المعلمِينَ، ويُرفع بالواو نيابةً عن الضمة: جاء المعلمُونَ. فعلاماتُه كلها فرعيةٌ (الواو رفعاً، والياء نصباً وجراً)، بخلاف جمع المؤنث السالم الذي يُجَرُّ ويُنصب بالكسرة.",
+            topic: "إعراب جمع المذكر السالم"
+        },
+        {
+            id: 210,
+            category: "حروف الجر",
+            question: "أي الكلمات التالية حرف جر؟",
+            options: [
+                "إنّ",
+                "لم",
+                "في",
+                "قد"
+            ],
+            correctAnswer: 2,
+            explanation: "«في» حرفُ جرٍّ، وحروفُ الجر تجرُّ الاسمَ الذي يأتي بعدها، ومنها: مِن، إلى، عن، على، في، والباء، والكاف، واللام. أما «إنّ» فحرفٌ ناسخٌ ينصب المبتدأ ويرفع الخبر، و«لم» حرفُ جزمٍ ونفيٍ يقلب زمن المضارع إلى الماضي، و«قد» حرفٌ يفيد التحقيق مع الفعل الماضي، والتقليل أو التكثير مع المضارع.",
+            topic: "حروف الجر"
+        },
+        {
+            id: 211,
+            category: "المعرفة والنكرة",
+            question: "أي الأسماء التالية معرفة؟",
+            options: [
+                "رجلٌ",
+                "كتابٌ",
+                "القاهرةُ",
+                "مدينةٌ"
+            ],
+            correctAnswer: 2,
+            explanation: "«القاهرة» معرفةٌ لأنها عَلَمٌ (اسمُ مدينةٍ بعينها معروفة). والمعرفةُ ما دلَّ على شيءٍ معيَّن، وأنواعها ستة: الضمير، والعَلَم، واسم الإشارة، والاسم الموصول، والمُعرَّف بأل، والمضاف إلى معرفة. أما «رجل» و«كتاب» و«مدينة» فنكراتٌ لأنها تدل على شيءٍ غير معيَّن، وعلامتها قبولُها دخولَ «أل» أو التنوين.",
+            topic: "المعرفة والنكرة"
+        },
+        {
+            id: 212,
+            category: "الإضافة",
+            question: "في جملة \"كتابُ الطالبِ جديدٌ\"، ما إعراب \"الطالب\"؟",
+            options: [
+                "مضاف إليه مجرور بالكسرة",
+                "مفعول به منصوب بالفتحة",
+                "فاعل مرفوع بالضمة",
+                "بدل مجرور بالفتحة"
+            ],
+            correctAnswer: 0,
+            explanation: "«الطالب» مضافٌ إليه مجرورٌ بالكسرة، و«كتابُ» قبله مضافٌ. والإضافةُ نسبةٌ بين اسمين يكتسب بها الأولُ (المضاف) تعريفاً أو تخصيصاً من الثاني (المضاف إليه). ومن فائدة معرفتها أنها إحدى الحالتين اللتين يعود فيهما الصرفُ إلى الممنوع من الصرف، فيُجَرُّ بالكسرة بدل الفتحة متى أُضيف.",
+            topic: "الإضافة وعلاقتها بالممنوع من الصرف"
+        },
+        {
+            id: 213,
+            category: "تصحيح الخطأ",
+            question: "صحح الخطأ: \"مررتُ بمعلمينَ أكفاءٍ\"",
+            options: [
+                "الجملة صحيحة",
+                "الصواب: بمعلمِينَ أكفاءَ (لأن أكفاء ممنوعة من الصرف)",
+                "الصواب: بمعلمونَ أكفاءٍ",
+                "الصواب: بمعلمينَ أكفائِهم"
+            ],
+            correctAnswer: 1,
+            explanation: "«أكفاء» جمعٌ على وزن أَفْعِلاء، وهو ممنوعٌ من الصرف بسبب ألف التأنيث الممدودة، فلا يُنوَّن ويُجَرُّ بالفتحة. وقد جاءت هنا صفةً لـ«معلمِينَ»، لكنها لا تتبعها في التنوين لأنها ممنوعةٌ من الصرف، والصواب: مررتُ بمعلمِينَ أكفاءَ (بالفتحة بلا تنوين). ومثلها في المنع: أصدقاء وأطباء وأقوياء وأنبياء.",
+            topic: "تصحيح الخطأ — التنوين والممنوع من الصرف"
+        }
+    ]
+},
+{
+    title: "مدرسة المهجر وإيليا أبو ماضي",
+    icon: "🌍",
+    label: "أدب ١",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 301,
+            category: "مدرسة المهجر",
+            question: "ما المقصود بمدرسة المهجر في الأدب العربي؟",
+            options: [
+                "مدرسة أدبية نشأت في مصر في القرن التاسع عشر",
+                "حركة أدبية أسسها شعراء عرب هاجروا إلى الأمريكتين",
+                "مدرسة شعرية نشأت في بغداد في العصر العباسي",
+                "تيار أدبي ظهر في الأندلس"
+            ],
+            correctAnswer: 1,
+            explanation: "مدرسة المهجر حركةٌ أدبيةٌ أسّسها أدباءُ وشعراءُ عربٌ — جُلُّهم من لبنان وسوريا — هاجروا إلى الأمريكتين الشمالية والجنوبية في أواخر القرن التاسع عشر ومطلع القرن العشرين، هرباً من الأوضاع السياسية والاقتصادية وطلباً للرزق والحرية. وقد نظّموا أنفسهم في رابطتين أدبيتين: «الرابطة القلمية» في الشمال (نيويورك)، و«العصبة الأندلسية» في الجنوب (البرازيل). وامتاز أدبهم بالنزعة الإنسانية والتأمل والحنين إلى الوطن والتجديد في اللغة والأسلوب.",
+            topic: "تعريف مدرسة المهجر"
+        },
+        {
+            id: 302,
+            category: "مدرسة المهجر",
+            question: "ما اسم الرابطة الأدبية التي أسسها أدباء المهجر الشمالي؟",
+            options: [
+                "العصبة الأندلسية",
+                "الرابطة القلمية",
+                "جماعة أبولو",
+                "جماعة الديوان"
+            ],
+            correctAnswer: 1,
+            explanation: "«الرابطة القلمية» جمعيةٌ أدبيةٌ تأسست في نيويورك عام 1920م (بعد أن بدأت فكرتها نحو عام 1916)، وضمّت أدباء المهجر الشمالي. ومن أبرز أعضائها: جبران خليل جبران، وميخائيل نعيمة، وإيليا أبو ماضي، ونسيب عريضة، ورشيد أيوب. وكان هدفها توحيد جهود أدباء المهجر، والنهوض باللغة العربية وآدابها، والدعوة إلى التجديد في الأدب.",
+            topic: "الرابطة القلمية"
+        },
+        {
+            id: 303,
+            category: "مدرسة المهجر",
+            question: "من رئيس الرابطة القلمية؟",
+            options: [
+                "إيليا أبو ماضي",
+                "ميخائيل نعيمة",
+                "جبران خليل جبران",
+                "رشيد خوري"
+            ],
+            correctAnswer: 2,
+            explanation: "ترأّس جبران خليل جبران «الرابطة القلمية» وكان عميدها، بينما تولّى ميخائيل نعيمة منصب المستشار وكُلِّف بوضع دستورها (قانونها). وقد كان جبران أشهرَ أعلام المهجر وصاحبَ كتاب «النبي». أما إيليا أبو ماضي فكان عضواً بارزاً في الرابطة لا رئيساً لها، ورشيد خوري (القروي) كان من العصبة الأندلسية في الجنوب لا الرابطة القلمية.",
+            topic: "الرابطة القلمية — الأعضاء"
+        },
+        {
+            id: 304,
+            category: "مدرسة المهجر",
+            question: "ما اسم الجمعية الأدبية لأدباء المهجر الجنوبي (أمريكا الجنوبية)؟",
+            options: [
+                "الرابطة القلمية",
+                "جماعة أبولو",
+                "العصبة الأندلسية",
+                "جمعية الأدب العربي"
+            ],
+            correctAnswer: 2,
+            explanation: "«العصبة الأندلسية» جمعيةٌ أدبيةٌ تأسست في مدينة سان باولو بالبرازيل (أمريكا الجنوبية)، وضمّت أدباء المهجر الجنوبي. وسُمِّيت بالأندلسية تشبيهاً لنهضتهم الأدبية بعصر الأندلس الزاهر. ومن أبرز شعرائها: الشاعر القروي (رشيد سليم الخوري)، وفوزي المعلوف، وإلياس فرحات. وقد كانت أكثر محافظةً على التقاليد الشعرية والجزالة اللفظية من الرابطة القلمية التي مالت إلى التجديد.",
+            topic: "العصبة الأندلسية"
+        },
+        {
+            id: 305,
+            category: "خصائص أدب المهجر",
+            question: "أي مما يلي من خصائص شعر المهجر؟",
+            options: [
+                "التمسك بالأوزان الخليلية الصارمة فقط",
+                "الاهتمام بالزخرف اللفظي والبديع",
+                "النزعة الإنسانية والتأملية والحنين إلى الوطن",
+                "الالتزام بموضوعات المدح والفخر القبلي"
+            ],
+            correctAnswer: 2,
+            explanation: "من أبرز سمات شعر المهجر: النزعةُ الإنسانية والدعوةُ إلى المحبة والإخاء، والتأملُ في الحياة والموت وأسرار الوجود، والحنينُ الشديد إلى الوطن، والميلُ إلى التجديد في اللغة والأسلوب والموضوعات. أما الخيارات الأخرى — كالتمسك بالأوزان الصارمة، والاهتمام بالزخرف اللفظي، وموضوعات المدح والفخر القبلي — فهي من سمات الشعر القديم التي ثار عليها شعراء المهجر.",
+            topic: "خصائص أدب المهجر"
+        },
+        {
+            id: 306,
+            category: "خصائص أدب المهجر",
+            question: "كيف تعامل شعراء المهجر مع اللغة العربية؟",
+            options: [
+                "حافظوا على اللغة التراثية الصعبة",
+                "مالوا إلى البساطة والسهولة في التعبير والبعد عن التكلف",
+                "كتبوا بلغات أجنبية فقط",
+                "استخدموا العامية في أشعارهم"
+            ],
+            correctAnswer: 1,
+            explanation: "مال شعراء المهجر إلى سهولة اللغة وبساطة التعبير والبعد عن التكلف اللفظي والمحسنات المصنوعة، مع الحفاظ على جمال الأسلوب وصدق العاطفة. وسببُ ذلك بُعدُهم عن مواطن اللغة العربية واحتكاكُهم بالثقافة الغربية، فآثروا اللغة الحيّة القريبة من النفس. ولم يكتبوا بالعامية ولا بلغةٍ أجنبية، بل بفصحى ميسّرةٍ سهلةٍ تصل إلى القارئ.",
+            topic: "خصائص أدب المهجر — اللغة"
+        },
+        {
+            id: 307,
+            category: "إيليا أبو ماضي",
+            question: "أين وُلد الشاعر إيليا أبو ماضي؟",
+            options: [
+                "في مصر",
+                "في لبنان",
+                "في سوريا",
+                "في العراق"
+            ],
+            correctAnswer: 1,
+            explanation: "وُلد الشاعر إيليا أبو ماضي في قرية المحيدثة بمنطقة المتن الشمالي في لبنان عام 1889م، ونشأ في بيئةٍ ريفيةٍ بسيطةٍ تركت أثرها في حبّه للطبيعة. وتلقّى تعليمه الأول في مدرسة قريته، ثم اضطرته ظروف المعيشة إلى الهجرة. وهو من أبرز شعراء المهجر الشمالي وأعضاء الرابطة القلمية، ويُلقَّب بشاعر التفاؤل.",
+            topic: "إيليا أبو ماضي — حياته"
+        },
+        {
+            id: 308,
+            category: "إيليا أبو ماضي",
+            question: "إلى أين هاجر إيليا أبو ماضي؟",
+            options: [
+                "إلى فرنسا ثم إنجلترا",
+                "إلى مصر ثم أمريكا",
+                "إلى البرازيل فقط",
+                "إلى كندا مباشرة"
+            ],
+            correctAnswer: 1,
+            explanation: "هاجر إيليا أبو ماضي أولاً إلى مصر (مدينة الإسكندرية) وهو صبيٌّ، وهناك اشتغل بالتجارة ونشر ديوانه الأول «تذكار الماضي» عام 1911م. ثم هاجر ثانيةً إلى الولايات المتحدة الأمريكية واستقر في نيويورك، حيث اتصل بأدباء المهجر وانضمّ إلى «الرابطة القلمية» وأصدر دواوينه وصحيفته «السمير».",
+            topic: "إيليا أبو ماضي — الهجرة"
+        },
+        {
+            id: 309,
+            category: "إيليا أبو ماضي",
+            question: "ما أشهر دواوين إيليا أبو ماضي؟",
+            options: [
+                "الأعمال الكاملة وأغاني الحياة",
+                "تذكار الماضي والجداول والخمائل",
+                "النبي والمواكب والعواصف",
+                "الأجنحة المتكسرة ودمعة وابتسامة"
+            ],
+            correctAnswer: 1,
+            explanation: "من أشهر دواوين إيليا أبو ماضي: «تذكار الماضي» (وهو أول دواوينه، صدر في مصر عام 1911م)، و«الجداول»، و«الخمائل»، إضافةً إلى «ديوان إيليا أبو ماضي». أما «النبي» و«المواكب» فمن روائع جبران خليل جبران لا أبو ماضي، وكذلك «الأجنحة المتكسرة» و«دمعة وابتسامة» لجبران، فاحذر الخلط بين الشاعرين.",
+            topic: "إيليا أبو ماضي — أعماله"
+        },
+        {
+            id: 310,
+            category: "إيليا أبو ماضي",
+            question: "ما أبرز سمات شعر إيليا أبو ماضي؟",
+            options: [
+                "المدح السياسي والخطابة الحماسية",
+                "التفاؤل والتأمل في الطبيعة والحياة",
+                "الهجاء اللاذع والسخرية",
+                "الشعر الملحمي الطويل"
+            ],
+            correctAnswer: 1,
+            explanation: "يتميز شعر إيليا أبو ماضي بالتفاؤل وحب الحياة والدعوة إلى الأمل ونبذ اليأس، وبحب الطبيعة والافتتان بجمالها، والتأمل في الوجود وأسراره (كما في قصيدته الشهيرة «الطلاسم»)، والحنين إلى الوطن، وبساطة اللغة وسهولتها. أما المدح السياسي والهجاء والسخرية والشعر الملحمي الطويل فليست من سماته البارزة.",
+            topic: "إيليا أبو ماضي — سمات شعره"
+        },
+        {
+            id: 311,
+            category: "إيليا أبو ماضي",
+            question: "أي قصيدة من أشهر قصائد إيليا أبو ماضي التي تدعو إلى التفاؤل؟",
+            options: [
+                "المواكب",
+                "كن جميلاً ترَ الوجودَ جميلا",
+                "أعطني الناي وغنِّ",
+                "المساء"
+            ],
+            correctAnswer: 1,
+            explanation: "البيت الشهير «كن جميلاً ترَ الوجودَ جميلا» من قصيدة إيليا أبو ماضي، وهو يلخّص فلسفته التفاؤلية القائمة على أن نظرة الإنسان الجميلة إلى الحياة تجعله يراها جميلة. أما «أعطني الناي وغنِّ» فمن قصيدة «المواكب» لجبران خليل جبران، و«المساء» لخليل مطران، فانتبه إلى نسبة كل قصيدةٍ إلى صاحبها.",
+            topic: "إيليا أبو ماضي — قصائده"
+        },
+        {
+            id: 312,
+            category: "إيليا أبو ماضي",
+            question: "ما الصحيفة التي أسسها إيليا أبو ماضي في أمريكا؟",
+            options: [
+                "صحيفة الأهرام",
+                "صحيفة السمير",
+                "صحيفة المهاجر",
+                "صحيفة الفنون"
+            ],
+            correctAnswer: 1,
+            explanation: "أسّس إيليا أبو ماضي صحيفة «السمير» في نيويورك، وقد صدرت أول الأمر مجلةً ثم صارت جريدةً يومية، وكانت من أبرز الصحف العربية في المهجر ومنبراً لأدبائه. ويدل ذلك على أن أبو ماضي لم يكن شاعراً فحسب، بل كان صحفياً ومثقفاً نشيطاً خدم اللغة العربية وأدبها في بلاد المهجر. أما «الأهرام» فصحيفةٌ مصريةٌ لا صلة له بتأسيسها.",
+            topic: "إيليا أبو ماضي — نشاطه الصحفي"
+        }
+    ]
+},
+{
+    title: "قصيدة أقبل العيد وكيفية عمل البحث",
+    icon: "🎭",
+    label: "أدب ٢",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 401,
+            category: "قصيدة أقبل العيد",
+            question: "من هو شاعر قصيدة \"أقبل العيد\"؟",
+            options: [
+                "جبران خليل جبران",
+                "إيليا أبو ماضي",
+                "أحمد شوقي",
+                "ميخائيل نعيمة"
+            ],
+            correctAnswer: 1,
+            explanation: "قصيدة «أقبل العيد» للشاعر إيليا أبو ماضي، أحد أبرز شعراء مدرسة المهجر وأعضاء الرابطة القلمية. وهي قصيدةٌ وجدانيةٌ تأمليةٌ تتخذ من مناسبة العيد مدخلاً للتأمل في التفاؤل والتشاؤم وأثرهما في حياة الإنسان. أما أحمد شوقي فمن مدرسة الإحياء، وميخائيل نعيمة وجبران فليسا صاحبَي هذه القصيدة.",
+            topic: "قصيدة أقبل العيد — الشاعر"
+        },
+        {
+            id: 402,
+            category: "قصيدة أقبل العيد",
+            question: "ما الموضوع الرئيسي لقصيدة \"أقبل العيد\"؟",
+            options: [
+                "الفخر بالأمجاد العربية",
+                "وصف الطبيعة في فصل الربيع فقط",
+                "التأمل في التفاؤل والتشاؤم وأثرهما في حياة الإنسان والدعوة إلى نبذ الحزن",
+                "رثاء شخص عزيز توفي"
+            ],
+            correctAnswer: 2,
+            explanation: "الموضوع الرئيسي للقصيدة وجدانيٌّ تأمليٌّ يدور حول التفاؤل والتشاؤم وأثرهما في حياة الإنسان، والدعوة إلى نبذ الحزن واستقبال الحياة بروحٍ متفائلة. فالشاعر يتخذ من العيد مناسبةً ليعرض فكرته في أن نظرتنا إلى الحياة هي التي تصنع سعادتنا أو شقاءنا. أما الفخر بالأمجاد ووصف الطبيعة والرثاء فليست موضوع القصيدة.",
+            topic: "قصيدة أقبل العيد — الموضوع"
+        },
+        {
+            id: 403,
+            category: "قصيدة أقبل العيد",
+            question: "ما العاطفة المسيطرة على الشاعر في القصيدة؟",
+            options: [
+                "الغضب والثورة",
+                "التفاؤل وحب الحياة وكراهية التشاؤم",
+                "الفخر والاعتزاز بالنفس",
+                "اليأس التام من الحياة"
+            ],
+            correctAnswer: 1,
+            explanation: "العاطفة المسيطرة على القصيدة هي التفاؤل وحب الحياة وكراهية التشاؤم، وهي العاطفة التي عُرف بها إيليا أبو ماضي في أكثر شعره. فالشاعر يدعو إلى الأمل والبهجة ويحارب اليأس والحزن ويرى أن التفاؤل طريقُ السعادة. ولذلك فإن خياري الغضب والثورة واليأس التام لا يمثلان جوّ القصيدة.",
+            topic: "قصيدة أقبل العيد — العاطفة"
+        },
+        {
+            id: 404,
+            category: "قصيدة أقبل العيد",
+            question: "ما المدرسة الأدبية التي تنتمي إليها قصيدة \"أقبل العيد\"؟",
+            options: [
+                "مدرسة الإحياء والبعث (الكلاسيكية الجديدة)",
+                "مدرسة المهجر",
+                "مدرسة الديوان",
+                "مدرسة أبولو"
+            ],
+            correctAnswer: 1,
+            explanation: "تنتمي القصيدة إلى مدرسة المهجر لأن شاعرها إيليا أبو ماضي من أبرز شعراء هذه المدرسة وأعضاء الرابطة القلمية. وتظهر فيها ملامح المهجر واضحةً: بساطة اللغة، والنزعة التأملية، والدعوة إلى التفاؤل ونبذ التشاؤم، والوحدة العضوية. أما مدرسة الإحياء (شوقي وحافظ) ومدرستا الديوان وأبولو فمدارس أخرى تختلف في اتجاهها الفني.",
+            topic: "قصيدة أقبل العيد — المدرسة الأدبية"
+        },
+        {
+            id: 405,
+            category: "قصيدة أقبل العيد",
+            question: "أي سمة من سمات شعر المهجر تظهر بوضوح في قصيدة \"أقبل العيد\"؟",
+            options: [
+                "استخدام الألفاظ القديمة المعقدة",
+                "الدعوة إلى التفاؤل ونبذ الحزن وبساطة التعبير",
+                "المبالغة في المدح والإطراء",
+                "الالتزام الصارم بالبحور الخليلية"
+            ],
+            correctAnswer: 1,
+            explanation: "تظهر في القصيدة سماتُ المهجر بوضوح: الدعوةُ إلى التفاؤل ونبذِ الحزن والتشاؤم، وبساطةُ التعبير وسهولةُ اللغة، والنزعةُ التأملية، والمزجُ بين مظاهر الطبيعة ومشاعر النفس. أما استخدامُ الألفاظ المعقدة والمبالغةُ في المدح والالتزامُ الصارم بالبحور الخليلية فمن سمات الشعر القديم التي تجاوزها شعراء المهجر.",
+            topic: "قصيدة أقبل العيد — سمات المهجر"
+        },
+        {
+            id: 406,
+            category: "قصيدة أقبل العيد",
+            question: "في القصيدة يربط الشاعر بين العيد وبين أي شعور؟",
+            options: [
+                "الفرح المطلق بلا أي حزن",
+                "الحزن الكامل ورفض الاحتفال",
+                "البهجة والتفاؤل والدعوة إلى نبذ التشاؤم والحزن",
+                "الغضب على من يحتفلون بالعيد"
+            ],
+            correctAnswer: 2,
+            explanation: "يربط الشاعر بين العيد وبين البهجة والتفاؤل، فيتخذ منه مناسبةً للدعوة إلى نبذ التشاؤم والحزن واستقبال الحياة بنفسٍ راضيةٍ مستبشرة. فالعيد عنده رمزٌ للفرح المتجدّد الذي ينبغي أن يقابله الإنسان بروحٍ متفائلة. أما الفرح المطلق بلا معنى، أو الحزن الكامل، أو الغضب على المحتفلين، فلا يمثّل رؤية الشاعر.",
+            topic: "قصيدة أقبل العيد — الدلالة"
+        },
+        {
+            id: 407,
+            category: "قصيدة أقبل العيد",
+            question: "ما الصورة البلاغية البارزة في شعر أبو ماضي بشكل عام وفي هذه القصيدة؟",
+            options: [
+                "الطباق والجناس فقط",
+                "التشخيص (إعطاء صفات إنسانية للجمادات والطبيعة)",
+                "السجع والازدواج",
+                "الاقتباس من القرآن الكريم"
+            ],
+            correctAnswer: 1,
+            explanation: "يُكثر أبو ماضي من التشخيص، وهو إعطاء الجمادات ومظاهر الطبيعة صفاتٍ إنسانيةً حيةً كأنها تحسّ وتتكلم، وهو أسلوبٌ مميّزٌ لشعراء المهجر نشأ من مزجهم بين الطبيعة ومشاعر النفس. أما الطباق والجناس والسجع والاقتباس فمحسّناتٌ لفظيةٌ ومعنويةٌ لم يتكلفها المهجريون، لأنهم آثروا الصورة الموحية على الزخرف اللفظي.",
+            topic: "قصيدة أقبل العيد — البلاغة"
+        },
+        {
+            id: 408,
+            category: "كيفية عمل البحث",
+            question: "ما أول خطوة في إعداد بحث أدبي؟",
+            options: [
+                "كتابة الخاتمة مباشرة",
+                "اختيار الموضوع وتحديده بدقة",
+                "جمع المراجع بدون تحديد موضوع",
+                "كتابة المقدمة قبل تحديد الموضوع"
+            ],
+            correctAnswer: 1,
+            explanation: "أول خطوةٍ في إعداد أي بحثٍ هي اختيار الموضوع وتحديده بدقةٍ ووضوح، بحيث لا يكون واسعاً يصعب الإحاطة به، ولا غامضاً لا تتضح معالمه. فتحديد الموضوع الجيد يوجّه الباحث في جمع مصادره وترتيب أفكاره. أما كتابة المقدمة أو الخاتمة أو جمع المراجع فتأتي بعد تحديد الموضوع لا قبله.",
+            topic: "كيفية عمل البحث — الخطوات"
+        },
+        {
+            id: 409,
+            category: "كيفية عمل البحث",
+            question: "ما العناصر الأساسية التي يتكون منها البحث؟",
+            options: [
+                "مقدمة وخاتمة فقط",
+                "صفحة العنوان، المقدمة، المتن (صلب الموضوع)، الخاتمة، والمراجع",
+                "المراجع والفهرس فقط",
+                "العنوان والمتن فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "يتكوّن البحث من عناصر أساسية مرتَّبة: صفحةُ العنوان، ثم المقدمة، ثم المتن (صلب الموضوع، ويُقسَّم إلى فصولٍ أو مباحث)، ثم الخاتمة، وأخيراً قائمةُ المراجع والمصادر، وقد يُضاف الفهرس. وكلُّ عنصرٍ يؤدي وظيفةً محددة، فالاقتصار على المقدمة والخاتمة، أو على المراجع والفهرس وحدهما، لا يجعل العمل بحثاً مكتملاً.",
+            topic: "كيفية عمل البحث — العناصر"
+        },
+        {
+            id: 410,
+            category: "كيفية عمل البحث",
+            question: "ماذا يجب أن تتضمن مقدمة البحث؟",
+            options: [
+                "نتائج البحث وتوصياته",
+                "تعريف بالموضوع وأهميته وأسباب اختياره والمنهج المتبع",
+                "قائمة المراجع والمصادر",
+                "ملخص كامل لكل فصول البحث"
+            ],
+            correctAnswer: 1,
+            explanation: "تتضمّن مقدمة البحث: تعريفاً بالموضوع وتمهيداً له، وبيانَ أهمية البحث وقيمته، وسببَ اختيار الباحث لهذا الموضوع، والمنهجَ الذي سار عليه (كالمنهج الوصفي أو التاريخي)، وخطةَ البحث (عرضاً موجزاً لفصوله). أما النتائج والتوصيات فمكانها الخاتمة لا المقدمة، وقائمةُ المراجع توضع في آخر البحث.",
+            topic: "كيفية عمل البحث — المقدمة"
+        },
+        {
+            id: 411,
+            category: "كيفية عمل البحث",
+            question: "ماذا تتضمن خاتمة البحث؟",
+            options: [
+                "إعادة كتابة المقدمة بحروف مختلفة",
+                "أهم النتائج التي توصل إليها الباحث والتوصيات",
+                "سرد جميع المراجع مرة أخرى",
+                "اقتباسات طويلة من مصادر أخرى"
+            ],
+            correctAnswer: 1,
+            explanation: "تتضمّن خاتمة البحث ملخصاً لأهم النتائج التي توصّل إليها الباحث بعد دراسته، وقد تشمل توصياتٍ أو مقترحاتٍ لدراساتٍ مستقبلية تكمّل الموضوع. فهي حصادُ البحث وثمرتُه، لا إعادةٌ لكتابة المقدمة، ولا سردٌ للمراجع، ولا مكانٌ للاقتباسات الطويلة من مصادر أخرى.",
+            topic: "كيفية عمل البحث — الخاتمة"
+        },
+        {
+            id: 412,
+            category: "كيفية عمل البحث",
+            question: "ما أهمية التوثيق (ذكر المراجع) في البحث؟",
+            options: [
+                "ليس له أهمية ويمكن تجاهله",
+                "للأمانة العلمية وإثبات مصداقية البحث وتمكين القارئ من الرجوع للمصادر",
+                "لزيادة عدد صفحات البحث فقط",
+                "لإظهار أن الباحث قرأ كتباً كثيرة"
+            ],
+            correctAnswer: 1,
+            explanation: "التوثيق (ذكر المراجع ونسبة المعلومات إلى أصحابها) ضروريٌّ للأمانة العلمية، حتى لا يَنسب الباحثُ إلى نفسه جهدَ غيره. وهو كذلك يُثبت مصداقية المعلومات وقوّتها، ويمكّن القارئ من الرجوع إلى المصادر الأصلية للتوسّع والتحقّق. فليس التوثيق حشواً لزيادة الصفحات أو استعراضاً للقراءة، بل هو ركنٌ من أركان البحث العلمي الرصين.",
+            topic: "كيفية عمل البحث — التوثيق"
+        },
+        {
+            id: 413,
+            category: "كيفية عمل البحث",
+            question: "كيف يُرتب الباحث قائمة المراجع عادةً؟",
+            options: [
+                "عشوائياً بدون ترتيب",
+                "حسب تاريخ النشر من الأقدم للأحدث فقط",
+                "أبجدياً حسب اسم المؤلف (اللقب)",
+                "حسب عدد صفحات الكتاب"
+            ],
+            correctAnswer: 2,
+            explanation: "تُرتَّب قائمة المراجع عادةً ترتيباً أبجدياً حسب لقب المؤلف (اسم العائلة)، ويُذكر مع كل مرجعٍ: اسمُ المؤلف، وعنوانُ الكتاب، ودارُ النشر ومكانُها، وسنةُ النشر، ورقمُ الطبعة أحياناً. وهذا الترتيب المنظَّم يسهّل على القارئ الوصول إلى المرجع بسرعة. أما الترتيب العشوائي أو الترتيب حسب عدد الصفحات فغير معمولٍ به في البحث العلمي.",
+            topic: "كيفية عمل البحث — ترتيب المراجع"
+        }
+    ]
+},
+{
+    title: "مدرسة المهجر — تدريبات الكتاب",
+    icon: "📚",
+    label: "أدب — المهجر",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 601,
+            category: "أبرز شعراء المهجر",
+            question: "أي من التالي ليس من شعراء مدرسة المهجر؟",
+            options: [
+                "جبران خليل جبران",
+                "إيليا أبو ماضي",
+                "أحمد شوقي",
+                "بشارة الخوري"
+            ],
+            correctAnswer: 2,
+            explanation: "أحمد شوقي (أمير الشعراء) ينتمي إلى مدرسة الإحياء والبعث (الكلاسيكية الجديدة) التي أحيت الشعر العربي على نهج الفحول القدماء، وليس إلى مدرسة المهجر. أما شعراء المهجر — كما وردوا في الكتاب — فمنهم: جبران خليل جبران، وميخائيل نعيمة، ورشيد أيوب، وفوزي المعلوف، والشاعر القروي، وميشال معلوف، وإلياس فرحات، وبشارة الخوري، وإيليا أبو ماضي. فهؤلاء ينتظمون في مدرسة المهجر، بخلاف شوقي وحافظ إبراهيم اللذين هما من مدرسة الإحياء.",
+            topic: "أبرز شعراء المهجر"
+        },
+        {
+            id: 602,
+            category: "أبرز شعراء المهجر",
+            question: "أي من التالي من شعراء مدرسة المهجر؟",
+            options: [
+                "رشيد أيوب وفوزي المعلوف",
+                "حافظ إبراهيم وأحمد شوقي",
+                "عباس محمود العقاد وإبراهيم المازني",
+                "أبو القاسم الشابي وعلي محمود طه"
+            ],
+            correctAnswer: 0,
+            explanation: "رشيد أيوب وفوزي المعلوف من شعراء مدرسة المهجر؛ فرشيد أيوب من الرابطة القلمية في الشمال، وفوزي المعلوف من العصبة الأندلسية في الجنوب. أما حافظ إبراهيم وأحمد شوقي فمن مدرسة الإحياء والبعث، والعقاد والمازني من مدرسة الديوان، وأبو القاسم الشابي وعلي محمود طه ممن اتصلوا بجماعة أبولو، فلكل مدرسةٍ شعراؤها المميزون.",
+            topic: "أبرز شعراء المهجر"
+        },
+        {
+            id: 603,
+            category: "خصائص أدب المهجر",
+            question: "من الخصائص الفنية والجمالية لأدب المهجر:",
+            options: [
+                "الالتزام الصارم بقواعد اللغة والجزالة اللفظية",
+                "الاعتماد على الأدلة العقلية بجانب الصور الخيالية",
+                "الاهتمام بالمحسنات البديعية والزخرف اللفظي",
+                "التقيد بأغراض الشعر القديم كالمدح والهجاء"
+            ],
+            correctAnswer: 1,
+            explanation: "من الخصائص الفنية والجمالية لأدب المهجر: الاعتمادُ على الأدلة العقلية والإقناع بجانب الصور الخيالية الموحية، والدعوةُ إلى نبذ الحزن والتشاؤم والإقبال على الحياة، والمزجُ بين عناصر الطبيعة ومشاعر النفس. أما الالتزام الصارم بالجزالة اللفظية، والاهتمام بالمحسنات البديعية والزخرف، والتقيّد بأغراض الشعر القديم، فمما ثار عليه المهجريون ودعوا إلى تجاوزه.",
+            topic: "خصائص أدب المهجر — الفنية والجمالية"
+        },
+        {
+            id: 604,
+            category: "خصائص أدب المهجر",
+            question: "من خصائص أدب المهجر أنه يدعو إلى:",
+            options: [
+                "التمسك بالتقاليد القديمة",
+                "نبذ الحزن والتشاؤم",
+                "الانعزال عن المجتمع",
+                "الفخر القبلي والعصبية"
+            ],
+            correctAnswer: 1,
+            explanation: "من أبرز خصائص أدب المهجر الدعوةُ إلى نبذ الحزن والتشاؤم والتفاؤلِ بالحياة والإقبالِ عليها بروحٍ متجددة، وهذا ما نلمسه بوضوح في شعر إيليا أبو ماضي خاصة. أما التمسك بالتقاليد القديمة، والانعزال عن المجتمع، والفخر القبلي والعصبية، فليست من قيم المهجريين، بل دعوا إلى الإخاء الإنساني والانفتاح والتجديد.",
+            topic: "خصائص أدب المهجر — الموضوعية"
+        },
+        {
+            id: 605,
+            category: "خصائص أدب المهجر",
+            question: "\"المزج بين عناصر الطبيعة ومشاعر النفس\" يعني أن شعراء المهجر:",
+            options: [
+                "كتبوا عن الطبيعة فقط دون مشاعر",
+                "ربطوا بين مظاهر الطبيعة وأحوال النفس البشرية، فالسعادة تحول الغصن اليابس إلى أخضر",
+                "رفضوا الكتابة عن الطبيعة",
+                "نقلوا الطبيعة كما هي بلا خيال"
+            ],
+            correctAnswer: 1,
+            explanation: "المزجُ بين عناصر الطبيعة ومشاعر النفس يعني أن شعراء المهجر ربطوا بين مظاهر الطبيعة وأحوال النفس البشرية، فجعلوا الطبيعة مرآةً تعكس مشاعرهم. ومن أمثلة الكتاب على ذلك أن السعادة والابتهاج يحوّلان الغصن اليابس إلى غصنٍ أخضر، فتتلوّن الطبيعة بلون النفس. وهذا غيرُ نقل الطبيعة كما هي بلا خيال، وغيرُ الكتابة عنها مجردةً من الشعور.",
+            topic: "خصائص أدب المهجر — المزج بين الطبيعة والنفس"
+        },
+        {
+            id: 606,
+            category: "ما معنى أن يكون الشاعر عصريًا",
+            question: "ما معنى أن يكون الشاعر عصريًا؟",
+            options: [
+                "أن يكتب بالعامية فقط",
+                "أن يعبّر عن قضايا عصره وهموم مجتمعه بأسلوب متجدد",
+                "أن يقلّد الشعراء القدماء تماماً",
+                "أن يكتب شعراً بلا وزن ولا قافية"
+            ],
+            correctAnswer: 1,
+            explanation: "أن يكون الشاعر عصرياً يعني أن يعبّر عن روح عصره وقضايا مجتمعه وهمومه، وأن يستخدم أساليب وصوراً متجددةً تناسب زمنه وتخاطب الناس بلغةٍ حية، دون أن يتخلى عن جوهر الشعر من صدق العاطفة وجمال الصورة. فالعصرية ليست كتابةً بالعامية، ولا هدماً للوزن والقافية، ولا تقليداً حرفياً للقدماء، بل تفاعلٌ صادقٌ مع الحاضر.",
+            topic: "معنى أن يكون الشاعر عصريًا"
+        },
+        {
+            id: 607,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"استفاد أدباء المهجر من الثقافتين العربية والغربية\"",
+            options: [
+                "صح — لأنهم عاشوا في الغرب واحتكوا بثقافته مع احتفاظهم بثقافتهم العربية",
+                "خطأ — لأنهم تخلوا عن الثقافة العربية تماماً",
+                "خطأ — لأنهم رفضوا الثقافة الغربية",
+                "صح — لأنهم كتبوا بالإنجليزية فقط"
+            ],
+            correctAnswer: 0,
+            explanation: "العبارة صحيحة. استفاد أدباء المهجر من الثقافتين العربية والغربية معاً؛ فقد حملوا معهم تراثهم العربي ولغتهم، ثم احتكوا في المهجر بالأدب الغربي ومذاهبه (كالرومانسية) وقرؤوا آدابه. فامتزجت الثقافتان في نتاجهم، وأثمر هذا المزجُ تجديداً في الموضوعات والأساليب والصور، مع محافظتهم على هويتهم العربية.",
+            topic: "صح وخطأ — مدرسة المهجر"
+        },
+        {
+            id: 608,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"من شعراء مدرسة المهجر بشارة الخوري\"",
+            options: [
+                "صح — بشارة الخوري من شعراء مدرسة المهجر",
+                "خطأ — بشارة الخوري ليس من شعراء المهجر",
+                "صح — لكنه من المهجر الجنوبي فقط",
+                "خطأ — هو من مدرسة الديوان"
+            ],
+            correctAnswer: 0,
+            explanation: "العبارة صحيحة وفق ما ورد في كتابك؛ فبشارة الخوري مذكورٌ ضمن قائمة أبرز شعراء مدرسة المهجر التي نصّ عليها المنهج. وتضم هذه القائمة كذلك: جبران خليل جبران، وميخائيل نعيمة، وإيليا أبو ماضي، ورشيد أيوب، وفوزي المعلوف، والشاعر القروي، وإلياس فرحات. فاعتمد في إجابتك ما أثبته الكتاب في هذا الباب.",
+            topic: "صح وخطأ — شعراء المهجر"
+        },
+        {
+            id: 609,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"شعر أدباء مدرسة المهجر بالحقد والغيرة من الذين لم يهاجروا مثلهم\"",
+            options: [
+                "صح — لأنهم كانوا يغارون من أهل الوطن",
+                "خطأ — شعروا بالحنين والشوق لا بالحقد والغيرة",
+                "صح — لأن الغربة ولّدت فيهم الكراهية",
+                "خطأ — لأنهم لم يكتبوا عن الوطن أصلاً"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. شعراء المهجر شعروا بالحنين والشوق العميق إلى أوطانهم وأهلهم الذين فارقوهم، لا بالحقد والغيرة ممن بقُوا في الوطن. فالغربة ولّدت فيهم عاطفة الحنين الصادق والتغنّي بالوطن، وهي من أبرز موضوعات شعرهم، لا مشاعر الكراهية أو الحسد.",
+            topic: "صح وخطأ — مشاعر شعراء المهجر"
+        },
+        {
+            id: 610,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"حافظ شعراء الرابطة القلمية على الجزالة اللفظية وقواعد اللغة\"",
+            options: [
+                "صح — حافظوا على اللغة التراثية الصعبة",
+                "خطأ — مالوا إلى البساطة والسهولة في التعبير ولم يتمسكوا بالجزالة اللفظية",
+                "صح — كانوا أكثر محافظة من العصبة الأندلسية",
+                "خطأ — لأنهم كتبوا بالإنجليزية"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. شعراء الرابطة القلمية (المهجر الشمالي) مالوا إلى التجديد والتحرر وبساطة اللغة، ولم يتمسكوا بالجزالة اللفظية الصارمة ولا بقيود القدماء. أما العصبة الأندلسية (المهجر الجنوبي) فكانت أكثر محافظةً على التقاليد الشعرية والجزالة اللفظية. فالتجديد سمةُ الرابطة القلمية، لا المحافظة على الألفاظ الصعبة.",
+            topic: "صح وخطأ — الرابطة القلمية واللغة"
+        },
+        {
+            id: 611,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"تأسست الرابطة القلمية عقب تفكك العصبة الأندلسية\"",
+            options: [
+                "صح — الرابطة جاءت بعد تفكك العصبة",
+                "خطأ — الرابطة القلمية تأسست مستقلة وليست عقب تفكك العصبة الأندلسية",
+                "صح — لأنهما في نفس المكان",
+                "خطأ — العصبة الأندلسية لم تتفكك أبداً"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. الرابطة القلمية تأسست في أمريكا الشمالية (نيويورك) عام 1920م بشكلٍ مستقل، ولم تأتِ عقب تفكك العصبة الأندلسية. بل إن العصبة الأندلسية في أمريكا الجنوبية (البرازيل) تأسست بعدها (نحو عام 1933م). فالجمعيتان مختلفتان مكاناً وزماناً، ولا علاقة لنشأة إحداهما بتفكك الأخرى.",
+            topic: "صح وخطأ — الرابطة القلمية"
+        },
+        {
+            id: 612,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"تأسست العصبة الأندلسية في أمريكا الشمالية\"",
+            options: [
+                "صح — تأسست في نيويورك",
+                "خطأ — تأسست العصبة الأندلسية في أمريكا الجنوبية (البرازيل)",
+                "صح — تأسست في واشنطن",
+                "خطأ — تأسست في لبنان"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. العصبة الأندلسية تأسست في أمريكا الجنوبية، وتحديداً في مدينة سان باولو بالبرازيل، لا في أمريكا الشمالية. أما التي تأسست في أمريكا الشمالية (نيويورك) فهي الرابطة القلمية. فاحذر الخلط بينهما: القلمية شمالاً، والأندلسية جنوباً.",
+            topic: "صح وخطأ — العصبة الأندلسية"
+        },
+        {
+            id: 613,
+            category: "الرابطة القلمية والعصبة الأندلسية",
+            question: "اختلفت نظرة الرابطة القلمية عن العصبة الأندلسية في:",
+            options: [
+                "الرابطة القلمية مالت إلى التجديد والتحرر، بينما العصبة الأندلسية كانت أكثر محافظة على التقاليد الشعرية",
+                "الرابطة القلمية رفضت الشعر العربي تماماً",
+                "العصبة الأندلسية لم تهتم بالشعر",
+                "لا فرق بينهما في النظرة للشعر"
+            ],
+            correctAnswer: 0,
+            explanation: "اختلفت نظرة الجمعيتين إلى الشعر: فالرابطة القلمية (المهجر الشمالي) مالت إلى التجديد والتحرر من القيود الشعرية والبساطةِ في اللغة، بينما العصبة الأندلسية (المهجر الجنوبي) كانت أكثر محافظةً على التقاليد الشعرية والجزالة اللفظية والقربِ من نهج القدماء. ومع هذا الاختلاف، لم ترفض أيٌّ منهما الشعر العربي، بل كلتاهما خدمته من زاويتها.",
+            topic: "الفرق بين الرابطة القلمية والعصبة الأندلسية"
+        },
+        {
+            id: 614,
+            category: "صح وخطأ — المهجر",
+            question: "صح أم خطأ: \"ركّز شعراء المهجر على التأمل في ذاتهم\"",
+            options: [
+                "صح — التأمل في الذات والوجود من أبرز سمات شعر المهجر",
+                "خطأ — اهتموا بالقضايا السياسية فقط",
+                "خطأ — كتبوا شعر مدح ورثاء فقط",
+                "صح — لكن في المرحلة الأخيرة فقط"
+            ],
+            correctAnswer: 0,
+            explanation: "العبارة صحيحة. من أبرز سمات شعر المهجر التأملُ في الذات والنفس والوجود وأسرار الحياة والموت، وقد نشأ ذلك من عزلتهم في الغربة وتفرّغهم للتفكّر. فكثرت في شعرهم الأسئلة الفلسفية والنظر في مصير الإنسان (كقصيدة الطلاسم لأبي ماضي)، لا الاقتصار على القضايا السياسية أو أغراض المدح والرثاء وحدها.",
+            topic: "صح وخطأ — التأمل عند شعراء المهجر"
+        }
+    ]
+},
+{
+    title: "قصيدة أقبل العيد — تدريبات الكتاب",
+    icon: "🎊",
+    label: "أدب — أقبل العيد",
+    lang: "ar",
+    type: "mcq",
+    questions: [
+        {
+            id: 701,
+            category: "الوحدة العضوية",
+            question: "صح أم خطأ: \"خلا نص أقبل العيد من الوحدة العضوية\"",
+            options: [
+                "صح — النص ليس فيه وحدة عضوية",
+                "خطأ — النص يتميز بالوحدة العضوية المتمثلة في وحدة الموضوع ووحدة الجو النفسي",
+                "صح — لأن القصيدة تتناول موضوعات متعددة غير مترابطة",
+                "خطأ — لأن الوحدة العضوية مفهوم لا يُطبق على الشعر"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. النص يتميز بالوحدة العضوية، وهي ترابط أبيات القصيدة وتكاملها كأنها كائنٌ حي. وقد تمثلت هنا في أمرين: وحدةِ الموضوع (فالقصيدة كلها تدور حول التفاؤل والتشاؤم وأثرهما في حياة الإنسان)، ووحدةِ الجو النفسي (فالشاعر من أولها إلى آخرها محبٌّ للتفاؤل كارهٌ للتشاؤم). ولذلك لا يصح القول إن النص خلا من الوحدة العضوية.",
+            topic: "الوحدة العضوية في قصيدة أقبل العيد"
+        },
+        {
+            id: 702,
+            category: "الوحدة العضوية",
+            question: "ما عناصر الوحدة العضوية في قصيدة أقبل العيد؟",
+            options: [
+                "وحدة البيت الشعري فقط",
+                "وحدة الموضوع (التفاؤل والتشاؤم) ووحدة الجو النفسي (محب للتفاؤل كاره للتشاؤم)",
+                "وحدة الوزن والقافية فقط",
+                "وحدة المكان والزمان فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "تمثلت الوحدة العضوية في القصيدة في عنصرين: أولهما وحدةُ الموضوع، فجميع الأبيات تخدم فكرةً واحدةً هي التفاؤل والتشاؤم وأثرهما في حياة الإنسان. وثانيهما وحدةُ الجو النفسي، إذ سادت القصيدةَ عاطفةٌ واحدةٌ هي حب التفاؤل وكراهية التشاؤم. أما وحدةُ الوزن والقافية، أو وحدةُ البيت وحده، فليست هي المقصودة بالوحدة العضوية عند المهجريين.",
+            topic: "الوحدة العضوية — عناصرها"
+        },
+        {
+            id: 703,
+            category: "موضوع القصيدة",
+            question: "صح أم خطأ: \"يتناول نص أقبل العيد موضوعًا اجتماعيًا\"",
+            options: [
+                "صح — القصيدة تتناول قضية اجتماعية بحتة",
+                "خطأ — القصيدة تتناول موضوعًا وجدانيًا تأمليًا يدور حول التفاؤل والتشاؤم وليس اجتماعيًا",
+                "صح — لأنها تتحدث عن العيد وهو مناسبة اجتماعية",
+                "خطأ — لأنها تتناول موضوعًا سياسيًا"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. القصيدة تتناول موضوعاً وجدانياً تأملياً يدور حول التفاؤل والتشاؤم وأثرهما في حياة الإنسان، فهي تعبّر عن مشاعر الشاعر ورؤيته للحياة. وليست موضوعاً اجتماعياً يعالج قضيةً من قضايا المجتمع، وإن كان العيدُ مناسبةً اجتماعية. فالعبرة بجوهر ما تعالجه القصيدة لا بالمناسبة التي انطلقت منها.",
+            topic: "موضوع قصيدة أقبل العيد"
+        },
+        {
+            id: 704,
+            category: "الدروس المستفادة",
+            question: "صح أم خطأ: \"من الدروس المستفادة من نص أقبل العيد أن الأعياد فرصة للفرح\"",
+            options: [
+                "صح — الدرس الأساسي هو الاحتفال بالأعياد",
+                "صح — القصيدة تدعو للفرح في الأعياد والتفاؤل",
+                "خطأ — القصيدة لا علاقة لها بالأعياد",
+                "خطأ — الدرس هو الحزن في الأعياد"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة صحيحة. من الدروس المستفادة من النص أن الأعياد فرصةٌ للفرح والتفاؤل والتواصل مع الأهل والأحبة، وهذا يتّسق مع دعوة الشاعر إلى نبذ التشاؤم والإقبال على الحياة بروحٍ مستبشرة. فالعيد مناسبةٌ لتجديد البهجة في النفوس، لا للحزن والانغلاق.",
+            topic: "الدروس المستفادة من قصيدة أقبل العيد"
+        },
+        {
+            id: 705,
+            category: "الدروس المستفادة",
+            question: "صح أم خطأ: \"من الأفضل أن تستفيد من الأعياد في النوم\"",
+            options: [
+                "صح — الراحة والنوم أفضل استغلال للأعياد",
+                "خطأ — الأعياد فرصة للفرح والتفاؤل والتواصل وليس النوم",
+                "صح — لأن الإنسان يحتاج للراحة",
+                "خطأ — لأن الأعياد للعمل فقط"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. الأعياد فرصةٌ للفرح والابتهاج وصلةِ الأرحام والتواصل مع الآخرين وإدخالِ السرور على القلوب، لا للنوم والكسل وإضاعة الوقت. وهذا ينسجم مع روح القصيدة الداعية إلى التفاؤل والحياة الفاعلة، فمن أساء استغلال العيد بالنوم فقد فوّت على نفسه معناه.",
+            topic: "الدروس المستفادة — الأعياد"
+        },
+        {
+            id: 706,
+            category: "شخصية الشاعر",
+            question: "صح أم خطأ: \"يتضح من النص أن الشاعر متشائم\"",
+            options: [
+                "صح — الشاعر يظهر تشاؤمه في القصيدة",
+                "خطأ — الشاعر محب للتفاؤل وكاره للتشاؤم كما يتضح من الجو النفسي للقصيدة",
+                "صح — لأنه يتحدث عن الحزن",
+                "خطأ — الشاعر لا يُعبّر عن أي مشاعر"
+            ],
+            correctAnswer: 1,
+            explanation: "العبارة خاطئة. يتّضح من النص أن الشاعر محبٌّ للتفاؤل كارهٌ للتشاؤم، فهو يدعو إلى الأمل والبهجة ونبذ الحزن. والتفاؤلُ سمةٌ أساسيةٌ في شخصية إيليا أبو ماضي وفي أكثر شعره حتى لُقّب بشاعر التفاؤل. فوصفُه بالتشاؤم مناقضٌ لما تدل عليه القصيدة وجوّها النفسي.",
+            topic: "شخصية الشاعر في القصيدة"
+        },
+        {
+            id: 707,
+            category: "الصور البلاغية",
+            question: "ما المقصود بأن الشاعر رسم \"صورتين متضادتين\" في القصيدة؟",
+            options: [
+                "رسم صورة للمدينة وصورة للقرية",
+                "رسم صورة للتفاؤل والفرح مقابل صورة للتشاؤم والحزن لإبراز فكرته",
+                "رسم صورة للصيف وصورة للشتاء",
+                "رسم صورة واقعية وصورة خيالية"
+            ],
+            correctAnswer: 1,
+            explanation: "قصد الشاعر بالصورتين المتضادتين أنه رسم صورةً للتفاؤل والفرح في مقابل صورةٍ للتشاؤم والحزن، فوضع المعنى وضدّه ليُبرز فكرته بالمقابلة والتضاد. وهذا الأسلوب يقوّي الفكرة ويؤثّر في القارئ، إذ يتّضح حُسنُ التفاؤل حين يُقابَل بقُبح التشاؤم، كما يظهر جمالُ الضوء عند مقابلته بالظلام.",
+            topic: "الصور المتضادة في القصيدة"
+        },
+        {
+            id: 708,
+            category: "الصور البلاغية والأساليب",
+            question: "تنوعت الصور البلاغية في النص. أي مما يلي من أساليب الشاعر؟",
+            options: [
+                "السجع والجناس فقط",
+                "التشخيص والمزج بين الطبيعة ومشاعر النفس",
+                "الاقتباس من القرآن والحديث",
+                "الحشو والإطناب"
+            ],
+            correctAnswer: 1,
+            explanation: "من الأساليب والصور البارزة في القصيدة: التشخيصُ (منح الجمادات والطبيعة صفاتٍ إنسانية حية)، والمزجُ بين عناصر الطبيعة ومشاعر النفس، والاعتمادُ على الأدلة العقلية والإقناع بجانب الصور الخيالية الموحية، وهذه من سمات مدرسة المهجر عامة. أما السجعُ والجناسُ والاقتباسُ والحشوُ والإطناب فليست من أساليب الشاعر هنا، لأنه ابتعد عن التكلف اللفظي.",
+            topic: "الصور البلاغية والأساليب في القصيدة"
+        },
+        {
+            id: 709,
+            category: "مظاهر التجديد",
+            question: "من مظاهر التجديد في قصيدة أقبل العيد:",
+            options: [
+                "التمسك بالأوزان الخليلية التقليدية والقافية الموحدة",
+                "بساطة اللغة، والوحدة العضوية، والمزج بين الطبيعة والنفس",
+                "استخدام الألفاظ المعجمية الصعبة",
+                "الالتزام بأغراض الشعر القديم"
+            ],
+            correctAnswer: 1,
+            explanation: "من مظاهر التجديد في قصيدة أقبل العيد: بساطةُ اللغة والبعدُ عن التكلف والألفاظ الصعبة، وتحقيقُ الوحدة العضوية (ترابط الأبيات حول فكرةٍ وجوٍّ واحد)، والمزجُ بين عناصر الطبيعة ومشاعر النفس. أما التمسك بالأوزان الخليلية التقليدية والقافية الموحدة، واستخدام الألفاظ المعجمية الصعبة، والالتزام بأغراض الشعر القديم، فهي من ملامح الشعر القديم لا التجديد.",
+            topic: "مظاهر التجديد في القصيدة"
+        },
+        {
+            id: 710,
+            category: "الأفكار الرئيسة",
+            question: "ما الأفكار الرئيسة التي دارت حولها القصيدة؟",
+            options: [
+                "وصف الطبيعة فقط",
+                "التفاؤل والتشاؤم وأثرهما في حياة الإنسان، والدعوة لنبذ الحزن",
+                "الفخر بالأمجاد العربية",
+                "رثاء الأحباب والحزن على الفراق"
+            ],
+            correctAnswer: 1,
+            explanation: "الأفكار الرئيسة التي دارت حولها القصيدة هي: التفاؤل والتشاؤم وأثرهما في حياة الإنسان، والدعوة إلى نبذ الحزن والتشاؤم والإقبال على الحياة بأمل، والمزج بين مظاهر الطبيعة ومشاعر النفس. فالقصيدة وحدةٌ متماسكةٌ تدور حول هذه الفكرة المحورية. أما وصفُ الطبيعة وحده، أو الفخرُ بالأمجاد، أو رثاءُ الأحباب، فليست من أفكارها.",
+            topic: "الأفكار الرئيسة في القصيدة"
+        },
+        {
+            id: 711,
+            category: "الدروس المستفادة",
+            question: "أي مما يلي من الدروس المستفادة من قصيدة أقبل العيد؟",
+            options: [
+                "التشاؤم يساعد الإنسان على النجاح",
+                "التفاؤل يحوّل الحياة ويجعل الغصن اليابس أخضر",
+                "الحزن ضروري لتقوية الشخصية",
+                "الأعياد لا قيمة لها"
+            ],
+            correctAnswer: 1,
+            explanation: "من الدروس المستفادة من القصيدة أن التفاؤل قوةٌ محوِّلةٌ تغيّر نظرة الإنسان إلى الحياة وتصنع سعادته، فالسعادة والابتهاج — كما عبّر الشاعر — يحوّلان الغصن اليابس إلى غصنٍ أخضر. أما القول بأن التشاؤم يعين على النجاح، أو أن الحزن ضروريٌّ لتقوية الشخصية، أو أن الأعياد لا قيمة لها، فمناقضٌ لرسالة القصيدة المتفائلة.",
+            topic: "الدروس المستفادة — التفاؤل"
+        },
+        {
+            id: 712,
+            category: "الجو النفسي",
+            question: "ما الجو النفسي السائد في القصيدة؟",
+            options: [
+                "جو من اليأس والإحباط",
+                "جو من الغضب والثورة",
+                "جو من التفاؤل وحب الحياة وكراهية التشاؤم",
+                "جو من اللامبالاة والسخرية"
+            ],
+            correctAnswer: 2,
+            explanation: "الجو النفسي السائد في القصيدة هو التفاؤل وحب الحياة وكراهية التشاؤم، وهو جوٌّ واحدٌ متّسقٌ من أولها إلى آخرها (وهذا جزءٌ من وحدتها العضوية). ويتّسق هذا مع شخصية إيليا أبو ماضي المتفائلة ومع روح مدرسة المهجر. أما اليأسُ والإحباط، أو الغضبُ والثورة، أو اللامبالاةُ والسخرية، فلا تمثّل جوّ النص.",
+            topic: "الجو النفسي في القصيدة"
+        },
+        {
+            id: 713,
+            category: "مظاهر التجديد",
+            question: "أي مما يلي ليس من مظاهر التجديد في قصيدة أقبل العيد؟",
+            options: [
+                "الوحدة العضوية",
+                "بساطة اللغة",
+                "الاعتماد على المحسنات البديعية المتكلفة والزخرف اللفظي",
+                "المزج بين الطبيعة ومشاعر النفس"
+            ],
+            correctAnswer: 2,
+            explanation: "الاعتماد على المحسنات البديعية المتكلفة والزخرف اللفظي ليس من مظاهر التجديد، بل هو من سمات الشعر القديم الذي ثار عليه شعراء المهجر وابتعدوا عن تكلفه. أما مظاهر التجديد الحقيقية في القصيدة فهي: الوحدة العضوية، وبساطة اللغة، والمزج بين الطبيعة ومشاعر النفس. ولذلك فالخيار الذي يذكر المحسنات المتكلفة هو ما لا ينتمي إلى التجديد.",
+            topic: "مظاهر التجديد — ما لا ينتمي"
+        }
+    ]
+}
 ];
       
 // All 5 exam sets loaded
